@@ -1,0 +1,69 @@
+# Single source of truth for version-sensitive choices.
+# Lessons quote these values; when you upgrade the course, change them here first,
+# then grep for "Version-sensitive" markers (python tools/validate.py --versions lists them).
+# Evidence for every value: references/research/software-versions-2026-09.md
+
+verified: "2026-09-20"
+
+ardupilot:
+  stable: "4.7.0"              # stable tree live on firmware.ardupilot.org (verified 2026-09-20)
+  vehicle: ArduCopter
+  firmware_site: https://firmup.io
+  release_notes: https://github.com/ArduPilot/ardupilot/blob/master/ArduCopter/ReleaseNotes.txt
+  sitl_docs: https://ardupilot.org/copter/docs/common-simulator-sitl.html
+
+qgroundcontrol:
+  version: "5.1.4"             # 5.1.x line, docs "Stable_V5.1" (verified 2026-09-20)
+  docs: https://docs.qgroundcontrol.com/Stable_V5.1/en/
+  note: >
+    QGC is on the 5.x line — do not use 2.x/3.x-era screenshots or doc links in lessons
+    08.06 and 12.02.
+
+mission_planner:
+  stable: "1.3.83"             # latest stable 2025-09-10; dev builds ship weekly (verified 2026-09-17)
+  releases: https://github.com/ArduPilot/MissionPlanner/releases
+  note: Prefer stable; dev builds are a week or more ahead.
+
+expresslrs:
+  version: "4.1.0"             # 4.x line current (verified 2026-09-20)
+  lts: "3.6.4"                 # 3.6.x long-term line for older hardware
+  docs: https://expresslrs.org/
+
+ultralytics:
+  current: "YOLO26"            # 2026 line, edge-first, PyTorch 2.x (snippet — press release + blog)
+  fallback: "YOLO11"
+  note: Lesson 14.05 pins "YOLO26 (current), 11 as fallback" — do not pin 11 as primary.
+
+ros_bridge:
+  active: mavros               # mavlink/mavros is the practical ArduPilot <-> ROS 2 gateway on Jazzy
+  legacy: mavlink2ros
+  ardupilot_gazebo: "ships with ArduPilot for Gazebo SITL"
+
+gazebo:
+  release: harmonic            # ROS 2 Jazzy pairing, EOL 2029-05 — shared with the robotics course
+  eol: "2029-05"
+
+jmavsim:
+  status: community-supported  # still in PX4 + ArduPilot SITL docs
+
+ubuntu:
+  version: "24.04"
+  codename: noble
+  python: "3.12"
+
+python_windows:
+  launcher: "py"               # `python` on Windows may be the Store alias; the course runs `py`
+
+pending:                       # re-verify before the modules that use them
+  - uavlog (exact release tag)            # before module 16
+  - mavsdk / pymavlink (latest 2026)      # before modules 08/10/15
+  - Aeroflight status/pricing             # before modules 10.08, 18.08
+  - AirSim maintenance status             # before 10.08
+  - ArduPilot 4.7 release-notes highlights (breaking vs 4.5/4.6)  # before 08.01/08.11
+
+gotchas:
+  - "QGC 5.1 UI differs from the 3.x era — lesson screenshots must be 5.1"
+  - "Mission Planner stable (1.3.83) is a year old but dev is weekly — pin stable in lessons"
+  - "ELRS 4.x firmware; older 3.6.x hardware stays on the 3.6 line"
+  - "YOLO26 is the current Ultralytics release — pin 11 only as fallback"
+  - "mavlink2ros is legacy; MAVROS is the bridge the course teaches (15.03)"

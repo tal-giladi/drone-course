@@ -1,0 +1,2052 @@
+# ============================================================================
+# SINGLE SOURCE OF TRUTH for the course structure and dependency graph.
+#
+#   * Every lesson, foundation lesson and project is declared here.
+#   * tools/build.py turns this into curriculum/graph.json (read by course.py),
+#     the "At a glance" header of every lesson, _sidebar.md and COURSE_MAP tables.
+#   * tools/validate.py fails if a file is missing, a prerequisite points
+#     nowhere, or the graph has a cycle.
+#
+# Field reference (see MAINTAINING.md for the full schema):
+#   id          canonical id. Main path "NN.MM", foundations "FA.05", projects "P04".
+#   slug        file name part: <module dir>/<id>-<slug>.md
+#   title       lesson title (quote it if it contains a colon)
+#   difficulty  beginner | intermediate | advanced
+#   time        estimated minutes including exercises (not optional challenges)
+#   requires    HARD prerequisites (you will be lost without them)
+#   optional    SOFT prerequisites: foundation lessons that help if the topic is new
+#   hardware    hardware catalog ids (see hardware: at the bottom). [] = none
+#   software    what must be installed
+#   teaches     concepts this lesson owns; course.py learn <concept> searches these
+#   skip_if     one sentence: who can safely skip it
+#   version_sensitive  true when instructions depend on fast-moving versions
+# ============================================================================
+
+course:
+  title: "Practical UAV: From Software Engineer to Civil Drone Operator"
+  drone_name: hermon
+  created: "2026-09-20"
+
+tracks:
+  main:
+    title: Main practical path
+    description: Build, program and fly a real quadcopter. Do these in order.
+  foundations:
+    title: Optional foundations
+    description: Learn a prerequisite exactly when you need it. Skip what you know.
+  projects:
+    title: Projects
+    description: Milestones that prove you can do it, not just that you read it.
+
+modules:
+
+# ---------------------------------------------------------------------------
+- id: "00"
+  dir: 00-orientation
+  track: main
+  title: Orientation — what a UAV actually is
+  summary: The vocabulary and the mental map of the whole UAV stack, the Hermon plan, and how to study this course with an AI teacher.
+  lessons:
+  - id: "00.01"
+    slug: what-is-a-uav
+    title: What is a UAV? The sense–decide–act loop in the air
+    difficulty: beginner
+    time: 30
+    requires: []
+    optional: []
+    hardware: []
+    software: []
+    teaches: [uav, autonomy, sense-decide-act, embodiment]
+    skip_if: You can explain why a UAV is a closed loop between software and aerodynamics, not a program with propellers attached.
+  - id: "00.02"
+    slug: course-outcomes
+    title: "Where this course takes you: build it, fly it, operate it"
+    difficulty: beginner
+    time: 30
+    requires: ["00.01"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [course-map, outcomes, drone-operator]
+    skip_if: You can state the three end outcomes and which modules produce each.
+  - id: "00.03"
+    slug: hermon-the-build-vehicle
+    title: "Hermon: our build vehicle (spec and why a quad)"
+    difficulty: beginner
+    time: 45
+    requires: ["00.02"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [quadcopter, airframe, spec-sheet, thrust-to-weight]
+    skip_if: You can state Hermon's mass, battery, prop and payload spec and defend each number.
+  - id: "00.04"
+    slug: the-uav-stack
+    title: "The stack: from physics to payload"
+    difficulty: beginner
+    time: 45
+    requires: ["00.03"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [uav-stack, flight-stack, data-path]
+    skip_if: You can draw the layers from aerodynamics up to the mission computer and say what runs where and at what rate.
+  - id: "00.05"
+    slug: relationship-robotics-course
+    title: "Relationship to the robotics course: assumed vs taught"
+    difficulty: beginner
+    time: 30
+    requires: ["00.04"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [prerequisites, skip-rules, cross-reference]
+    skip_if: You can say which robotics-course modules you completed and which drone lessons they unlock.
+  - id: "00.06"
+    slug: safety-mindset
+    title: "Safety mindset: flying is different"
+    difficulty: beginner
+    time: 45
+    requires: ["00.05"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [safety, rotor-hazard, lipo-safety, falling-object, energy]
+    skip_if: You can name the three things that can kill you on a quad bench (props, LiPo, mains) and the rule for each.
+  - id: "00.07"
+    slug: how-to-use-course
+    title: "How to use this course (course.py, statuses, skip rules)"
+    difficulty: beginner
+    time: 45
+    requires: ["00.06"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [course-py, progress, statuses, why-command]
+    skip_if: You can run course.py status/next/why and explain every status it can show.
+
+# ---------------------------------------------------------------------------
+- id: "01"
+  dir: 01-flight-physics
+  track: main
+  title: Flight physics & aerodynamics
+  summary: The four forces, tilt-to-translate, drag, propeller pumping, hover efficiency, stability, wind and the energy math — everything the later control and endurance lessons stand on.
+  lessons:
+  - id: "01.01"
+    slug: four-forces-on-a-quad
+    title: The four forces on a hovering quad
+    difficulty: beginner
+    time: 60
+    requires: ["00.01"]
+    optional: ["FA.01", "FA.02"]
+    hardware: []
+    software: [python]
+    teaches: [thrust, weight, drag, lift, force-balance, hover]
+    skip_if: You can write the force balance for a hovering quad and for a 30-degree banked turn with correct numbers.
+  - id: "01.02"
+    slug: newton-torque-quad
+    title: "Newton & torque: why a quad needs four motors"
+    difficulty: beginner
+    time: 60
+    requires: ["01.01"]
+    optional: ["FA.02"]
+    hardware: []
+    software: [python]
+    teaches: [torque, angular-momentum, counter-rotation, control-moments]
+    skip_if: You can explain, with numbers, why two counter-rotating pairs cancel spin and how a quad generates roll, pitch and yaw.
+  - id: "01.03"
+    slug: thrust-to-weight
+    title: Thrust, weight and the thrust-to-weight ratio
+    difficulty: beginner
+    time: 45
+    requires: ["01.02"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [thrust-to-weight, margin, sizing]
+    skip_if: You can size a motor count for a given payload and explain why 2:1 hover margin is not the same as 4:1 full-throttle margin.
+  - id: "01.04"
+    slug: tilt-to-translate
+    title: "Tilt to translate: from hover to motion"
+    difficulty: intermediate
+    time: 60
+    requires: ["01.02"]
+    optional: ["FA.04"]
+    hardware: []
+    software: [python]
+    teaches: [tilt, horizontal-thrust, velocity-vs-attitude, acceleration]
+    skip_if: You can compute the tilt angle and the horizontal acceleration a quad gets at a given throttle and mass.
+  - id: "01.05"
+    slug: drag
+    title: "Drag: where your battery goes"
+    difficulty: intermediate
+    time: 60
+    requires: ["01.04"]
+    optional: ["FA.03"]
+    hardware: []
+    software: [python]
+    teaches: [drag, parasitic-drag, induced-drag, power-vs-velocity, best-range-speed]
+    skip_if: You can explain why power has a U-shape versus speed and why fast flight burns the battery much harder than loiter.
+  - id: "01.06"
+    slug: momentum-theory
+    title: "Propellers as pumps: momentum theory and induced velocity"
+    difficulty: intermediate
+    time: 75
+    requires: ["01.03"]
+    optional: ["FA.03"]
+    hardware: []
+    software: [python]
+    teaches: [momentum-theory, induced-velocity, actuator-disc, prop-wash]
+    skip_if: You can derive hover induced velocity from thrust and disk area, and explain why big slow props are efficient.
+  - id: "01.07"
+    slug: hover-efficiency
+    title: Hover efficiency and disk loading
+    difficulty: intermediate
+    time: 60
+    requires: ["01.06"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [disk-loading, figure-of-merit, efficiency, endurance]
+    skip_if: You can compute disk loading for Hermon and explain how it predicts hover current.
+  - id: "01.08"
+    slug: stability
+    title: "Stability: why a quad wants to fall (and how it doesn't)"
+    difficulty: intermediate
+    time: 60
+    requires: ["01.02", "01.04"]
+    optional: ["FA.02"]
+    hardware: []
+    software: [python]
+    teaches: [static-instability, neutral-stability, damping, control-necessity]
+    skip_if: You can explain why a quad is statically unstable in roll/pitch but damped in yaw, and what each implies for control.
+  - id: "01.09"
+    slug: attitude-orientation
+    title: "Attitude & orientation: frames, Euler angles, quaternions (light)"
+    difficulty: intermediate
+    time: 60
+    requires: ["01.02"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [coordinate-frames, euler-angles, quaternions, gimbal-lock, ned-enu]
+    skip_if: You can rotate a body frame with a quaternion and say why Euler angles are dangerous at 90 degrees of pitch.
+  - id: "01.10"
+    slug: wind
+    title: "Wind: the world moves around you"
+    difficulty: intermediate
+    time: 60
+    requires: ["01.04", "01.05"]
+    optional: ["FA.04"]
+    hardware: []
+    software: [python]
+    teaches: [wind, airspeed-vs-gs, drift, headwind-tailwind, endurance-in-wind]
+    skip_if: You can compute drift, ground speed and the energy penalty of a headwind round trip.
+  - id: "01.11"
+    slug: ground-effect
+    title: Ground effect and ceiling effect
+    difficulty: intermediate
+    time: 45
+    requires: ["01.06"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [ground-effect, ceiling-effect, takeoff-thrust, landing-drag]
+    skip_if: You can explain why takeoff needs less throttle than hover and why landing over a hard surface is harder than it looks.
+  - id: "01.12"
+    slug: endurance-math
+    title: "Payload, range and endurance: the energy math"
+    difficulty: intermediate
+    time: 75
+    requires: ["01.05", "01.07"]
+    optional: ["FA.03", "FEL.03"]
+    hardware: []
+    software: [python]
+    teaches: [endurance, range, energy-budget, battery-chemistry, loiter]
+    skip_if: You can build Hermon's energy budget and predict loiter time within 15 percent, and show why payload kills range.
+
+# ---------------------------------------------------------------------------
+- id: "02"
+  dir: 02-motors-escs-props
+  track: main
+  title: Motors, ESCs & props
+  summary: The 3-phase BLDC, KV and torque curves, ESC firmware (DShot), prop sizing and matching, a static thrust test rig, efficiency, heat and vibration — ending with the design decision for Hermon's powertrain.
+  lessons:
+  - id: "02.01"
+    slug: bldc-motors
+    title: "Brushless motors: how a 3-phase BLDC spins"
+    difficulty: intermediate
+    time: 60
+    requires: ["01.03"]
+    optional: ["FEL.04"]
+    hardware: []
+    software: [python]
+    teaches: [bldc, three-phase, back-emf, commutation, stator-rotor]
+    skip_if: You can explain commutation and back-EMF in a BLDC and why "brushless" is about the commutation, not magic.
+  - id: "02.02"
+    slug: kv-torque-curve
+    title: KV, torque and the motor curve
+    difficulty: intermediate
+    time: 60
+    requires: ["02.01"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [kv, torque-curve, stall-current, motor-sizing]
+    skip_if: You can read a motor curve, find hover current and stall current, and explain what KV physically is.
+  - id: "02.03"
+    slug: esc-basics
+    title: "ESCs: from a 2.5 V signal to 3-phase power"
+    difficulty: intermediate
+    time: 60
+    requires: ["02.01"]
+    optional: ["FEL.01", "FEL.02"]
+    hardware: []
+    software: [python]
+    teaches: [esc, power-stage, fets, pwm, bec, ubec]
+    skip_if: You can trace the path from a DShot command to 3-phase gate drives and explain the BEC's job.
+  - id: "02.04"
+    slug: esc-firmware
+    title: "ESC firmware: BLHeli_32, AM32, Bluejay and DShot"
+    difficulty: intermediate
+    time: 60
+    requires: ["02.03"]
+    optional: ["FEL.04"]
+    hardware: []
+    software: []
+    teaches: [dshot, blheli-32, am32, bluejay, oneshot, protocol, bidirectional-dshot]
+    skip_if: You can configure a 4-in-1 ESC (DShot600, bidirectional DShot, RPM filtering) and explain what each setting does.
+  - id: "02.05"
+    slug: propellers
+    title: "Propellers: size, pitch, blade count"
+    difficulty: beginner
+    time: 45
+    requires: ["02.02"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [prop-size, pitch, blade-count, prop-diameter, advance-ratio]
+    skip_if: You can explain what prop size and pitch numbers mean and why 10x10x3 is a different animal from 5x4.3.
+  - id: "02.06"
+    slug: prop-motor-matching
+    title: "Prop–motor matching: reading the thrust curve"
+    difficulty: intermediate
+    time: 60
+    requires: ["02.02", "02.05"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [thrust-curve, matching, hover-throttle, current-vs-thrust]
+    skip_if: You can pair a motor with a prop so that hover sits at 40–60 percent throttle, using only the published curves.
+  - id: "02.07"
+    slug: static-thrust-test
+    title: "Static thrust test: build a rig and measure your own pair"
+    difficulty: intermediate
+    time: 75
+    requires: ["02.06"]
+    optional: ["FEL.04"]
+    hardware: [stage1]
+    software: [python]
+    teaches: [thrust-stand, measurement, bench-test, calibration]
+    skip_if: You have built a thrust stand and measured thrust/current versus throttle for your own motor-prop pair within 10 percent of the curve.
+  - id: "02.08"
+    slug: efficiency-watts-to-sky
+    title: "Efficiency: from watts to sky"
+    difficulty: intermediate
+    time: 60
+    requires: ["02.07"]
+    optional: ["FEL.04"]
+    hardware: [stage1]
+    software: [python]
+    teaches: [g-gram-per-watt, efficiency, power-budget, hover-current]
+    skip_if: You can measure Hermon's grams-per-watt at hover and compare it against the momentum-theory prediction.
+  - id: "02.09"
+    slug: heat-vibration-noise
+    title: "Heat, vibration and mechanical noise"
+    difficulty: intermediate
+    time: 45
+    requires: ["02.07"]
+    optional: ["FEL.04"]
+    hardware: [stage1]
+    software: []
+    teaches: [heat-dissipation, vibration, balance, standoff, noise]
+    skip_if: You can diagnose a hot motor and a rattling airframe from symptoms alone, and name the fix for each.
+  - id: "02.10"
+    slug: esc-tuning
+    title: "ESC tuning: timing, notches, DShot values"
+    difficulty: advanced
+    time: 60
+    requires: ["02.04", "02.09"]
+    optional: ["FRA.04"]
+    hardware: [stage1]
+    software: []
+    teaches: [timing-advance, notch-filter, dshot600, bidirectional-dshot, rpm-filter]
+    skip_if: You can tune an ESC (timing, filters, DShot value) and justify each change from measured data.
+  - id: "02.11"
+    slug: hermon-powertrain-design
+    title: "Selecting the motor–ESC–prop trio for Hermon (design exercise)"
+    difficulty: advanced
+    time: 75
+    requires: ["02.06", "02.08", "02.10"]
+    optional: []
+    hardware: [stage1]
+    software: [python]
+    teaches: [powertrain-design, tradeoffs, procurement, spec-sheet]
+    skip_if: You can write the powertrain spec (motor, ESC, props, spares) with the math that justifies every number.
+
+# ---------------------------------------------------------------------------
+- id: "03"
+  dir: 03-power-system
+  track: main
+  title: Power & energy
+  summary: LiPo chemistry, pack configuration, C-rating and voltage sag, power distribution, the power budget, monitoring, charging and storage, battery safety, endurance prediction, and buying batteries in the US.
+  lessons:
+  - id: "03.01"
+    slug: lipo-chemistry
+    title: LiPo chemistry in 60 minutes (what the numbers mean)
+    difficulty: intermediate
+    time: 60
+    requires: ["02.02"]
+    optional: ["FEL.03"]
+    hardware: []
+    software: [python]
+    teaches: [lipo, cell-chemistry, nominal-voltage, full-voltage, chemistry-labels]
+    skip_if: You can explain what "6S 5000 mAh 40C" means, what the voltage numbers mean, and why a LiPo is a fuel tank.
+  - id: "03.02"
+    slug: pack-configuration
+    title: "Pack configuration: 4S vs 6S, cells, wiring"
+    difficulty: intermediate
+    time: 60
+    requires: ["03.01"]
+    optional: ["FEL.03"]
+    hardware: []
+    software: [python]
+    teaches: [series-parallel, pack-config, sag, balance-plug, 4s-vs-6s]
+    skip_if: You can choose 4S vs 6S for a given motor KV and payload, and compute the resulting voltage sag.
+  - id: "03.03"
+    slug: c-rating-voltage-sag
+    title: C-rating, current and voltage sag
+    difficulty: intermediate
+    time: 60
+    requires: ["03.01", "03.02"]
+    optional: ["FEL.04"]
+    hardware: []
+    software: [python]
+    teaches: [c-rating, current-capacity, voltage-sag, internal-resistance, sag-curve]
+    skip_if: You can compute maximum continuous current from C-rating and explain why sag, not capacity, limits full-throttle time.
+  - id: "03.04"
+    slug: power-distribution
+    title: "Power distribution: PDB, BEC, UBEC, fuses"
+    difficulty: intermediate
+    time: 60
+    requires: ["02.03"]
+    optional: ["FEL.05"]
+    hardware: []
+    software: [python]
+    teaches: [pdb, bec, ubec, fuse, power-tree, wire-gauge]
+    skip_if: You can draw Hermon's power tree (battery → PDB → ESC/FC/Pi), size every wire, and say why the trunk is deliberately unfused.
+  - id: "03.05"
+    slug: power-budget
+    title: "The power budget: sizing Hermon's power (exercise)"
+    difficulty: advanced
+    time: 75
+    requires: ["03.03", "02.02"]
+    optional: ["FEL.02"]
+    hardware: []
+    software: [python]
+    teaches: [power-budget, sizing, margin, thermal]
+    skip_if: You can produce Hermon's full power budget sheet (per-consumer, per-wire, per-fuse) and defend each margin.
+  - id: "03.06"
+    slug: battery-monitoring
+    title: "Battery monitoring: voltage, current, mAh"
+    difficulty: intermediate
+    time: 60
+    requires: ["03.04"]
+    optional: ["FEL.04"]
+    hardware: [stage1]
+    software: [python]
+    teaches: [voltage-monitoring, current-shunt, mah-counter, low-voltage-cutoff]
+    skip_if: You can read voltage, current and mAh from Hermon's telemetry and set a low-voltage cutoff that saves the pack.
+  - id: "03.07"
+    slug: charging-balancing-storage
+    title: Charging, balancing and storage
+    difficulty: intermediate
+    time: 45
+    requires: ["03.02"]
+    optional: ["FEL.03"]
+    hardware: [stage1]
+    software: [python]
+    teaches: [balance-charger, charge-profile, storage-charge, cell-matching]
+    skip_if: You can run a full charge–balance–store cycle on a 6S pack and explain each stage's risk.
+  - id: "03.08"
+    slug: battery-safety
+    title: "Battery safety (a LiPo is a fuel tank)"
+    difficulty: intermediate
+    time: 45
+    requires: ["03.07"]
+    optional: ["FEL.03"]
+    hardware: [stage1]
+    software: [python]
+    teaches: [lipo-safety, venting, thermal-runaway, lipo-bag, storage]
+    skip_if: You can state the charge/discharge/storage rules that prevent 90 percent of LiPo fires, and the rule for each failure mode.
+  - id: "03.09"
+    slug: endurance-prediction
+    title: "Endurance prediction: from power budget to flight time"
+    difficulty: advanced
+    time: 75
+    requires: ["03.05", "03.06"]
+    optional: []
+    hardware: [stage1]
+    software: [python]
+    teaches: [endurance-model, flight-time, reserve, verification]
+    skip_if: You can predict Hermon's loiter and cruise flight times from the budget, then verify against a real flight within 15 percent.
+  - id: "03.10"
+    slug: lipo-in-israel
+    title: "LiPo in Israel: buying, importing, storing, transporting"
+    difficulty: intermediate
+    time: 45
+    requires: ["03.08"]
+    optional: []
+    hardware: [stage1]
+    software: [python]
+    teaches: [buying-locally, import-restrictions, lipo-airfreight-ban, customs-vat, hot-climate-storage, transport-rules]
+    skip_if: You can get a 6S pack into your hands legally in Israel and state the storage and transport rules for an Israeli summer.
+
+# ---------------------------------------------------------------------------
+- id: "04"
+  dir: 04-frame-and-assembly
+  track: main
+  title: Frame & assembly
+  summary: Frame materials and topology, the mass and centre-of-mass budget, the wiring harness, vibration isolation and the payload bay, the full documented Hermon build, and the pre-flight discipline that keeps it airworthy.
+  lessons:
+  - id: "04.01"
+    slug: frames
+    title: "Frames: materials, sizes, topology"
+    difficulty: intermediate
+    time: 60
+    requires: ["02.11"]
+    optional: []
+    hardware: [stage1]
+    software: []
+    teaches: [frame-materials, carbon-fiber, topology, wheelbase, stiffness, resonance]
+    skip_if: You can pick a frame for Hermon's mass and payload and say what wheelbase, arm stiffness and plate thickness each cost you.
+  - id: "04.02"
+    slug: mass-and-center-of-mass
+    title: The mass budget and the centre of mass
+    difficulty: intermediate
+    time: 75
+    requires: ["04.01", "01.02"]
+    optional: []
+    hardware: [stage1]
+    software: [python]
+    teaches: [mass-budget, center-of-mass, balance, mounting-order, moment-of-inertia]
+    skip_if: You can build Hermon's mass budget to 730 g dry / 1.45 kg all-up and land the CoM within 5 mm of the geometric centre by component placement, on paper and on a scale.
+  - id: "04.03"
+    slug: wiring-harness
+    title: "The wiring harness: gauge, length, connectors, routing"
+    difficulty: intermediate
+    time: 90
+    requires: ["03.04", "04.02"]
+    optional: ["FEL.04"]
+    hardware: [stage1]
+    software: []
+    teaches: [wire-gauge, awg, voltage-drop, xt60, solder-joints, strain-relief, routing]
+    skip_if: You can size every wire on Hermon from its current and length, and solder an XT60 that survives a pull test.
+  - id: "04.04"
+    slug: mounting-and-vibration
+    title: Mounting, vibration isolation and the payload bay
+    difficulty: intermediate
+    time: 75
+    requires: ["04.03", "02.09"]
+    optional: []
+    hardware: [stage1]
+    software: [python]
+    teaches: [soft-mount, damping, fc-orientation, resonance, payload-bay, gimbal-mount]
+    skip_if: You can show from transmissibility whether a mount helps or amplifies, justify Hermon's mount choice against an RPM harmonic notch, and design a payload bay that does not move the CoM.
+  - id: "04.05"
+    slug: building-hermon
+    title: "Building Hermon: the full assembly (practical)"
+    difficulty: intermediate
+    time: 240
+    requires: ["04.04", "03.07"]
+    optional: []
+    hardware: [stage1]
+    software: []
+    teaches: [assembly-procedure, torque, threadlock, build-log, continuity-check, smoke-test]
+    skip_if: Hermon is built, every joint is documented, and the first power-up passed the smoke test with props off.
+  - id: "04.06"
+    slug: preflight-and-airworthiness
+    title: Pre-flight inspection, prop safety and airworthiness
+    difficulty: intermediate
+    time: 60
+    requires: ["04.05"]
+    optional: []
+    hardware: [stage1]
+    software: []
+    teaches: [preflight-checklist, prop-safety, arming-discipline, ip-rating, maintenance-interval]
+    skip_if: You have written and used a pre-flight checklist for Hermon that catches a loose prop nut, a chafed wire and a stale compass calibration.
+
+# ---------------------------------------------------------------------------
+- id: "05"
+  dir: 05-sensors
+  track: main
+  title: Sensors for UAVs
+  summary: What each sensor buys you, how gyros, accelerometers, magnetometers, barometers, GNSS receivers, optical flow and rangefinders actually work, and the noise, bias, drift, mounting and calibration that decide whether the flight controller can trust them.
+  lessons:
+  - id: "05.01"
+    slug: sensor-roles
+    title: "Sensor roles: what each one buys you"
+    difficulty: beginner
+    time: 45
+    requires: ["04.06"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [sensor-suite, observability, redundancy, sensor-roles, failure-modes]
+    skip_if: You can name every sensor on Hermon, the state it observes, and what the aircraft loses when it fails.
+  - id: "05.02"
+    slug: imu
+    title: "The IMU: gyroscopes and accelerometers"
+    difficulty: intermediate
+    time: 90
+    requires: ["05.01", "01.09"]
+    optional: []
+    hardware: [stage1]
+    software: [python]
+    teaches: [mems-gyro, accelerometer, bias, scale-factor, allan-variance, sample-rate, aliasing]
+    skip_if: You can explain why integrating a gyro drifts, why an accelerometer alone cannot tell tilt from acceleration, and what an Allan-variance plot tells you about a MEMS part.
+  - id: "05.03"
+    slug: compass-and-baro
+    title: The magnetometer and the barometer
+    difficulty: intermediate
+    time: 75
+    requires: ["05.02"]
+    optional: []
+    hardware: [stage1]
+    software: [python]
+    teaches: [magnetometer, hard-iron, soft-iron, declination, barometer, pressure-altitude, baro-drift]
+    skip_if: You can explain hard- and soft-iron error, apply declination, and say why a barometer's altitude moves when weather does.
+  - id: "05.04"
+    slug: gnss-receiver
+    title: "The GNSS receiver on a drone: fix types, HDOP, and what the FC does with it"
+    difficulty: intermediate
+    time: 75
+    requires: ["05.03"]
+    optional: ["FGL.01"]
+    hardware: [stage1]
+    software: []
+    teaches: [gnss-fix-types, hdop, satellite-count, time-to-first-fix, gps-glitch, ublox-config]
+    skip_if: You can read a GNSS status line (fix type, satellites, HDOP) and say whether it is safe to arm in an auto mode.
+  - id: "05.05"
+    slug: flow-and-rangefinders
+    title: Optical flow and rangefinders
+    difficulty: intermediate
+    time: 75
+    requires: ["05.04"]
+    optional: []
+    hardware: [stage2]
+    software: [python]
+    teaches: [optical-flow, flow-scaling, tof, lidar-rangefinder, terrain-following, surface-quality]
+    skip_if: You can explain how flow plus a rangefinder produces a velocity, and when that pair replaces GNSS.
+  - id: "05.06"
+    slug: noise-bias-and-calibration
+    title: "Noise, bias, drift — and the calibration procedures that fix them"
+    difficulty: intermediate
+    time: 90
+    requires: ["05.05", "04.04"]
+    optional: []
+    hardware: [stage1]
+    software: [python, ardupilot]
+    teaches: [noise, bias, drift, vibration-coupling, accel-calibration, compass-calibration, level-horizon]
+    skip_if: You can run accelerometer, compass and level calibrations on Hermon and prove from the log that each one improved something measurable.
+
+# ---------------------------------------------------------------------------
+- id: "06"
+  dir: 06-state-estimation
+  track: main
+  title: State estimation
+  summary: Why the state is never measured directly, how a complementary filter and then a Kalman filter fuse what you do measure, how ArduPilot's EKF3 does it in production, and how to tell from a log whether the estimator is healthy.
+  lessons:
+  - id: "06.01"
+    slug: why-estimation
+    title: "Why estimation: the state is never measured directly"
+    difficulty: intermediate
+    time: 60
+    requires: ["05.06"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [state-vector, observability, sensor-fusion, dead-reckoning, estimation-problem]
+    skip_if: You can write Hermon's state vector and say which sensor constrains each element, and how fast each one goes bad alone.
+  - id: "06.02"
+    slug: complementary-filter
+    title: "The complementary filter: your first fusion"
+    difficulty: intermediate
+    time: 75
+    requires: ["06.01"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [complementary-filter, high-pass, low-pass, crossover-frequency, tilt-estimate]
+    skip_if: You can write a complementary filter for pitch from gyro and accelerometer and pick its time constant from the sensors' noise.
+  - id: "06.03"
+    slug: kalman-from-scratch
+    title: The Kalman filter from first principles
+    difficulty: advanced
+    time: 120
+    requires: ["06.02"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [kalman-filter, predict-update, covariance, process-noise, measurement-noise, kalman-gain]
+    skip_if: You can implement a 1-D Kalman filter, explain the gain as a noise ratio, and say what Q and R actually mean physically.
+  - id: "06.04"
+    slug: ekf-nonlinear
+    title: "The extended Kalman filter: when the world is nonlinear"
+    difficulty: advanced
+    time: 105
+    requires: ["06.03", "01.09"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [ekf, jacobian, linearisation, quaternion-state, divergence, consistency]
+    skip_if: You can linearise an attitude model, implement a small EKF, and describe how an EKF diverges.
+  - id: "06.05"
+    slug: ekf3-in-ardupilot
+    title: "ArduPilot's EKF3: the production estimator"
+    difficulty: advanced
+    time: 105
+    requires: ["06.04", "05.06"]
+    optional: []
+    hardware: []
+    software: [ardupilot]
+    teaches: [ekf3, lanes, imu-fusion, gps-fusion, baro-fusion, flow-fusion, fusion-timing]
+    skip_if: You can describe EKF3's lanes, what each sensor contributes, and the order in which measurements are fused.
+  - id: "06.06"
+    slug: ekf-health-and-logs
+    title: "EKF health: innovations, variances, and reading it from a log"
+    difficulty: advanced
+    time: 90
+    requires: ["06.05"]
+    optional: []
+    hardware: []
+    software: [ardupilot, python]
+    teaches: [innovation, variance-ratio, ekf-flags, lane-switch, gps-glitch-detection, log-analysis]
+    skip_if: You can open a flight log, read the EKF innovation and variance channels, and decide whether the estimator was trustworthy.
+
+# ---------------------------------------------------------------------------
+- id: "07"
+  dir: 07-control
+  track: main
+  title: Control for flight
+  summary: The cascaded rate–attitude–velocity–position loops that fly a multicopter, how four commands become four motor outputs, why filtering decides how hard you can push the D term, and how to tune Hermon methodically instead of by feel.
+  lessons:
+  - id: "07.01"
+    slug: pid-for-flight
+    title: "PID, but this time it has to fly"
+    difficulty: intermediate
+    time: 75
+    requires: ["06.06"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [pid, proportional, integral, derivative, integral-windup, setpoint, disturbance-rejection]
+    skip_if: You can write a PID controller, explain windup and its fixes, and say what each term does to a quad that is being pushed by wind.
+  - id: "07.02"
+    slug: cascaded-loops
+    title: "The cascade: rate → attitude → velocity → position"
+    difficulty: intermediate
+    time: 90
+    requires: ["07.01"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [cascade-control, loop-rates, bandwidth-separation, inner-outer-loop, saturation]
+    skip_if: You can draw Hermon's four nested loops with their rates and explain why the inner loop must be roughly five times faster than the one outside it.
+  - id: "07.03"
+    slug: rate-loops
+    title: "Rate loops: the innermost and the most important"
+    difficulty: advanced
+    time: 105
+    requires: ["07.02"]
+    optional: []
+    hardware: []
+    software: [python, ardupilot]
+    teaches: [rate-controller, ATC-RAT-parameters, step-response, overshoot, oscillation, motor-saturation]
+    skip_if: You can tune a rate loop from a step response, recognise P, I and D oscillation signatures in a log, and stop before the motors saturate.
+  - id: "07.04"
+    slug: attitude-loops
+    title: "Attitude loops: holding an angle"
+    difficulty: advanced
+    time: 90
+    requires: ["07.03"]
+    optional: []
+    hardware: []
+    software: [python, ardupilot]
+    teaches: [attitude-controller, angle-p, feedforward, slew-limit, angle-error, quaternion-error]
+    skip_if: You can explain how an angle error becomes a rate setpoint and tune the angle P without making the rate loop ring.
+  - id: "07.05"
+    slug: velocity-position-and-modes
+    title: "Velocity and position loops — and flight modes as control configuration"
+    difficulty: advanced
+    time: 90
+    requires: ["07.04"]
+    optional: []
+    hardware: []
+    software: [ardupilot]
+    teaches: [velocity-loop, position-loop, altitude-hold, loiter, acro, stabilize, mode-as-configuration]
+    skip_if: You can say exactly which loops are closed in ACRO, STABILIZE, ALT_HOLD and LOITER, and which sensor each one depends on.
+  - id: "07.06"
+    slug: mixing-and-allocation
+    title: "Control allocation: four commands, four motors"
+    difficulty: advanced
+    time: 90
+    requires: ["07.02", "02.11"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [mixer, control-allocation, motor-matrix, thrust-linearisation, saturation-priority, desaturation]
+    skip_if: You can write Hermon's mixer matrix, invert it, and explain what ArduPilot gives up first when a motor saturates.
+  - id: "07.07"
+    slug: filtering-and-methodic-tuning
+    title: "Filtering, notches and the methodic tuning procedure"
+    difficulty: advanced
+    time: 120
+    requires: ["07.03", "07.06", "02.09"]
+    optional: []
+    hardware: [stage1]
+    software: [ardupilot, python]
+    teaches: [low-pass-filter, notch-filter, harmonic-notch, d-term-noise, phase-lag, autotune, methodic-tuning]
+    skip_if: You can set Hermon's harmonic notch from an FFT of a real log and run the methodic tuning sequence in the right order.
+
+# ---------------------------------------------------------------------------
+- id: "08"
+  dir: 08-flight-controller
+  track: main
+  title: The flight-controller platform
+  summary: The autopilot landscape, what is actually inside a flight-controller board, choosing and flashing Hermon's, the MAVLink protocol, the ground stations, and the full data path from a sensor sample to a motor command.
+  lessons:
+  - id: "08.01"
+    slug: autopilot-landscape
+    title: "The autopilot world: ArduPilot, PX4, Betaflight, iNav"
+    difficulty: intermediate
+    time: 60
+    requires: ["07.07"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [ardupilot, px4, betaflight, inav, licensing, community, feature-comparison]
+    skip_if: You can justify ArduPilot for Hermon against PX4 and Betaflight on concrete criteria.
+  - id: "08.02"
+    slug: board-anatomy
+    title: "Inside a flight controller: MCU, IMUs, baro, UARTs, power"
+    difficulty: intermediate
+    time: 75
+    requires: ["08.01"]
+    optional: []
+    hardware: [stage1]
+    software: []
+    teaches: [stm32, h7, imu-redundancy, uart-mapping, dma, sd-logging, board-power]
+    skip_if: You can read an H7-class FC's spec sheet and map every peripheral you need to a physical port.
+  - id: "08.03"
+    slug: choosing-hermons-fc
+    title: "Choosing Hermon's flight controller (purchase decision)"
+    difficulty: intermediate
+    time: 75
+    requires: ["08.02"]
+    optional: []
+    hardware: [stage1]
+    software: []
+    teaches: [fc-selection, port-budget, autopilot-compatibility, supply-risk, substitute-spec]
+    skip_if: You have picked Hermon's FC, checked its ports against every peripheral in the build, and found a stocked substitute.
+    version_sensitive: true
+  - id: "08.04"
+    slug: firmware-and-parameters
+    title: Flashing firmware and the parameter system
+    difficulty: intermediate
+    time: 90
+    requires: ["08.03"]
+    optional: []
+    hardware: [stage1]
+    software: [ardupilot, qgc]
+    teaches: [bootloader, firmware-flash, parameter-tree, param-file, defaults, frame-class, backup-restore]
+    skip_if: You can flash ArduPilot, load a parameter file, diff two parameter sets and roll back a bad change.
+    version_sensitive: true
+  - id: "08.05"
+    slug: mavlink
+    title: "MAVLink: the protocol of drones"
+    difficulty: intermediate
+    time: 90
+    requires: ["08.04"]
+    optional: []
+    hardware: []
+    software: [python, pymavlink]
+    teaches: [mavlink2, message-framing, heartbeat, streams, command-long, ack, signing]
+    skip_if: You can read a MAVLink frame by hand and write Python that connects, reads a heartbeat and requests a data stream.
+  - id: "08.06"
+    slug: ground-stations
+    title: "Ground stations: QGroundControl and Mission Planner"
+    difficulty: beginner
+    time: 60
+    requires: ["08.05"]
+    optional: []
+    hardware: [stage1]
+    software: [qgc]
+    teaches: [qgroundcontrol, mission-planner, setup-wizard, parameter-editor, telemetry-widgets, log-download]
+    skip_if: You can do a full vehicle setup, edit parameters and pull a log in QGroundControl without a tutorial.
+    version_sensitive: true
+  - id: "08.07"
+    slug: logging-and-the-data-path
+    title: "Logging, and the full path from sensor sample to motor command"
+    difficulty: advanced
+    time: 90
+    requires: ["08.06", "07.06"]
+    optional: []
+    hardware: []
+    software: [ardupilot, python]
+    teaches: [dataflash-log, log-rates, scheduler, loop-timing, sensor-to-motor-latency, main-loop]
+    skip_if: You can trace one gyro sample through ArduPilot's scheduler to a DShot frame and state the latency of each stage.
+
+# ---------------------------------------------------------------------------
+- id: "09"
+  dir: 09-telemetry-datalink
+  track: main
+  title: Telemetry & datalink
+  summary: Link budgets in real units, the ExpressLRS control link, what happens when the link drops, MAVLink telemetry constrained to the 917-920 MHz window that is licence-exempt in Israel, and the spectrum rules on both sides of the course.
+  lessons:
+  - id: "09.01"
+    slug: rf-and-link-budget
+    title: "RF and link budgets, in 90 minutes"
+    difficulty: intermediate
+    time: 90
+    requires: ["08.07"]
+    optional: ["FRA.01", "FRA.02"]
+    hardware: []
+    software: [python]
+    teaches: [dbm, path-loss, fresnel-zone, link-margin, sensitivity, eirp, fade-margin]
+    skip_if: You can compute the range of a link from transmit power, antenna gains and receiver sensitivity, and state the margin you kept.
+  - id: "09.02"
+    slug: control-link-elrs
+    title: "The control link: ExpressLRS 2.4 GHz"
+    difficulty: intermediate
+    time: 90
+    requires: ["09.01"]
+    optional: []
+    hardware: [stage1]
+    software: [elrs]
+    teaches: [expresslrs, crsf, packet-rate, binding-phrase, lq, rssi, telemetry-ratio]
+    skip_if: You can bind an ELRS pair, choose a packet rate for Hermon's mission, and read LQ and RSSI as separate facts.
+    version_sensitive: true
+  - id: "09.03"
+    slug: failsafe-when-the-link-drops
+    title: "Failsafe: what happens when the link drops"
+    difficulty: intermediate
+    time: 75
+    requires: ["09.02"]
+    optional: []
+    hardware: [stage1]
+    software: [ardupilot]
+    teaches: [rc-failsafe, failsafe-timing, hold-vs-rtl, gcs-failsafe, failsafe-testing]
+    skip_if: You have configured and physically tested Hermon's RC and GCS failsafes and can state what happens at each timeout.
+  - id: "09.04"
+    slug: telemetry-917
+    title: "MAVLink telemetry on 917-920 MHz (and the antennas that make it work)"
+    difficulty: intermediate
+    time: 90
+    requires: ["09.03"]
+    optional: ["FRA.03"]
+    hardware: [stage1]
+    software: [qgc]
+    teaches: [sik-radio, min-max-freq, hopping-window, air-rate, netid, ecc, duty-cycle, antenna-polarisation, dipole-pattern, ground-plane]
+    skip_if: You can constrain a 900 MHz SiK pair to 917-920 MHz, prove it from the radio's own parameters, and site antennas so the null is not pointed at the aircraft.
+  - id: "09.05"
+    slug: spectrum-and-regulation
+    title: "Spectrum and regulation: what you may transmit, in Israel and under Part 107"
+    difficulty: intermediate
+    time: 75
+    requires: ["09.04"]
+    optional: ["FRA.04"]
+    hardware: []
+    software: []
+    teaches: [ism-bands, israeli-srd-window, moc-type-approval, conformity-approval, fcc-part-15, analog-fpv, digital-fpv, video-bands]
+    skip_if: You can say which bands and powers you may legally transmit on in Israel, and what Part 107 and FCC Part 15 say for the US side.
+    version_sensitive: true
+
+# ---------------------------------------------------------------------------
+- id: "10"
+  dir: 10-simulation
+  track: main
+  title: Simulation
+  summary: A quadcopter simulator you write yourself, the sensor noise and wind that make it honest, ArduPilot's SITL with the real firmware in the loop, Gazebo for the world around it, and the regression matrix that runs while you sleep.
+  lessons:
+  - id: "10.01"
+    slug: why-simulate
+    title: "Why simulate: the cost of a crash"
+    difficulty: beginner
+    time: 45
+    requires: ["07.07"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [simulation-value, fidelity-levels, sim-to-real-gap, test-economics]
+    skip_if: You can say which Hermon failures you will only ever find in simulation and which ones simulation will lie to you about.
+  - id: "10.02"
+    slug: quad-sim-in-python
+    title: "A 6-DoF quadcopter simulator in Python"
+    difficulty: advanced
+    time: 150
+    requires: ["10.01", "01.06", "07.06"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [rigid-body-dynamics, integration, rk4, motor-lag, mixer-in-sim, closed-loop-sim]
+    skip_if: You have written a 6-DoF quad simulator with motor lag and flown your own cascade controller in it.
+  - id: "10.03"
+    slug: sensor-noise-and-wind
+    title: Sensor noise, wind and gusts in simulation
+    difficulty: advanced
+    time: 90
+    requires: ["10.02", "05.06", "01.10"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [noise-models, random-walk, gps-latency, dryden-gust, wind-field, monte-carlo]
+    skip_if: You can add realistic IMU noise, GPS latency and a gust model to your simulator and show how the controller degrades.
+  - id: "10.04"
+    slug: ardupilot-sitl
+    title: "ArduPilot SITL: the real firmware in a process"
+    difficulty: intermediate
+    time: 120
+    requires: ["10.01", "08.05"]
+    optional: []
+    hardware: []
+    software: [ardupilot, sitl, mavproxy]
+    teaches: [sitl, mavproxy, sim-vehicle, parameter-sweep, scripted-mission, speedup]
+    skip_if: You can launch SITL, fly a scripted mission through pymavlink and pull the resulting log.
+    version_sensitive: true
+  - id: "10.05"
+    slug: gazebo-and-regression-ci
+    title: "Gazebo, sim-to-real, and a regression matrix that runs overnight"
+    difficulty: advanced
+    time: 120
+    requires: ["10.04", "10.03"]
+    optional: []
+    hardware: []
+    software: [gazebo, ros2, ardupilot, docker]
+    teaches: [ros-gz, gazebo-plugin, headless-sim, test-matrix, ci-pipeline, sim-to-real]
+    skip_if: You have a headless SITL/Gazebo job that runs a mission matrix unattended and fails loudly on a regression.
+    version_sensitive: true
+
+# ---------------------------------------------------------------------------
+- id: "11"
+  dir: 11-first-flights
+  track: main
+  title: First flights & manual piloting
+  summary: The first power-up-to-hover sequence, the manual modes, the basic manoeuvres, flying in wind, battery discipline in the air, and the emergency procedures you rehearse before you need them.
+  lessons:
+  - id: "11.01"
+    slug: first-flight
+    title: "The first flight: props off → motors up → hover"
+    difficulty: intermediate
+    time: 120
+    requires: ["04.06", "08.06", "09.03", "10.04"]
+    optional: []
+    hardware: [stage1]
+    software: [ardupilot, qgc]
+    teaches: [first-flight-procedure, props-off-test, motor-order, arming-checks, hover-trim, abort-criteria]
+    skip_if: Hermon has hovered, and you can state the abort criteria you had written down before you armed it.
+  - id: "11.02"
+    slug: manual-modes
+    title: "Manual modes: rates versus angles"
+    difficulty: intermediate
+    time: 90
+    requires: ["11.01", "07.05"]
+    optional: []
+    hardware: [stage1]
+    software: [ardupilot]
+    teaches: [stabilize, acro, alt-hold, loiter, mode-switching, stick-scaling, expo]
+    skip_if: You can fly Hermon in STABILIZE and ALT_HOLD, switch modes in the air, and explain what changed under the sticks.
+  - id: "11.03"
+    slug: basic-maneuvers
+    title: "Basic manoeuvres: takeoff, hover, box, turn, land"
+    difficulty: intermediate
+    time: 120
+    requires: ["11.02"]
+    optional: []
+    hardware: [stage1]
+    software: [ardupilot]
+    teaches: [takeoff, hover-hold, box-pattern, yaw-turn, nose-in-hover, landing-flare]
+    skip_if: You can fly a nose-in hover and a 10 m box in both directions without a heading-reference mistake.
+  - id: "11.04"
+    slug: flying-in-wind
+    title: Flying in wind
+    difficulty: advanced
+    time: 90
+    requires: ["11.03", "01.10"]
+    optional: []
+    hardware: [stage1]
+    software: [ardupilot]
+    teaches: [wind-limits, crab-angle, upwind-discipline, turbulence, rotor-wash, wind-abort]
+    skip_if: You can state Hermon's wind limit from measured data and fly a pattern upwind-first without exceeding it.
+  - id: "11.05"
+    slug: battery-discipline
+    title: Battery discipline in the air
+    difficulty: intermediate
+    time: 75
+    requires: ["11.03", "03.06"]
+    optional: []
+    hardware: [stage1]
+    software: [ardupilot]
+    teaches: [reserve-policy, mah-budget, timer-discipline, failsafe-thresholds, endurance-verification]
+    skip_if: You land Hermon on a mAh number rather than a voltage warning, and your measured hover endurance matches the budget within 15 %.
+  - id: "11.06"
+    slug: emergencies-and-the-logbook
+    title: "Emergencies, precision landings, and the pilot's logbook"
+    difficulty: advanced
+    time: 105
+    requires: ["11.04", "11.05"]
+    optional: []
+    hardware: [stage1]
+    software: [ardupilot]
+    teaches: [rtl, failsafe-land, flyaway-response, lost-orientation, emergency-drill, logbook, skill-progression]
+    skip_if: You have rehearsed RTL, link-loss and low-battery emergencies in the air and keep a logbook with hours and incidents.
+
+# ---------------------------------------------------------------------------
+- id: "12"
+  dir: 12-autonomous-flight
+  track: main
+  title: Autonomous flight & mission planning
+  summary: Missions as lists of waypoints, planning them in a ground station, the geofence and RTL logic that contain them, automatic takeoff and precision landing, and writing your own mission logic in Python.
+  lessons:
+  - id: "12.01"
+    slug: waypoints
+    title: "Waypoints: the mission as a list of commands"
+    difficulty: intermediate
+    time: 75
+    requires: ["11.06"]
+    optional: []
+    hardware: []
+    software: [ardupilot, qgc]
+    teaches: [mission-item, nav-commands, do-commands, condition-commands, waypoint-radius, mission-upload]
+    skip_if: You can write a mission by hand in MAVLink mission-item form and explain how the FC sequences it.
+  - id: "12.02"
+    slug: mission-planning
+    title: Planning a real mission in a ground station
+    difficulty: intermediate
+    time: 90
+    requires: ["12.01"]
+    optional: []
+    hardware: [stage1]
+    software: [qgc]
+    teaches: [survey-grid, overlap, altitude-agl, terrain-following, mission-validation, preflight-brief]
+    skip_if: You can plan a survey grid with correct overlap and altitude and validate it before uploading.
+  - id: "12.03"
+    slug: geofence
+    title: "Geofence: making the aircraft refuse"
+    difficulty: intermediate
+    time: 75
+    requires: ["12.02"]
+    optional: []
+    hardware: [stage1]
+    software: [ardupilot]
+    teaches: [polygon-fence, circular-fence, altitude-fence, fence-action, fence-margin, exclusion-zone]
+    skip_if: You have a tested fence around Hermon's field and can state what the aircraft does at the boundary.
+  - id: "12.04"
+    slug: rtl-and-the-failsafe-tree
+    title: "RTL and the failsafe decision tree"
+    difficulty: advanced
+    time: 90
+    requires: ["12.03", "09.03", "11.05"]
+    optional: []
+    hardware: [stage1]
+    software: [ardupilot]
+    teaches: [rtl, smart-rtl, rtl-altitude, failsafe-priority, decision-tree, failsafe-conflict]
+    skip_if: You can draw Hermon's full failsafe decision tree and prove each branch from a log or a bench test.
+  - id: "12.05"
+    slug: auto-takeoff-land-precision
+    title: "Auto takeoff, auto land, and precision landing"
+    difficulty: advanced
+    time: 105
+    requires: ["12.04"]
+    optional: []
+    hardware: [stage1, stage5]
+    software: [ardupilot]
+    teaches: [auto-takeoff, auto-land, land-detector, precision-landing, ir-lock, landing-target-message]
+    skip_if: Hermon takes off and lands automatically, and lands on a marked pad within its stated accuracy.
+  - id: "12.06"
+    slug: missions-from-python
+    title: "Writing your own mission logic in Python"
+    difficulty: advanced
+    time: 120
+    requires: ["12.05", "08.05"]
+    optional: []
+    hardware: []
+    software: [python, pymavlink, sitl]
+    teaches: [pymavlink-mission, guided-mode, command-int, mission-state-machine, mission-regression, sitl-validation]
+    skip_if: You can drive a full mission from a Python script in SITL and have it fail safely when you inject an error.
+
+# ---------------------------------------------------------------------------
+- id: "13"
+  dir: 13-navigation-gnss
+  track: main
+  title: Navigation & GNSS
+  summary: How satellite positioning actually works, where its errors come from, what RTK and PPK buy you, the coordinate systems an operator must not confuse, and what to do when the signal is degraded, denied or spoofed.
+  lessons:
+  - id: "13.01"
+    slug: gnss-fundamentals
+    title: "From GPS to GNSS: constellations, trilateration and time"
+    difficulty: intermediate
+    time: 90
+    requires: ["12.06", "05.04"]
+    optional: ["FGL.02"]
+    hardware: []
+    software: [python]
+    teaches: [gps, galileo, glonass, beidou, trilateration, clock-bias, pseudorange, navigation-message]
+    skip_if: You can solve a four-satellite pseudorange problem and explain why the receiver clock is the fourth unknown.
+  - id: "13.02"
+    slug: error-sources
+    title: "GNSS error sources: ionosphere, multipath, geometry"
+    difficulty: intermediate
+    time: 75
+    requires: ["13.01"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [ionospheric-delay, tropospheric-delay, multipath, ephemeris-error, dop, urban-canyon]
+    skip_if: You can attribute a position error to a source from the satellite geometry and the environment.
+  - id: "13.03"
+    slug: rtk-and-ppk
+    title: "RTK and PPK: the centimetre world"
+    difficulty: advanced
+    time: 90
+    requires: ["13.02"]
+    optional: []
+    hardware: [stage3]
+    software: []
+    teaches: [carrier-phase, ambiguity-resolution, rtk-fix, base-station, ntrip, ppk-workflow, baseline-length]
+    skip_if: You can explain integer ambiguity resolution and say when Hermon's mission needs RTK rather than a good single-frequency fix.
+  - id: "13.04"
+    slug: coordinates-for-operators
+    title: "Coordinates for operators: WGS84, UTM, ENU — and EGNOS"
+    difficulty: intermediate
+    time: 75
+    requires: ["13.02"]
+    optional: ["FGL.01"]
+    hardware: []
+    software: [python]
+    teaches: [wgs84, ellipsoid-height, geoid, utm, mgrs, enu-frame, egnos, sbas, israeli-grid]
+    skip_if: You can convert between WGS84, UTM and a local ENU frame in code and explain the geoid–ellipsoid altitude trap.
+  - id: "13.05"
+    slug: degraded-denied-and-spoofed
+    title: "Degraded, denied and spoofed: flying when GNSS lies"
+    difficulty: advanced
+    time: 90
+    requires: ["13.04", "05.05"]
+    optional: []
+    hardware: [stage2]
+    software: [ardupilot]
+    teaches: [jamming, spoofing, gps-glitch, ekf-rejection, non-gps-navigation, flow-hold, dead-reckoning-fallback]
+    skip_if: You can configure Hermon to detect a bad GNSS solution and keep flying on flow and inertial data, and you have tested it.
+
+# ---------------------------------------------------------------------------
+- id: "14"
+  dir: 14-vision-perception
+  track: main
+  title: Vision & perception
+  summary: Choosing and calibrating a camera that flies, stabilising it, detecting and tracking objects in the air, turning a pixel into a ground coordinate, and fitting the whole pipeline into a latency budget on the compute you can carry.
+  lessons:
+  - id: "14.01"
+    slug: cameras-for-uavs
+    title: "Cameras for UAVs: sensor, lens, shutter, mount"
+    difficulty: intermediate
+    time: 75
+    requires: ["13.05"]
+    optional: []
+    hardware: [stage2]
+    software: []
+    teaches: [sensor-size, focal-length, field-of-view, rolling-shutter, global-shutter, gsd, exposure-time]
+    skip_if: You can compute ground sample distance from altitude, sensor and lens, and say why rolling shutter ruins a fast survey.
+  - id: "14.02"
+    slug: field-calibration
+    title: Camera calibration in the field
+    difficulty: intermediate
+    time: 90
+    requires: ["14.01"]
+    optional: []
+    hardware: [stage2]
+    software: [python, opencv]
+    teaches: [intrinsics, distortion-coefficients, checkerboard, reprojection-error, extrinsics, camera-to-body]
+    skip_if: You can calibrate Hermon's camera to a sub-pixel reprojection error and express the camera-to-body transform.
+  - id: "14.03"
+    slug: gimbals-and-stabilisation
+    title: "Gimbals, vibration and motion blur"
+    difficulty: intermediate
+    time: 75
+    requires: ["14.02", "04.04"]
+    optional: []
+    hardware: [stage2]
+    software: [ardupilot]
+    teaches: [gimbal-axes, gimbal-control, mount-mode, jello, motion-blur, shutter-speed-rule, damping]
+    skip_if: You can mount and control a gimbal on Hermon and show that jello and motion blur are gone from the footage.
+  - id: "14.04"
+    slug: detection-in-the-air
+    title: "Detection in the air: YOLO on a moving platform"
+    difficulty: advanced
+    time: 120
+    requires: ["14.02"]
+    optional: []
+    hardware: [stage2]
+    software: [python, pytorch, yolo]
+    teaches: [object-detection, yolo, small-object-detection, tiling, confidence-threshold, nms, aerial-dataset]
+    skip_if: You can run a detector on aerial frames and report precision and recall at the altitude Hermon actually flies.
+    version_sensitive: true
+  - id: "14.05"
+    slug: tracking-and-geolocation
+    title: "From detection to a track, and from a pixel to a ground coordinate"
+    difficulty: advanced
+    time: 105
+    requires: ["14.04", "13.04"]
+    optional: []
+    hardware: [stage2]
+    software: [python, opencv]
+    teaches: [multi-object-tracking, track-association, kalman-tracker, ray-ground-intersection, geolocation, error-budget]
+    skip_if: You can turn a bounding box plus aircraft pose into a ground coordinate with a stated error budget.
+  - id: "14.06"
+    slug: edge-compute-and-latency
+    title: "Thermal, depth, edge compute and the latency budget"
+    difficulty: advanced
+    time: 90
+    requires: ["14.05"]
+    optional: []
+    hardware: [stage2]
+    software: [python, docker]
+    teaches: [thermal-imaging, depth-camera, laser-rangefinder, edge-inference, quantisation, latency-budget, thermal-throttling]
+    skip_if: You can measure the end-to-end latency of Hermon's vision pipeline and say which stage you would cut first.
+
+# ---------------------------------------------------------------------------
+- id: "15"
+  dir: 15-onboard-autonomy
+  track: main
+  title: Onboard autonomy
+  summary: Putting a companion computer next to the flight controller, bridging MAVLink into ROS 2, commanding the aircraft from your own code, expressing a mission as a behaviour tree, and making the whole thing start itself and fail safely.
+  lessons:
+  - id: "15.01"
+    slug: companion-architecture
+    title: "The architecture: flight controller plus companion computer"
+    difficulty: advanced
+    time: 90
+    requires: ["14.06", "08.07"]
+    optional: []
+    hardware: [stage2]
+    software: []
+    teaches: [companion-computer, responsibility-split, hard-realtime-boundary, serial-link, power-isolation, failure-domains]
+    skip_if: You can draw the line between what must run on the FC and what may run on the companion, and defend it.
+  - id: "15.02"
+    slug: ros2-for-hermon
+    title: "ROS 2 for Hermon (delta from the robotics course)"
+    difficulty: advanced
+    time: 90
+    requires: ["15.01"]
+    optional: []
+    hardware: [stage2]
+    software: [ros2]
+    teaches: [ros2-on-aircraft, qos-for-flight, dds-over-wifi, node-layout, ros2-timing, airborne-networking]
+    skip_if: You can lay out Hermon's ROS 2 graph with QoS settings appropriate to a flying, intermittently connected vehicle.
+    version_sensitive: true
+  - id: "15.03"
+    slug: mavlink-ros-bridge
+    title: "Bridging MAVLink and ROS 2"
+    difficulty: advanced
+    time: 105
+    requires: ["15.02", "08.05"]
+    optional: []
+    hardware: [stage2]
+    software: [ros2, mavros, ardupilot]
+    teaches: [mavros, ardupilot-dds, topic-mapping, frame-conventions, ned-vs-enu, time-sync]
+    skip_if: You can publish a setpoint from a ROS 2 node and see the aircraft respond in SITL, with the frame conversion correct.
+    version_sensitive: true
+  - id: "15.04"
+    slug: offboard-control
+    title: "Offboard control: commanding attitude, velocity and position"
+    difficulty: advanced
+    time: 105
+    requires: ["15.03", "07.05"]
+    optional: []
+    hardware: [stage2]
+    software: [ros2, ardupilot, sitl]
+    teaches: [guided-mode, setpoint-streaming, setpoint-timeout, velocity-command, yaw-control, takeover-conditions]
+    skip_if: You can fly a closed-loop offboard velocity command in SITL and have it revert safely when your stream stops.
+  - id: "15.05"
+    slug: behaviour-trees-and-watchdogs
+    title: "Mission logic: behaviour trees, state machines and watchdogs"
+    difficulty: advanced
+    time: 105
+    requires: ["15.04", "12.06"]
+    optional: []
+    hardware: []
+    software: [python, ros2]
+    teaches: [behaviour-tree, state-machine, preconditions, abort-conditions, watchdog, heartbeat-timeout, graceful-degradation]
+    skip_if: You can express Hermon's capstone mission as a behaviour tree with an abort branch at every node, and a watchdog that proves itself.
+  - id: "15.06"
+    slug: deployment-and-first-autonomous-flight
+    title: "Deployment, and the first computer-piloted flight"
+    difficulty: advanced
+    time: 120
+    requires: ["15.05"]
+    optional: []
+    hardware: [stage2]
+    software: [docker, ros2, ardupilot]
+    teaches: [systemd, docker-on-companion, autostart, log-collection, field-debugging, cable-pull-test]
+    skip_if: Hermon's autonomy stack starts itself on power-up, survives a cable-pull test, and has flown a computer-commanded pattern.
+
+# ---------------------------------------------------------------------------
+- id: "16"
+  dir: 16-testing-analysis
+  track: main
+  title: Flight-test & data analysis
+  summary: Testing a machine that cannot be paused, building a test matrix, reading flight logs as your primary instrument, injecting failures on purpose, and assembling the evidence that says Hermon is airworthy.
+  lessons:
+  - id: "16.01"
+    slug: testing-a-flying-machine
+    title: "Testing a flying machine: why it is different"
+    difficulty: intermediate
+    time: 60
+    requires: ["15.06", "11.06"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [flight-test-discipline, build-up-approach, envelope-expansion, test-card, go-no-go, single-variable-rule]
+    skip_if: You can write a test card that changes one thing at a time and defines the abort before the flight.
+  - id: "16.02"
+    slug: test-matrices
+    title: "Test matrices: parameters, environments, failures"
+    difficulty: intermediate
+    time: 75
+    requires: ["16.01"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [test-matrix, coverage, pairwise, environment-variables, acceptance-criteria, traceability]
+    skip_if: You can build a test matrix for Hermon that covers the envelope without a combinatorial explosion.
+  - id: "16.03"
+    slug: reading-flight-logs
+    title: "Reading flight logs: a methodology"
+    difficulty: advanced
+    time: 120
+    requires: ["16.02", "08.07", "06.06"]
+    optional: []
+    hardware: []
+    software: [python, mavlogdump]
+    teaches: [dataflash-parsing, ATT-RATE-channels, vibe-channel, desired-vs-actual, fft-from-log, anomaly-hunting]
+    skip_if: You can open an unfamiliar log and, within 20 minutes, say what the aircraft did and what was wrong with it.
+  - id: "16.04"
+    slug: failure-injection-and-ci
+    title: "Failure injection, and regression tests in SITL"
+    difficulty: advanced
+    time: 105
+    requires: ["16.03", "10.05"]
+    optional: []
+    hardware: []
+    software: [sitl, python, docker]
+    teaches: [failure-injection, motor-failure, gps-loss, link-loss, sensor-failure, regression-suite, flaky-test-handling]
+    skip_if: You can kill a motor, a GPS and a datalink in SITL on a schedule and have the suite tell you when behaviour regressed.
+  - id: "16.05"
+    slug: field-protocols-and-the-safety-case
+    title: "Field protocols and Hermon's safety case"
+    difficulty: advanced
+    time: 105
+    requires: ["16.04"]
+    optional: ["FOP.01"]
+    hardware: [stage1]
+    software: []
+    teaches: [field-protocol, crew-roles, site-survey, hazard-log, bowtie, safety-case, airworthiness-statement]
+    skip_if: You have a written safety case for Hermon with hazards, mitigations and the evidence that each mitigation works.
+
+# ---------------------------------------------------------------------------
+- id: "17"
+  dir: 17-payloads-delivery
+  track: main
+  title: Payloads & delivery
+  summary: What hanging 250 g under an aircraft does to it, release mechanisms you design and build, spray and irrigation payloads, the flight-dynamics upset when the mass leaves, the ballistics of getting it onto a spot, and the Hermon pod build.
+  lessons:
+  - id: "17.01"
+    slug: payload-mass-and-com
+    title: "The payload problem: mass, centre of mass, and what it costs you"
+    difficulty: intermediate
+    time: 75
+    requires: ["16.05", "04.02"]
+    optional: []
+    hardware: [stage4]
+    software: [python]
+    teaches: [payload-fraction, com-shift, inertia-change, endurance-penalty, thrust-margin, mounting-load-path]
+    skip_if: You can compute what a 250 g pod costs Hermon in hover current, endurance and thrust margin, and where it must hang.
+  - id: "17.02"
+    slug: release-mechanisms
+    title: "Release mechanisms: servo, magnet, pin"
+    difficulty: intermediate
+    time: 90
+    requires: ["17.01"]
+    optional: []
+    hardware: [stage4]
+    software: [ardupilot]
+    teaches: [servo-release, electro-permanent-magnet, pin-puller, hold-force, release-latency, jam-modes, safe-arm]
+    skip_if: You can design a release that holds 250 g through a hard landing and releases in under 100 ms, and cannot fire while disarmed.
+  - id: "17.03"
+    slug: spray-and-irrigation
+    title: "Spray and irrigation payloads: pumps, nozzles, and a moving centre of mass"
+    difficulty: intermediate
+    time: 90
+    requires: ["17.01"]
+    optional: []
+    hardware: [stage4]
+    software: [ardupilot]
+    teaches: [spray-boom, nozzle-droplet-size, flow-rate, swath-width, sloshing, liquid-com-shift, drift]
+    skip_if: You can size a spray payload for a given swath and rate, and explain how the emptying tank changes the aircraft in flight.
+  - id: "17.04"
+    slug: release-dynamics
+    title: "Release dynamics: the upset when the mass leaves"
+    difficulty: advanced
+    time: 90
+    requires: ["17.02", "07.04"]
+    optional: []
+    hardware: [stage4]
+    software: [python]
+    teaches: [mass-step, altitude-balloon, attitude-transient, controller-response, integrator-reset, pogo-coupling]
+    skip_if: You can predict and then measure Hermon's altitude and attitude transient at release, and keep it inside a stated limit.
+  - id: "17.05"
+    slug: drop-point-math
+    title: "Drop-point maths: ballistics, wind and the release cue"
+    difficulty: advanced
+    time: 105
+    requires: ["17.04", "01.10", "14.05"]
+    optional: ["FA.04"]
+    hardware: [stage4]
+    software: [python]
+    teaches: [projectile-motion, drag-on-payload, release-lead, wind-drift, cep, rangefinder-slant-range, release-trigger]
+    skip_if: You can compute a release point for a 250 g pod from altitude, ground speed and wind, and state the expected CEP.
+  - id: "17.06"
+    slug: building-hermons-pod
+    title: "Building Hermon's delivery pod (practical)"
+    difficulty: advanced
+    time: 180
+    requires: ["17.05", "17.03"]
+    optional: []
+    hardware: [stage4]
+    software: [ardupilot]
+    teaches: [pod-fabrication, mounting-interface, wiring-to-aux, servo-parameters, ground-test, drop-test-protocol]
+    skip_if: Hermon's pod is built, wired, bench-tested and has completed a documented drop-test series.
+
+# ---------------------------------------------------------------------------
+- id: "18"
+  dir: 18-civil-ops
+  track: main
+  title: Civil & public-safety operations
+  summary: What civil drone work actually is, what the operator does all day, how a mission is planned and briefed, how airspace works in practice, the FAA Part 107 path to a certificate, and how a fleet is kept flying.
+  lessons:
+  - id: "18.01"
+    slug: uav-missions
+    title: "The civil missions: survey, inspection, delivery, monitoring, search"
+    difficulty: beginner
+    time: 60
+    requires: ["12.06"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [aerial-survey, photogrammetry, infrastructure-inspection, agricultural-spraying, sar, delivery, deliverables]
+    skip_if: You can describe five civil UAV missions and what the client actually receives at the end of each.
+  - id: "18.02"
+    slug: the-operators-job
+    title: "The operator's job: a day in the life"
+    difficulty: beginner
+    time: 60
+    requires: ["18.01"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [pic, visual-observer, crew-roles, client-interface, insurance, day-rate, deliverable-pipeline]
+    skip_if: You can describe a paid flying day end to end, from the site survey to the invoice.
+  - id: "18.03"
+    slug: mission-planning-process
+    title: "The mission-planning process: tasking, risk, brief, debrief"
+    difficulty: intermediate
+    time: 90
+    requires: ["18.02", "16.05"]
+    optional: ["FOP.01"]
+    hardware: []
+    software: []
+    teaches: [tasking, site-survey, risk-assessment, go-no-go, crew-brief, comms-discipline, after-action-review]
+    skip_if: You can run a full planning cycle for a real site, including the written risk assessment and the debrief.
+  - id: "18.04"
+    slug: airspace-in-operations
+    title: "Airspace in practice: classes, charts, NOTAMs, authorisations"
+    difficulty: intermediate
+    time: 90
+    requires: ["18.03"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [airspace-classes, sectional-chart, controlled-airspace, laanc, notam, tfr, remote-id]
+    skip_if: You can read a sectional, decide whether a site needs an authorisation, and obtain one.
+    version_sensitive: true
+  - id: "18.05"
+    slug: part-107-and-the-legal-path
+    title: "FAA Part 107: the certificate, the rules, the waivers"
+    difficulty: intermediate
+    time: 120
+    requires: ["18.04"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [part-107, remote-pilot-certificate, knowledge-test, operating-limitations, waivers, bvlos, night-operations, remote-id-compliance]
+    skip_if: You can pass a Part 107 practice exam and state which of Hermon's missions need a waiver and which do not.
+    version_sensitive: true
+  - id: "18.06"
+    slug: maintenance-and-qualification
+    title: "Maintenance, currency, and your own qualification"
+    difficulty: intermediate
+    time: 90
+    requires: ["18.05"]
+    optional: []
+    hardware: [stage1]
+    software: []
+    teaches: [maintenance-schedule, component-life, spares-policy, currency-requirements, recurrent-training, operations-manual]
+    skip_if: You have an operations manual and a maintenance schedule for Hermon, and you are current against your own standard.
+
+# ---------------------------------------------------------------------------
+- id: "19"
+  dir: 19-capstone-hermon-mission
+  track: main
+  title: "Capstone — Hermon's mission"
+  summary: "One full autonomous mission, flown ten times cleanly, with evidence: take off, survey a field, detect the target, deliver the payload on it, and return to a precision landing."
+  lessons:
+  - id: "19.01"
+    slug: the-brief
+    title: "The brief: Hermon's full tasking"
+    difficulty: advanced
+    time: 90
+    requires: ["17.06", "18.06", "15.06"]
+    optional: []
+    hardware: [stage1, stage2, stage4, stage5]
+    software: []
+    teaches: [mission-brief, success-criteria, constraints, risk-register, abort-matrix, evidence-plan]
+    skip_if: You have a written mission brief with numeric success criteria and an abort matrix signed off by yourself as PIC.
+  - id: "19.02"
+    slug: phase-1-preflight-and-launch
+    title: "Phase 1: pre-flight, site setup and launch"
+    difficulty: advanced
+    time: 120
+    requires: ["19.01"]
+    optional: []
+    hardware: [stage1, stage2, stage4, stage5]
+    software: [ardupilot, qgc]
+    teaches: [site-setup, crew-positions, systems-check, mission-upload, launch-sequence, hold-point]
+    skip_if: You can bring Hermon from a closed case to an airborne, mission-executing aircraft in under 15 minutes without skipping a check.
+  - id: "19.03"
+    slug: phase-2-survey-and-detect
+    title: "Phase 2: fly the survey, detect the target"
+    difficulty: advanced
+    time: 120
+    requires: ["19.02"]
+    optional: []
+    hardware: [stage2]
+    software: [ros2, python, yolo]
+    teaches: [survey-execution, detection-in-mission, confirmation-logic, false-positive-handling, target-geolocation, operator-in-the-loop]
+    skip_if: Hermon flies the survey autonomously and reports a geolocated target that you can verify on the ground.
+  - id: "19.04"
+    slug: phase-3-delivery-and-precision-rtl
+    title: "Phase 3: deliver the payload, then a precision return"
+    difficulty: advanced
+    time: 120
+    requires: ["19.03", "17.06", "12.05"]
+    optional: []
+    hardware: [stage4, stage5]
+    software: [ardupilot, ros2]
+    teaches: [approach-pattern, release-execution, post-release-recovery, precision-rtl, landing-accuracy, mission-completion-criteria]
+    skip_if: Hermon delivers the payload within its stated CEP and lands on the pad within its stated accuracy, autonomously.
+  - id: "19.05"
+    slug: the-campaign-and-the-report
+    title: "The campaign, the report, and the debrief"
+    difficulty: advanced
+    time: 180
+    requires: ["19.04", "16.05"]
+    optional: ["FOP.01"]
+    hardware: [stage1, stage2, stage4, stage5]
+    software: [python]
+    teaches: [test-campaign, repeatability, statistics-from-ten-flights, evidence-pack, portfolio, debrief, what-you-can-now-do]
+    skip_if: You have ten clean mission flights, an evidence pack with the statistics, and a debrief that names what you would change.
+
+# ---------------------------------------------------------------------------
+# OPTIONAL FOUNDATIONS (drone-specific; shared fundamentals come from the
+# robotics course and are cross-referenced, not re-taught)
+# ---------------------------------------------------------------------------
+- id: "FA"
+  dir: optional-foundations/flight-aerodynamics
+  track: foundations
+  title: Flight aerodynamics & physics (FA)
+  summary: "The physics a flying machine needs, from zero: vectors and forces, Newton's laws in flight, work, energy and power, and the wind, trajectory and unit maths that the flight lessons assume."
+  lessons:
+  - id: "FA.01"
+    slug: vectors-forces-zero
+    title: Vectors and forces from zero
+    difficulty: beginner
+    time: 60
+    requires: []
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [vectors, force, addition, components, magnitude, direction]
+    skip_if: You can add two force vectors (components and magnitude) without a calculator.
+  - id: "FA.02"
+    slug: newtons-laws-flight
+    title: Newton's laws in flight
+    difficulty: beginner
+    time: 60
+    requires: ["FA.01"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [newtons-laws, inertia, f-ma, action-reaction, torque, moment-arm]
+    skip_if: You can apply F=ma to a quad in hover and in a banked turn with correct numbers.
+  - id: "FA.03"
+    slug: work-energy-power
+    title: "Work, energy and power"
+    difficulty: beginner
+    time: 60
+    requires: ["FA.02"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [work, kinetic-energy, potential-energy, power, efficiency, watt-hour]
+    skip_if: You can convert between watt-hours, joules and flight minutes without looking anything up.
+  - id: "FA.04"
+    slug: wind-trajectories-and-units
+    title: "Wind vectors, trajectories and unit sanity"
+    difficulty: beginner
+    time: 60
+    requires: ["FA.03"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [wind-triangle, ground-speed, projectile-motion, trajectory-trig, unit-conversion, dimensional-analysis]
+    skip_if: You can solve a wind triangle and catch a unit error by dimensional analysis before it reaches the aircraft.
+
+# ---------------------------------------------------------------------------
+- id: "FEL"
+  dir: optional-foundations/drone-electronics-power
+  track: foundations
+  title: Drone electronics & power (FEL)
+  summary: The electrical half of a drone from zero — voltage and current, DC power maths, lithium-polymer packs, three-phase brushless motors, and the wires, fuses and shunts that connect them.
+  lessons:
+  - id: "FEL.01"
+    slug: electricity-refresher
+    title: "Electricity for drone builders: voltage, current, resistance"
+    difficulty: beginner
+    time: 60
+    requires: []
+    optional: []
+    hardware: []
+    software: []
+    teaches: [voltage, current, resistance, ohms-law, series-parallel, ground, short-circuit]
+    skip_if: You can apply Ohm's law to a drone's power tree and predict a voltage drop before measuring it.
+  - id: "FEL.02"
+    slug: dc-power-math
+    title: DC power maths for a flying machine
+    difficulty: beginner
+    time: 60
+    requires: ["FEL.01"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [power, watt, watt-hour, amp-hour, efficiency-chain, conversion-loss, power-budget-basics]
+    skip_if: You can turn a pack's mAh and a hover current into flight minutes in your head, to 10 %.
+  - id: "FEL.03"
+    slug: lipo-deep-dive
+    title: "Lithium-polymer packs from zero"
+    difficulty: beginner
+    time: 75
+    requires: ["FEL.02"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [lipo-cell, cell-voltage, series-parallel-pack, c-rating, internal-resistance, balance-lead, swelling]
+    skip_if: You can read a pack label completely and state its safe current, energy and end-of-discharge voltage.
+  - id: "FEL.04"
+    slug: bldc-from-zero
+    title: Brushless motors from zero
+    difficulty: beginner
+    time: 75
+    requires: ["FEL.01"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [three-phase, commutation, stator-rotor, back-emf, kv, pole-count, esc-role]
+    skip_if: You can explain how three wires spin a magnet and what KV physically means.
+  - id: "FEL.05"
+    slug: wiring-fuses-and-measurement
+    title: "Wires, fuses, connectors and measuring power properly"
+    difficulty: beginner
+    time: 75
+    requires: ["FEL.02"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [awg, ampacity, voltage-drop, fuse-selection, connector-ratings, shunt, current-sensor, multimeter-technique]
+    skip_if: You can size a wire and a fuse for a known current and measure real current without breaking the circuit.
+
+# ---------------------------------------------------------------------------
+- id: "FGL"
+  dir: optional-foundations/gnss-navigation-math
+  track: foundations
+  title: GNSS & navigation maths (FGL)
+  summary: Where a coordinate actually points — datums and the shape of the Earth, local frames, distance and bearing on a sphere, and the geometry and error analysis behind a satellite fix.
+  lessons:
+  - id: "FGL.01"
+    slug: earth-coordinates-and-datums
+    title: "Earth coordinates and datums: what a latitude really is"
+    difficulty: beginner
+    time: 60
+    requires: []
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [latitude, longitude, ellipsoid, wgs84, datum, geoid, ellipsoid-height]
+    skip_if: You can explain why two datums disagree by hundreds of metres and which height your altimeter reports.
+  - id: "FGL.02"
+    slug: local-frames-enu
+    title: "Local frames: ENU, NED, and body"
+    difficulty: beginner
+    time: 60
+    requires: ["FGL.01"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [enu, ned, body-frame, frame-conversion, rotation-matrix, origin-selection]
+    skip_if: You can convert a position between ENU, NED and body frames in code and catch a sign error by inspection.
+  - id: "FGL.03"
+    slug: geodesy-distance-and-bearing
+    title: "Distance and bearing on a round Earth"
+    difficulty: beginner
+    time: 60
+    requires: ["FGL.02"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [haversine, great-circle, initial-bearing, rhumb-line, utm-projection, projection-distortion]
+    skip_if: You can compute distance and bearing between two fixes and say when a flat-Earth approximation is good enough.
+  - id: "FGL.04"
+    slug: satellite-geometry-and-error
+    title: "Satellite geometry and error analysis"
+    difficulty: intermediate
+    time: 75
+    requires: ["FGL.03"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [dop, hdop, vdop, geometry-matrix, error-propagation, variance, confidence-ellipse]
+    skip_if: You can derive DOP from satellite geometry and turn a range error into a position error.
+
+# ---------------------------------------------------------------------------
+- id: "FRA"
+  dir: optional-foundations/rf-datalink
+  track: foundations
+  title: RF & datalink (FRA)
+  summary: Radio from zero for people who ship software — decibels and path loss, the link budget, antennas and polarisation, and the protocols and bands a drone actually uses.
+  lessons:
+  - id: "FRA.01"
+    slug: rf-in-45-minutes
+    title: "RF in 45 minutes: frequency, wavelength, decibels"
+    difficulty: beginner
+    time: 45
+    requires: []
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [frequency, wavelength, db, dbm, dbi, power-ratio, noise-floor]
+    skip_if: You can do decibel arithmetic in your head and convert dBm to milliwatts without a table.
+  - id: "FRA.02"
+    slug: link-budget-math
+    title: The link budget
+    difficulty: beginner
+    time: 60
+    requires: ["FRA.01"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [free-space-path-loss, link-budget, receiver-sensitivity, fade-margin, fresnel-zone, ground-reflection]
+    skip_if: You can compute an achievable range from a link budget and state the margin you left.
+  - id: "FRA.03"
+    slug: antennas-and-polarisation
+    title: "Antennas: gain, pattern, polarisation"
+    difficulty: beginner
+    time: 60
+    requires: ["FRA.02"]
+    optional: []
+    hardware: []
+    software: [python]
+    teaches: [dipole, monopole, ground-plane, radiation-pattern, antenna-null, linear-polarisation, circular-polarisation, vswr]
+    skip_if: You can place two antennas so that neither null points at the other vehicle, and explain polarisation loss.
+  - id: "FRA.04"
+    slug: protocols-and-bands
+    title: "Protocols and bands: SBUS, CRSF, MAVLink, and who owns the spectrum"
+    difficulty: beginner
+    time: 60
+    requires: ["FRA.03"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [sbus, crsf, mavlink-transport, frequency-hopping, lora, ism-band, duty-cycle, regulatory-domains]
+    skip_if: You can name the protocol on every wire and antenna of a drone and the band each one legally uses.
+
+# ---------------------------------------------------------------------------
+- id: "FOP"
+  dir: optional-foundations/civil-ops
+  track: foundations
+  title: Civil operations fundamentals (FOP)
+  summary: The operational habits that separate a professional from a hobbyist — planning a mission properly, managing risk on paper before it happens in the air, and debriefing honestly afterwards.
+  lessons:
+  - id: "FOP.01"
+    slug: mission-planning-process
+    title: The mission-planning process
+    difficulty: beginner
+    time: 60
+    requires: []
+    optional: []
+    hardware: []
+    software: []
+    teaches: [tasking, objective, constraints, plan-of-action, contingencies, crew-brief, five-paragraph-brief]
+    skip_if: You can turn a one-line client request into a written plan with objectives, constraints and contingencies.
+  - id: "FOP.02"
+    slug: risk-management-bowtie
+    title: "Risk management: the bowtie"
+    difficulty: beginner
+    time: 60
+    requires: ["FOP.01"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [hazard, threat, barrier, consequence, bowtie-diagram, residual-risk, risk-matrix]
+    skip_if: You can draw a bowtie for "loss of control over people" with real barriers on both sides.
+  - id: "FOP.03"
+    slug: debrief-and-aar
+    title: "The debrief: an honest after-action review"
+    difficulty: beginner
+    time: 45
+    requires: ["FOP.02"]
+    optional: []
+    hardware: []
+    software: []
+    teaches: [aar, what-was-planned, what-happened, why, what-to-change, lessons-learned, blameless-review]
+    skip_if: You can run a blameless AAR for a flight that went wrong and produce one concrete change from it.
+
+# ---------------------------------------------------------------------------
+# PROJECTS
+# ---------------------------------------------------------------------------
+projects:
+- id: "P01"
+  slug: first-hover
+  title: "Project 1 — First hover"
+  difficulty: intermediate
+  time: 90
+  requires: ["11.03"]
+  optional: []
+  hardware: [stage1]
+  software: [ardupilot, qgc]
+  teaches: [hover, first-flight, stability, measurement, evidence]
+  skip_if: You have hovered Hermon for 30 s with drift ≤ 0.5 m and the evidence (log + video).
+- id: "P02"
+  slug: tuned-cascade
+  title: "Project 2 — A tuned cascade, measured"
+  difficulty: advanced
+  time: 180
+  requires: ["07.07", "11.03"]
+  optional: []
+  hardware: [stage1]
+  software: [ardupilot, python]
+  teaches: [rate-tuning, attitude-tuning, step-response, overshoot, altitude-hold, evidence-from-logs]
+  skip_if: Hermon's rate-loop step response overshoots ≤ 20 % and it holds altitude within ±0.3 m over five trials, proven from logs.
+- id: "P03"
+  slug: sitl-harness
+  title: "Project 3 — An overnight SITL regression harness"
+  difficulty: advanced
+  time: 180
+  requires: ["10.05"]
+  optional: []
+  hardware: []
+  software: [sitl, python, docker]
+  teaches: [ci, test-matrix, headless-sim, regression-detection, reporting]
+  skip_if: A single command runs your mission matrix unattended and produces a pass/fail report with the failing logs attached.
+- id: "P04"
+  slug: datalink-range
+  title: "Project 4 — The datalink, measured"
+  difficulty: intermediate
+  time: 150
+  requires: ["09.05"]
+  optional: []
+  hardware: [stage1]
+  software: [qgc, python]
+  teaches: [range-test, rssi-vs-distance, latency-measurement, failsafe-distance, link-budget-validation]
+  skip_if: You have a measured RSSI-versus-distance curve for both links, the failsafe trigger distance, and the latency figure.
+- id: "P05"
+  slug: first-mission
+  title: "Project 5 — Five clean autonomous missions"
+  difficulty: advanced
+  time: 180
+  requires: ["12.06"]
+  optional: []
+  hardware: [stage1]
+  software: [ardupilot, qgc]
+  teaches: [mission-execution, repeatability, geofence-discipline, rtl, mission-logs]
+  skip_if: Five waypoint missions flew and returned with the fence never touched and every log archived.
+- id: "P06"
+  slug: detection-in-the-air
+  title: "Project 6 — Target detection from the air"
+  difficulty: advanced
+  time: 210
+  requires: ["14.05"]
+  optional: []
+  hardware: [stage2]
+  software: [python, yolo, ros2]
+  teaches: [aerial-detection, precision-recall, geolocation-accuracy, latency-report, dataset-collection]
+  skip_if: Your detector finds the target in ≥ 90 % of frames at 30 m with a measured end-to-end latency and a geolocation error budget.
+- id: "P07"
+  slug: offboard-autonomy
+  title: "Project 7 — Offboard autonomy, end to end"
+  difficulty: advanced
+  time: 210
+  requires: ["15.06"]
+  optional: []
+  hardware: [stage2]
+  software: [ros2, ardupilot, docker]
+  teaches: [offboard-control, watchdog-proof, autostart, cable-pull-test, graceful-degradation]
+  skip_if: Hermon flies a computer-commanded pattern from a service that starts itself, and survives a cable-pull with a safe fallback.
+- id: "P08"
+  slug: hermons-mission
+  title: "Project 8 — Hermon's mission (capstone)"
+  difficulty: advanced
+  time: 600
+  requires: ["19.05"]
+  optional: []
+  hardware: [stage1, stage2, stage4, stage5]
+  software: [python, yolo, ardupilot, ros2, qgc]
+  teaches: [capstone, autonomous-mission, survey, detect, deliver, precision-rtl, evidence, portfolio]
+  skip_if: You have flown ten clean Hermon capstone missions with the full evidence pack.
+
+# ---------------------------------------------------------------------------
+# HARDWARE CATALOG (ids referenced by lessons' hardware: field)
+# ---------------------------------------------------------------------------
+hardware:
+  stage1:
+    title: First flight (Hermon core)
+    stage: 1
+  stage2:
+    title: Onboard computer & vision
+    stage: 2
+  stage3:
+    title: Precision positioning (optional)
+    stage: 3
+  stage4:
+    title: Payload & delivery pod
+    stage: 4
+  stage5:
+    title: Precision landing & final
+    stage: 5
