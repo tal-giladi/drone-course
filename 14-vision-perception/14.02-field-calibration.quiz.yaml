@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 14.02-field-calibration.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: b9a56a36ad3e
+  question: How far out of place is the corner of an uncalibrated frame, and why does casual inspection miss it?
+  options:
+    - About 36 px (0.75 m at 60 m); radial distortion is uniform, so it looks like a simple shift
+    - About 362 px (7.46 m at 60 m); distortion grows as radius cubed, so it hides at the edges
+    - About 362 px (7.46 m at 60 m); radial distortion is largest at the centre, where it looks natural
+    - About 7 px (0.15 m at 60 m); radial distortion is tiny, so no inspection could detect it
+  correct: 1
+- source: 9bef2740d56f
+  question: Why is assuming cx, cy = w/2, h/2 a bias rather than noise?
+  options:
+    - The principal point wanders with temperature, so every frame has a different random error
+    - The principal point is exactly at the centre, so the assumption adds no error of any kind
+    - The lens is fixed off-centre at manufacture, so every frame has the same directional error
+    - The sensor readout shifts the centre each frame, so averaging many frames removes the error
+  correct: 2
+- source: 71b7a43aa1c8
+  question: Why can a calibration shot only head-on to the board not determine the focal length?
+  options:
+    - Image scale is f*Z, so moving the board further away always reveals the focal length
+    - Head-on shots hide the distortion, so the focal length absorbs all the lens error
+    - Head-on shots cannot see the corners, so the fit has too few points to converge
+    - Image scale is f/Z, so 1459 px at 0.5 m and 2918 px at 1 m give identical images
+  correct: 3
+- source: 0cdf148ab06f
+  question: What does tilting the calibration board actually add?
+  options:
+    - Perspective, which breaks the f/Z tie between focal length and distance
+    - More corner detections per image, which lowers the noise in the final fit
+    - Better lighting on the board, which sharpens the corners for detection
+    - A known board angle, which the fit uses as a fixed reference value
+  correct: 0
+- source: 4d55222cb2be
+  question: With a 68.9 deg lens, how big a board gives 80% frame fill at 1 m, and why not calibrate at 5 m instead?
+  options:
+    - About 1.37 m; at 5 m the board would need to be about 6.85 m
+    - About 0.55 m; at 5 m the board would need to be about 2.74 m
+    - About 2.20 m; at 5 m the board would need to be about 11.0 m
+    - About 1.10 m; at 5 m the board would need to be about 5.48 m
+  correct: 3
+- source: 7fda0fd08205
+  question: Your calibration reports 1.00 px RMS reprojection error. At 60 m, is that good?
+  options:
+    - "Yes: anything under 2 px is excellent for a consumer lens at survey altitudes"
+    - "No: 2.1 cm on the ground, about the GSD; aim for 0.30 px and check per image"
+    - "No: it is 21 cm on the ground, ten times the GSD; re-shoot the whole image set"
+    - "Yes: 1 px is exactly the GSD, so it adds no error beyond the image resolution"
+  correct: 1
+- source: fdc0e40ec32d
+  question: Why does one degree of camera mount angle matter about twenty-one times more than 5 cm of lever arm at 60 m?
+  options:
+    - The lever arm is cancelled by the GNSS antenna offset, while the angle is never compensated
+    - The angle rotates the image by 21 px per degree, while the lever arm shifts it by only 1 px
+    - "A lever arm stays 5 cm, but angle error scales with height: 60 m x tan(1 deg) = 1.05 m"
+    - The lever arm shrinks with altitude, while the angle error stays at a constant 1.05 m
+  correct: 2
+- source: dfb8b5e04d1b
+  question: Why is undistorting a point an iteration, and when does the iteration break down?
+  options:
+    - Brown-Conrady has no closed-form inverse; it fails for strong distortion like a fisheye
+    - Brown-Conrady has no closed-form forward map; it fails for small distortion near centre
+    - The image must be resampled row by row; it fails when the readout time is too long
+    - The focal length is re-estimated each pass; it fails when k3 is larger than k1
+  correct: 0

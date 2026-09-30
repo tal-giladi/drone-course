@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 17.01-payload-mass-and-com.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: ffd31d4ca7c9
+  question: Why does 17 % more mass cost 21 % of the endurance?
+  options:
+    - Hover power scales as thrust^2, so power rises about 37 % for 17 % more mass
+    - Battery sag rises with current, costing an extra 4 % on top of the mass penalty
+    - Hover power scales as thrust^1.5, so power rises about 27 % for 17 % more mass
+    - Hover power scales linearly with mass, plus about 4 % from the pod's drag
+  correct: 2
+- source: 06727301d40d
+  question: Hover throttle rises from 26.5 % to 31.0 % with the payload. What does that show?
+  options:
+    - The motors are near saturation, so thrust-to-weight now limits the payload
+    - The ESCs need recalibrating, since hover throttle should not change with mass
+    - Endurance will fall by the same proportion as the rise in hover throttle
+    - Lift is not the constraint; the pack limits the payload, not the propellers
+  correct: 3
+- source: 4c9921627b01
+  question: A 15-minute endurance floor gives a 511 g payload budget. After the 180 g companion and BEC and the 250 g pod, what is left for the mount and release?
+  options:
+    - 81 g
+    - 261 g
+    - 331 g
+    - 71 g
+  correct: 0
+- source: ff302e9717f2
+  question: A 250 g pod 15 cm forward shifts the CoM 22.1 mm. What does it cost, and does the aircraft tilt?
+  options:
+    - About 12.5 % of pitch authority; it tilts nose-down a few degrees throughout the hover
+    - About 12.5 % of pitch authority for good; no tilt, differential thrust holds it level
+    - Nothing; the controller trims it out and pitch authority stays fully symmetric
+    - About 50 % of pitch authority; it tilts until the CoM sits below the thrust centre
+  correct: 1
+- source: 4e14b2d59108
+  question: Why is inertia the payload penalty that scales worst?
+  options:
+    - It grows as m r, so 7.5x the distance gives just 7.5x the added pitch inertia
+    - It grows as m^2, so doubling the payload quadruples the added inertia
+    - It grows as r^3, so 7.5x the distance gives about 420x the added inertia
+    - It grows as m r^2, so 7.5x the distance gives about 56x the added inertia
+  correct: 3
+- source: 58be626b2df4
+  question: A payload raises pitch inertia 54 % and the PD attitude gains are unchanged. What happens?
+  options:
+    - Bandwidth and damping both fall about 19 %, and the lost damping shows up as oscillation in wind
+    - Bandwidth falls about 19 % but damping rises, so the aircraft becomes sluggish yet noticeably more stable
+    - Bandwidth and damping both fall 54 %, causing obvious oscillation already on the bench
+    - Nothing measurable changes, since the rate loop automatically compensates for inertia
+  correct: 0
+- source: 237ff4adb33e
+  question: A spray tank drains during each flight, taking pitch inertia from 0.01755 to 0.01350 and all-up mass from 1.950 to 1.450 kg. How should you tune?
+  options:
+    - Tune empty, since the lighter aircraft is the more demanding case
+    - Tune at about half full and accept the behaviour at both ends
+    - Tune once at takeoff, since inertia does not affect the tune
+    - Tune full, since the CoM and inertia changes cancel out
+  correct: 1
+- source: dd9914d0a678
+  question: A 3 m/s landing is arrested over 3 cm of gear deflection. What load must the 250 g pod's mount carry?
+  options:
+    - About 2.5 N, the hover weight
+    - About 7.5 N, from about 3 g
+    - About 40 N, from about 15.3 g
+    - About 75 N, from about 30.6 g
+  correct: 2

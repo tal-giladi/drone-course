@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 02.10-esc-tuning.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: b903c083dfe4
+  question: Why does an ESC fire commutation a few electrical degrees early (timing advance)?
+  options:
+    - The rotor magnets lag the stator field, so firing early prevents the motor stalling
+    - Winding inductance delays current rise, so early firing aligns peak current
+    - Back-EMF arrives early at high rpm, so the ESC must fire before it cancels the drive
+    - Early firing lowers the PWM duty cycle, so the ESC FETs switch with less heat
+  correct: 1
+- source: e85e6ff9e00a
+  question: In a desync, what is the key step that causes thrust to collapse?
+  options:
+    - The FETs overheat from high current and the ESC shuts down to protect itself
+    - The battery sags below the ESC cutoff and the ESC disarms the motor briefly
+    - The DShot signal is corrupted by noise and the ESC treats it as a zero command
+    - Distorted back-EMF makes the ESC miss zero crossings and lose rotor position
+  correct: 3
+- source: c5187ad9cb4a
+  question: What does demag compensation do, and what setting does Hermon (10-inch props on 6S) use?
+  options:
+    - Adds timing advance under load to prevent demag; Hermon uses high
+    - Limits current on hard throttle steps to prevent desync; Hermon uses off
+    - Reverses the motor briefly to re-magnetise the rotor; Hermon uses low
+    - Detects a slow commutation and briefly cuts power; Hermon uses medium
+  correct: 3
+- source: ba20d5d3ba19
+  question: What log signature identifies a desync on one motor?
+  options:
+    - Commanded output drops to zero while that motor's rpm stays high
+    - Commanded output stays high while that motor's reported rpm collapses
+    - Battery voltage drops sharply while all four motors' rpm rise together
+    - Vibration on all axes spikes while commanded output and rpm stay steady
+  correct: 1
+- source: a28ab2297947
+  question: Why does MOT_THST_EXPO exist?
+  options:
+    - Battery sag reduces thrust at low charge, so expo scales output with voltage
+    - Motors have a deadband near idle, so expo boosts the smallest output commands
+    - Thrust goes as rpm^2, so loop gain varies with throttle unless linearised
+    - Pilots prefer soft stick centres, so expo reduces sensitivity around hover
+  correct: 2

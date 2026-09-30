@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 01.06-momentum-theory.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 2cc85fbdd863
+  question: How does ideal hover power from actuator-disk theory scale with thrust T and disk area A?
+  options:
+    - P grows as T^2 and falls as 1/A
+    - P grows as T and falls as 1/sqrt(A)
+    - P grows as T^(3/2) and falls as 1/A^2 (disk area squared)
+    - P grows as T^(3/2) and falls as 1/sqrt(A)
+  correct: 3
+- source: 6fd46cd3af90
+  question: Why is ideal power T x v_i and not T x 2v_i, even though the wake moves at 2v_i?
+  options:
+    - The other half of the power is recovered when the wake hits the ground
+    - The work is done at the disk, where the air moves at v_i; 2v_i is the result
+    - Only half the disk area produces useful thrust, so the effective air speed is halved
+    - The wake speed is 2v_i only in forward flight and equals v_i in hover
+  correct: 1
+- source: c3da80ae4f60
+  question: Hermon's ideal hover is 76.1 W but about 165 W at the props. What is the largest source of the gap?
+  options:
+    - Tip losses from the blade vortices
+    - Profile drag of the spinning blades
+    - Non-uniform disk loading
+    - Copper losses in the motor windings
+  correct: 1
+- source: 94fdbb174cf1
+  question: A 250 g mule and Hermon both hover. Which has the higher induced velocity, and why does it matter?
+  options:
+    - "Hermon: its heavier mass pushes more air per second, so it is less efficient per newton than the mule"
+    - "Neither: induced velocity depends only on air density, so both are equally efficient"
+    - "The mule: its lighter mass means it spins slower, which makes it more efficient per newton"
+    - "The mule: its much smaller disk gives higher disk loading, so it is less efficient per newton"
+  correct: 3
+- source: b650ac0876f8
+  question: A far-wake anemometer reads 15 m/s where the model predicts 2v_i of about 9.7 m/s. What do you check first?
+  options:
+    - The measurement height, since ground effect squeezes the wake if it is under 2 m below the disk
+    - The battery voltage, since a fresh pack always makes the wake 50% faster than predicted
+    - The propeller pitch, since the model assumes a fine pitch and yours is probably much coarser than that
+    - Nothing, since the far wake is always about 1.5 times the predicted value in practice
+  correct: 0

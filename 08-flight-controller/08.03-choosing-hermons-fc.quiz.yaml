@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 08.03-choosing-hermons-fc.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: df2dba6b2513
+  question: The recommended Pixhawk 6C fails two hard requirements. Which two, with their mitigations?
+  options:
+    - No redundant power input (add a second BEC) and no DMA on the GNSS port (lower that port's baud rate)
+    - Too little SRAM for three EKF lanes (run a single lane only) and no CAN bus (use UART peripherals only)
+    - Five UARTs (move rangefinder and flow to I2C or CAN) and two +/-16 g IMUs (balance and mount carefully)
+    - No upstream hwdef (port the board yourself) and five UARTs (share RX lines between two devices)
+  correct: 2
+- source: 94433d75f567
+  question: The Matek H743-SLIM scores 7 of 8 and the Pixhawk 6C 6 of 8, at under half the price. Why does the course still recommend the Pixhawk?
+  options:
+    - It has redundant power input and is ArduPilot's reference platform, for 9 % of the build
+    - The Matek lacks the SRAM to run three EKF lanes, which the scoring table does not capture
+    - The Pixhawk has more UARTs, which outweighs everything else in the scoring table
+    - The Matek cannot be bought in Israel, so its landed cost ends up above the Pixhawk's
+  correct: 0
+- source: 3ac4730d589a
+  question: Why is an ArduPilot hwdef that already exists upstream a hard requirement rather than a convenience?
+  options:
+    - Without it you port the board, finding DMA and timer conflicts by hand on a first build
+    - ArduPilot refuses to arm on any board whose hwdef has not been signed by the project team
+    - The hwdef holds the board's factory IMU calibration, which cannot be measured later
+    - Without it the ground station cannot detect or connect to the board over USB
+  correct: 0
+- source: 43185a4d9732
+  question: A $199 board and a $40 board each ship for $25 to Israel, where 18 % VAT applies above a $75 exemption. At about 3.03 NIS per dollar, what do they cost landed?
+  options:
+    - About 802 and 232 NIS; both pay 18 % VAT because shipping is always taxable
+    - About 802 and 197 NIS; the $40 board lands at $65, under the exemption, so no VAT
+    - About 787 and 197 NIS; VAT is charged on the list price but never on the shipping
+    - About 679 and 197 NIS; neither pays VAT because boards count as components
+  correct: 1
+- source: 2475ff408818
+  question: No Israeli shop stocks an ArduPilot-class board. Which two mitigations does the lesson argue for?
+  options:
+    - Buying a locally stocked Betaflight board and porting ArduPilot to it yourself before flight
+    - Paying for express shipping, and backing up the parameter file to the cloud
+    - Choosing the cheapest board so a loss is affordable, and reordering after crashes
+    - A written substitute spec so a stock-out does not reopen the choice, plus a spare board
+  correct: 3
+- source: 6ed5df35579d
+  question: "Why does the lesson insist on the order: requirement, candidates, cost of shortfall, then price?"
+  options:
+    - Price must come last because exchange rates change faster than requirements do
+    - Listing candidates first lets you write requirements that match what already exists
+    - Requirements written first test boards against your build; reversed, you pick on popularity
+    - Ranking by features first means that the cheapest adequate board will always win by default
+  correct: 2
+- source: b95ced1e93a2
+  question: You promote 'redundant power input' from a soft to a hard requirement. What happens, and is that wrong?
+  options:
+    - Both boards fail it, so no candidate survives and the requirement must be relaxed again
+    - The Matek drops out and the Pixhawk 6C wins at a 408 NIS premium; fine if written down
+    - The Pixhawk drops out, since its redundant input only counts as soft, leaving the Matek
+    - Nothing changes in the result, so promoting it was pointless though harmless
+  correct: 1

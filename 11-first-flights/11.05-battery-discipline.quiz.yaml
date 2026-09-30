@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 11.05-battery-discipline.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: ed7f8dd0bae4
+  question: Hermon's pack has 0.040 ohm internal resistance and draws about 10 A in hover and 57 A at full throttle. Why is pack voltage a poor fuel gauge?
+  options:
+    - The I*R sag is only about 0.23 V (0.04 V a cell), but the cells drift apart during the flight
+    - The ESCs regulate the pack voltage under load, so it barely moves until the pack is nearly empty
+    - The sag is driven by cell temperature rather than current, so it depends on the weather
+    - I*R sag of up to 2.28 V (0.38 V a cell) makes the same charge read differently with throttle
+  correct: 3
+- source: 58c8674560ec
+  question: You track consumed mAh, pack voltage and a flight clock. Which failure is each one vulnerable to?
+  options:
+    - "mAh: an unusual throttle; voltage: a miscalibrated sensor; clock: an unusual flight"
+    - "mAh: a miscalibrated sensor; voltage: an unusual throttle; clock: an unusual flight"
+    - "mAh: an unusual flight; voltage: an unusual throttle; clock: a miscalibrated sensor"
+    - "All three share one weak point: a miscalibrated current sensor"
+  correct: 1
+- source: ff0dba2a128c
+  question: Consumed mAh and the clock both say 60% remaining, but the voltage says 35%. What is happening?
+  options:
+    - High throttle is sagging the loaded voltage, or a cell is failing; land and check cells at rest
+    - The pack really is at 35%, because voltage is chemistry and the other two are only estimates
+    - The current sensor is miscalibrated, so recalibrate it and trust the voltage reading from now on
+    - The flight clock started late, so reset it and use the voltage as the true remaining charge
+  correct: 0
+- source: 2aed3b973fcf
+  question: What does one hover-to-failsafe flight followed by a full charge tell you?
+  options:
+    - The pack's internal resistance and how well the balance leads keep the cells matched
+    - Real endurance against prediction, and the pack's capacity fade since it was first used
+    - Endurance against prediction, and the current sensor calibration k = used / returned
+    - The motors' efficiency and whether the propeller pitch suits the hover throttle
+  correct: 2
+- source: abc8421b9cf8
+  question: Why is the low-battery threshold not a matter of pilot preference?
+  options:
+    - It is set by the RTL cost from your maximum range in maximum wind, plus margin
+    - It is set by the manufacturer's minimum safe voltage per cell for the chemistry
+    - It is fixed at 30% of capacity by convention, regardless of how or where you fly
+    - It is set by the ESC low-voltage cutoff, which the flight controller must match
+  correct: 0
+- source: 6183ea9ca5bc
+  question: You are converting a target state of charge into a BATT_LOW_VOLT setting. Which voltage curve do you use?
+  options:
+    - The loaded curve at hover throttle, since that is how most of the flight is spent
+    - The loaded curve at full throttle, since that gives the most conservative threshold
+    - The average of the resting and loaded curves, to balance early and late alarms
+    - The resting open-circuit curve, then verify in flight and tune BATT_LOW_TIMER
+  correct: 3
+- source: 9dca07d9a25e
+  question: Every gram of pack costs about 0.223 W of hover power. Why not simply carry a bigger battery?
+  options:
+    - Endurance grows linearly with pack mass, so the only limit is the frame's structural strength
+    - The optimum is about twice the dry mass (960 g) and gains only about 24 s over Hermon's pack
+    - The optimum equals the dry mass (720 g), and going larger costs several minutes of endurance
+    - The ESC current limit is reached first, so a bigger pack cannot deliver its extra energy
+  correct: 1

@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 13.02-error-sources.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: c54fa0f88c83
+  question: The ionosphere is 4 m of a 4.50 m UERE. Why does removing it cut the UERE to about 2.05 m rather than to 0.50 m?
+  options:
+    - The other error sources grow once the ionosphere is removed, filling part of the gap
+    - Removing the ionosphere adds a new modelling error of about 1.5 m to the budget
+    - Independent errors add in quadrature, so the root of the remaining variance is left
+    - UERE is multiplied by DOP, so the saving is scaled back up by the sky geometry
+  correct: 2
+- source: 2594afaffadc
+  question: In position error = DOP x UERE, what depends on your receiver?
+  options:
+    - The DOP, which a receiver with more channels can improve very substantially
+    - All of UERE, including the ionosphere and troposphere contributions
+    - Both terms equally, since a better receiver tracks more satellites
+    - Only the multipath and receiver-noise parts of UERE, the smallest terms
+  correct: 3
+- source: 1178b6f0c8d1
+  question: Why is VDOP always worse than HDOP, and can a better receiver fix it?
+  options:
+    - Vertical signals pass through more atmosphere; a dual-frequency receiver fixes that
+    - All satellites are overhead, so vertical geometry is one-sided; no receiver can fix that
+    - Receiver antennas have low gain overhead; a better antenna pattern fixes that
+    - The ellipsoid is flattened at the poles; a receiver with a better geoid model fixes that
+  correct: 1
+- source: d2118a7537d2
+  question: Raising the elevation mask from 0 deg to 30 deg took the vertical error from 6.9 m to 30.1 m, even though the discarded satellites had the worst measurements. Why?
+  options:
+    - The low satellites held the geometry open, so VDOP grew far more than UERE fell
+    - The remaining satellites were overloaded, so their measurement noise rose sharply
+    - The high satellites suffer more multipath from the aircraft body than the low ones do
+    - The receiver switched to a less accurate tracking mode with fewer satellites in view
+  correct: 0
+- source: 71da92bd9c7a
+  question: The ionospheric delay is removable with two frequencies and the tropospheric delay is not. Which single property decides this?
+  options:
+    - "Dispersion: ionospheric delay goes as 1/f^2, the troposphere delays all frequencies equally"
+    - "Altitude: the ionosphere is high enough to model, the troposphere is too close to the ground"
+    - "Variability: the ionosphere changes slowly, the troposphere changes too fast to measure"
+    - "Dispersion: the troposphere delay goes as 1/f^2, the ionosphere delays all frequencies equally"
+  correct: 0
+- source: 4a22e37b856c
+  question: One C/A code chip is 293 m and the L1 carrier wavelength is 19 cm. What does that ratio buy, and what does it cost?
+  options:
+    - A ruler about 1,540x finer, at the cost of needing a much stronger signal
+    - A ruler about 154x finer, at the cost of an unknown integer number of cycles
+    - A ruler about 1,540x finer, at the cost of an unknown integer cycle count
+    - A ruler about 1,540x coarser, at the cost of slower acquisition at start-up
+  correct: 2
+- source: 7ef07aeba14d
+  question: Why does averaging ten minutes of stationary data not remove multipath?
+  options:
+    - Multipath changes too quickly for ten minutes of averaging to capture its pattern
+    - A reflection is always a longer path, so multipath is a one-sided bias, not noise
+    - Averaging removes multipath only if the receiver is moving between the samples
+    - Multipath is removed by averaging, but only after about an hour of stationary data
+  correct: 1
+- source: b4ec20798f59
+  question: A six-storey street 20 m wide leaves about 3.7 satellites in view. Why is that worse than "a poor fix"?
+  options:
+    - The fix is still available but its DOP is about 3.7 times worse than in open sky
+    - The receiver falls back to a 2D fix, which is accurate horizontally but not in height
+    - The satellites are all low, so the fix is dominated by reflections off the walls
+    - Below four satellites there is no fix at all, and the rest cluster near the zenith
+  correct: 3

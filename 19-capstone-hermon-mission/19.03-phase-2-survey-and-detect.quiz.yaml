@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 19.03-phase-2-survey-and-detect.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 921841e9fb7b
+  question: The confirmation rule assumes each ground point is seen in about 11 frames. Where does that come from?
+  options:
+    - "Survey overlap: 75% forward and 65% side give about 6.9 frames"
+    - "Detector design: 11 frames is the minimum YOLO needs to be confident"
+    - "Survey overlap: 75% forward and 65% side give about 11.4 frames"
+    - "Regulation: 11 images per target are required for any delivery"
+  correct: 2
+- source: 83106552ae9b
+  question: The CPU needs 2.88 s per image; a 600-image survey flies in 346 s. Why is the accelerator not just a speed upgrade?
+  options:
+    - It halves the companion computer's power draw for the whole flight
+    - It decides whether detection can happen in flight at all
+    - It raises detection accuracy by running a larger model
+    - It lets the camera shoot at a higher resolution
+  correct: 1
+- source: e2111fbdd5a9
+  question: The survey has 55 frames. How many false positives does it produce?
+  options:
+    - About 5 at the good threshold, and about 330 at conf 0.50
+    - About 1 at the good threshold, about 60 at conf 0.50
+    - About 50 at either threshold, since frames are fixed
+    - About 50 at the good threshold, about 3,300 at conf 0.50
+  correct: 3
+- source: 1e3bc29f6cdc
+  question: What is the confirmation rule, and what does it achieve?
+  options:
+    - "Three detections within 2.8 m: one false confirm in 303 flights"
+    - "Three detections in a row: about one false confirmation per flight"
+    - "One detection above conf 0.9: no false confirms at all"
+    - "Eleven detections within 2.8 m: one in 3,000 flights"
+  correct: 0
+- source: 947783b33a48
+  question: The same 3-of-11 rule gives about 1,008 false confirmations per survey at conf 0.50. Why does it fail there?
+  options:
+    - The rule needs many more frames when the threshold is low
+    - Conf 0.50 lowers recall, so the real target is missed
+    - Coincident triples grow as the cube of the false-positive count
+    - The association gate widens automatically as the confidence drops
+  correct: 2
+- source: bdae7eedc080
+  question: About one survey in eight finds nothing and returns with the pod. Is that a failure?
+  options:
+    - "Yes: a working detector should find every real target"
+    - "No: it is the no-detection abort rule working as designed"
+    - "Yes: the survey pattern must have missed part of the search area"
+    - "No: it proves the target was never there to find"
+  correct: 1
+- source: b0f46888f00d
+  question: The spare downlink is 250 B/s. What is the operator actually looking at?
+  options:
+    - A live video stream of each candidate detection
+    - Thumbnails of all fifty candidate detections
+    - The full-resolution frame for each detection
+    - A coordinate and a confidence, about 24 bytes
+  correct: 3
+- source: d1eb5a85770e
+  question: The geolocation budget is 7.030 m, of which 7.009 m is bias. Why does averaging eleven detections not improve the position?
+  options:
+    - Averaging only shrinks noise, and the error is 99.7% bias
+    - Eleven samples are too few for averaging to help with anything
+    - Averaging amplifies noise from outlier detections
+    - All eleven detections come from the same camera frame
+  correct: 0

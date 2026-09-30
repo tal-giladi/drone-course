@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 07.06-mixing-and-allocation.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 306977575b9d
+  question: Hermon's motors are 0.225 m from center on an X quad. Why is the roll moment arm 0.159 m?
+  options:
+    - The props overlap the arms by about 66 mm
+    - The motors are tilted inward by 45 degrees
+    - The frame is 30% shorter along the roll axis
+    - "The arms sit at 45 deg: 0.225 cos 45"
+  correct: 3
+- source: d59d6bb59ac6
+  question: The four mixer columns are orthogonal. What does that give you, and where is it false?
+  options:
+    - A free inverse (M^T/4); false on asymmetric frames
+    - Equal authority on all axes; false on any hexacopter
+    - Zero cross-coupling into yaw; false on plus frames
+    - A free inverse; false whenever any one motor saturates
+  correct: 0
+- source: e119a81da5a7
+  question: Without thrust expo, 50% command gives about 34% thrust. Why does that break the mixer?
+  options:
+    - It makes the aircraft sluggish on all three axes
+    - A pure roll also loses lift, so it sinks
+    - It reverses the yaw direction at low throttle
+    - It saturates the motors at hover throttle
+  correct: 1
+- source: 0892804395a2
+  question: Hermon has 9.20 N headroom above hover and 1.54 N below. What sets roll authority, and what does MOT_SPIN_MIN cost?
+  options:
+    - The ceiling, 9.20 N; it costs about 17%
+    - The average of both; it costs about 30%
+    - The floor, 1.54 N; it costs about 57%
+    - The floor, 1.54 N; it costs about 83%
+  correct: 2
+- source: 90db01430e76
+  question: Why are roll and pitch scaled together under saturation rather than clipped separately?
+  options:
+    - Clipping one axis would overload the ESCs
+    - It keeps the total throttle exactly constant
+    - It lets yaw keep its full authority under load
+    - It preserves the thrust vector's direction
+  correct: 3
+- source: 7d2ebc34f569
+  question: Why is ATC_THR_MIX_MIN (0.1, used when landing) lower than ATC_THR_MIX_MAX (0.5)?
+  options:
+    - Landing favours throttle, to avoid climbing away
+    - Landing favours attitude, to stay level at touchdown
+    - A low value reduces motor noise near the ground
+    - It frees up more yaw authority during touchdown
+  correct: 0
+- source: 34c50e47b4ca
+  question: The aircraft yaws slowly and won't hold heading, but rolls crisply. Where do you look first?
+  options:
+    - The yaw rate P and I gains
+    - RCOU, for one motor running high
+    - The compass calibration and offsets
+    - The gyro low-pass filter cutoff
+  correct: 1

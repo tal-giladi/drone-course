@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 05.01-sensor-roles.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: b71978f729e3
+  question: Which state on Hermon has no direct observer and matters most?
+  options:
+    - Altitude, since only the barometer measures it and it drifts
+    - Heading, since only the magnetometer measures it directly
+    - Gyro and accelerometer biases, the source of other errors
+    - Horizontal velocity, since GNSS measures only position
+  correct: 2
+- source: 09a0328680af
+  question: GNSS drops out with a 0.05 m/s^2 residual accelerometer bias. About when is position 5 m wrong (x = b t^2 / 2)?
+  options:
+    - About 100 s
+    - About 14 s
+    - About 1.4 s
+    - About 45 s
+  correct: 1
+- source: a986b0598439
+  question: A 1 degree level error gives a false acceleration of g sin 1 deg = 0.171 m/s^2. About how far off is position after 10 s?
+  options:
+    - About 1.7 m
+    - About 17 m
+    - About 0.86 m
+    - About 8.6 m
+  correct: 3
+- source: a7416e5e7b6f
+  question: Hermon has two IMUs. What does that buy, and what would three buy?
+  options:
+    - Two allow voting to isolate a fault; three add only noise averaging
+    - Two halve the noise; three remove the need for a magnetometer
+    - Two detect and isolate any fault; three are purely for redundancy
+    - Two detect a fault without knowing which failed; three allow voting
+  correct: 3
+- source: d37879419cce
+  question: Why is the accelerometer indispensable despite being noisy?
+  options:
+    - It measures angular rate more accurately than the gyro in hover
+    - It alone gives an absolute attitude reference at DC
+    - It is the only sensor that measures heading without a compass
+    - It measures altitude directly, independent of air pressure
+  correct: 1
+- source: 02201d1d39c2
+  question: Why does "fly forward for ten seconds to let the EKF settle" work?
+  options:
+    - Forward flight warms the IMU to its calibrated operating temperature
+    - Moving away from the ground removes magnetic interference from soil
+    - "Motion makes yaw observable: GNSS course vs body-frame velocity"
+    - The EKF needs ten seconds of samples to fill its averaging window
+  correct: 2
+- source: eb852790b8b0
+  question: Sensor rates span five orders of magnitude. Why is that a problem?
+  options:
+    - Slow, stale measurements must be fused back in time against past states
+    - Fast sensors overload the CPU, so they must be downsampled to match GNSS
+    - Slow sensors must be interpolated, which adds noise to the fast ones
+    - The bus can only carry one sensor rate, so slow ones get dropped
+  correct: 0

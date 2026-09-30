@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 03.06-battery-monitoring.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: d44a78c2d51b
+  question: Why is coulomb counting the primary gauge and voltage the supervisor?
+  options:
+    - Coulomb counting is more precise but has no absolute reference; volts do
+    - Voltage is more precise but drifts; coulomb counting is absolute over time
+    - Coulomb counting works without a current sensor; voltage needs calibration
+    - Voltage is only read at arming; coulomb counting updates during flight
+  correct: 0
+- source: 0870677e31f7
+  question: A current sensor has a scale error and an offset error. Which is dangerous, and how?
+  options:
+    - An offset reading high, making the failsafe trigger too early
+    - A scale error reading high, letting you fly deeper than you think
+    - A scale error reading low, letting you fly deeper than you think
+    - An offset reading low, which causes the voltage to sag in flight
+  correct: 2
+- source: dd389b8b997c
+  question: In the charger cross-check, what correction do you apply before comparing telemetry mAh to charger mAh?
+  options:
+    - "Depth of discharge: compare mAh_telemetry / 0.80 with mAh_charged"
+    - "Pack sag: compare mAh_telemetry x 1.15 with mAh_charged"
+    - "Coulombic efficiency: compare mAh_telemetry / 0.98 to mAh_charged"
+    - "Temperature: compare mAh_telemetry x 0.90 with mAh_charged"
+  correct: 2
+- source: 8e9d6f8e313f
+  question: Why must a current-sensor calibration use two points?
+  options:
+    - The model I = kI + b has two unknowns; one point cannot fix both
+    - Two points average out random noise better than one reading
+    - The sensor is non-linear, so it needs a quadratic fit through zero
+    - One point per motor pair is needed because the ESC has two sides
+  correct: 0
+- source: 528b4c58d7c3
+  question: Why is the critical battery failsafe action Land rather than Return to launch?
+  options:
+    - Return to launch uses GNSS, which becomes unreliable at low pack voltage
+    - Landing is faster to execute, so the pilot has less time to intervene
+    - Return to launch disables the voltage failsafe once it has been triggered
+    - At that charge the pack may not supply the current a climbing RTL needs
+  correct: 3
+- source: e966f909fe5a
+  question: What does BATT_LOW_TIMER do, and why is 0 a bad value?
+  options:
+    - Delays arming after low voltage; at 0 the aircraft can arm when empty
+    - Requires a sustained breach; at 0 a momentary sag triggers the failsafe
+    - Sets how long to hover before landing; at 0 it lands instantly anywhere
+    - Limits flight time after low voltage; at 0 the aircraft never returns
+  correct: 1

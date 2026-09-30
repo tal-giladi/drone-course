@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 01.09-attitude-orientation.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 26ab56395a94
+  question: What are ArduPilot's body axes and world frame?
+  options:
+    - Body X forward, Y left, Z up; world is ENU
+    - Body X right, Y forward, Z up; world is NED
+    - Body X forward, Y right, Z down; world is ENU
+    - Body X forward, Y right, Z down; world is NED
+  correct: 3
+- source: c836bd8146e8
+  question: A log says ROLL +25, PITCH -5, YAW 270. What is the attitude?
+  options:
+    - Banked right 25 deg, nose down 5 deg, heading west
+    - Banked left 25 deg, nose up 5 deg, heading west
+    - Banked right 25 deg, nose down 5 deg, heading east
+    - Banked right 25 deg, nose up 5 deg, heading south
+  correct: 0
+- source: 30ec4ee363d2
+  question: At what attitude does gimbal lock occur, and why does the EKF use a quaternion?
+  options:
+    - At roll 180 deg; the quaternion needs less memory than angles
+    - At yaw 0 deg; the quaternion avoids the compass wrap at north
+    - At pitch +/-90 deg; the quaternion has no such singularity
+    - At pitch +/-45 deg; the quaternion is faster to integrate
+  correct: 2
+- source: 7b356b86c1ea
+  question: Why is body-frame velocity given by v_body = R^T v_world?
+  options:
+    - R^T removes gravity from the world velocity before it is used in the body
+    - R maps world to body, and the transpose converts the result into NED units
+    - R^T is used only because it is cheaper to compute than R on the flight controller
+    - R maps body to world, so going from world to body is the inverse rotation R^T
+  correct: 3
+- source: 484f2af037f7
+  question: QGC, a log ATT line, and a ROS 2 topic "disagree" about the same attitude. Where does the ROS-side conversion live?
+  options:
+    - In the EKF, which outputs both NED and ENU at the same time
+    - In QGC, which rewrites the ROS 2 topics before displaying them
+    - In the MAVROS bridge, which converts ArduPilot NED to ROS ENU
+    - In the ESC firmware, which reports attitude in both frames
+  correct: 2

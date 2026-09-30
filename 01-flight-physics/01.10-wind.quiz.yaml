@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 01.10-wind.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 0f1bc66e7514
+  question: Why does a tailwind raise ground speed but not battery power?
+  options:
+    - The tailwind pushes the props around faster, so the motors draw less current at the same thrust
+    - Power is set by drag at airspeed; wind shifts the ground track, not the air the props push
+    - The tailwind lowers air density behind the quad, cancelling out the extra drag at speed
+    - The firmware lowers the throttle in a tailwind, which offsets the extra ground speed
+  correct: 1
+- source: 6febf9f126e2
+  question: Tracking north at 10 m/s airspeed in a 4 m/s crosswind blowing east, what is the crab angle and track speed?
+  options:
+    - About 23.6 deg into the wind (west of north), about 9.17 m/s
+    - About 21.8 deg into the wind (west of north), about 10.8 m/s
+    - About 23.6 deg downwind (east of north), about 9.17 m/s
+    - About 23.6 deg into the wind (west of north), about 6.0 m/s
+  correct: 0
+- source: db2739343bed
+  question: Why is a round trip in wind longer than in still air, though the downwind leg is faster?
+  options:
+    - The quad must climb on the upwind leg, which adds time beyond the ground speed
+    - The downwind leg is faster but the firmware caps its ground speed at still-air speed
+    - Time d/(v-w) grows faster than d/(v+w) shrinks, so the slow leg dominates
+    - Wind adds drag on both legs equally, so both legs take longer than in still air
+  correct: 2
+- source: da3bb46cc54d
+  question: Why trust the trend, not the instant value, of the log's WIND field?
+  options:
+    - It comes from GPS-vs-model mismatch, and GPS error jitters it at the ~2 m/s level
+    - It is measured by a physical anemometer that is only calibrated once per flight
+    - It is set by the pilot before takeoff and never updated during the flight
+    - It is taken from a weather service over the link, which updates every few minutes
+  correct: 0
+- source: 45d093d146d6
+  question: Hermon tries to hold position in a 10 m/s wind at its 8 m/s cruise airspeed. What is the outcome?
+  options:
+    - Sustainable, since holding position needs zero ground speed and therefore almost zero power
+    - Sustainable, since the quad can use ground effect to anchor itself in place
+    - Not sustainable, so the pilot should reduce altitude and continue the loiter
+    - Not sustainable, since airspeed is below wind; decide on RTL or a higher airspeed
+  correct: 3

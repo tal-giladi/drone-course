@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 02.07-static-thrust-test.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 63db48ccf839
+  question: On the lever thrust rig, why does the scale reading drop when the motor pushes up, and how is thrust found?
+  options:
+    - The motor vibration shakes the scale; T = dF x a / b
+    - The prop wash pushes up on the scale pan; T = dF
+    - The motor current heats the load cell and shifts it; T = dF x a x b
+    - The thrust moment lifts the arm off the scale; T = dF x b / a
+  correct: 3
+- source: 7027f9f512dd
+  question: Why must throttle, rpm, thrust and current be recorded simultaneously?
+  options:
+    - The ESC only reports rpm while the motor is ramping, so a later reading is lost
+    - The load cell drifts with temperature, so readings taken a second apart disagree by about 10%
+    - Pack voltage falls and sags, so data from different runs came from different voltages
+    - The flight controller logs at 1 Hz, so any delay loses the reading entirely
+  correct: 2
+- source: 0eb2a9477093
+  question: How far above the bench must a 10-inch propeller be on the thrust rig?
+  options:
+    - At least 1 diameter, about 250 mm, or the prop wash overcools the motor
+    - At least 3 diameters, about 750 mm, or ground effect inflates thrust
+    - At least 10 diameters, about 2.5 m, or the rig resonates
+    - Distance does not matter as long as the rig is clamped firmly
+  correct: 1
+- source: 112a4c41aea2
+  question: Reduced data shows CP of 0.246 at 20% throttle and 0.047 at full. Is the rig broken?
+  options:
+    - "No: fixed no-load current dominates low-power readings; fit the top half"
+    - "Yes: the load cell is saturating at full throttle and the whole cell must be replaced"
+    - "Yes: the current sensor is reversed, which inverts the CP curve shape"
+    - "No: CP always rises at low throttle because the propeller stalls there"
+  correct: 0
+- source: 144d3be24d97
+  question: Bench hover power reads 250 W but the budget says 226 W. What do you do?
+  options:
+    - Proceed with the build, since hover in flight is always about 10% lower than the bench value
+    - Ignore it, since a 10% difference is within the normal thrust stand tolerance
+    - "Act now: bench is a floor, so real hover is higher; check prop and mass before building"
+    - Change the budget to 250 W, since the bench measurement is the final number
+  correct: 2
+- source: 6ed89d131851
+  question: CT measures 0.075 instead of 0.095. Hover rpm scales as 1/sqrt(CT). What happens, and what do you do first?
+  options:
+    - Hover rpm rises about 13% and throttle to about 54%; try a better prop first
+    - Hover rpm falls about 21% and throttle to about 38%; fit higher KV motors
+    - Hover rpm rises about 27% and throttle to about 61%; switch to a 4S pack
+    - Hover rpm rises about 27% and hover throttle to about 61%; switch to a 4S pack instead
+  correct: 0

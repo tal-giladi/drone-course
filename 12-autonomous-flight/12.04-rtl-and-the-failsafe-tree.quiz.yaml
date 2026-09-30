@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 12.04-rtl-and-the-failsafe-tree.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 982d0f73c6f3
+  question: From 100 m out at 20 m altitude, raising RTL_ALT from 20 m to 120 m quadruples the RTL energy. Why, when the distance home is unchanged?
+  options:
+    - Three of RTL's four phases are vertical, and the extra climb and descent make no progress home
+    - A higher RTL_ALT raises the cruise speed, and parasite power rises as the cube of that speed
+    - Thinner air at 120 m needs far more power to hover, which adds up over the cruise home
+    - The aircraft flies a longer diagonal path at the higher altitude, which quadruples the distance
+  correct: 0
+- source: adbf8510ca61
+  question: Is a high RTL_ALT more expensive on a short flight or a long one, and why does that matter?
+  options:
+    - "Long: the extra altitude is held all the way home, so long flights pay the most"
+    - "Short: descending takes more power close to home than climbing takes far away"
+    - "Short: vertical phases dominate near home, which is where people raise RTL_ALT"
+    - "Neither: the extra energy is the same fixed amount on every flight distance"
+  correct: 2
+- source: 66af20c8ad60
+  question: SmartRTL records a point every 2 m in a 300-point buffer. Why is it unavailable on a 3,121 m survey grid?
+  options:
+    - SmartRTL only works in TERRAIN frame, which the survey grid does not use
+    - The path needs about 1,561 points, so the buffer fills early and it shuts off
+    - The grid has no obstacles, so SmartRTL hands over to ordinary RTL by design
+    - The path needs about 156 points, but SmartRTL discards points on straight segments
+  correct: 1
+- source: 0d1d2fbce2c6
+  question: What connects SmartRTL's energy cost and its availability?
+  options:
+    - "Wind speed: strong wind makes retracing costly and also corrupts the buffer"
+    - "Altitude: high flights cost more to retrace and are also recorded less often"
+    - "Battery level: SmartRTL is disabled below a charge it cannot return from"
+    - "Path length: long paths are costly to retrace and also overflow the buffer"
+  correct: 3
+- source: fbd864ec4eff
+  question: A fence breach and a critical battery failsafe fire at the same moment. What happens?
+  options:
+    - It returns home by RTL, since the fence breach is handled before the battery
+    - It lands where it is, outside the fence; battery-critical outranks the fence
+    - It flies back to the nearest fence edge and lands just inside the boundary
+    - It loiters in place until the pilot selects which of the two failsafes to run
+  correct: 1
+- source: 7627d2daa7eb
+  question: You have configured every failsafe action to RTL. An EKF failsafe fires. What does the aircraft do?
+  options:
+    - It performs RTL, because the configured action is always the one taken
+    - It loiters in place until the EKF recovers and then resumes the mission
+    - It switches to SmartRTL, which retraces the path using the IMU alone
+    - It lands, because RTL needs navigation, which is what has failed
+  correct: 3
+- source: 45d985ea0354
+  question: In which three situations is RTL the wrong answer, and which is not one of the fixes?
+  options:
+    - Low battery, strong wind and a weak telemetry link; raising RTL_ALT is the fix for all three of these situations
+    - Home not where you think, RTL_ALT above the fence ceiling, an unsafe straight line; SmartRTL is not a fix
+    - Home not where you think, RTL_ALT above the fence ceiling, an unsafe straight line; raising RTL_ALT fixes none
+    - EKF failure, compass failure, GNSS glitch; setting home deliberately at arming is not one of the fixes
+  correct: 2

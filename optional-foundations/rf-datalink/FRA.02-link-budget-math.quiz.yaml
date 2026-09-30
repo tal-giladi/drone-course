@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FRA.02-link-budget-math.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: d25c8ce28233
+  question: Free-space loss at 2440 MHz is about 8.5 dB worse than at 917 MHz at every distance. Why?
+  options:
+    - Receive antenna area scales with lambda^2, so it catches less power
+    - Air absorbs higher frequencies much more strongly per kilometre
+    - Higher frequencies spread faster than the inverse-square law
+    - Transmitters convert power less efficiently at higher frequencies
+  correct: 0
+- source: a6bca3a0f4e7
+  question: 20 dBm transmit, 2 dBi at each end, 1 dB cable loss, -112 dBm sensitivity. What is the link budget, and how useful is its free-space range?
+  options:
+    - 135 dB (about 146 km free-space), a realistic operating range
+    - -89 dB, so the link cannot close at any range at all
+    - 135 dB (about 146 km free-space), correct but useless near ground
+    - 91 dB (about 1 km free-space), a conservative operating range
+  correct: 2
+- source: 780d91d86361
+  question: You want to double a radio link's range in free space. What does it cost?
+  options:
+    - 3 dB, such as 2x transmit power or +3 dBi of antenna
+    - 6 dB, such as 4x transmit power or +6 dBi of antenna
+    - 10 dB, such as 10x transmit power or +10 dBi of antenna
+    - 12 dB, such as 16x transmit power or +12 dBi of antenna
+  correct: 1
+- source: e62524786780
+  question: A 2 km link at 917 MHz needs about 7.7 m of Fresnel clearance. The aircraft is at 10 m and the ground antenna at 2 m. Is it clear?
+  options:
+    - "Yes: the aircraft at 10 m is above the 7.7 m needed"
+    - "Yes: line of sight is clear, so the Fresnel zone is irrelevant"
+    - "Yes: the midpoint height is 8 m, just above the 7.7 m needed"
+    - "No: the midpoint is only 6 m high, so the path is obstructed"
+  correct: 3
+- source: b028331fea64
+  question: Beyond the ground-reflection breakpoint 4*h1*h2/lambda (2,936 m for 2 m and 120 m antennas), how does path loss behave?
+  options:
+    - "It goes as d^2: 6 dB per doubling, as in free space"
+    - "It goes as d^3: 9 dB per doubling instead of 6"
+    - It levels off, as the reflection reinforces the signal
+    - "It goes as d^4: 12 dB per doubling instead of 6"
+  correct: 3
+- source: fd896366b94d
+  question: What is the right way to state a radio link's performance?
+  options:
+    - Maximum free-space range, e.g. 146 km for this link
+    - Fade margin at the range you fly, e.g. 35.6 dB at 2,420 m
+    - Transmit power and antenna gain, e.g. 20 dBm and 2 dBi
+    - Receiver sensitivity alone, e.g. -112 dBm for SiK
+  correct: 1

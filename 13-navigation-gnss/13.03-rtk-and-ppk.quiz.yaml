@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 13.03-rtk-and-ppk.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 326cf9898d13
+  question: The carrier phase is about 263x more precise than the code. Why has it not simply replaced the code?
+  options:
+    - "It is ambiguous: a fraction of a 19 cm cycle, but not which cycle"
+    - It is too weak to track except with a large survey-grade antenna
+    - It is only broadcast on L2, which consumer receivers cannot decode
+    - It drifts with the satellite clock, which only the code can remove
+  correct: 0
+- source: 5f9d1faf3977
+  question: What does double differencing remove, and what does it deliberately leave behind?
+  options:
+    - Satellite and receiver clocks, orbit error and multipath; it leaves geometry and the full atmospheric delay as well
+    - The integer ambiguity and the receiver clocks; it leaves geometry, orbit error and most of the atmosphere
+    - Satellite and receiver clocks, orbit error, most atmosphere; leaves geometry, noise and the integer ambiguity
+    - Only the receiver clocks; it leaves the satellite clocks, orbit error, atmosphere and integer ambiguity
+  correct: 2
+- source: ce2954cd4ac9
+  question: At a 35 km baseline RTK accuracy is still about 36 mm. Why is 35 km nevertheless the practical limit?
+  options:
+    - The correction link cannot carry data more than 35 km, so the rover loses the base entirely
+    - Beyond 35 km the base and rover see different satellites, so double differences are impossible
+    - Accuracy degrades linearly past 35 km and reaches a metre within a few more kilometres
+    - Residual atmosphere nears half a wavelength, so integers stop fixing; float is decimetres
+  correct: 3
+- source: 64a52e3fadf5
+  question: Twelve satellites with a +/-5 cycle bracket give about 2.9 x 10^11 integer candidates. How does real RTK avoid testing them all?
+  options:
+    - It tests them all on a GPU, which takes only a few seconds on modern hardware
+    - LAMBDA decorrelates the ambiguities, and a better float narrows the bracket
+    - It fixes one satellite at a time and assumes the rest share the same integer
+    - It rounds the float solution to the nearest integers and skips the search
+  correct: 1
+- source: 1230528c7026
+  question: What is the wide lane, how long is it, and what is it for?
+  options:
+    - The L1 plus L2 combination, about 10.7 cm, fixed first to constrain the L1 integers
+    - The L1 minus L2 combination, about 86.19 cm, fixed first to constrain L1
+    - The L1 minus L2 combination, about 86.19 cm, used to remove the ionospheric delay
+    - The L1 carrier alone, about 19.03 cm, fixed first to constrain the L2 integers
+  correct: 1
+- source: 66b575b44172
+  question: Hermon's telemetry uses 1,766 B/s on a 2,016 B/s link, and four-constellation RTK corrections need 1,264 B/s. Why can it not carry them?
+  options:
+    - Together they need about 150% of the link, and even GPS-only corrections reach 98%
+    - The corrections need a separate frequency band that the telemetry radio cannot use
+    - Together they need about 88% of the link, but the corrections arrive too late to use
+    - The link has room, but the flight controller cannot parse RTCM on a telemetry port
+  correct: 0
+- source: 3ab2d8d7379a
+  question: Your deliverable is a georeferenced orthomosaic. RTK or PPK, and why?
+  options:
+    - "RTK: the aircraft must fly to centimetres for the photos to align in the orthomosaic"
+    - "PPK: it is more accurate than RTK at every baseline because it uses precise orbits"
+    - "RTK: PPK cannot be used with a rolling-shutter camera on a moving aircraft"
+    - "PPK: no live link, dropouts repaired in post, and only the photos need centimetres"
+  correct: 3
+- source: 0228a3b4d7fb
+  question: An RTK pair costs NIS 2,000 and saves about NIS 188 of ground-control work per paying survey job. When does it pay for itself?
+  options:
+    - After about 4 paying jobs, since it also saves the cost of the ground markers
+    - After about 27 paying jobs, since each survey also consumes battery cycles
+    - After about 11 paying jobs, and never if you are learning rather than selling
+    - After about 11 flights of any kind, including practice flights at your field
+  correct: 2

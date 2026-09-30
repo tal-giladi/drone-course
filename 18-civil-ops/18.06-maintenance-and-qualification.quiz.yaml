@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 18.06-maintenance-and-qualification.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 42b892eddd75
+  question: 121 billable days x 3 flights x 5.8 minutes. How many hours does the operation fly, and why does it matter?
+  options:
+    - About 350 h a year, similar to a flying-school aircraft
+    - About 600 h a year, the same as a flying-school aircraft
+    - About 35 h a year, so hour-based intervals arrive earlier than expected
+    - About 35 h a year, 17x slower than hour-based intervals assume
+  correct: 3
+- source: b211e64197a4
+  question: Which component has the widest gap between its hour-based life and its calendar life?
+  options:
+    - "Wiring and connectors: 28.5 years by hours, about 2 by oxidation"
+    - "Batteries: 2.5 years by charge cycles, about 28 years by calendar ageing"
+    - "Motors: 5 years by hours, about 20 by bearing wear"
+    - "Propellers: 1 year by hours, about 10 by UV ageing"
+  correct: 0
+- source: 054d5cc6a7a7
+  question: Which component is genuinely ended by use?
+  options:
+    - "The motors: their bearings wear out after about three years of normal use"
+    - "The battery: about 2.5 years at 121 cycles of a 300-cycle life"
+    - "The propellers: they reach their rated flight hours first"
+    - "The frame: the carbon fatigues after about 300 flights"
+  correct: 1
+- source: 3ff4e9354e09
+  question: What does the resulting maintenance schedule's trigger mix look like?
+  options:
+    - Mostly hour-based items, just like a manned aviation schedule
+    - Only event items, since nothing on it wears out on a timer
+    - Calendar, event and count items, and zero hour-based ones
+    - Roughly equal thirds of hour, calendar and cycle triggers
+  correct: 2
+- source: 7b32efecae3d
+  question: How should you decide what spares to carry?
+  options:
+    - "By failure rate: carry the parts that historically fail most often in the field"
+    - "By price: carry the cheapest parts in bulk quantities"
+    - "By local availability: an unbuyable part costs weeks of lead time"
+    - "By weight: carry only what fits inside the flight case with the aircraft"
+  correct: 2
+- source: a9aa2320a4da
+  question: Why must a spare be the same part rather than an equivalent?
+  options:
+    - A different part changes KV and thrust, so the tuned gains are wrong
+    - An equivalent part voids the aircraft's registration and Remote ID immediately
+    - Different connectors make any swap impossible in the field
+    - Equivalent parts are always heavier and break the mass budget
+  correct: 0
+- source: e4f7ad289823
+  question: Why is the 24-month recurrent requirement not a currency standard?
+  options:
+    - It tests hand skills, but the rules themselves change almost every month
+    - It is so frequent that pilots stop taking it seriously
+    - It applies only to aircraft heavier than 55 lb
+    - It tests rules, but hand skills like manual takeover fade in 30 days
+  correct: 3
+- source: ee6ecb4303db
+  question: Where does an operations manual come from?
+  options:
+    - From the manufacturer's manual, revised once a year
+    - "From debriefs: about 45 changes a year from 302 findings"
+    - From the FAA template, adopted without changes
+    - "From debriefs: only about 3 changes a year from 302 findings"
+  correct: 1

@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 07.03-rate-loops.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 10b10360eb86
+  question: Why can an unfiltered rate loop never reach 180 deg of phase?
+  options:
+    - The D term adds enough lead to cancel all the lag in the loop
+    - The gyro sample rate is high enough to avoid any phase lag
+    - Plant -90 deg plus one lag reaching -90 only at infinity
+    - The motor lag contributes exactly -45 deg at every frequency
+  correct: 2
+- source: 69a3bbf2fcbe
+  question: Your aircraft rings at 8 Hz and your computed crossover is 8.1 Hz. What should you do?
+  options:
+    - Add a notch filter centred at 8 Hz
+    - Stiffen the frame arms and check fasteners
+    - Raise the gyro low-pass filter cutoff
+    - Halve whichever gain (P or D) it is
+  correct: 3
+- source: d9c89386312b
+  question: It rings at 106 Hz and the frequency does not change when you halve P. What is it?
+  options:
+    - A structural mode, such as arm bending
+    - Too much D gain in the rate loop
+    - Too much P gain in the rate loop
+    - An aliased gyro signal from ESC switching noise
+  correct: 0
+- source: 93d15e51435b
+  question: How do you tell too much P from too much D without instruments?
+  options:
+    - Too much P is quiet and hot; too much D is loud and visible
+    - Too much P is loud and visible; too much D is quiet and hot
+    - They look identical in flight, so only a log can tell them apart
+    - Too much P only shows on yaw; too much D only shows on roll
+  correct: 1
+- source: ab1def85d4ed
+  question: Why does setting ATC_RAT_RLL_FF make a multirotor worse?
+  options:
+    - It amplifies gyro noise at the blade pass frequency
+    - It disables the rate I term while the stick is moving
+    - A steady rate needs no moment, so it commands one
+    - It adds a fixed lag to the rate setpoint on every step
+  correct: 2
+- source: 59124bb76af7
+  question: Why re-raise P after adding D in the rate tuning procedure?
+  options:
+    - D reduces the effective P, so it must be restored exactly
+    - P must be retuned whenever the filters change
+    - It restores the setpoint feedforward
+    - D adds damping, so the aircraft tolerates 30-60% more P
+  correct: 3
+- source: 8b1176ef1427
+  question: Why must a rate loop be tuned at hover throttle rather than on the bench?
+  options:
+    - Moment per command change depends on throttle, so gain does
+    - Gyro noise only appears once above hover throttle
+    - A bench power supply cannot deliver enough current for a tune
+    - The estimator is inactive on the bench, so the loop is open
+  correct: 0

@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FA.03-work-energy-power.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: e872cd456b7c
+  question: How much work does a hovering aircraft do on itself, and where does its battery energy go?
+  options:
+    - Weight times hover time, stored as potential energy
+    - None; almost all of it is lost as heat in the ESCs
+    - None; it accelerates air downward, ideally about 76.1 W
+    - A little to hold height; most goes into correcting drift
+  correct: 2
+- source: 383767cb8ef8
+  question: Hermon (1.450 kg, 88.8 Wh usable, 226 W in hover) climbs to 120 m. Roughly what does the climb itself cost?
+  options:
+    - About 1,707 J, only about 0.5 % of the usable pack
+    - About 1,707 Wh, several times the whole pack
+    - About 17 kJ, roughly 5 % of the usable pack
+    - About 1,707 J, roughly 20 % of the usable pack
+  correct: 0
+- source: 94e173c1311a
+  question: A 6S pack is labelled 22.2 V and 5.0 Ah. Why does the course plan on 88.8 Wh rather than the label energy?
+  options:
+    - 111 Wh x 80 % motor efficiency, since the motors waste the rest
+    - 111 Wh x 80 % usable, since cells below about 3.5 V are damaged
+    - 22.2 V x 4.0 Ah, because the C rating limits usable charge
+    - 111 Wh minus 20 % lost as heat inside the pack in flight
+  correct: 1
+- source: ab2edb52db99
+  question: With 88.8 Wh of usable energy and a 226 W average draw, what flight time does the course's core division give?
+  options:
+    - About 29.5 minutes
+    - About 39 minutes
+    - About 2.5 minutes
+    - About 23.6 minutes
+  correct: 3
+- source: dfb7136f08c3
+  question: Battery 97 %, ESC 95 %, motor 85 %, propeller 55 %. What is the overall efficiency, and where is the main loss?
+  options:
+    - About 43 %, mostly in the propeller
+    - About 83 %, mostly in the motor
+    - About 43 %, mostly in the electronics
+    - About 55 %, set by the weakest link
+  correct: 0
+- source: db9af7505666
+  question: Hover needs 76.1 W of ideal power, the aircraft draws 226 W, and the electrical chain is 78.3 % efficient. What is the propeller's real efficiency?
+  options:
+    - About 55 %
+    - About 34 %
+    - About 43 %
+    - About 26 %
+  correct: 2

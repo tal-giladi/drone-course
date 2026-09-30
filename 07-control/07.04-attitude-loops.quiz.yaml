@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 07.04-attitude-loops.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 33f265660d42
+  question: Why does ArduPilot's attitude loop have no integral term?
+  options:
+    - The attitude estimate is too noisy to be integrated safely
+    - The plant already integrates; the rate loop's I clears error
+    - Integral terms are not permitted anywhere in cascaded loops
+    - The integral action is moved into the feedforward path instead
+  correct: 1
+- source: 4c03c280e760
+  question: ATC_ANG_RLL_P is 4.5. What does that mean physically?
+  options:
+    - The loop reaches 4.5 deg per second of rate per degree of error in 4.5 s
+    - The loop settles to within 4.5% in one second
+    - A time constant of 1/4.5 = 0.222 s for closing angle error
+    - A 4.5 Hz closed-loop bandwidth
+  correct: 2
+- source: 1915184da9aa
+  question: With P = 4.5 and ATC_ACCEL_R_MAX = 1,100 deg/s^2, the square-root controller engages above about 54 deg. Why does it rarely matter on roll?
+  options:
+    - Roll has so much authority that errors rarely exceed 54 deg
+    - It is disabled on the roll axis by default in ArduPilot
+    - The rate loop overrides the square-root controller on roll
+    - It only engages below 54 deg, where the errors are small enough anyway
+  correct: 0
+- source: d655d1a047df
+  question: What limits how high ATC_ANG_RLL_P can go?
+  options:
+    - The maximum lean angle set by ANGLE_MAX
+    - The accelerometer noise floor
+    - The GNSS update rate
+    - The rate loop's crossover frequency
+  correct: 3
+- source: "516716376951"
+  question: The aircraft feels sluggish but stable. Which parameter should you change first?
+  options:
+    - Raise ATC_ANG_RLL_P
+    - Lower ATC_INPUT_TC
+    - Raise ATC_RAT_RLL_D
+    - Raise ATC_ACCEL_R_MAX
+  correct: 1
+- source: c447053099a7
+  question: "30 deg of yaw at level vs at 80 deg pitch: what changes?"
+  options:
+    - The magnitude grows to about 170 deg of rotation
+    - Nothing; yaw is always a rotation about body z
+    - The axis is mostly body x, so Euler yaw misleads
+    - The rotation becomes singular and is undefined there
+  correct: 2
+- source: fdadd136fe6f
+  question: When full attitude error cannot be achieved, what does ArduPilot give up first?
+  options:
+    - Roll, since pitch matters more for navigation
+    - The thrust vector, to keep heading
+    - Throttle, to keep attitude
+    - Heading, keeping the thrust vector
+  correct: 3

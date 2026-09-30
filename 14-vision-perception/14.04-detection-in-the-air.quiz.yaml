@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 14.04-detection-in-the-air.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: cdbc049ae458
+  question: A standing person spans 24 px of a 4000 px wide frame at 60 m. Why does a detector with a 640 px input miss them?
+  options:
+    - Resizing squeezes the frame 6.25x, leaving about 15 px, just under the 16 px minimum a detector needs
+    - From directly above, a person is only head and shoulders, and COCO has no class for that shape at all
+    - Resizing squeezes the frame 6.25x, leaving about 3.9 px, far below the roughly 32 px a detector needs
+    - Motion blur at cruise speed smears a 24 px object into the background below the detection threshold
+  correct: 2
+- source: cc434f34888e
+  question: What does tiling a 60 m survey frame buy, and what does it cost?
+  options:
+    - Full resolution again, at no extra inference cost because all the tiles are batched in one pass
+    - A 6.25x speed-up in inference, at the cost of losing any object that is larger than one tile
+    - Better recall for large objects, at the cost of running 48 separate NMS passes on every frame
+    - Full resolution again, at 48 inferences per frame and seams that need overlap plus global NMS
+  correct: 3
+- source: 97e68d42f4bc
+  question: Tile overlap is 96 px and you are searching for cars, which are 219 px at 60 m. What goes wrong?
+  options:
+    - A car on a seam is cut into two partial pieces that are missed or never merged by NMS
+    - Every car in an overlap region is detected twice because 96 px is too much overlap
+    - Inference cost doubles because each car ends up being processed in four separate tiles
+    - Nothing; a 96 px overlap is enough because global NMS always merges any split boxes
+  correct: 0
+- source: 31e7f8fa8ac1
+  question: In a tiled pipeline, why must NMS run in global frame coordinates rather than per tile?
+  options:
+    - Per-tile NMS is too slow to run 48 times per frame on the companion's small edge accelerator
+    - The same object appears in two overlapping tiles, and per-tile NMS cannot see the duplicate
+    - Each tile's boxes are in different units until they are rescaled to the full frame
+    - Per-tile NMS discards any object that touches the tile boundary as a partial detection
+  correct: 1
+- source: 98cffaac0350
+  question: At 0.5 confidence one test image looks clean, but a full survey returns 21 real objects and 60 false ones. What happened?
+  options:
+    - The detector's accuracy gradually degraded over the survey as the lighting changed steadily from one frame to the next
+    - The 0.5 threshold is miscalibrated for aerial imagery, which inflates the per-tile false-positive rate
+    - Tiling seams created duplicate boxes along every tile edge, roughly tripling the false-positive count
+    - The false-positive rate is unchanged; 12,096 inferences instead of 48 simply give far more chances to be wrong
+  correct: 3
+- source: 178337a97d4e
+  question: Why is requiring detections of the same ground point in several frames a better lever than a better model?
+  options:
+    - False positives rarely repeat at one ground point, so two hits roughly squares the false-positive rate
+    - It averages confidences across frames, lifting real objects over the threshold by only a linear margin
+    - It lets you lower the confidence threshold, trading false positives for recall on a one-for-one basis
+    - It removes the need for tiling, because at least one frame will see the object at a usable size
+  correct: 0
+- source: "650462197753"
+  question: What actually stops a COCO-trained detector working from 60 m?
+  options:
+    - Model capacity; a larger YOLO variant generalises to the aerial viewpoint well without any new training data at all
+    - Domain mismatch (viewpoint, scale, rotation, background, density, light), fixed only by similar training data
+    - Input resolution alone; tiling the frame to 640 px fully restores the detector's COCO-level accuracy
+    - Motion blur at cruise speed; a faster shutter brings the aerial accuracy back up to COCO levels
+  correct: 1
+- source: ebf179d14406
+  question: A 60 m survey gives 252 frames and the target appears in about a tenth (about 25 instances). Fine-tuning needs about 200 instances and a usable model about 1,000. How many surveys is that?
+  options:
+    - About 1 to 4 surveys
+    - About 80 to 400 surveys
+    - About 8 to 40 surveys
+    - About 2 to 10 surveys
+  correct: 2

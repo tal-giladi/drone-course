@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 02.03-esc-basics.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 350c79eed92b
+  question: Of the four possible states of one ESC phase, which must never happen?
+  options:
+    - Both high-side and low-side on, a shoot-through short
+    - High-side on, driving the phase to +V
+    - Both off, leaving the phase floating while the rotor coasts
+    - Low-side on, pulling the phase to ground
+  correct: 0
+- source: 08deffe4a51c
+  question: Why does sensorless commutation fail right when you most need it?
+  options:
+    - Back-EMF is strongest at low speed, so it saturates the ESC input at take-off
+    - The floating phase is only available at full throttle, not during a slow start from rest
+    - Back-EMF scales with speed, so at arming and take-off there is almost no signal
+    - The zero crossing is hidden by battery noise, which is worst at high speed
+  correct: 2
+- source: 57b1afc7124c
+  question: Hermon's 14-pole motor hovers at 5,060 rpm. With 6 commutation steps per electrical cycle, about how many steps per second, and how long per step?
+  options:
+    - About 3,540 per second, about 280 microseconds each
+    - About 506 per second, about 2 ms each
+    - About 7,080 per second, about 140 microseconds each
+    - About 1,180 per second, about 850 microseconds each
+  correct: 0
+- source: 5ad732efd52b
+  question: Why is ESC switching loss versus switching frequency a bowl, and where is its bottom for Hermon?
+  options:
+    - Ripple loss rises and transition loss falls with frequency; minimum near 8 kHz
+    - Both losses rise with frequency, so the minimum is at the lowest possible rate
+    - Both losses fall with frequency, so the bottom is at the highest available rate, 200 kHz
+    - Ripple loss falls and transition loss rises with frequency; minimum near 48 kHz
+  correct: 3
+- source: 4157fef676f8
+  question: Why does an ESC need a low-ESR capacitor at its power pads?
+  options:
+    - It stores enough energy that the motor keeps spinning for a second if the battery disconnects
+    - Lead inductance turns fast current switching into voltage spikes the cap absorbs locally
+    - It filters the DShot signal so the throttle commands are not corrupted by noise
+    - It raises the pack voltage slightly so the motors reach a higher no-load rpm
+  correct: 1
+- source: e92d57b758d1
+  question: Why does Hermon use a separate UBEC instead of the 4-in-1 ESC's BEC?
+  options:
+    - The ESC BEC can only output 3.3 V, which is too low to power the flight controller reliably
+    - The 5 V rail must be isolated from the noisy 40 A board and survive an ESC failure
+    - A separate UBEC is lighter, which saves enough mass to add a minute of hover
+    - The 4-in-1 BEC is only active when the motors are spinning, not on the ground
+  correct: 1

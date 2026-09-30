@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 19.04-phase-3-delivery-and-precision-rtl.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: a554a48ff5f9
+  question: Why is the delivery approach a straight constant-velocity run rather than hover-and-drop?
+  options:
+    - It is quicker, so it saves endurance against the 71 s margin
+    - Hovering over the target would drain the pack far too quickly
+    - The corrections assume level flight, and stopping is acceleration
+    - Constant velocity reduces how far the wind drifts the pod as it falls
+  correct: 2
+- source: 311cb88e8e3f
+  question: The approach was slowed from 5.0 to 4.4 m/s for abort reasons. What did that cost in delivery CEP?
+  options:
+    - About 0.02 cm, essentially nothing
+    - About 2 cm, a small but measurable cost
+    - About 60 cm, a significant loss
+    - Nothing; it improved CEP by 12%
+  correct: 0
+- source: da5d00034e17
+  question: The delivery CEP is 8.79 m. What would actually improve it?
+  options:
+    - "RTK on the aircraft: about 2.97 m"
+    - "A surveyed target position: about 2.97 m"
+    - "Slowing the approach further: about 5.0 m"
+    - "Dropping from lower height: about 1 m"
+  correct: 1
+- source: 23774eaac98b
+  question: Which release failure is dangerous at three metres, and why?
+  options:
+    - "Releasing without feeding forward: it climbs about 15 cm"
+    - "Releasing late: the pod lands about 43 cm long"
+    - "Releasing twice: the servo stalls and overheats"
+    - "Feeding forward without releasing: it sags about 15 cm"
+  correct: 3
+- source: 4665c6260efd
+  question: Precision landing acquires within a 3.15 m radius; GPS delivers the aircraft with about 2.5 m of scatter. How often does it acquire the pad?
+  options:
+    - About 95% of the time
+    - About 55% of the time
+    - Roughly 80% of the time
+    - About 30% of the time
+  correct: 1
+- source: f0a709be1438
+  question: What is the cheapest way to raise the pad acquisition rate?
+  options:
+    - Fit RTK on the aircraft, costing about NIS 2,000
+    - Switch to a brighter LED landing marker
+    - Descend more slowly on the final approach
+    - Acquire from 15 m with a bigger printed marker
+  correct: 3
+- source: 7c5fa647c501
+  question: The landing CEP is 0.335 m against a 0.300 m criterion. What dominates the landing accuracy budget?
+  options:
+    - Descent through ground effect in wind; descend slower
+    - GPS position error; fit RTK to the aircraft
+    - Camera resolution; fit a higher-resolution camera sensor
+    - Marker detection error; print a larger marker
+  correct: 0
+- source: acdc5ea621ba
+  question: P(detect) is 0.881 and P(acquire) is 0.548. How many of ten flights should be clean, and what changes it?
+  options:
+    - About 8.8; adding RTK raises it to about 10
+    - About 5.5; adding RTK on top raises it to about 8.8
+    - About 4.8; a bigger marker raises it to about 8.8
+    - About 4.8; RTK on top of the marker gives 10
+  correct: 2

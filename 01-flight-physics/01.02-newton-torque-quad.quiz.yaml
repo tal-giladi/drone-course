@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 01.02-newton-torque-quad.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: dd95a8f01e48
+  question: A quad has six degrees of freedom but four motors. Which two DoF are not directly commanded by the mixer?
+  options:
+    - Roll and pitch, which result from the yaw reaction torque of the props
+    - Vertical translation and yaw, which result from total thrust
+    - Yaw and x translation, which result from differential thrust
+    - The horizontal translations x and y, which result from tilting
+  correct: 3
+- source: d0979b6e1744
+  question: Why does a yaw command not change total thrust, and what does it cost?
+  options:
+    - One rotation pair rises and the other falls equally; the working pair raises average current
+    - All four motors slow down together; the cost is a small loss of altitude during the whole turn
+    - Yaw uses a separate tail rotor; the cost is the extra mass of the tail motor and ESC
+    - The props tilt their thrust sideways; the cost is a small horizontal drift during yaw
+  correct: 0
+- source: 666dd3f44f52
+  question: Hermon hovers at 3.56 N per motor with 13.43 N available. What limits the maximum symmetric roll differential at hover?
+  options:
+    - "The ceiling: the 9.87 N headroom above hover limits the differential to about 19.7 N"
+    - The ESC current limit, which caps any differential at about 3.56 N per motor pair
+    - "The floor: thrust cannot go negative, so the differential is limited to about 7.12 N"
+    - "The ceiling: the rising motors saturate at 13.43 N, limiting the differential to 13.43 N"
+  correct: 2
+- source: 2cd05cf70f0a
+  question: Why do motors 1 and 3 spin one direction and motors 2 and 4 the other?
+  options:
+    - So the propeller wakes do not collide under the frame and waste thrust
+    - So the gyroscopic effect of the props keeps the quad level without any control input
+    - So each ESC can share one battery lead without a current imbalance
+    - So the reaction torques cancel in hover, and yaw comes from the pair difference
+  correct: 3
+- source: 0cc30b9dd497
+  question: Motor 4 dies at 30 m on Hermon (1.45 kg, 13.43 N per motor). What is the situation?
+  options:
+    - It cannot hover at all, since three motors lack the thrust; the pilot should cut power
+    - It flies normally, since the mixer fully restores yaw; the pilot can finish the mission
+    - It can still hover at 4.74 N per motor, but yaw drifts; fly low and straight and land soon
+    - It can hover only by spinning fast in yaw; the pilot should climb to gain height for a recovery
+  correct: 2

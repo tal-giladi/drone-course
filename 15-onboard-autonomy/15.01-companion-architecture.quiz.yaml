@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 15.01-companion-architecture.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: ed8368665a68
+  question: Why can a flight controller's 2.5 ms rate loop not run on Linux, even with a real-time kernel?
+  options:
+    - An RT kernel fixes scheduling, not SD-card stalls, page faults, USB resets, OOM kills or throttling
+    - Typical Linux-class processors are simply too slow to compute a full rate-loop iteration inside 2.5 ms
+    - A real-time kernel fixes it, but only when the CPU is pinned at its maximum clock speed
+    - Linux cannot read the IMU over SPI fast enough to sample at the rate loop's 400 Hz
+  correct: 0
+- source: c0fe2ff07835
+  question: The vision deadline is 437 ms and the rate loop's is 2.5 ms. What does that ratio show about the FC/companion split?
+  options:
+    - The flight controller's processor must be roughly 175 times faster than the companion computer's processor
+    - An 80 ms hiccup is 18 % of one and 3,200 % of the other; the split is about which misses are survivable
+    - The companion should run the rate loop as well, since it is far more capable than the FC
+    - Both loops need a real-time kernel, and the ratio only sets their relative scheduling priorities
+  correct: 1
+- source: 1427ed06ecb1
+  question: '"Decide to abort" has a 200 ms deadline the companion could meet. Why does it live on the flight controller?'
+  options:
+    - The companion's worst-case latency exceeds 200 ms whenever vision is running
+    - MAVLink has no message that lets the companion command an abort on the FC
+    - The abort must still work when the companion is the thing that has failed
+    - Regulations require every failsafe to run on certified flight hardware
+  correct: 2
+- source: 09587e2e737e
+  question: The onboard UART at 921600 baud carries 46x the radio's rate. Why does the baud rate matter at all?
+  options:
+    - A higher baud rate removes most of the 476 ms decision chain, which is dominated by serial transfer time
+    - The stream set nearly fills the link even at 921600, so any lower baud rate starts dropping messages
+    - A higher baud rate lets the companion batch messages, which substantially cuts its CPU load
+    - At very low baud such as 9600 the stream set exceeds the link, so messages queue with unbounded lateness
+  correct: 3
+- source: 9589657d7d9b
+  question: A companion draws 8 W and weighs 180 g. At 0.223 W/g, which costs more of the 23.6-minute endurance?
+  options:
+    - The power, about 3.6 minutes against 0.8 for the mass
+    - The mass, about 3.6 minutes against 0.8 for the power
+    - Both roughly equally, about 2 minutes each
+    - The mass, about 0.8 minutes against 0.2 for the power
+  correct: 1
+- source: 8aa714bc9f64
+  question: Which companion failure is fatal to the aircraft, and what prevents it?
+  options:
+    - A companion kernel panic in flight; a hardware watchdog on the companion prevents it
+    - Loss of the companion's UART link; a second redundant UART cable prevents it
+    - FC brown-out on a shared power rail; a separate BEC sized for the peak prevents it
+    - Companion overheating; a heatsink and fan fitted to the enclosure prevent it
+  correct: 2
+- source: 47e2d52fa152
+  question: Why is a throttled accelerator worse than a crashed one?
+  options:
+    - Throttling damages the accelerator permanently, while a crash is cured by a simple reboot
+    - Throttling draws extra current, which can brown out the flight controller's supply
+    - A crash is caught by the kernel and restarted automatically within a few milliseconds
+    - It keeps answering with slow, stale results and nothing reports it, so no failsafe fires
+  correct: 3
+- source: 79af5e02702e
+  question: What does the props-off cable-pull test actually find?
+  options:
+    - A missing setpoint timeout, a shared power rail, and an autostart script that cannot recover
+    - Loose connectors, poor crimps and chafed insulation anywhere in the companion's wiring harness
+    - Baud-rate mismatches, wrong stream rates and conflicting MAVLink system IDs on the link
+    - Thermal throttling, SD-card stalls and page faults on the companion under full load
+  correct: 0

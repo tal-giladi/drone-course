@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 03.03-c-rating-voltage-sag.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 3a58ac8b8293
+  question: A 5.0 Ah pack is labelled 50C. What does that claim, and how far should you trust it?
+  options:
+    - 250 A max; it is a certified continuous rating you can fly at all day
+    - 250 A max; divide by three to five for a usable continuous figure
+    - 10 A max; the C-rating is the recommended charge current
+    - 50 A max; C means amps per cell, times the cell count
+  correct: 1
+- source: daaea3b64a59
+  question: When measuring internal resistance with a load, which of these is one of the three common mistakes?
+  options:
+    - Resting the pack first, which hides the true resistance under load
+    - Using a load of at least 5 A, which overheats the cells during the test
+    - Dividing the voltage difference by the current instead of multiplying
+    - Probing beyond the pack terminals, so you measure your wiring too
+  correct: 3
+- source: 3f10c9a7373a
+  question: Why does the charger's IR reading come out lower than a DC load measurement?
+  options:
+    - Its ~1 kHz AC test sees only ohmic resistance, not polarisation resistance
+    - It measures at a lower temperature, and resistance falls as cells get colder
+    - It measures each cell in parallel, which halves the apparent resistance
+    - It applies a much larger current, which lowers the resistance of the cells
+  correct: 0
+- source: 32e5a1f9c067
+  question: Of sag, heat and cycle life, which limits Hermon's pack current, and when?
+  options:
+    - Heat, during long full-throttle bursts, when the pack exceeds 60 C
+    - Cycle life, during every hover, because 2.0 C is a harsh discharge rate
+    - Sag, near the bottom of the pack, where it cannot supply full throttle
+    - Sag, near full charge, because the voltage peak trips the ESC limit
+  correct: 2
+- source: 9997973666d8
+  question: A pack at cycle 250 still holds 86 % of its capacity. Why retire it?
+  options:
+    - Its capacity is below the 90 % minimum set by the airworthiness rules
+    - Its C-rating has halved, so it can no longer be charged at 1C safely
+    - Its resistance has doubled, so it sags and heats far more under load
+    - Its cells are now unbalanced, and balance charging no longer works
+  correct: 2
+- source: 4e9a4436dca1
+  question: What does BATT_FS_VOLTSRC = 1 do in ArduPilot?
+  options:
+    - Adds I x BATT_RESISTANCE back before comparing to failsafe thresholds
+    - Switches the failsafe from pack voltage to consumed mAh as its trigger
+    - Uses the lowest single-cell voltage instead of the total pack voltage
+    - Delays the voltage failsafe by one second to ignore short transients
+  correct: 0

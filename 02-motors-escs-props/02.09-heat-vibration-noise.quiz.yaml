@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 02.09-heat-vibration-noise.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 5105e81a6159
+  question: At full throttle, which loss takes the largest single share of the power that does not become thrust on Hermon?
+  options:
+    - Motor copper loss (I^2R), about 21 W per motor, as current squared
+    - Motor iron loss, about 21 W per motor since it grows with the square of rpm
+    - ESC switching loss, about 21 W per motor since it grows with PWM frequency
+    - Battery internal loss, about 21 W per motor since it grows with pack voltage
+  correct: 0
+- source: 55e4e596a152
+  question: Which vibration source on Hermon stays at a fixed frequency (typically 50-150 Hz) instead of moving with rpm?
+  options:
+    - Propeller imbalance, at 1 x rpm from mass offset on the blade
+    - Motor and shaft imbalance, at 1 x rpm from bell eccentricity
+    - Blade pass, at blades x rpm from each blade passing an arm
+    - Frame resonance, set by the structure's stiffness and mass
+  correct: 3
+- source: dd5c8a3142e5
+  question: How can vibration make a flight controller believe the aircraft is tilted?
+  options:
+    - Vibration heats the IMU, and thermal drift of the gyro reads directly as tilt
+    - Aliasing folds it into a false low-frequency signal; clipping shifts the mean
+    - Vibration loosens the FC screws, physically tilting the board on its standoffs
+    - The magnetometer picks up motor vibration and rotates the heading reference
+  correct: 1
+- source: caa5afe15393
+  question: A propeller has 0.5 g of imbalance at 0.1 m radius, spinning at 5,060 rpm. Hermon weighs 1.45 kg. What rotating force results, using F = m r w^2?
+  options:
+    - About 14 N, roughly equal to the weight of the whole aircraft
+    - About 1.4 N, roughly a tenth of the weight of the aircraft
+    - About 0.14 N, negligible compared with the weight of the aircraft
+    - About 140 N, roughly ten times the weight of the aircraft
+  correct: 0
+- source: a17cf93b05b8
+  question: A log shows a vibration peak at 118 Hz at both 3,048 rpm and 6,003 rpm. What is it and what should you do?
+  options:
+    - Propeller imbalance; balance the props and add a notch at 118 Hz
+    - A motor bearing fault; replace the motor whose rpm matches the peak
+    - A frame resonance; fix it structurally, not with a permanent notch
+    - Blade-pass noise; switch to two-blade props to shift it above 118 Hz
+  correct: 2

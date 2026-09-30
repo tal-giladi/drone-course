@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 01.07-hover-efficiency.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: a8ea3d967daf
+  question: Which statement correctly defines disk loading (DL) and figure of merit (FM)?
+  options:
+    - DL is power per disk area; FM is real power divided by ideal power
+    - DL is weight per disk area; FM is thrust divided by electrical power
+    - DL is weight per disk area; FM is ideal power divided by real power
+    - DL is thrust per motor; FM is hover throttle divided by maximum throttle
+  correct: 2
+- source: 6b2bff667d4c
+  question: 'Hermon (10" props) versus a 10 kg quad on four 15" props: which is the endurance aircraft, and what number says so?'
+  options:
+    - The 10 kg quad, because its larger props give it the lower disk loading
+    - Hermon, because its lighter weight gives it the higher figure of merit
+    - The 10 kg quad, because its bigger battery gives it more energy per kg
+    - Hermon, because its disk loading is roughly three times lower
+  correct: 3
+- source: 3afd56d2fde9
+  question: 'Which is the bigger endurance lever for Hermon: a 10" to 12" disc swap, or an FM 0.49 to 0.60 propeller upgrade?'
+  options:
+    - The disc swap (+21%), and the frame can take a 12" prop with small spacers
+    - The FM upgrade (+14%), though the 12" disc would give more if it fitted
+    - The FM upgrade (+21%), and it is also the only one that fits the frame
+    - The disc swap (+14%), since disc area always beats propeller quality
+  correct: 2
+- source: ee690540b613
+  question: "At 1.83 kg, which is the mission propeller: the 10x4.5 (13.43 N, FM 0.49) or the 10x6.5 (14.5 N, FM 0.44)?"
+  options:
+    - The 10x6.5, since its higher thrust is needed to lift the heavier capstone mass
+    - The 10x4.5, since thrust is not binding and its higher FM keeps the energy reserve
+    - The 10x6.5, since a coarser pitch is always more efficient in hover than a fine one
+    - Either, since both hover comfortably and endurance differs by less than 1%
+  correct: 1
+- source: 0c740bfa1209
+  question: The rule "a prop swap is a flight test, not a preference" rests on which two measurements?
+  options:
+    - The 02.07 thrust stand (max thrust, FM) and the 11.05 hover endurance flight
+    - The manufacturer thrust table and the pilot's own impression of the handling
+    - The 02.07 thrust stand and the SITL regression suite results
+    - The propeller mass on a scale and its balance on a prop balancer
+  correct: 0

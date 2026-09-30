@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 10.03-sensor-noise-and-wind.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: bcd2c2fa6cd6
+  question: The same controller holds position to 0.000 m and then to 0.944 m. What changed, and what does that justify?
+  options:
+    - True state became noisy, biased, delayed sensor data; it justifies having an estimator
+    - Wind and gusts were added to the simulation; it justifies raising the position integrator gain
+    - The gains were retuned for realism; it justifies the whole tuning module
+    - Vibration was added to the model; it justifies fitting a harmonic notch
+  correct: 0
+- source: f2cd69808706
+  question: How do you tell a latency problem from a noise problem in the simulation results?
+  options:
+    - Latency raises the standard deviation; noise raises the mean, even while hovering
+    - Both raise the mean equally; only a spectrum of the error can separate them
+    - Noise appears only while moving; latency appears mostly while hovering
+    - Noise raises the standard deviation; latency raises the mean, only while moving
+  correct: 3
+- source: 3a3028968f1d
+  question: Why is a gust modelled with a six-second correlation time rather than as white noise?
+  options:
+    - White noise would make the RK4 integrator diverge at a 400 Hz step size
+    - "Turbulence is correlated in distance: a 60 m eddy at 10 m/s lasts 6 s, a slow bias"
+    - Six seconds matches the position loop's time constant, which makes it the worst case
+    - Gusts are correlated in time by air viscosity, which sets roughly six seconds
+  correct: 1
+- source: d88d2aa19398
+  question: With perfect sensors, 12 m/s of wind costs 0.464 m of hold error; with real sensors, still air costs 0.742 m. What does that comparison mean?
+  options:
+    - Wind dominates the error at all speeds, so the position gains should be raised
+    - The sensors are faulty, since noise should never exceed the effect of wind
+    - "Below about 12 m/s it is measurement-limited: better GNSS beats harder tuning"
+    - The estimator is unnecessary in still air, since the error stays under a metre
+  correct: 2
+- source: 1f59060df7d6
+  question: Twenty seeds give a mean of 0.808 m, a best of 0.544 m and a worst of 1.052 m. What should you report?
+  options:
+    - "All three plus the seed count: report the worst, tune on the mean"
+    - The best, since it shows what the controller can actually achieve
+    - The mean alone, since it is the unbiased estimate of the true error
+    - The midpoint of best and worst, since it cancels out seed effects
+  correct: 0
+- source: 309811f7994a
+  question: What single line in the derivative function makes wind matter, and what happens if you get it wrong?
+  options:
+    - Wind added to the position integration; if wrong, the aircraft drifts at the wind speed
+    - Wind added to the thrust term; if wrong, the motors never feel the extra load
+    - Drag computed on ground speed, not airspeed; on airspeed the aircraft drifts forever
+    - Drag computed on airspeed, not ground speed; on ground speed hovering feels no wind
+  correct: 3
+- source: ae0fee444046
+  question: Which sensor would you upgrade first for position hold, and what does RTK buy you?
+  options:
+    - "The IMU: its drift dominates; a better one lets you hold position without any GNSS"
+    - "The GNSS: its 1 m noise dominates; RTK gives centimetre, not metre, position sigma"
+    - "The barometer: its noise dominates; RTK gives centimetre accuracy in altitude only"
+    - "The compass: heading error dominates; RTK gives a dual-antenna heading solution"
+  correct: 1

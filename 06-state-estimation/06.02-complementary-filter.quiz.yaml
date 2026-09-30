@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 06.02-complementary-filter.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: a1825ad388c2
+  question: Why is a complementary filter called complementary?
+  options:
+    - It always combines two identical sensors of the same type
+    - It uses the gyro at low frequency and the accel at high frequency
+    - Its two gains are tuned to complement each other's noise levels
+    - Its low-pass and high-pass paths sum to 1 at every frequency
+  correct: 3
+- source: c91510d7536d
+  question: A constant gyro bias of 0.01 deg/s feeds a complementary filter with tau = 5 s. What is the steady-state angle error?
+  options:
+    - 0.05 deg, a steady error equal to b times tau
+    - 0.002 deg, equal to b divided by tau
+    - It grows without bound, since the bias integrates
+    - Zero, since the accelerometer removes it fully
+  correct: 0
+- source: 98f87bcee6a3
+  question: On Hermon, which terms set the optimal tau, and which never matters?
+  options:
+    - Accel noise vs gyro bias set it; vibration never matters
+    - Gyro bias vs vibration via the accel; accel noise never matters
+    - Vibration vs accel electronic noise set it; gyro bias never matters
+    - Gyro white noise vs accel bias set it; vibration never matters
+  correct: 1
+- source: b110957920be
+  question: Reducing vibration from 2 g to 0.2 g moves the optimal tau from 3.46 s to 1.47 s. What does that buy?
+  options:
+    - Only a cleaner estimate, at the same bandwidth
+    - A slower but more stable attitude estimate
+    - More than double the bandwidth, with lower error
+    - A lower gyro bias error, but only half the bandwidth
+  correct: 2
+- source: 69eddf3390b3
+  question: A bias integrator with Ki = 1/tau^2 overestimates bias 40x at tau = 0.5 s. What happened?
+  options:
+    - The integrator was far too slow to follow the real bias drift in time
+    - The accelerometer saturated because tau was so short
+    - A numerical overflow occurred in the integrator's state
+    - Underdamped and fast enough to rectify vibration into fake bias
+  correct: 3
+- source: bc53c953727e
+  question: Which two things can a complementary filter fundamentally not do?
+  options:
+    - Hold a covariance to reject bad data, or couple tilt to position
+    - Fuse a gyro with an accelerometer, or run at 400 Hz
+    - Handle any gyro bias, or run with fixed gains at all
+    - Estimate attitude at all, or use a time constant to blend the sensors
+  correct: 0
+- source: 01f64956ac05
+  question: Your complementary filter is thrown off during aggressive manoeuvres. What is the right fix?
+  options:
+    - Increase tau so the accelerometer has less influence
+    - Reject the accelerometer when |a| departs from 1 g
+    - Decrease tau so errors recover faster
+    - Add a bias integrator to absorb the manoeuvre
+  correct: 1

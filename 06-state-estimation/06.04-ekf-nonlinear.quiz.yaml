@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 06.04-ekf-nonlinear.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 9e8a7bbb1589
+  question: What does an EKF do differently from a linear Kalman filter?
+  options:
+    - It replaces the nonlinear state propagation with the Jacobian F
+    - It linearises f and h at the estimate, for P and K only
+    - It drops the covariance entirely and uses fixed gains instead
+    - It propagates sigma points instead of computing any Jacobians
+  correct: 1
+- source: ea8b63ef8fe8
+  question: Your estimate is 20 m from truth and measurement noise is 1 m. Why is that worse than it looks?
+  options:
+    - The measurement noise grows in proportion to the estimate error
+    - The filter will immediately report much higher uncertainty
+    - Linearisation error is ~1.9 m and S cannot reveal it
+    - The gain collapses to zero and all updates stop
+  correct: 2
+- source: 5a48272d302f
+  question: With two range beacons giving two circle intersections, what does the EKF do?
+  options:
+    - Averages both intersections and reports a large uncertainty
+    - Oscillates between the two intersections indefinitely
+    - Rejects both beacons as inconsistent and dead-reckons
+    - Picks the one nearer its start, reporting a small sigma
+  correct: 3
+- source: 28e2f6006cd0
+  question: Why can't you use Euler angles and just be careful near vertical?
+  options:
+    - Any 3-number cover of SO(3) is singular somewhere
+    - Euler angles need far more computation than quaternions
+    - The singularity only affects yaw, which the compass then fixes
+    - Euler angles lose precision in float32 near 90 deg of pitch
+  correct: 0
+- source: 39818f9fec3b
+  question: Why not simply put a quaternion directly into the covariance-bearing state?
+  options:
+    - Quaternions cannot be propagated directly with gyro rates
+    - A 4x4 covariance for 3 DOF is singular by construction
+    - Quaternions have their own singularity at 180 deg of rotation
+    - It would make the state 26 elements long and too slow to run
+  correct: 1
+- source: f48d9ca8122d
+  question: Which is one of the three practical benefits of the error-state formulation?
+  options:
+    - It removes the need for any process model at all
+    - It lets the filter skip the covariance update each step
+    - The error stays near zero, so linearisation stays accurate
+    - It allows Euler angles to be used without any singularities
+  correct: 2
+- source: fa0a1c9f72e5
+  question: What is the key difference between NIS and NEES?
+  options:
+    - NIS needs truth, while NEES can be computed onboard during flight
+    - Both need truth, but NEES is much cheaper to compute
+    - NIS checks the error, while NEES checks the innovations
+    - NIS works in flight; only NEES catches confident-and-wrong
+  correct: 3

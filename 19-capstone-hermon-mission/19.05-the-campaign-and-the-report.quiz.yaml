@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 19.05-the-campaign-and-the-report.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 534f086e6608
+  question: The campaign flew eight clean flights out of ten. What does that actually mean, using a 95% Wilson interval?
+  options:
+    - The true rate is 80%, give or take about 2 points
+    - The true rate is at least 80%, and very probably higher
+    - The true rate lies somewhere between about 49% and 94%
+    - The true rate lies between about 75% and 85%
+  correct: 2
+- source: c6e430856675
+  question: 19.04 predicts 48% clean on GPS and 88% with the bigger marker. How many flights until the Wilson intervals separate?
+  options:
+    - About 10 flights
+    - About 19 flights
+    - About 50 flights
+    - About 5 flights
+  correct: 1
+- source: d3e991257207
+  question: What three questions does a campaign answer, and how many flights does each need?
+  options:
+    - "Can it: 1; the bias: about 10; how often: about 19"
+    - "Can it: 10; the bias: about 19; how often: about 1"
+    - "Can it: 1; the bias: about 19; how often: about 10"
+    - All three questions need about ten flights each to answer
+  correct: 0
+- source: bd386d365475
+  question: Why must the campaign report include the flights that did not deliver?
+  options:
+    - They add to the flight count needed for a waiver
+    - They improve the reported CEP statistics
+    - Regulations require every flight to be listed
+    - They did what the abort matrix told them to do
+  correct: 3
+- source: e567ce9aed0b
+  question: Why should you never quote your best drop?
+  options:
+    - The best drop almost always had the calmest wind of the day
+    - The best drop is usually a measurement error and should be discarded
+    - The best of n grows with n, so it overstates the true error
+    - "The best of n shrinks like sigma/sqrt(n): 2.96 m against 8.79 m"
+  correct: 3
+- source: b07d482b1191
+  question: What should be reported instead, and in what order?
+  options:
+    - Best flight first, then the CEP, then the mean offset and conditions
+    - Mean offset, CEP with its band, n and conditions, every flight
+    - The CEP alone, since it already summarises everything
+    - Every flight, then the best flight, then the CEP
+  correct: 1
+- source: 0ea597242278
+  question: Did the capstone close 16.05's evidence gap?
+  options:
+    - "Yes: every barrier now has dated flight evidence"
+    - "No: the release mechanism was never flight-tested under load"
+    - "No: the GNSS-denied fallback still has no evidence"
+    - "Yes: simulation results close the fallback gap"
+  correct: 2
+- source: a00d814db66b
+  question: Why is the unclosed gap the point rather than a failure?
+  options:
+    - An honest safety case states what it does not know, with an owner
+    - Gaps are expected, so they need no documentation in the case
+    - A reviewer is unlikely to notice one remaining gap in a long document
+    - Unclosed gaps are waived automatically after twelve months
+  correct: 0

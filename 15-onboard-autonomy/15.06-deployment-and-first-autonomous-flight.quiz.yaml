@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 15.06-deployment-and-first-autonomous-flight.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 7578a22e86e2
+  question: The companion stack boots in 78 s. How much of that can you actually improve?
+  options:
+    - About 48 s, by optimising the GNSS warm start and speeding up the EKF's settling time considerably
+    - Nearly all of it, by replacing systemd with a minimal custom init for the stack
+    - About 30 s (Linux, ROS discovery, MAVROS parameter fetch); GNSS and EKF take the other 48
+    - About 70 s, since only the final EKF settling is fixed by physics and cannot change
+  correct: 2
+- source: 704276e858db
+  question: Why is systemd's RestartSec=0 worse than no restart at all?
+  options:
+    - It restarts before the device nodes even exist, which permanently corrupts the SD card's file system
+    - systemd ignores a zero value entirely, so the unit is silently never restarted after a crash
+    - It restarts too slowly for flight use, leaving the aircraft without a stack for many seconds
+    - A unit dying on startup restarts thousands of times a minute and still looks like a running service
+  correct: 3
+- source: 3981f2c81af2
+  question: What does systemd Type=notify buy over Type=simple?
+  options:
+    - Dependents wait until the node reports it is ready, not merely that its process launched
+    - It sends a desktop notification to the ground station operator whenever the service crashes
+    - It restarts the unit automatically whenever the process stops responding
+    - It launches the process faster by skipping evaluation of the dependency graph
+  correct: 0
+- source: fd889bfb51e6
+  question: Why does bagging survey images cost about eleven times what writing JPEG files costs?
+  options:
+    - A bag stores each frame eleven times over, once for every subscriber on the topic
+    - A bag records the raw message, about 36 MB per frame, against about 3.6 MB per JPEG
+    - A bag's uncompressed index grows quadratically with the number of frames recorded
+    - JPEG writing uses the hardware encoder, while bagging copies every frame in software
+  correct: 1
+- source: 3f6dfd46fd7a
+  question: How long does copying a 12.6 MB bag over the 250 B/s telemetry link take?
+  options:
+    - About 14 minutes
+    - About 1.4 hours
+    - About 50 seconds
+    - About 14 hours
+  correct: 3
+- source: 7867463fb910
+  question: What does the "fill the disk" bench test check?
+  options:
+    - That a full disk stops only the logging, while the stack keeps flying and the watchdog reports it
+    - That the logger rotates old bags fast enough that the disk can never fill up during a long survey flight
+    - That the SD card's sustained write speed keeps up with raw image bagging at the trigger rate
+    - That a full disk triggers an immediate RTL so that no flight continues without its logging
+  correct: 0
+- source: d4eaf86af71d
+  question: What does step 3 of the flight ladder (companion running and publishing, but commanding nothing) answer?
+  options:
+    - Whether the companion alone can arm, take off and hold a hover completely by itself
+    - Whether merely running the stack changes how the aircraft flies; it should not
+    - Whether setpoints reach the flight controller at the rate the loop needs
+    - Whether the watchdog fires correctly when the companion process is killed
+  correct: 1
+- source: 40dd043cb2d2
+  question: In a field with no laptop, how should you know the stack is ready?
+  options:
+    - An SSH session from a phone, checking the systemd unit status of each individual companion service
+    - Waiting a fixed 78 seconds after power-up and then arming without further checks
+    - STATUSTEXT on the ground station, displayed heartbeat fields, and an LED or buzzer pattern
+    - Arming and watching whether the aircraft takes off by itself when switched to GUIDED
+  correct: 2

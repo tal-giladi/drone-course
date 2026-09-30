@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 11.04-flying-in-wind.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 01a4fcd4e737
+  question: How do you measure the wind at flying height without a wind meter?
+  options:
+    - Read the peak lean angle in LOITER over about 30 s and apply a = g*tan(theta)
+    - Read the mean lean angle in LOITER over about 30 s and apply a = g*tan(theta)
+    - Read the ground speed in LOITER, since it equals the wind speed at that height
+    - Measure the wind at your face and scale it up with the one-seventh power law
+  correct: 1
+- source: 63360f6992bc
+  question: An 18 m/s wind uses only 52% of ANGLE_MAX. What actually limits how much wind you can fly in?
+  options:
+    - The attitude limit, which gusts will reach well before the mean
+    - Motor temperature from holding high throttle against the wind
+    - The energy needed to fly the return leg home into the wind
+    - GNSS position accuracy, which degrades in strong gusty wind
+  correct: 2
+- source: 04ed8fec3922
+  question: Why does hover endurance improve between calm air and an 8 m/s wind?
+  options:
+    - The wind cools the motors and ESCs, which raises their efficiency and cuts the losses
+    - The aircraft leans into the wind, which tilts less of the thrust away from vertical
+    - Holding in wind is like forward flight in still air, which costs less than hovering
+    - The wind blowing over the frame gives it extra lift, as if it were flying like a kite
+  correct: 2
+- source: a873d4954d2e
+  question: LOIT_SPEED is 5 m/s and the wind is 6 m/s. What happens with full upwind stick in LOITER, and what do you do?
+  options:
+    - It progresses slowly at ANGLE_MAX, because LOITER overrides its speed cap in wind; no action needed
+    - It cannot make progress, because the stick commands a velocity capped at 5 m/s; switch to POSHOLD
+    - The EKF flags a position failure because it cannot hold station; switch to STABILIZE at once
+    - It cannot make progress, because the wind exceeds the tune; lower LOIT_SPEED to cut the drag
+  correct: 1
+- source: 07b2ec0b92f6
+  question: Why fly out upwind and come home downwind, rather than the reverse?
+  options:
+    - The costly leg is flown on a full pack, and after a failure the wind blows you home
+    - A tailwind outbound saves energy that is then available for the upwind return
+    - Flying upwind first keeps the GNSS antenna pointed at more of the satellites
+    - It makes no difference, because the round trip costs the same total energy either way
+  correct: 0
+- source: 8e71a14c18cc
+  question: Where is the worst turbulence near an obstacle such as a 10 m treeline, and why is that ironic?
+  options:
+    - Directly above the obstacle, which is where people fly to get a better view
+    - On the upwind face of the obstacle, which is where people land to stay out of it
+    - About three obstacle heights downwind, which is where people set up the launch
+    - About one obstacle height downwind, which is exactly where people go to shelter
+  correct: 3
+- source: 3f3d1afeea8d
+  question: Why does the aircraft surge forward in the last two metres of a landing into wind?
+  options:
+    - Ground effect pushes the aircraft forward as the cushion builds up under the rear arms; aim short
+    - The barometer reads low near the ground and the controller pitches down to compensate; aim long
+    - "The wind gradient: the headwind weakens near the ground, which reads as a forward push; aim short"
+    - "The wind gradient: the headwind strengthens near the ground, which reads as a forward push; aim long"
+  correct: 2

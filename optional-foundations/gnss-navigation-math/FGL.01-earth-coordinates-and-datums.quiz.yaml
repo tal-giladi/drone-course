@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FGL.01-earth-coordinates-and-datums.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 14182153873a
+  question: What is the difference between geodetic and geocentric latitude, and how large can it get?
+  options:
+    - Local vertical vs angle at Earth's centre; up to 0.0019 deg, about 21 m
+    - Local vertical vs angle at Earth's centre; up to 0.19 deg, about 21 km
+    - Old datum vs satellite datum; up to about 245 m on the ground
+    - They are identical on an ellipsoid; any gap is receiver error
+  correct: 1
+- source: 4a19b30d54ad
+  question: At the course site a degree of longitude is 85 % of a degree of latitude. Why lay out survey grids in metres?
+  options:
+    - Degrees cannot be stored with enough decimal places for surveying
+    - Longitude degrees are longer here, stretching squares east-west
+    - MAVLink mission items only accept positions in metres
+    - A degree 'square' is really about 1000 x 847 m, and the ratio varies
+  correct: 3
+- source: e3fa3c60e873
+  question: MAVLink stores latitude as an integer in 1e-7 degrees (about 1.11 cm here). Against a 4.50 m GNSS error budget, what does that mean?
+  options:
+    - The format limits accuracy, so positions should be sent as 64-bit doubles
+    - The format matches the measurement, so every digit is meaningful
+    - The format is only about 4x finer than the measurement, a tight fit
+    - The format is about 400x finer than the measurement, leaving room for RTK
+  correct: 3
+- source: 692246919a19
+  question: Palestine 1923 and WGS84 place the same point 245 m apart. Why can't averaging or RTK remove this?
+  options:
+    - Averaging can remove it, given enough hours of observations
+    - A datum offset is a fixed bias, neither random nor correlated error
+    - RTK can remove it, because RTK corrects all the correlated errors
+    - It is really multipath, which only a better antenna can fix
+  correct: 1
+- source: 193c00407a5e
+  question: Your GNSS reports 380 m altitude and the map says 363 m. Which is wrong?
+  options:
+    - The GNSS, since its vertical error is routinely much larger than 17 m
+    - The map, since it uses an outdated datum for all its heights
+    - Neither; ellipsoidal vs orthometric heights differ by the ~17 m geoid
+    - Neither; the gap is about 17 m of barometric pressure drift
+  correct: 2
+- source: 1323c1d75022
+  question: When does the ~17 m geoid separation actually affect a flying drone?
+  options:
+    - When mixing an orthometric DEM with ellipsoidal receiver heights
+    - On every flight, since relative altitude includes the geoid offset
+    - Beyond the 2,420 m VLOS limit, where the geoid shifts by metres
+    - Only with RTK, since standard GNSS masks the geoid offset
+  correct: 0

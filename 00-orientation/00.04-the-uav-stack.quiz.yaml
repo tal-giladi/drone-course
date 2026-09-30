@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 00.04-the-uav-stack.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 4ef5fc86211f
+  question: Which two budgets must the whole stack respect, and where is each computed in full?
+  options:
+    - Mass (1.45 kg) in 03.05 and power (226 W hover) in 04.10
+    - Mass (1.45 kg) in 04.10 and power (226 W hover) in 03.05
+    - Latency (5 ms) in 07.11 and power (226 W hover) in 03.05
+    - Mass (2.0 kg) in 00.04 and link margin (10 dB) in 09.02
+  correct: 1
+- source: 826382a416b9
+  question: The drone drifts steadily (without oscillating) downwind in still air. Which layer do you suspect first?
+  options:
+    - Control, since a steady drift means the position loop gains are too high; lower them first
+    - The link, since a smooth drift is the signature of dropped radio frames; check RSSI
+    - Propulsion, since a steady drift means one motor is weak; swap the motors first
+    - Estimation, since a steady bias is an estimator signature; confirm with the EKF health log
+  correct: 3
+- source: 2df47997f0a4
+  question: Why does the course teach estimation (06) and control (07) before the flight controller (08)?
+  options:
+    - The flight controller contains both; without them a bad EKF gain and a bad control gain look the same
+    - The flight controller firmware must be compiled from the estimation and control code written in 06 and 07
+    - Modules 06 and 07 need no hardware, so they are placed first purely to fill the wait for parts
+    - The flight controller has no estimation or control inside it, so 06 and 07 build those as add-ons
+  correct: 0
+- source: 33fc872fd6ae
+  question: Hermon has 88.8 Wh usable and hovers at 226 W (about 23.6 min). A compute board adds 12 W. What happens to hover endurance?
+  options:
+    - It drops to about 19.6 min, because the 12 W is taken four times, once per motor
+    - It is unchanged, because onboard compute runs from the separate 5 V UBEC
+    - It drops to about 22.4 min, eating most of the margin over the 22 min spec
+    - It drops to about 23.4 min, a loss of only 12 seconds for the 12 W
+  correct: 2
+- source: 6a1a3023d023
+  question: A thermal camera payload (+60 g, +3 W) is proposed. Which budgets does it stress, and which check catches a problem first?
+  options:
+    - Mass and link; the range test catches it first because heavier aircraft lose signal
+    - Power only; the 11.05 hover endurance flight catches it first because 60 g is negligible
+    - Latency and power; the SITL regression catches it first because the payload adds lag
+    - Mass and power; weighing it against the 04.10 mass table catches it before it flies
+  correct: 3

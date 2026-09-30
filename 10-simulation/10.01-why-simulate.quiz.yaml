@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 10.01-why-simulate.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 9cd4f6362990
+  question: 07.03's gain sweep has 108 combinations. What does it cost in flight versus SITL, and what is the non-obvious cost of flying it?
+  options:
+    - About 102 hours flying versus 3 hours in SITL; the batteries wear out before the sweep ends
+    - About 102 hours flying versus 3 minutes in SITL; 108 flights on bad gains risk crashes
+    - About 36 hours flying versus 3 minutes in SITL; the weather changes between the flights
+    - About 102 hours flying versus 3 minutes in SITL; the logs grow too large to analyse
+  correct: 1
+- source: fe11c9c9a1d4
+  question: Which rung of the simulation ladder is the important jump, and why?
+  options:
+    - From pencil calculations to your own simulator, which is the first to add nonlinear dynamics
+    - From SITL to Gazebo, which first adds realistic airframe physics to the simulation
+    - From Gazebo to hardware-in-the-loop, which first runs on the real flight controller
+    - From your own simulator to SITL, which runs the real ArduPilot binary and settings
+  correct: 3
+- source: 6c894836d928
+  question: Simulation catches 40 % of this course's failure modes. What do those have in common?
+  options:
+    - They are logic bugs, like mixer sign errors or failsafe races, which simulators reproduce
+    - They are physical faults, such as vibration and magnetics, which simulators model well
+    - They occur only at high speed, which is where the simulated aerodynamics are most accurate
+    - They are all tuning problems, which SITL solves automatically by sweeping the gains
+  correct: 0
+- source: 0fd2951a0e73
+  question: Vibration, magnetics, thermal, electrical, mechanical, propagation and environment cannot be simulated. What do they have in common?
+  options:
+    - Each is too computationally expensive to simulate in real time on a laptop
+    - Each is a logic error that only shows up once real hardware is running
+    - Each is physics specific to your aircraft that nobody wrote into a model
+    - Each is covered by SITL but missing from any hand-written simulator
+  correct: 2
+- source: b9810407857c
+  question: What is the deliverable of the why-simulate lesson, and why does it make flight testing cheaper?
+  options:
+    - A validated simulator, which removes the need for most flight testing altogether
+    - A crash-cost table, which justifies buying spare parts before any flight testing
+    - A SITL install, which lets every flight test be rehearsed first at ten times real time
+    - The gap list of what the simulator does not model, shrinking testing to a short list
+  correct: 3
+- source: 8865f23fba22
+  question: Why is a simulator that agrees with your controller not evidence that the controller is right?
+  options:
+    - Simulators always agree with controllers, because both of them run on the same CPU clock
+    - You wrote both, so they share assumptions like a = g tan(theta); agreeing is consistency
+    - The simulator lacks noise, so it can never disagree with a controller that is stable
+    - Agreement only proves the controller is right at the simulator's fixed time step
+  correct: 1
+- source: 67cc01b62c66
+  question: What new failure mode does simulation introduce, and what is the first defence?
+  options:
+    - Confidence without evidence; the first defence is SITL, firmware you did not write
+    - Overfitting to noise; the first defence is adding more random seeds to every single run
+    - Slower development; the first defence is running simulations only overnight
+    - Numerical drift; the first defence is switching the integrator from Euler to RK4
+  correct: 0

@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 17.02-release-mechanisms.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: e685d92a7784
+  question: With the load through a steel pin and a 3:1 roller latch, releasing 80 N takes about 0.53 N of servo force; a direct pull takes the full 80 N. Why is 'which servo should I buy' the wrong question?
+  options:
+    - Servo choice moves the requirement about 150x, while latch geometry only moves it about 8x
+    - Any hobby servo can pull 80 N directly, so the choice barely matters at all
+    - Servo speed rather than force decides whether the latch releases cleanly
+    - Geometry and friction move the requirement about 150x; servo choice only about 8x
+  correct: 3
+- source: a116d08ed09c
+  question: Why should a servo never be the part that holds the payload in flight, even if it is strong enough?
+  options:
+    - The stall current drains enough of the flight pack to noticeably cut the endurance
+    - "Holding is stall for the whole flight: full current, loaded gears and heat"
+    - No hobby servo in the 9-25 g class can produce the 80 N design load
+    - A loaded servo adds timing jitter that ruins the drop-point calculation
+  correct: 1
+- source: d2b7bd397378
+  question: An EPM is rated 100 N. Holding force follows F = F0/(1+gap/g0)^2 with g0 about 0.15 mm, and the design load is 80 N. What does it actually hold on your aircraft?
+  options:
+    - Anywhere from about 78 N down to 5 N, depending on oil, paint or gap
+    - The full 100 N, because the rating already assumes a realistic gap
+    - At least 80 N whenever the faces look clean, and the full 100 N when perfect
+    - About 50 N in every case, since ratings include a 2x safety factor
+  correct: 0
+- source: e22f7c3857d4
+  question: An EPM rated 100 N in tension has a face friction coefficient of about 0.25. Why must it never carry a shear load?
+  options:
+    - Shear loads slowly demagnetise the permanent magnet over many landings
+    - In shear it grips harder than rated, so it will not release on command
+    - Sideways it holds only friction, about 25 N, well under the 80 N load
+    - Shear loading heats the coil and trips the EPM's thermal protection
+  correct: 2
+- source: e41d7896edd4
+  question: The slowest release chain measures 162 ms against a 100 ms latency budget. Why does that not matter?
+  options:
+    - A constant delay is a bias the lead calculation removes; only jitter counts
+    - At survey speed a 162 ms delay moves the pod by only a few millimetres on the ground
+    - The pod's terminal velocity hides any timing error below about 200 ms
+    - The 100 ms budget applies only to 50 Hz outputs, not to 333 Hz ones
+  correct: 0
+- source: c1b3ec6880ee
+  question: Servos of the same model vary by about 12 ms in release time from unit to unit. Is that a bias or a jitter?
+  options:
+    - A jitter, since it varies between units and cannot be predicted
+    - A bias, once you measure your own unit and release early by the mean
+    - A jitter, unless the servo is driven from a faster 333 Hz output instead of 50 Hz
+    - Neither, because 12 ms is too small to show up in the drop error
+  correct: 1
+- source: 49c1a360a6eb
+  question: A bare-steel pin puller uses a 10 N solenoid; a 115 N hard landing produces about 23 N of pin friction. Why is it the worst of the five mechanisms?
+  options:
+    - It jams on every flight, so it is caught at once but is simply unusable
+    - The solenoid's inrush current browns out the flight controller at the moment of release
+    - Loaded friction beats the solenoid, and it jams only after a burring landing
+    - Bare steel corrodes quickly, so it fails reliably in wet weather only
+  correct: 2
+- source: 405cad73d242
+  question: What does a bistable release mechanism buy you that a parameter such as SERVOn_TRIM cannot?
+  options:
+    - It halves the servo current, so the release can run from a smaller and lighter BEC
+    - It keeps SERVOn_TRIM from drifting between flights once it is set
+    - It releases faster because no spring needs to be compressed first
+    - It cannot change state without power, so boot, reset and brownout are safe
+  correct: 3

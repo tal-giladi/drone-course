@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 18.02-the-operators-job.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: afb2fc31ee21
+  question: For one survey job in a 6:33 working day, what fraction is flying?
+  options:
+    - "About 40%: flying is the single biggest block in the operator's working day"
+    - "About 25%: flying takes as long as the drive to site"
+    - "About 4%: 17 minutes, with the rest on site, road and office"
+    - "About 70%: the rest is setup and packing on site"
+  correct: 2
+- source: 3dc726de9467
+  question: A survey day costs about NIS 2,084 in this model. What surprises people about the breakdown?
+  options:
+    - About 60% is the aircraft's depreciation plus battery cycles
+    - About 40% is software licences for processing
+    - It splits evenly between time, vehicle and aircraft
+    - About 79% is your time; aircraft and batteries are 0.5%
+  correct: 3
+- source: 684d0dc96d54
+  question: Why is a second job at the same site so much cheaper than the first?
+  options:
+    - Software is already paid for, so it costs about 10% of the first
+    - It skips the drives and loading; it costs about 62% of the first
+    - Batteries are already warm, so it costs about 90% of the first
+    - The pilot works twice as fast, so it costs about 50% of the first
+  correct: 1
+- source: 8b86cebdb1a3
+  question: A working year has about 220 days; weather takes about 55 and admin about 44. What is the utilisation term?
+  options:
+    - About 121 billable days, so each billed day carries 1.82 days of cost
+    - About 121 billable days, so each billed day carries only 0.55 days of cost
+    - About 200 billable days, so each billed day carries 1.1 days of cost
+    - It affects only taxes and so does not belong in the day rate
+  correct: 0
+- source: 21b309942c27
+  question: How much does a second crew member add to a day, and what do they buy?
+  options:
+    - About 100%; faster processing of the images back at the office
+    - About 50%; a second aircraft working in parallel
+    - About 17%; a relief driver for the long drives
+    - About 17%; an independent barrier against pilot error
+  correct: 3
+- source: d0ad8f06ff05
+  question: Processing takes about 20 s per image. Where does the image count's quadratic growth (55 to 2,291 images) actually hurt?
+  options:
+    - "In the office: about 12.7 hours of processing"
+    - "In the air: about a full day of flying"
+    - "In batteries: three packs cost more than the day"
+    - "In storage: the images overflow the SD card"
+  correct: 0
+- source: fa54a19b5890
+  question: What is the binding step on a drone job?
+  options:
+    - The flying itself on hard jobs, and the long drive to site on easy ones
+    - The fixed day on easy jobs and processing on hard ones
+    - Battery charging, which caps the flights per day
+    - Weather, which limits every job to the same degree
+  correct: 1
+- source: 232463a087aa
+  question: Which two contract terms cost the most when they are missing?
+  options:
+    - The liability cap and the payment schedule
+    - The equipment list and the pilot certificate
+    - The weather clause and the acceptance test
+    - The cancellation fee and data ownership
+  correct: 2

@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 06.06-ekf-health-and-logs.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 782e968925bd
+  question: XKF4.SP is NIS divided by the gate squared. On a 5 sigma gate, what innovation does a ratio of 0.25 represent?
+  options:
+    - 1.25 sigma
+    - 6.25 sigma
+    - 5 sigma
+    - 2.5 sigma
+  correct: 3
+- source: "86166747e659"
+  question: On a 5 sigma gate, your test ratios sit at a median of 0.5 and never exceed 0.7. Is the filter healthy?
+  options:
+    - Yes, nothing is ever rejected, so the filter is healthy
+    - No, it is overconfident; healthy ratios average ~0.04
+    - No, it is underconfident; ratios should sit near 1.0 all flight
+    - Yes, a median near 0.5 is the ideal target for a 5 sigma gate
+  correct: 1
+- source: 7f05814165e8
+  question: Why does ArduPilot's EKF failsafe trip at a ratio of 0.8 rather than 1.0?
+  options:
+    - 0.8 is exactly where measurements are first rejected
+    - It compensates for the GNSS delay built into the ratio
+    - Rejection breeds more rejection, so it acts early
+    - A ratio of 1.0 is never actually reached in real flight
+  correct: 2
+- source: 784f37678ef5
+  question: The SP ratio rises to 0.9 on every fast pass and falls to 0.3 in the hover. What is the most likely cause?
+  options:
+    - Vibration rising with throttle
+    - Multipath from nearby buildings
+    - Compass interference from the pack lead
+    - A wrong EK3_GPS_DELAY
+  correct: 3
+- source: b046e2779512
+  question: All four EKF test ratios climb steadily through a flight. What does that indicate?
+  options:
+    - Rising vibration degrading the IMU, reported correctly
+    - The estimator is broken and needs to be retuned
+    - GNSS accuracy degrading steadily as satellites set
+    - The barometer drifting with the weather during the flight
+  correct: 0
+- source: 5b61b0cd52fa
+  question: Which failure does the log triage tree fail to catch?
+  options:
+    - Vibration-induced clipping
+    - Confident-and-wrong convergence
+    - A wrong GNSS delay parameter setting
+    - An overconfident filter showing high test ratios
+  correct: 1
+- source: c159b8d5da79
+  question: Why log peak test ratios after every flight rather than rely on thresholds?
+  options:
+    - Thresholds change with every firmware release
+    - Logging peaks lets you safely raise the failsafe threshold
+    - A per-aircraft baseline shows anomalies below thresholds
+    - Peak ratios are needed later to compute NEES from the log
+  correct: 2

@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 19.02-phase-1-preflight-and-launch.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 4cc3ef232b4d
+  question: The naive sum of all preflight tasks is 32:45. Why does the fifteen-minute target look impossible, and why is it not?
+  options:
+    - Practice makes every task faster until the total reaches fifteen minutes
+    - The target covers only aircraft work, which comes to about 15:12
+    - The waits vanish once the batteries are pre-heated in the car
+    - The 32:45 sum double-counts every item on the preflight card
+  correct: 1
+- source: 711d722cf962
+  question: What does 'power the aircraft first' buy, and what does it cost?
+  options:
+    - Warm batteries, at no cost under any condition whatsoever
+    - Faster arming, at the cost of slightly higher battery draw on the pad
+    - 393 s of GNSS, EKF and boot convergence, if the safety pin is in
+    - Early Remote ID, at the cost of a failed LAANC request
+  correct: 2
+- source: 3e0b3a898b46
+  question: Why is the preflight for flight 2 only 41% as long as flight 1 (6:12 against 15:12)?
+  options:
+    - The site walk, cordon, NOTAM check and full brief do not repeat
+    - The pilot is warmed up and simply works twice as fast
+    - The second battery is already warm and fully charged
+    - The aircraft skips its preflight checks entirely on later flights
+  correct: 0
+- source: 81041a4db14d
+  question: How far can you see the aircraft, and which number counts for see-and-avoid?
+  options:
+    - A dot to about 2,420 m, its heading to about 242 m; 2,420 m counts
+    - A dot to about 242 m, its heading to about 24 m; 24 m counts
+    - About 500 m for both, the standard VLOS convention
+    - A dot to about 2,420 m, its heading to about 242 m; 242 m counts
+  correct: 3
+- source: dffcf4af0f79
+  question: 18.05 assumed 500 m of VLOS against 2,240 m of battery range. With 242 m of operative VLOS, what happens to that arithmetic?
+  options:
+    - The ratio becomes about 9x rather than 4.5x; the bound is twice as tight
+    - The ratio becomes about 2.25x rather than 4.5x; the bound loosens
+    - Nothing changes, because 500 m was already a conservative figure
+    - The ratio stays at 4.5x, but the battery becomes the binding limit instead
+  correct: 0
+- source: f4e1e4fd1b66
+  question: At 180 m the aircraft subtends about 11.2 arcminutes. Why does the sun's position matter more than the distance?
+  options:
+    - "Distance fails first: 180 m is beyond any human's detection range"
+    - The sun only affects the camera, not the pilot's eyesight
+    - "Contrast fails first: against a bright sky it vanishes entirely"
+    - "Size dominates: 11 arcminutes is too small to see in any sky"
+  correct: 2
+- source: d25631ead218
+  question: Which checks go first on the preflight card?
+  options:
+    - "The loud ones: GPS lock, battery and motors"
+    - The quickest ones, to save time on the whole card
+    - The ones the flight controller already checks itself
+    - The silent ones, like Remote ID and the fence
+  correct: 3
+- source: 51a7965adaa5
+  question: What does the hold point before launch buy, and what does it cost?
+  options:
+    - A GPS lock confirmation; 71 s, the whole of the 71 s margin
+    - Four confirmations on the pad; 16 s, about 23% of the 71 s margin
+    - Battery warming; 16 s, at no cost to the margin at all
+    - A compass calibration on the pad; 60 s, about 84% of the margin
+  correct: 1

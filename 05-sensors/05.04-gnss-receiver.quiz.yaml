@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 05.04-gnss-receiver.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 26ef64f60b7f
+  question: Why does a GNSS receiver need four satellites rather than three for a fix?
+  options:
+    - The fourth satellite corrects for ionospheric delay
+    - Three satellites always give two ambiguous solutions
+    - The fourth is needed only to compute altitude, not position
+    - It solves for x, y, z and its own clock bias
+  correct: 3
+- source: b4a5b11f11ec
+  question: A receiver reports "3D fix, 4 satellites, HDOP 4.17" with a UERE of 3.0 m. What is the likely horizontal error?
+  options:
+    - About 12.5 m, since sigma = HDOP x UERE
+    - About 1.4 m, since sigma = UERE / HDOP
+    - About 3.0 m, since a 3D fix gives the full UERE
+    - About 0.7 m, since sigma = UERE / satellites
+  correct: 0
+- source: 307396e4214c
+  question: Why is VDOP always worse than HDOP, however many satellites are visible?
+  options:
+    - Satellites orbit in fixed planes, so the vertical geometry can never really improve
+    - Satellites are only visible above you, so vertical is constrained from one side
+    - The troposphere delays signals mostly along the vertical direction
+    - Receivers deliberately weight horizontal measurements more heavily
+  correct: 1
+- source: b3f85c94dc6f
+  question: How does a GNSS receiver get velocity, and how does it compare with differentiating 2.5 m position at 5 Hz?
+  options:
+    - From differencing successive positions, giving about 0.05 m/s of noise
+    - From the IMU, because GNSS signals cannot directly measure velocity
+    - From carrier Doppler, about 0.05 m/s versus about 17.7 m/s
+    - From carrier Doppler, about 2.5 m/s versus about 5 m/s from positions
+  correct: 2
+- source: ad0d9caf6c9e
+  question: You have 18 satellites, HDOP 0.7, and the position is 10 m off near a building. What is most likely happening?
+  options:
+    - Too many tracked satellites are overloading the receiver's channels
+    - Ionospheric delay, which HDOP should have reflected but did not here
+    - The stored satellite ephemeris has expired and is being re-downloaded
+    - Multipath lengthens pseudoranges, which DOP cannot see
+  correct: 3
+- source: a43ba993eb2b
+  question: Why can a GNSS cold start take about 40 s while a hot start takes about 2 s?
+  options:
+    - Ephemeris arrives at 50 bit/s and needs 18-30 s of clean signal
+    - The receiver must first warm up its crystal oscillator to a stable frequency
+    - A cold start must search all four constellations one after the other
+    - The almanac has to be fetched from a ground station before tracking
+  correct: 0
+- source: b7ba12883263
+  question: Should you count on SBAS to improve GNSS accuracy in Israel?
+  options:
+    - Yes, EGNOS reliably cuts error to under 1 m everywhere it is visible
+    - Not reliably, Israel is at the edge of EGNOS; budget for 3.0 m UERE
+    - No, SBAS satellites are never visible from Israel
+    - Yes, but only when combined with BeiDou
+  correct: 1

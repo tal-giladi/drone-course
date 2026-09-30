@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FA.01-vectors-forces-zero.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: e97370506ca7
+  question: A vector can be written as components or as a magnitude and angle. Which form is more useful for calculation, and why?
+  options:
+    - Magnitude and angle, because the magnitudes can simply be summed
+    - Components, because adding vectors is just adding each axis separately
+    - Magnitude and angle, because it carries more information than components
+    - Components, because they remove the need to know any direction
+  correct: 1
+- source: e5e774287a84
+  question: Two forces of 10 N and 4 N act on a body in opposite directions. What is the resultant, and how wrong is simply adding the magnitudes?
+  options:
+    - 14 N; magnitudes always add for forces on one body
+    - 6 N; the naive 14 N is about 57 % too large
+    - 10.77 N; the naive 14 N is about 30 % too large
+    - 6 N; the naive 14 N is about 133 % too large
+  correct: 3
+- source: f4ec84d28bab
+  question: Hermon has a mass of 1.450 kg and four motors. With g = 9.81 m/s^2, what thrust must each motor produce in a steady hover, and why?
+  options:
+    - 3.556 N, so four equal thrusts exactly cancel the 14.225 N weight
+    - 14.225 N, so each motor alone can carry the full weight
+    - 0.3625 N, since the 1.450 kg is shared equally by four motors
+    - About 4 N, since hovering needs a small net upward force
+  correct: 0
+- source: d278135ad1d8
+  question: A quadcopter leans to move sideways while holding its height. How does its total thrust compare with level hover?
+  options:
+    - It stays the same, since leaning only redirects the existing thrust
+    - "It grows as 1/sin(lean): about 100 % more at 30 deg and 41 % at 45 deg"
+    - "It grows as 1/cos(lean): about 15 % more at 30 deg and 41 % at 45 deg"
+    - "It falls as cos(lean): about 13 % less at 30 deg and 29 % at 45 deg"
+  correct: 2
+- source: d698dc7a363b
+  question: Without an anemometer, how can a multirotor holding a steady position in steady wind measure the wind speed?
+  options:
+    - From extra battery current, since wind adds a fixed load per m/s
+    - From GNSS ground drift, since the aircraft is carried downwind
+    - From its lean angle, since horizontal thrust balances the drag
+    - From its yaw rate, since wind weathervanes it into the flow
+  correct: 2
+- source: 0b49bcedf8f8
+  question: Hermon weighs 14.225 N and its four motors give 53.72 N together at full throttle. What is its maximum lean while holding height?
+  options:
+    - 74.6 deg, where full throttle only just holds the height
+    - 15.4 deg, where the vertical thrust margin runs out
+    - 45 deg, beyond which thrust can no longer exceed weight
+    - 60 deg, where total thrust is exactly double the weight
+  correct: 0

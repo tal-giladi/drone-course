@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 11.03-basic-maneuvers.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 983f33f8a830
+  question: In the box drill, why is each corner a full stop rather than a turn, and what lean angle should you fly?
+  options:
+    - Stopping saves battery on the corners; fly about 15 deg so each leg finishes quickly
+    - Stopping is what is being tested; fly about 5 deg so each leg is slow enough to fix
+    - Stopping is the skill being tested; fly about 15 deg so each 10 m leg is short and quick
+    - Curved corners confuse the position controller; fly about 30 deg for crisp legs
+  correct: 1
+- source: f41d5b0b1d33
+  question: Which nose-in heading is hardest to fly, and why is it not 180 deg?
+  options:
+    - "180 deg: every input is inverted, and inversion is the hardest mapping to reason about"
+    - "90 or 270 deg: yaw authority is weakest sideways, so small corrections are sluggish"
+    - "45 deg: the stick mixes two axes, which is harder than any pure rotation"
+    - "90 or 270 deg: the controls are rotated, so corrections go perpendicular to the error"
+  correct: 3
+- source: 3cfbc83bb048
+  question: Why is flying nose-in a safety skill rather than an aerobatic one?
+  options:
+    - RTL only works if the pilot can confirm heading by flying nose-in beforehand
+    - Nose-in is the orientation in which motor failures are most likely to occur
+    - An aircraft coming home points at you, so any manual takeover of it is nose-in
+    - Regulations require nose-in hovering to be demonstrated before any solo flight
+  correct: 2
+- source: 68bd11a81261
+  question: A 360 deg yaw takes about four seconds at ATC_RATE_Y_MAX. Why should you not yaw and translate at the same time?
+  options:
+    - The mixer drops yaw first when saturated, so the turn stalls while translation continues
+    - Yawing adds drag on the arms, which slows the translation more than the yaw itself
+    - Combining yaw with translation triggers an EKF yaw reset that briefly freezes the aircraft
+    - The mixer gives up roll and pitch first, so the translation stops halfway through the turn
+  correct: 0
+- source: 60149ea70704
+  question: What does ground effect do in the last 20 cm of a landing, and what is the correct procedure?
+  options:
+    - It lowers thrust, so the aircraft sinks; add a burst of power in the last 20 cm to cushion it
+    - It raises thrust, so it floats; pause near 30 cm until settled, then reduce throttle smoothly
+    - It raises thrust, so the aircraft floats; chop the throttle at 20 cm to punch through the cushion
+    - It is negligible below 30 cm, so just keep descending steadily all the way to touchdown
+  correct: 1
+- source: 88a6d72bca3a
+  question: Hermon's induced velocity is 5.35 m/s, the vortex ring risk band starts near 2.7 m/s, and LAND_SPEED is 0.75 m/s. Can it enter vortex ring state, and what is the escape?
+  options:
+    - Yes, at LAND_SPEED; escape by adding full power to climb out of the vortex
+    - Not at its configured descent rates; escape by adding full power to climb out
+    - Yes, at PILOT_SPEED_DN; escape by pitching forward out of the downwash
+    - Not at its configured rates; escape by pitching forward out of the downwash
+  correct: 3
+- source: e8bde9de7b66
+  question: One pack is eleven runs of the manoeuvre sequence. Why is a run a better unit of practice than a minute?
+  options:
+    - A run is scoreable, so you get a learning curve that shows when you plateau
+    - Minutes change with pack age while run counts stay constant from flight to flight
+    - Eleven runs is the minimum count needed for the logbook to be considered valid
+    - Counting runs keeps the aircraft inside visual range better than timing minutes
+  correct: 0

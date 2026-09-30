@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 16.03-reading-flight-logs.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 46a4a6807e6c
+  question: Why is the order of the five log checks the whole method?
+  options:
+    - Jumping to the moment of interest finds only what you suspected; the early checks usually answer it
+    - The later checks all depend on intermediate parameters that are computed by the earlier checks in the list
+    - Log viewers can only load the later message types after the earlier ones have been parsed
+    - The checks run from slowest to fastest, which minimises the average time spent per log
+  correct: 0
+- source: 7f182d677e4b
+  question: Actual roll is a clean 0.70x copy of desired roll, with no lag and zero mean error. What is wrong?
+  options:
+    - The filters add too much phase lag
+    - The P gain is too low
+    - The aircraft is out of trim
+    - The D gain is set too high
+  correct: 1
+- source: a141597512e8
+  question: Actual roll matches desired in amplitude but arrives 45 ms late. Why is raising the gain the wrong response?
+  options:
+    - The lag comes from low gain, so raising it fixes amplitude but leaves the timing untouched
+    - The lag is only logging delay, so the aircraft is fine and needs no change at all
+    - The lag is filter phase, and more gain on a phase-lagged loop pushes it toward oscillation
+    - The lag is a trim offset, so a change in gain has no effect on it whatsoever
+  correct: 2
+- source: 0db79571ed8b
+  question: Why must a log classifier test for low gain before testing for trim?
+  options:
+    - Trim cannot be measured at all until the gain has been raised to its final value
+    - Gain problems are more dangerous, so they are always checked first for safety
+    - The trim test needs the vibration result, which is only produced after the gain test
+    - Low gain also produces a non-zero mean error, which would be misreported as trim
+  correct: 3
+- source: bbacff891413
+  question: VIBE levels are 12 m/s^2 and the log shows 400 clips. Is the aircraft fine?
+  options:
+    - Yes; 12 m/s^2 is within limits, and the clip counter simply accumulates harmlessly since boot
+    - No; clips mean samples hit the sensor rail and fed the EKF wrong numbers, likely a resonance
+    - Yes; clips only matter once the VIBE levels climb above about 30 m/s^2 in flight
+    - No; 12 m/s^2 itself is far too high, and retuning the gyro filters will fix it
+  correct: 1
+- source: 26e59650fcf0
+  question: How does the log reveal motor rpm, and how precisely at a 400 Hz logging rate over 512 samples?
+  options:
+    - A DFT of the gyro finds the shaft tone at rpm/60, within one 1.28 Hz bin
+    - ESC telemetry logs the rpm directly in the log, to within about 1 rpm
+    - A DFT of the gyro finds the shaft tone at rpm/60, within one 0.78 Hz bin
+    - A DFT of the gyro finds the shaft tone at rpm/30, within one 0.78 Hz bin
+  correct: 2
+- source: 09cc0e517bae
+  question: The shaft tone is 84 Hz at hover and 164 Hz at full throttle. What does that mean for a fixed notch at 84 Hz?
+  options:
+    - It still attenuates the climb tone well, since 164 Hz is effectively the second harmonic of 84 Hz
+    - It should be moved to 124 Hz, the midpoint, so that it covers both conditions equally
+    - It only needs widening to an 80 Hz bandwidth around 84 Hz to cover the climb as well
+    - It sits 80 Hz from the tone in the climb and does nothing there; the notch must track throttle
+  correct: 3
+- source: 2ec14923606f
+  question: Vibration, attitude error and current all step at one sample; HDOP, baro and RC input do not. What happened?
+  options:
+    - A mechanical event such as a prop strike, loose fastener or failing bearing
+    - A GNSS multipath glitch that corrupted the EKF's position estimate for a moment
+    - A sudden pilot stick input that demanded an aggressive manoeuvre
+    - A gain change in flight that set the attitude loop oscillating
+  correct: 0

@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 17.04-release-dynamics.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: a8f23aa70b6d
+  question: Hermon (1.700 kg) releases a 250 g pod. What changes at that instant, and what does the controller know?
+  options:
+    - The controller reads the new mass from the release command and adapts
+    - Only the mass; thrust stays at the learned hover throttle, so it climbs
+    - Thrust drops at once because the unloaded motors spin up and the ESCs then compensate
+    - The EKF detects the mass change within a millisecond from IMU data
+  correct: 1
+- source: c313db9561c0
+  question: Why can the vertical proportional gain not prevent the post-release balloon?
+  options:
+    - P is limited by how fast the motors can slew their thrust downwards
+    - P acts on position, which lags the velocity by the integrator's own time constant
+    - Velocity error is zero at release, and P cannot cancel a constant offset
+    - P is disabled during payload events to avoid double-counting the step
+  correct: 2
+- source: 4d4dcb3c5701
+  question: If P cannot prevent the balloon, what sets its size?
+  options:
+    - The integrator unwind time, with P acting as a lid on the peak
+    - The motor spin-down time constant, independent of the gains
+    - The 85.5 ms release latency between command and the mass leaving
+    - The barometer filter delay in the altitude estimate alone
+  correct: 0
+- source: e1092046c3bc
+  question: Firing the hover-throttle feedforward at the release command leaves a small dip before the climb. Why?
+  options:
+    - The feedforward step is too large and so overshoots the new, lower hover throttle
+    - The ESCs need about 85 ms to accept any new throttle command
+    - The integrator fights the feedforward and briefly pulls throttle down
+    - The mass leaves 85.5 ms after the command; until then it is under-thrusted
+  correct: 3
+- source: f6c3a5a92840
+  question: With no feedforward a 250 g release balloons 15 cm. How does the residual scale with error in the pod mass used by the feedforward?
+  options:
+    - Any error over about 5% brings back the full 15 cm balloon
+    - "Quadratically: 10% wrong leaves about 0.15 cm, and 20% wrong about 0.6 cm"
+    - "Roughly in proportion: 10% wrong leaves about 1.5 cm, 20% about 2.9 cm"
+    - "Barely at all: even 50% wrong leaves under a centimetre"
+  correct: 2
+- source: 22ef80b7a5a1
+  question: Which axis has the dangerous release transient, and what sets its size?
+  options:
+    - Pitch, set mainly by how heavy the released pod was
+    - Pitch, set by how far from the centre of mass the pod hung
+    - Vertical, set by the pod's mass as a fraction of total aircraft mass
+    - Yaw, set by the torque imbalance when the load changes
+  correct: 1
+- source: 974bb805808b
+  question: Why is 'reset the integrator at release' the wrong instruction?
+  options:
+    - Resetting makes the kick larger, so the integrator should be frozen at release instead
+    - The arming logic already resets the integrator on every servo event
+    - Resetting is safe in pitch but must never be done in the vertical axis
+    - It also discards wind trim and build asymmetry; step it by the removed load
+  correct: 3
+- source: af0ee526ea30
+  question: After a 500 g release the vertical plant gain rises 34% and damping drops 14%. What is a pogo, and how does a log distinguish it from a transient?
+  options:
+    - A sustained oscillation starting at release; a transient is a step that decays
+    - A single decaying overshoot, while a transient is the one that keeps on oscillating
+    - An oscillation before release, caused by the pod swinging on its latch
+    - A climb from feedforward timing, identical in the log to a transient
+  correct: 0

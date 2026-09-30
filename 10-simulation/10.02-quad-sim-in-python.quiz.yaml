@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 10.02-quad-sim-in-python.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 05fed62dd885
+  question: Why does the lesson insist that every constant in the Python simulator came from an earlier lesson?
+  options:
+    - So the simulator runs faster by reusing precomputed lookup tables from those lessons
+    - So it matches SITL's default parameters and the two can be swapped freely
+    - So its output can be checked against results frozen before the simulator existed
+    - So students need not measure anything new on their own aircraft to use it
+  correct: 2
+- source: 3db53a308081
+  question: At 400 Hz, Euler integration is accurate to 0.0002 degrees per step. Why use RK4 anyway?
+  options:
+    - Euler's error builds up one way over a flight, and RK4 stays stable at larger steps
+    - Euler cannot integrate quaternions, so it fails for any attitude beyond 90 degrees
+    - RK4 needs fewer derivative evaluations per step, so it is simply the faster of the two
+    - Euler's per-step error grows with the step squared, and 400 Hz is too slow for it
+  correct: 0
+- source: c81cc3539fcc
+  question: The simulator gives a full-throttle thrust-to-weight of 3.59, while hermon-numbers.md says 3.78. Which is wrong?
+  options:
+    - 3.78, because it ignores the battery voltage sag that always occurs at full throttle
+    - 3.59, because the simulator's drag model wrongly subtracts thrust at hover
+    - "Neither: 3.78 is the propellers'; MOT_SPIN_MAX at 0.95 clamps the aircraft to 3.59"
+    - "Neither: 3.59 includes the 5 % of wiring weight the build sheet leaves out"
+  correct: 2
+- source: d215be024fc4
+  question: You ask the simulator's mixer for 6.28 N-m of roll and get 3.42. Why?
+  options:
+    - The mixer rescales all motors equally, so roll authority halves at any throttle setting
+    - MOT_SPIN_MIN/MAX clamp each motor; 3.42 is 'throttle free', 0.98 with throttle held
+    - The rate loop limits roll torque to ATC_RAT_RLL_IMAX, whose default value is 3.42
+    - The 30 ms motor lag delays the torque, and 3.42 is its value after one control step
+  correct: 1
+- source: cdeb6ee921d8
+  question: ANGLE_MAX is 30 degrees and the simulated aircraft reaches 33.8 degrees. Is that a bug?
+  options:
+    - "Yes: ANGLE_MAX is a hard clamp on attitude, so any excess must point to a mixer error"
+    - "No: the extra 3.8 degrees is noise added by the simulator's IMU sensor model"
+    - "Yes: the RK4 integrator overshoots at 400 Hz, adding roughly 12 % error"
+    - "No: the limit caps the demand, and the loop overshoots it by about the 8.7 % measured"
+  correct: 3
+- source: 1cb38c600f10
+  question: Flipping a sign in the mixer fails every check; also flipping the matching sign in the inverse mixer makes every check pass. What does this demonstrate?
+  options:
+    - The inverse mixer is redundant and can safely be removed from the simulator's derivative
+    - The mixer's sign convention is arbitrary, so either choice flies correctly
+    - "A shared assumption: a symmetric error cancels in simulation yet flips the real aircraft"
+    - The checks are too weak and should be run against SITL instead of the Python simulator
+  correct: 2
+- source: 6d1a24107ee7
+  question: According to its code, which set of things does the Python 6-DoF simulator lack?
+  options:
+    - Motor lag, rotational inertia and body drag
+    - Sensors, wind, vibration and ground effect
+    - RK4 integration, the mixer and its clamps
+    - Gravity, thrust limits and the attitude loop
+  correct: 1

@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 16.04-failure-injection-and-ci.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 75be0d425faf
+  question: How many of the eight branches of the failsafe ladder can SITL inject on demand?
+  options:
+    - All eight, crash detection included
+    - Five; RC, GCS and terrain loss need real hardware
+    - Seven; only crash detection cannot be requested
+    - Six; neither EKF failsafe nor crash detection can be requested
+  correct: 2
+- source: 442120745db4
+  question: A quadcopter cannot recover from a motor failure. What does the SITL motor-failure test assert?
+  options:
+    - That the aircraft can still hold its altitude on the three remaining motors for at least 30 seconds
+    - That the aircraft returns to launch on three motors and lands within 30 m of the home point
+    - Nothing at all; motor failure is excluded because no recovery is possible on a quadcopter
+    - "The designed ending: under 30 m of travel, a bounded descent, disarm on impact and the right log"
+  correct: 3
+- source: 8338e0b16823
+  question: One motor stops, leaving a yaw torque imbalance of 0.0733 N m on Izz = 0.02236 kg m^2. What is the yaw rate one second later?
+  options:
+    - About 188 deg/s
+    - About 3.3 deg/s
+    - About 94 deg/s
+    - About 10,800 deg/s
+  correct: 0
+- source: b53ccc38f804
+  question: Twenty tests, each 95 % reliable. How often is the whole suite green with nothing wrong?
+  options:
+    - About 95 % of the time
+    - About 36 % of the time
+    - About 64 % of the time
+    - About 5 % of the time
+  correct: 1
+- source: 62e53aaf53c1
+  question: A real bug fires 5 % of the time. Why is retrying a flaky test twice worse than quarantining it?
+  options:
+    - With two retries it is reported 15 % of the time, which triples the number of false alarms raised
+    - Retries double the CI run time, which quarantining the test would avoid completely
+    - With two retries it is reported 0.25 % of the time, which is still easy to notice
+    - With two retries it is reported only 0.0125 % of the time, hiding real intermittent faults
+  correct: 3
+- source: ce40f69df03c
+  question: If you must retry flaky tests, what must you also do?
+  options:
+    - Record the retry count and alarm on it, tracking retries per week
+    - Track the pass rate and alarm whenever it drops below 95 %
+    - Raise the retry limit until the suite is reliably green every run
+    - Run each retry in a fresh container to rule out leftover state
+  correct: 0
+- source: 1d7b30d0630f
+  question: Why does a larger test suite need a wider regression band on each test?
+  options:
+    - Larger suites take longer to run, so more environmental drift accumulates between successive runs
+    - False failures compound, so each test's false-failure rate must be under 1 - 0.95^(1/n)
+    - More tests share the CPU, which raises the run-to-run scatter of every metric
+    - Wider bands are a review convention for large suites rather than a real necessity
+  correct: 1
+- source: 26689b971da4
+  question: What is the relationship between suite quietness and suite sensitivity?
+  options:
+    - They are independent; quietness depends on count and sensitivity on the metric
+    - They trade off freely, and narrowing the bands improves both of them at once
+    - "The same problem: the band sets both, and only reducing variance improves both"
+    - Sensitivity rises with suite size, while quietness falls as the suite grows
+  correct: 2

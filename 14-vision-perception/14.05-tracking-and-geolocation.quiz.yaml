@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 14.05-tracking-and-geolocation.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 06d89b7abb3a
+  question: Which sequence correctly takes a pixel to a ground coordinate?
+  options:
+    - Normalised ray, undistort, camera-to-body mount transform, body-to-NED attitude, intersect ground plane
+    - Undistort, body-to-NED attitude, camera-to-body mount transform, normalised ray, intersect ground plane
+    - Normalised ray, undistort, body-to-NED attitude, intersect ground plane, camera-to-body mount transform
+    - Normalised ray, camera-to-body mount transform, intersect ground plane, undistort, body-to-NED attitude
+  correct: 0
+- source: cdc2ee23f212
+  question: A 7.03 m geolocation budget is dominated by GNSS position (4.80 m) and terrain (5.00 m). Calibration is 0.30 px RMS. How much does it contribute?
+  options:
+    - About 0.6 m, roughly a tenth of the whole 7.03 m geolocation budget
+    - About 0.6 cm, over a thousand times smaller than the total
+    - About 2 m, making it the third-largest error term
+    - About 6 cm, roughly one percent of the total
+  correct: 1
+- source: 7c271ab8f65b
+  question: Why does a 6.9 m altitude error move the ground point by nothing at frame centre but 4.73 m at the edge (34.4 deg off nadir)?
+  options:
+    - Lens distortion is zero at the centre and grows with image radius, and it scales the altitude error up along with it
+    - Altitude error enters only through the attitude estimate, and attitude error is largest at the frame edge
+    - At nadir it slides the point along a vertical ray; off nadir the error grows as the tangent of the off-nadir angle
+    - The error grows as the sine of the off-nadir angle, because edge pixels are further from the optical centre
+  correct: 2
+- source: 75d180b9f17e
+  question: Which of the six geolocation error terms average away over thirty seconds of tracking?
+  options:
+    - GNSS position, terrain and mount angle; attitude, calibration and detector jitter do not
+    - GNSS position, attitude and detector jitter; terrain, calibration and mount angle do not
+    - All six of them, since a Kalman filter removes any error given enough frames of data
+    - Attitude, calibration and detector jitter; GNSS position, terrain and mount angle do not
+  correct: 3
+- source: b5d1ad41c51f
+  question: The tracked absolute error floors at the bias and never improves, yet the target's speed estimate is correct. Why?
+  options:
+    - The Kalman filter estimates target velocity from the aircraft's IMU rather than from positions
+    - A common bias shifts every measurement equally, so it cancels in differences such as velocity
+    - The bias only affects the first few frames and has decayed by the time speed is estimated
+    - Speed is computed from raw pixel displacement, which never passes through the geolocation chain
+  correct: 1
+- source: 429877c94503
+  question: Why is the association gate 2.8 m rather than 21 m (3 sigma of the 7 m total budget)?
+  options:
+    - The gate is sized to the target itself, and a typical adult sheep seen from above is about 2.8 m long
+    - The Kalman filter shrinks the 7 m bias by the square root of the number of frames seen
+    - The 7 m bias is common to prediction and measurement, leaving about 0.94 m of per-interval error
+    - A 21 m gate would be correct, but 2.8 m is used to save computation on the companion
+  correct: 2
+- source: f7ae4dcf60a6
+  question: Sheep stand 3 m apart; every absolute position is about 7 m wrong in the same direction; the association gate is 2.8 m. Can they be tracked individually from 60 m?
+  options:
+    - No, because the 7 m absolute error is more than twice the spacing between the individual animals
+    - No, because a gate built from the 7 m total budget would swallow several animals at once
+    - Only after RTK removes the common 7 m bias from every one of the measured positions
+    - Yes, marginally, because the gate is below their spacing even though positions are biased
+  correct: 3
+- source: a0f61e1ec81b
+  question: With 80 % forward overlap each ground point is seen about five times. What does requiring two detections of the same point do?
+  options:
+    - Cuts false tracks from 0.907 per survey to about 5.6e-8, with almost no loss of recall
+    - Cuts false tracks from 0.907 to about 0.45 per survey, at the cost of half the recall
+    - Cuts false tracks by a factor of five, matching the number of times each point is seen
+    - Cuts false tracks to near zero, but misses most real objects because they are seen once
+  correct: 0

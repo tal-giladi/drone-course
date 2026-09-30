@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 04.05-building-hermon.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 1b61fe9c0a35
+  question: Why is 0.60 N m the right torque for an M3 into carbon plate, versus 0.90 N m into steel?
+  options:
+    - Carbon is slippery, so less torque is needed to reach the same preload
+    - The M3 screw yields at 0.90 N m when the joint is backed by carbon
+    - Carbon expands when warm, so lower torque avoids cracking it in flight
+    - The laminate, not the screw, is the limit; 0.90 N m crushes the carbon
+  correct: 3
+- source: aa1802f2d52f
+  question: M3 x 8 screws go through a 2 mm arm clamp into 4 mm deep motor holes. What happens?
+  options:
+    - The screw stops at the thread bottom, so the joint is merely loose
+    - The screw reaches 8 mm, strips the thread and falls out in flight
+    - "Nothing: 2 mm of spare length is normal clearance for motor screws"
+    - The screw reaches 6 mm into a 4 mm hole and can short a winding
+  correct: 3
+- source: 5c195a7c0a4d
+  question: Every joint on Hermon has a 5x to 161x strength margin. Why do drone joints still fail?
+  options:
+    - The margins are computed at 25 C and fall sharply when motors warm up
+    - They come loose under vibration, losing preload, rather than breaking
+    - Carbon fibre fatigues after a few flights, so the margin disappears
+    - The margins cover static loads but not the thrust of full throttle
+  correct: 1
+- source: f4b6a59194be
+  question: Idle current with nothing armed and no props is 1.4 A on 22.2 V (expected 0.35-0.6 A). What do you do?
+  options:
+    - "Continue: 1.4 A is normal while the ESC capacitors are still charging"
+    - "Arm and spin up briefly: the current will settle once the motors run"
+    - "Unplug: about 31 W is being dissipated somewhere with nothing turning"
+    - Recalibrate the current sensor, since the offset is probably wrong
+  correct: 2
+- source: 87a6ed22cafa
+  question: A spark appears when you plug in the pack. Is it a fault?
+  options:
+    - No; it is capacitor inrush, but a lasting spark means a short
+    - Yes; any spark means a short, so the ESC must be replaced at once
+    - Yes; it means the pack polarity is reversed on the connector
+    - No; it is static from the frame, and even repeated sparks are fine
+  correct: 0
+- source: 600bcdb40764
+  question: On an ArduPilot Quad X, which motors spin counter-clockwise?
+  options:
+    - Motor 1 (front right) and motor 3 (front left)
+    - Motor 1 (front right) and motor 2 (back left)
+    - Motor 3 (front left) and motor 4 (back right)
+    - Motor 2 (back left) and motor 4 (back right)
+  correct: 1
+- source: 282ff3f38d94
+  question: Why does the build log ask for a photo of every joint before the heatshrink goes on?
+  options:
+    - It is required as evidence for a warranty claim on the ESC and motors
+    - It lets the flight controller verify the wiring via its setup wizard
+    - It proves to the regulator that the drone was built to its standard
+    - It saves disassembly later and records routing you did not write down
+  correct: 3

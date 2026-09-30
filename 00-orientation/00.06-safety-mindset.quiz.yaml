@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 00.06-safety-mindset.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 42d91357c375
+  question: Which pairing of failure family to safety net is correct?
+  options:
+    - "Falls: the geofence plus the airspace check"
+    - "Lands-on-something: the LiPo procedure plus fuses"
+    - "Burns: the control loop plus failsafes"
+    - "Burns: the LiPo procedure plus fuses"
+  correct: 3
+- source: 55e70fe1e377
+  question: What is the rule that overrides all the others, and why?
+  options:
+    - '"Always complete the mission," because an aborted flight produces no usable data for the flight log'
+    - '"When in doubt, the aircraft is on the ground," since a grounded problem can be measured and fixed'
+    - '"Trust the autopilot over the pilot," because the firmware reacts faster than a human can'
+    - '"Never fly above 4 m/s wind," because wind is the cause of nearly every crash'
+  correct: 1
+- source: e28c66113135
+  question: Why must abort criteria be measurable rather than felt?
+  options:
+    - Regulators reject flight logs unless every abort is triggered automatically by the autopilot
+    - The decision is made in the air under time pressure; a number is checked fast and defended later
+    - Felt criteria are always too conservative and trigger far too many unnecessary aborts in practice
+    - A measurable criterion lets you keep flying longer before an abort becomes mandatory
+  correct: 1
+- source: be37f10385de
+  question: A friend says "the log is bureaucracy, my memory is fine." What is the counter-argument?
+  options:
+    - Memory is fine for short flights, but the log becomes necessary once any single flight exceeds 20 minutes
+    - The log is required by insurance, so without it a crash is not covered financially
+    - Logs are only useful for tuning PID gains, which memory cannot store precisely
+    - Memory is a witness that testifies in its own favor; the log records what you wrote before the flight
+  correct: 3
+- source: e9e43d0c49ed
+  question: Pre-flight said GO with 2 m/s wind; 15 min later wind is 3.5 m/s against a 4 m/s limit. What do you do?
+  options:
+    - "Re-read the pre-flight: still GO if all else holds, log the change, and ground it if 4 m/s looks likely"
+    - Take off immediately, since the pre-flight was already signed off and the conditions are within the limit
+    - Cancel the flight for the day, since any change in wind after the pre-flight invalidates the GO
+    - Raise the wind limit to 5 m/s, since a 12.5% margin is too small to be practical in the field
+  correct: 0

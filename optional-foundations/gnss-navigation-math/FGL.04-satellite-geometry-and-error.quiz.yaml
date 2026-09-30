@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FGL.04-satellite-geometry-and-error.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 2200888efe7d
+  question: Six independent GNSS error sources sum to 8.2 m, yet the UERE is 4.50 m. Why?
+  options:
+    - The largest source dominates, so the smaller ones are dropped
+    - Errors are averaged, so the total is 8.2 m divided by about two
+    - Correlated errors cancel, so the total is the difference of pairs
+    - Independent errors add in variance, so the total is root-sum-square
+  correct: 3
+- source: 406938d1b16a
+  question: The ionosphere is 79 % of the GNSS error variance. Which improvement should you pay for?
+  options:
+    - Perfect the troposphere model, about 54 % better UERE
+    - Remove the ionosphere (dual-frequency), about 54 % better UERE
+    - Spread spending evenly, since each source adds equally
+    - Remove the ionosphere (dual-frequency), about 79 % better UERE
+  correct: 1
+- source: a428a0c75db1
+  question: What goes into computing DOP?
+  options:
+    - The measured pseudorange errors from each satellite
+    - The receiver's noise figure and each satellite's received signal strength
+    - Only the satellites' line-of-sight directions, via the geometry matrix
+    - Satellite directions weighted by each measured residual
+  correct: 2
+- source: b19cfe8dad55
+  question: Why is GNSS vertical accuracy always worse than horizontal?
+  options:
+    - All satellites are above you, so vertical is sampled from one side
+    - Vertical errors are amplified by the geoid separation
+    - Receivers smooth horizontal positions but not vertical ones
+    - The troposphere delays the signals more along the vertical axis
+  correct: 0
+- source: 43ff2505b74f
+  question: In open sky, what does raising the elevation mask from 0 to 30 deg do?
+  options:
+    - Improves accuracy (about 50 % horizontally) by dropping noisy low satellites
+    - Worsens geometry (125 % horizontally) for too little multipath gain
+    - Has no effect, since low satellites carry little weight
+    - Worsens vertical but improves horizontal geometry
+  correct: 1
+- source: 67857aacbc95
+  question: Someone quotes '2.5 m accuracy'. What is missing?
+  options:
+    - The DOP, since accuracy scales only with satellite count
+    - Nothing; accuracy figures follow one standard definition
+    - Which datum, since accuracy varies by up to 245 m by datum
+    - Which radius (CEP, drms, R95, 2drms); these differ about 2.7x
+  correct: 3

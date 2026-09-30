@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 01.01-four-forces-on-a-quad.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 3cb0b7c8e1a2
+  question: For Hermon at Stage 1 (1.45 kg) in still-air hover, what are weight and total thrust?
+  options:
+    - Weight 14.22 N down and thrust 14.22 N per motor, 56.9 N total
+    - Weight 1.45 N down and thrust 1.45 N up, 0.36 N per motor
+    - Weight 14.22 N down and thrust 14.22 N up, 3.56 N per motor
+    - Weight 14.22 N down and thrust 15.6 N up, to overcome hover drag
+  correct: 2
+- source: 00a00bd7ddf5
+  question: Hermon (1.45 kg, 3.56 N per motor at hover) has one motor drop to 90% thrust. What is the total thrust and the initial vertical acceleration?
+  options:
+    - About 13.9 N total and about -0.25 m/s^2
+    - About 12.8 N total and about -0.98 m/s^2
+    - About 11.5 N total and about -1.9 m/s^2
+    - About 13.9 N total and about -0.36 m/s^2
+  correct: 0
+- source: 8cfe240fcc6e
+  question: Why does a quad "feel heavier" as its battery empties, even though its mass barely changes?
+  options:
+    - The pack gains mass as it discharges because lithium ions move into the heavier cathode material
+    - Air density rises as the flight goes on, so the propellers need more power to make the same thrust
+    - The flight controller deliberately reduces the throttle ceiling late in flight to protect the pack from over-discharge
+    - Lower pack voltage gives less thrust per throttle, so the loop commands more throttle and draws more current
+  correct: 3
+- source: 3993be4b862b
+  question: A 3 N downward gust lasts 2 s on an open-loop quad. What happens to its altitude?
+  options:
+    - It loses about 0.63 m and recovers within a few seconds once the gust ends
+    - It loses about 0.63 m and does not recover, since nothing pays the budget back
+    - It loses nothing, because the thrust reserve absorbs any 3 N gust automatically
+    - It loses about 6 m and then climbs back above its start altitude
+  correct: 1
+- source: de3bbdd7ef18
+  question: At capstone mass (1.83 kg) Hermon needs 4.49 N per motor against a 13.43 N capability. What is the binding constraint?
+  options:
+    - "Thrust: 4.49 N is only 33% of capability, which is below the required 50% reserve"
+    - The 2.0 kg maximum takeoff mass, then endurance; thrust at 2.99:1 is not a problem
+    - "Motor heat: 58% throttle is above the continuous rating of a 470 KV motor"
+    - "Tilt authority: 2.99:1 leaves no margin to lean into even a light breeze"
+  correct: 1

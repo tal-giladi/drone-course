@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 16.05-field-protocols-and-the-safety-case.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 76298d03f999
+  question: What are the three parts of a bowtie, and what does the shape force you to do?
+  options:
+    - Threats and preventive barriers, top event, consequences and mitigating barriers; it splits how often from how bad
+    - Hazards, risks and controls in three columns; it forces you to rank every control by cost and effort
+    - Causes, failure modes and effects; it forces you to compute a single risk priority number for each
+    - Threats and mitigating barriers, top event, consequences and preventive barriers; it merges frequency and severity
+  correct: 0
+- source: 3b3dafbf7652
+  question: Why is a residual of one flight in 1,239 an acceptable answer in Hermon's safety case?
+  options:
+    - It sits below the regulatory threshold of one event in 1,000 flights for small unmanned aircraft
+    - "The test is whether the consequence is acceptable: nobody underneath, a fence, an accepted loss"
+    - At ten flights a day it would take more than ten years before the event ever occurred
+    - Adding more barriers could reduce it to zero, so it is only a temporary figure
+  correct: 1
+- source: 1435c2efe07f
+  question: Three barriers at 80, 90 and 95 % share 30 % of their failures (beta = 0.3). How much of the threat gets through?
+  options:
+    - About 0.001, since shared failures are already in each rate
+    - About 0.0013, only 30 % worse than the independent figure
+    - About 0.036, thirty-six times the independent 0.001
+    - About 0.3, since the shared cause defeats all three together
+  correct: 2
+- source: da2706d122ac
+  question: Why does common cause hurt a strong defence more than a weak one?
+  options:
+    - Strong barriers are more complex, so they tend to fail together more often than weak ones
+    - Weak defences have no common cause, because their barriers are always of different types
+    - Common cause adds a fixed percentage of each barrier, which is larger for strong ones
+    - The shared-cause term does not shrink with more barriers, so it dominates a tiny product
+  correct: 3
+- source: ac10fdd32b68
+  question: Which barriers on Hermon have beta = 0, and why do they outrank every parameter?
+  options:
+    - The geofence and the failsafes, because they run in the flight controller's own bare-metal control loop
+    - Those not involving the aircraft (pilot switch, field extent, nobody below); they survive an FC reset
+    - The companion's watchdog, because it runs on separate hardware from the vision pipeline
+    - The battery monitor, because it reads a dedicated power sensor independent of the FC
+  correct: 1
+- source: 5ac85d663cad
+  question: Why does the safety case say "loss of the aircraft" is only 10 % mitigated?
+  options:
+    - No barrier exists for it yet, and that gap must be fixed before flying the aircraft again
+    - Ten percent is the insurer's minimum requirement for hull-loss coverage
+    - It is the consequence you accepted, and saying so makes the other rows credible
+    - The parachute recovery system succeeded in only 10 % of the test drops
+  correct: 2
+- source: dec2274c4d32
+  question: For a 300 m survey, the half-width is 150 m of survey plus a 6 m fence margin, 20 m of GUID_TIMEOUT travel and 59.2 m of full-stick overshoot. How wide must the field be?
+  options:
+    - About 352 m
+    - About 430 m
+    - About 535 m
+    - About 470 m
+  correct: 3
+- source: e7778cc98582
+  question: One barrier in the safety case has no evidence. What do you do with it?
+  options:
+    - Remove it from the arithmetic until it is tested, which doubles that threat's residual
+    - Keep it at a conservative 50 % effectiveness until it has been properly tested in the field
+    - Keep it at its design value, since it has already worked correctly in simulation
+    - Add a second untested barrier alongside it so that the two provide redundancy
+  correct: 0

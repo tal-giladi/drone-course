@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 13.04-coordinates-for-operators.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: d11c401df8d7
+  question: Your receiver reports 100 m altitude (above the ellipsoid; over Israel mean sea level is about 18.5 m above it). A chart says an obstacle is 90 m (above mean sea level). Are you clear of it?
+  options:
+    - No, you are about 8.5 m below it
+    - Yes, you are about 10 m above it
+    - Yes, you are about 28.5 m above it
+    - No, you are about 10 m below it
+  correct: 0
+- source: f067b85e8213
+  question: Why does the geoid-ellipsoid gap usually not bite an ArduPilot user?
+  options:
+    - ArduPilot converts every altitude to mean sea level before flying
+    - The default frame is relative to home, so the undulation cancels
+    - The gap is under a metre everywhere, which is below the GNSS noise
+    - The barometer measures above the geoid, so it overrides the GNSS
+  correct: 1
+- source: 39f41d63a12b
+  question: Is any flight within Israel at risk of a UTM zone-boundary problem?
+  options:
+    - "Yes: the 35N/36N boundary at 30 deg E crosses the Negev"
+    - "Yes: the 36N/37N boundary at 36 deg E crosses the Galilee"
+    - "No: Israel uses ITM only, so UTM zones never apply to it"
+    - "No: Israel lies entirely inside zone 36N (30-36 deg E)"
+  correct: 3
+- source: 216a0f13a30b
+  question: A UTM scale error of 398 mm/km is irrelevant for flying but important for surveying. Why?
+  options:
+    - Flights are shorter than a kilometre, while surveys always exceed one
+    - Flight controllers correct scale error internally, but survey software does not
+    - It is swamped by a 4.5 m GNSS error but swamps an 8 mm RTK instrument
+    - It affects only altitude, which matters for surveys but not for flights
+  correct: 2
+- source: bf5270ce01fb
+  question: How far does a local flat-Earth frame reach before curvature starts to matter?
+  options:
+    - About 1 km, where the drop is about 7.9 cm
+    - About 300 m, where the drop is about 0.7 cm
+    - About 5 km, where the drop is about 1.96 m
+    - About 20 km, where the drop is about 31 m
+  correct: 0
+- source: 644bddf3c23e
+  question: Why is quoting a ten-digit MGRS reference from an ordinary GNSS fix usually dishonest?
+  options:
+    - Ten digits exceed the MGRS standard, so the reference cannot be decoded
+    - Its length claims far more precision than a metres-level fix has
+    - Ten digits refer to ITM coordinates, which do not match the WGS84 fix
+    - The last digits are reserved for altitude, which the fix cannot supply
+  correct: 1
+- source: 6eb8b51de4b9
+  question: Someone sends you eastings and northings with no CRS stated. Why is this dangerous yet, in Israel, relatively survivable?
+  options:
+    - UTM 36N and ITM look alike, and a wrong guess shifts points by a plausible 18 m
+    - Eastings may be in feet, but a wrong guess makes every point land in the sea
+    - UTM 36N and ITM differ only in datum, so a wrong guess shifts points by about 1 m
+    - UTM 36N and ITM look alike, but a wrong guess is hundreds of km off
+  correct: 3
+- source: 07b11db89e51
+  question: Why might SBAS corrections be unavailable to an aircraft on the ground at an Israeli site even with a clear view straight up?
+  options:
+    - SBAS satellites orbit near the poles, so they are only ever visible low on the northern horizon
+    - SBAS signals are broadcast only above 100 m altitude, so they cannot reach the ground
+    - The geostationary satellites sit 40-53 deg up, always south, so one blocked bearing loses them
+    - The geostationary satellites sit directly overhead, so a person leaning over blocks them
+  correct: 2

@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 02.02-kv-torque-curve.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: b4f8212ea780
+  question: Why is the intersection of motor torque and prop torque curves a stable operating point?
+  options:
+    - Below it the motor has surplus torque and speeds up; above it the prop demand slows it down
+    - Both curves rise with rpm at exactly the same rate, so the motor cannot leave the intersection
+    - The flight controller actively holds the rpm there with a dedicated rpm control loop
+    - Above it the motor has surplus torque and speeds up; below it the prop slows it down
+  correct: 0
+- source: 4ca817727500
+  question: Why is Hermon's 4 N maximum thrust claim taken at the sagged-battery 100% point?
+  options:
+    - A sagged battery delivers more current, so the 100% thrust is higher when sagged
+    - A fresh battery cannot be measured on the thrust stand without tripping the ESC
+    - The spec claims the worst case at end of flight; the fresh 100% point is higher
+    - The sagged and fresh 100% points are identical, so either one could be used
+  correct: 2
+- source: 20adbddc140a
+  question: What does battery sag do to the motor operating point?
+  options:
+    - Shifts the prop demand curve up, so the same throttle meets it at higher torque and lower rpm
+    - Moves the point along the prop curve to a higher rpm, like opening the throttle
+    - Leaves the curves unchanged but raises the current limit line of the ESC
+    - Shifts the motor curve down, so the same throttle meets demand at lower rpm and thrust
+  correct: 3
+- source: 22a055f39b63
+  question: A log shows throttle rising, rpm falling, altitude holding. Which trace separates sag from a damaged prop or dragging motor?
+  options:
+    - "The GPS trace: sag shows a steady drift, while the others show a fixed position"
+    - "The attitude trace: sag shows oscillation, the others do not"
+    - "The voltage trace: sag shows voltage falling, the others show it holding"
+    - "The RSSI trace: sag shows link loss, the others do not"
+  correct: 2
+- source: 44ba180fed64
+  question: Why is the FC's motor output curve parameter fitted to 02.07 thrust-stand data?
+  options:
+    - The stand measures the ESC timing, which the curve uses to set commutation
+    - The FC commands thrust and must map it to throttle; the stand measures that mapping
+    - The curve sets the maximum battery current, which only the stand can find
+    - The stand data is needed only for the pilot OSD display, not for the flight control itself
+  correct: 1

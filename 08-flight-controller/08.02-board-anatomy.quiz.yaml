@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 08.02-board-anatomy.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 7c9927869933
+  question: "Hermon needs seven UARTs: GNSS, ELRS receiver, SiK telemetry, companion computer, rangefinder, optical flow and gimbal. If the board had only five, which two should go first?"
+  options:
+    - The gimbal and the optical flow, which can often move to I2C or SPI
+    - The companion computer and the gimbal, since stage 2 is far away
+    - The SiK telemetry and the rangefinder, since ELRS can carry telemetry
+    - The rangefinder and the GNSS, since the EKF can dead-reckon without them
+  correct: 0
+- source: 93f400c4ffb4
+  question: Why does a GNSS UART without DMA fail in a way that looks like a sensor problem?
+  options:
+    - A byte dropped from the 16-byte FIFO desyncs the parser, and gaps reach the EKF as innovation spikes
+    - Without DMA the UART's baud clock drifts, so the GNSS module reports a degraded fix quality to the EKF
+    - The CPU stalls waiting on each byte, which adds gyro noise that the log shows as a failing sensor
+    - The receiver notices the missing DMA handshake and falls back to a slower update rate, like a weak sky
+  correct: 0
+- source: 5361aac2c05c
+  question: Hermon's mount sees +/-16 g. Why are three ICM-42688-Ps (+/-16 g full scale) worse than one ICM-42688-P plus one ICM-20649 (+/-30 g)?
+  options:
+    - Three IMUs use too much SPI bandwidth, so every EKF lane ends up updating at a much lower rate
+    - Identical parts clip identically, so lane scoring sees nothing; only the +/-30 g part stays true
+    - Clipping adds random noise, and averaging three identical sensors amplifies it rather than cancelling it
+    - The ICM-20649 has lower noise density, so it beats any number of 42688s
+  correct: 1
+- source: a05f845cdd76
+  question: What sizes Hermon's 5 V BEC, and what is the symptom of undersizing it?
+  options:
+    - The average 5 V draw; the log shows a low-voltage warning shortly before the aircraft lands
+    - The gimbal servo's stall current; the camera footage shows jitter during manoeuvres
+    - The SiK radio's 800 mA transmit peak; the FC reboots mid-flight with a clean-looking log
+    - The GNSS module's cold-start current; the first satellite fix is slow at the field
+  correct: 2
+- source: "1883562e9811"
+  question: The log needs 38 kB/s and any microSD card manages about fifty times that. Why is the card still a real decision?
+  options:
+    - Cheap cards fail outright above 20 kB/s of sustained writes, so the log stops mid-flight
+    - The FAT filesystem caps log files at 4 GB, which a long tuning flight can exceed
+    - A card stall blocks the main loop, so the aircraft crashes instead of dropping data
+    - Cheap cards stall 100 ms or more during erase, so the high-rate IMU messages get dropped
+  correct: 3
+- source: b483c1b25a3d
+  question: Why does the lesson claim the firmware choice and the board choice are the same choice?
+  options:
+    - ArduPilot only publishes firmware for Pixhawk-branded boards, so choosing it picks the vendor
+    - Betaflight and ArduPilot need different connectors, so the board pinout decides the firmware
+    - The board's UART count sets the loop rate, which in turn dictates which firmware can run
+    - Three EKF lanes need 702 kB, beyond an F405's 192 kB, so the estimator forces an H7-class MCU
+  correct: 3
+- source: 4a0d6dbdc95e
+  question: An ADS-B receiver arrives and no UARTs are free. What is the most preferred option?
+  options:
+    - Split an existing UART's RX line between the ADS-B receiver and another talker
+    - Move a low-rate device such as the rangefinder or flow sensor to I2C or CAN
+    - Replace the flight controller with a board that has more UARTs
+    - Drop the GNSS, since the ADS-B receiver can also report the aircraft's position
+  correct: 1

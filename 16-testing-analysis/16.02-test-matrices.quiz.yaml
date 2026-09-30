@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 16.02-test-matrices.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 678f4ac2fe8a
+  question: Why is a full factorial test plan of 10,368 flights not merely expensive but useless?
+  options:
+    - It takes about 97 days, and the weather over that period cannot be controlled or repeated at all
+    - It covers every three-way combination, and those almost never cause real defects
+    - At 16.01's rate it takes about 2.7 years, and the aircraft will have changed before it ends
+    - It cannot include observed factors such as wind, so its coverage is incomplete anyway
+  correct: 2
+- source: 74ceafb11a79
+  question: What does a pairwise test matrix promise, and what does it not promise?
+  options:
+    - Every three-way combination appears at least once; four-way combinations are not guaranteed
+    - Every factor value appears in two rows; two-factor combinations are not guaranteed
+    - Every two-factor combination appears exactly twice; single factors are not guaranteed
+    - Every two-factor combination appears at least once; no three-way combination is guaranteed
+  correct: 3
+- source: 5905bf977996
+  question: Why is "max mass with max wind" not a coverage gap?
+  options:
+    - It is outside the envelope, so the pair leaves the denominator rather than going untested
+    - Pairwise testing covers it implicitly through the separate max-mass and max-wind rows it generates
+    - It is always covered by the three-way rows that get added by hand in the second pass
+    - It can be inferred safely by interpolating between the max-mass and max-wind results
+  correct: 0
+- source: a0c40474234d
+  question: What is the difference between a controlled and an observed test factor?
+  options:
+    - A controlled one is logged by the FC; an observed one is written down by hand by the pilot
+    - You set a controlled one, costing flights; you wait for an observed one, costing calendar
+    - You wait for a controlled one; you set an observed one by choosing the flying site
+    - Both cost flights, but observed factors need more batteries to cover their range
+  correct: 1
+- source: 045e1b9906e9
+  question: Why is "hover power 226 W" not a valid acceptance criterion?
+  options:
+    - Hover power is not recorded in the flight log, so it can never be checked after the flight
+    - 226 W is only a prediction, and criteria must always use measured baselines instead
+    - Power criteria must be stated as current in amps at the nominal pack voltage
+    - Nothing will measure exactly 226 W; it needs a justified tolerance such as within 8 %
+  correct: 3
+- source: 136b4c388829
+  question: A test row "covers" a requirement only under what condition?
+  options:
+    - It sits at the most demanding value of every factor the requirement names
+    - It includes at least one of the factors that the requirement explicitly names
+    - It passes on its first attempt without needing any retries at all
+    - It sits at the nominal value of every factor the requirement names
+  correct: 0
+- source: f1352c93e4e2
+  question: Requirement R7 says "keeps flying when GNSS degrades" and the matrix cannot test it. Whose fault is that?
+  options:
+    - The matrix generator's, for leaving GNSS degradation out as a controlled test factor
+    - The requirement's; a GNSS-dependent mode cannot keep flying when GNSS degrades
+    - The test site's, for having too clear a view of the sky for GNSS to degrade
+    - The flight controller's, for firing the EKF failsafe earlier than it should
+  correct: 1
+- source: f9fc8096f120
+  question: In the two-pass test-matrix procedure, why does the second pass matter more?
+  options:
+    - Only it removes the infeasible pairs from the automatically generated pairwise matrix
+    - Only it cuts the row count down from full factorial to the pairwise set
+    - Only it checks that each requirement has a row that could actually fail for it
+    - Only it adds observed factors such as wind into the matrix of test rows
+  correct: 2

@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 01.04-tilt-to-translate.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 9c37f8e9b8e0
+  question: From T cos(theta) = mg and T sin(theta) = ma you get a = g tan(theta). What does that mean for a 1.45 kg quad versus a 0.25 kg mule at the same tilt?
+  options:
+    - The mule accelerates about 5.8 times faster, because acceleration scales as 1/m
+    - "Mass cancels: both accelerate the same, though the heavy quad needs more thrust"
+    - The heavy quad accelerates faster, because more weight adds to the forward force
+    - "Mass cancels: both accelerate the same, and both need exactly the same thrust"
+  correct: 1
+- source: d43f1755c58b
+  question: A capstone orbit is flown at 8 m/s on a 100 m radius. What is the bank angle and how does the thrust compare with hover?
+  options:
+    - About 33 deg, with thrust about 20% above hover
+    - About 18.4 deg, with thrust roughly 5% above hover level
+    - About 3.7 deg, with thrust about 26% below hover
+    - About 3.7 deg, with thrust essentially at hover level
+  correct: 3
+- source: 3f95220e3f3a
+  question: Why does a quad "slow to the target" instead of stopping at it?
+  options:
+    - It must level the tilt first, then bleed speed via drag or braking tilt; that speed sets the distance
+    - The GNSS position is only updated once per second, so the quad cannot see the target until it has passed it
+    - The motors cannot reverse direction, so a quad has no way to produce any braking force at all
+    - The firmware deliberately overshoots every waypoint by a fixed 2 m to smooth the flight path
+  correct: 0
+- source: e1afa2990513
+  question: A 20 m orbit at 8 m/s needs about 18 deg of bank versus about 3.7 deg for a 100 m orbit. Why prefer the 100 m orbit?
+  options:
+    - The 20 m orbit is faster, so it drains the battery by the cube of the extra speed
+    - A quad cannot bank past 15 deg in ArduPilot by default, so the 20 m orbit is impossible to fly
+    - Less bank costs less thrust margin, leaves gust reserve, and keeps release geometry steady
+    - The 100 m orbit has more bank, which gives the release math a steeper trajectory
+  correct: 2
+- source: 2f38345e156f
+  question: In the firmware chain position -> velocity -> acceleration -> tilt -> mixer, which step does this lesson cover?
+  options:
+    - Position to velocity, the outer position loop
+    - Velocity to acceleration, the velocity loop
+    - Tilt to mixer, the motor thrust split
+    - Acceleration to tilt, theta = arctan(a/g)
+  correct: 3

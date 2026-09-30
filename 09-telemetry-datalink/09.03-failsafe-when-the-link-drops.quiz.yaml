@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 09.03-failsafe-when-the-link-drops.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 66ca069629ef
+  question: It takes 1.2 s from the last packet to the first failsafe action. Where does the time go, and why not shorten it?
+  options:
+    - About 1 s is ArduPilot's debounce and 0.2 s the receiver; shorter would overload the scheduler
+    - About 1 s is the receiver waiting, 0.2 s ArduPilot's debounce; shorter false-alarms on hops
+    - About 1 s is MAVLink retries and 0.2 s the receiver; shorter would drop telemetry packets
+    - About 1 s is EKF settling and 0.2 s the mode change; shorter would destabilise the attitude loop
+  correct: 1
+- source: 33aa4a4d3614
+  question: Which sensor loss removes every automatic failsafe action, and why?
+  options:
+    - "The GNSS: every failsafe mode needs a position to navigate to or to hold"
+    - "The compass: without a heading the aircraft cannot choose a direction to fly"
+    - "The barometer: Land, RTL, SmartRTL, Brake and Auto all need height data"
+    - "The primary IMU: without it the EKF cannot run and every mode is disabled"
+  correct: 2
+- source: b9fe325bf144
+  question: RTL from 1 km at 100 m altitude with RTL_ALT 60 and LAND_SPEED 0.75 m/s takes 180 s. Which phase dominates on shorter flights, and what follows for RTL_ALT?
+  options:
+    - The cruise; RTL_ALT barely affects the total time, so set it high for an extra safety margin
+    - The climb; RTL_ALT should sit below the current altitude so the climb is skipped
+    - The descent; each extra metre adds about 0.75 s, so set it as low as it will go
+    - The descent; each metre adds about 1.3 s, so set it just above the tallest obstacle
+  correct: 3
+- source: b2d52e16376c
+  question: RTL from 1 km costs 9.1 Wh. What does that number actually decide?
+  options:
+    - The maximum RTL_ALT, since climbing any higher would use more than 9.1 Wh
+    - "Your minimum battery reserve: BATT_LOW_VOLT must fire while it still remains"
+    - The RTL cruise speed, chosen so the return always uses exactly 9.1 Wh
+    - Nothing operational, since RTL always takes priority over the battery failsafe
+  correct: 1
+- source: 20fbad0a3fec
+  question: You configured the RC failsafe to RTL, but the aircraft landed where it was. Which explanations fit, and how do you tell them apart?
+  options:
+    - No GNSS so RTL fell back to Land, or a higher failsafe won; MODE.Rsn and ERR tell which
+    - RTL_ALT was below the current altitude, or the compass failed; the RCOU log tells which
+    - The receiver was set to hold, or LAND_SPEED was zero; the VIBE log tells which
+    - The battery was full, or the geofence disabled RTL; the PM message tells which
+  correct: 0
+- source: 2f46c15369c5
+  question: What triggers the GCS failsafe, and why does it catch people out?
+  options:
+    - One second without RC packets, which most pilots confuse with the radio failsafe
+    - The ground station's battery falling below 20 %, which pilots rarely think to watch
+    - Five seconds with no ground-station HEARTBEAT, including closing the laptop lid
+    - Telemetry RSSI below -100 dBm, which happens whenever the aircraft passes overhead
+  correct: 2
+- source: bb69144448e2
+  question: Which step of the six-step failsafe test does almost everyone skip?
+  options:
+    - Switching the transmitter off, since everyone trusts the receiver datasheet
+    - Turning the transmitter back on, to see whether FS_OPTIONS returns control
+    - Checking the log afterwards, since the aircraft visibly did the right thing
+    - Removing the propellers, since the test runs at low throttle anyway
+  correct: 1

@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 04.04-mounting-and-vibration.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 62755c1cbe8f
+  question: You fit silicone grommets under a 20 g FC and vibration gets worse. What happened?
+  options:
+    - The grommets absorbed heat and stiffened, passing more vibration through
+    - The grommets let the FC tilt, which the IMU reads as extra vibration
+    - Its natural frequency landed near an excitation, so it amplifies
+    - Silicone is conductive and couples electrical noise into the gyro
+  correct: 2
+- source: 3109826fd031
+  question: Why is Hermon's soft-mount design window empty?
+  options:
+    - The rate loop needs fn above 30 Hz, but isolating 50.8 Hz needs fn below 25 Hz
+    - The rate loop needs fn below 25 Hz, but isolating 50.8 Hz needs fn above 30 Hz
+    - No grommet on the market is soft enough to reach any frequency below 200 Hz
+    - The FC is too heavy, so every mount resonates at the blade-pass frequency
+  correct: 0
+- source: b9c0dbef48c0
+  question: Why is a soft mount described as a mass problem rather than a spring problem?
+  options:
+    - Springs age quickly, so mass must be added to keep fn constant
+    - Mass raises fn, which moves it above the excitation frequencies
+    - Damping depends only on mass, so the spring choice is irrelevant
+    - Parts cannot be made soft enough, so you add mass to lower fn
+  correct: 3
+- source: 92d026b50641
+  question: If the RPM harmonic notch does the mount's job in software, what is the physical mount still for?
+  options:
+    - Reducing gyro noise below the level the notch filter can handle
+    - Preventing accelerometer clipping, which no filter can undo
+    - Protecting the FC from crash impacts that could crack the board
+    - Isolating the FC from magnetic interference from the motors
+  correct: 1
+- source: 1ac299173b36
+  question: Why can increasing a mount's damping make it worse?
+  options:
+    - Above resonance transmissibility tends to 2 zeta / r, hurting isolation
+    - Damping raises the natural frequency, moving it right onto the hover tone
+    - Damping stores energy and releases it later as a low-frequency wobble
+    - Damping only works below resonance, so it is useless on any drone
+  correct: 0
+- source: 13bfb5b2eea9
+  question: A 250 g pod is added to an 18 g FC assembly on a 35 Hz mount. What does fn become?
+  options:
+    - About 35 Hz, since added mass does not change fn
+    - About 130 Hz, since heavier assemblies resonate higher
+    - About 9 Hz, well inside the rate loop bandwidth
+    - About 25 Hz, just below the rate loop bandwidth
+  correct: 2
+- source: 92e10521340d
+  question: The camera shows jello and the logs are clean. Should you soften the FC mount?
+  options:
+    - Yes; a softer FC mount near 10 Hz will fix the camera image
+    - No; give the gimbal its own ~10 Hz isolator and its own IMU
+    - Yes; lower the gyro filter cutoff and soften the mount together
+    - No; the jello is caused by the camera's frame rate setting
+  correct: 1

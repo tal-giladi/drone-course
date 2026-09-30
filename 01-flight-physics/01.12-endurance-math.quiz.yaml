@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 01.12-endurance-math.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 70f7a690a78d
+  question: Hermon has a 111 Wh pack flown to 80% depth of discharge. What is the usable energy, and what role does the 11.05 flight test play?
+  options:
+    - 111 Wh; the test is only a formality, since the model number is already the final and binding spec
+    - 88.8 Wh; the test replaces the battery rating, since the pack label is only a claim
+    - 22.2 Wh; the test sets the hover throttle, since energy does not depend on hover power
+    - 88.8 Wh; the spec is a model number, and the test measures the real value to confirm or revise it
+  correct: 3
+- source: b8b4cc966b7c
+  question: Adding payload mass raises induced hover power by which law?
+  options:
+    - As m, so doubling mass costs exactly 2x induced power
+    - As m^2, so doubling mass costs 4x induced power
+    - As m^(3/2), so doubling mass costs about 2.83x induced power
+    - As sqrt(m), so doubling mass costs about 1.41x induced power
+  correct: 2
+- source: eff7071d481e
+  question: The capstone profile uses 31 Wh with a 2.86x margin. Which surprise does the margin NOT buy?
+  options:
+    - A 4 m/s headwind on the mission legs
+    - Flying a second full mission on the same pack
+    - A weak battery that sags about 10% under load
+    - A 5 minute extra loiter over the target
+  correct: 1
+- source: 4f0fec970ef8
+  question: Why is a quad an endurance aircraft rather than a range aircraft?
+  options:
+    - Its cruise is slow, so its value is time on station; the mission is a time requirement
+    - Its batteries are too heavy for range, so it must stay within sight of the pilot
+    - Its props are only efficient in hover, so any forward flight uses more power than hover
+    - Regulations cap its range at 2 km, so endurance is the only metric that can grow
+  correct: 0
+- source: 09662a95f006
+  question: Measured energy is 20% above the model. How do you separate an FM error from a CdA error?
+  options:
+    - "Compare battery temperature: a hot pack points to an FM error, a cool pack points to a CdA error"
+    - "Compare the climb segment: a slow climb points to CdA, a fast climb points to FM"
+    - "Compare the hover segment: high hover points to FM or fixed losses; high cruise only points to CdA"
+    - "Compare the link RSSI: a weak link points to FM, a strong link points to CdA"
+  correct: 2

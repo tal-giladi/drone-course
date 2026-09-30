@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 15.02-ros2-for-hermon.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 3d4829095784
+  question: The companion CPU is 76 % idle, yet a 50 ms setpoint timer misses eight deadlines. How?
+  options:
+    - The CPU is too slow; a 24 % load is enough to starve a 50 ms timer
+    - DDS discovery traffic delays timer callbacks by hundreds of milliseconds
+    - A single-threaded executor lets the 437 ms vision callback block the timer
+    - The setpoint topic uses RELIABLE QoS, which queues retransmissions ahead of it
+  correct: 2
+- source: 2e91f92e67ff
+  question: For that blocked executor, what is the two-line fix, and what does it leave unchanged?
+  options:
+    - A MultiThreadedExecutor with one reentrant group for every callback; the blocking behaviour is fully unchanged
+    - Raising the timer period to 100 ms; the vision callback's 437 ms runtime is unchanged
+    - Moving vision onto the GPU; the single-threaded executor and its ordering are unchanged
+    - A MultiThreadedExecutor with one mutually exclusive group per rate; the 24 % duty cycle is unchanged
+  correct: 3
+- source: 3a9aabf841d0
+  question: Why is RELIABLE QoS the wrong choice for a 20 Hz velocity setpoint?
+  options:
+    - Retransmission delivers stale commands in a burst, while a dropped one is replaced in 50 ms
+    - RELIABLE roughly doubles the bandwidth used, which the onboard UART cannot sustain at 20 Hz
+    - RELIABLE drops messages when its queue is full, so the newest command is the one lost
+    - RELIABLE is incompatible with MAVROS and silently disables the setpoint topic
+  correct: 0
+- source: 850e10a20b25
+  question: What does TRANSIENT_LOCAL durability do, and which topic breaks without it?
+  options:
+    - It keeps messages on the local host only; /cmd_vel commands sent from the ground station
+    - It keeps the last message for late subscribers; /tf_static, published once at startup
+    - It retransmits lost messages locally; /camera/image_raw at its high frame rate
+    - It stores messages to disk for later replay; /rosout during long flight logging
+  correct: 1
+- source: 0d5eb3021cfd
+  question: How long does one 23 kB 320 x 240 thumbnail take over the 250 B/s left on the 917 MHz link?
+  options:
+    - About 9 seconds
+    - About 0.1 seconds
+    - About 15 minutes
+    - About 92 seconds
+  correct: 3
+- source: 3cecb2bea669
+  question: DDS discovery averages 2,000 B/s in steady state. Why is it still a problem over a radio link?
+  options:
+    - Each graph change triggers an SEDP burst of about 1 MB over unacknowledged low-rate multicast
+    - Steady-state discovery traffic grows every hour as participants accumulate stale endpoint entries
+    - Discovery packets are encrypted, and the telemetry radio cannot forward encrypted traffic
+    - Steady-state discovery collides with telemetry and drops roughly every other MAVLink packet
+  correct: 0
+- source: cfa8d4adf2ad
+  question: When should ROS 2 nodes be composed into one process?
+  options:
+    - Always, since intra-process transport removes both the copying and the separate process failure modes
+    - When they share big data, like camera and detector, but not the watchdog and setpoint publisher
+    - When they run at the same rate, such as the watchdog together with the setpoint publisher
+    - Never on an aircraft, since one segfault would then take down the flight controller as well
+  correct: 1
+- source: 90573b3ee49b
+  question: Why is a mixed clock (some nodes on system time, some on ROS time) worse than a slow pipeline?
+  options:
+    - It crashes the tf2 buffer outright, halting every node that tries to look up any transform
+    - It doubles the pipeline latency, because each message is re-stamped at every hop
+    - "It is silent: transforms are off by the offset, and the symptom looks exactly like latency"
+    - It makes DDS reject messages with future timestamps, so topics go quiet at random
+  correct: 2

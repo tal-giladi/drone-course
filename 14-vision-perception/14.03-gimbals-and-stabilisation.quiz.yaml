@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 14.03-gimbals-and-stabilisation.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 71880525cb4c
+  question: On a 60 m survey, why does a hard-mounted camera not point straight down in every frame?
+  options:
+    - The aircraft leans to translate; 4.9 deg of lean shifts the frame centre about 5.1 m, varying frame to frame
+    - Lens distortion bends the optical axis away from nadir by several degrees toward the outer edges of the image frame
+    - Motor vibration at the shaft tone rotates the camera a few degrees off nadir during each exposure
+    - The yaw controller crabs the aircraft into the wind, which tips the camera sideways by the crab angle
+  correct: 0
+- source: 8f85d0525271
+  question: When is the third (yaw) gimbal axis actually necessary?
+  options:
+    - Whenever flying a nadir photogrammetry grid, to keep frames aligned with the line
+    - When the camera must hold a target while the airframe circles it or flies past it
+    - Whenever the wind forces the aircraft to crab, to keep the image square to the track
+    - Whenever the camera has a rolling shutter, to cancel yaw during each readout
+  correct: 1
+- source: f1025702a361
+  question: Why is "softer damping is always better" wrong for a camera mount?
+  options:
+    - Rubber stiffens as it compresses under load, so a softer mount ends up transmitting more high-frequency vibration in flight
+    - A softer mount raises the natural frequency toward the shaft tone, so the prop vibration is amplified
+    - An isolator still amplifies about 1/(2 zeta) at resonance; softer only moves that peak down into gust and loop bands
+    - A softer mount adds mass, and that mass costs more endurance than the vibration costs in image quality
+  correct: 2
+- source: d1e9528544aa
+  question: At the same natural frequency, what does a silicone gel mount buy over a hard rubber grommet?
+  options:
+    - The resonance peak drops from 16.7x to 2.7x, and shaft-tone rejection gains 3.4 dB too
+    - Shaft-tone rejection rises from 13.3 to 16.7 dB, with the resonance peak left unchanged
+    - The natural frequency halves, moving the resonance peak below the attitude loop entirely
+    - The resonance peak drops from 16.7x to 2.7x, for about 3.4 dB less shaft-tone rejection
+  correct: 3
+- source: 7054136be052
+  question: A gimbal is fitted, yet images at 60 m, 5 m/s and 1/243 s are still smeared along the track. Why?
+  options:
+    - The gimbal loop lags behind gusts, so residual angular motion still smears each image along the flight track
+    - A gimbal removes only angular motion; about 1 px of blur comes from the aircraft's forward translation
+    - Rolling-shutter readout skews the frame along the track, and no gimbal can correct a readout skew
+    - The gimbal's own motors add vibration at their drive frequency, which smears every single exposure
+  correct: 1
+- source: 5cfdcec123bc
+  question: Why does adding a gimbal not cure rolling-shutter jello?
+  options:
+    - Jello comes from forward translation, and a gimbal only removes rotation of the camera
+    - Jello is caused by the gimbal's own motors, so adding one can only make it worse
+    - Jello is 84 Hz motion inside one 30 ms readout, faster than the gimbal loop can act
+    - Jello is an artefact of the video encoder, not a mechanical motion of the camera
+  correct: 2
+- source: b9210f8b1ad7
+  question: What is wrong with MNT1_DEFLT_MODE = RC_TARGETING on a survey?
+  options:
+    - It makes the gimbal ignore attitude, so every aircraft lean shows up in the images
+    - It locks the gimbal at its neutral angle, which by default looks straight ahead
+    - It hands pointing to the companion, which may not be running when the flight starts
+    - The camera points wherever the RC channel last sat, so it is silently not nadir
+  correct: 3
+- source: ed014fb89471
+  question: A 200 g gimbal costs Hermon 4.4 of its 23.6 minutes (19 %). For which job is it NOT worth paying?
+  options:
+    - A nadir photogrammetry grid flown in straight lines, where the mass buys more as battery
+    - Single-frame geolocation, where each frame's pointing must be known without solving for it
+    - Target tracking, where the camera must hold a point while the aircraft moves past it
+    - Oblique inspection work, where the camera must hold a steady off-nadir viewing angle
+  correct: 0

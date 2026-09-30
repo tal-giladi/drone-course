@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 15.03-mavlink-ros-bridge.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: f8051bd2fb56
+  question: Why are there two frame conversions (world and body) between ArduPilot and ROS rather than one?
+  options:
+    - World is NED vs ENU and body is FRD vs FLU; they differ separately, so an attitude needs both
+    - ArduPilot uses degrees and ROS uses radians, so one step converts units and the other converts axes
+    - World is NED vs ENU and the bodies match, but quaternions need a second normalising pass
+    - One conversion handles positions and the other converts timestamps between the two clocks
+  correct: 0
+- source: 27e40ececbf0
+  question: Why is yaw_ENU = 90 - yaw_NED more subtle than a 90 degree offset?
+  options:
+    - It is a pure rotation by 90 degrees, but the result must be wrapped to plus or minus 180
+    - "It is a reflection: NED yaw runs clockwise from north, ENU counter-clockwise from east"
+    - It only holds near the equator, where grid north and east are exactly orthogonal
+    - It must be applied in radians, and 90 degrees equals pi/2 only for small angles
+  correct: 1
+- source: b6a1c233915c
+  question: You command north at 5 m/s descending at 1 m/s, and the aircraft flies north and climbs. What was the conversion bug?
+  options:
+    - "(x,y,z) to (x,y,-z) instead of (y,x,-z): vertical negated but axes not swapped"
+    - "(x,y,z) to (-y,x,z): horizontal rotated by 90 degrees, vertical left unchanged"
+    - "(x,y,z) to (y,x,z) instead of (y,x,-z): axes swapped but vertical not negated"
+    - The body frame was used instead of the world frame, so descent became pitch
+  correct: 2
+- source: 514b7cd68ffc
+  question: Why do the correct conversion and the one that forgets to negate z pass the same tests?
+  options:
+    - Both produce the same yaw at every step, and the tests only ever check the resulting heading
+    - SITL ignores the vertical velocity component of setpoints sent in GUIDED
+    - The tests run at zero speed, so neither conversion is exercised at all
+    - Level tests never exercise the vertical axis; only a commanded descent separates them
+  correct: 3
+- source: 1c4071108370
+  question: Why can a clock offset not be told apart from pipeline latency by its symptom?
+  options:
+    - Both give a constant position error that does not change at all with the aircraft's speed
+    - Both give a position error of offset times speed; 100 ms at 5 m/s lags 0.50 m either way
+    - Clock offset gives a lead and latency a lag, but the filter removes the sign of the error
+    - Both appear only as timestamp jitter, which averages out over a few seconds of flight
+  correct: 1
+- source: 3fb477ebea47
+  question: What does running SITL with --speedup 10 do to a node that calls time.time()?
+  options:
+    - It runs ten times faster as well, since Python's time module follows the simulator's clock
+    - It never ticks at all, because it waits for /clock messages that never come
+    - Every rate it computes is ten times wrong, silently, because it measures wall time
+    - SITL detects the wall-clock call and quietly falls back to real-time speed
+  correct: 2
+- source: 14974e5b863f
+  question: The MAVROS bridge adds 7.5 ms to a 437 ms decision chain. What does that mean for choosing MAVROS or AP_DDS?
+  options:
+    - AP_DDS must be chosen, since 7.5 ms is about 38 cm of travel at 5 m/s, which is far too much to ignore
+    - MAVROS must be chosen, since AP_DDS adds a larger serialisation cost per message
+    - Latency decides it, since 7.5 ms is more than a third of the control deadline
+    - Latency is irrelevant at 1.7 %; choose on coverage, maintenance, containment and debuggability
+  correct: 3
+- source: cb69ed331dbe
+  question: You subscribe at 50 Hz and receive 10. Where is the rate set, and how do you fix it?
+  options:
+    - By the FC's stream rates; raise SRn_ on the companion's port only, leaving the radio's set
+    - By the subscriber's QoS depth; raise the depth to 50 so more messages are buffered for the node
+    - By the radio's air rate; raise it globally so every port streams at the higher rate
+    - By MAVROS's own publish timer; set its rate parameter to 50 Hz in the launch file
+  correct: 0

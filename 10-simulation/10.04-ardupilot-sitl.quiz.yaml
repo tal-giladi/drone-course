@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 10.04-ardupilot-sitl.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 874c4b23f693
+  question: SITL 'runs the real flight code'. Which parts are models rather than real ArduPilot code?
+  options:
+    - The EKF3 lanes, the task scheduler and the failsafe priority order
+    - The mixer and its clamps, the filters and the Lua scripting engine
+    - The flight modes, the mission state machine and MAVLink
+    - Airframe physics, sensors, vibration, ESCs, battery and radio link
+  correct: 3
+- source: 952614d6dd30
+  question: How do 10.02's Python simulator and SITL differ in what they test?
+  options:
+    - "10.02: good plant, your controller; SITL: simpler plant, the real controller"
+    - 10.02 tests ArduPilot's logic; SITL tests your understanding of the dynamics
+    - Both test the same controller, but SITL has the more accurate plant model
+    - 10.02 tests hardware timing; SITL tests only the mission planning logic
+  correct: 0
+- source: 191b0665d898
+  question: A SITL log shows PM.NLon in the hundreds. What are two possible causes, and how do you tell them apart?
+  options:
+    - A bad EKF lane or a missing GPS signal; re-run with EKF3 disabled to compare the logs
+    - Vibration or clipping; re-run with SIM_VIB_FREQ set to zero to compare
+    - Real firmware overload, or --speedup too high for the machine; re-run at --speedup 1
+    - A wrong frame class or bad gains; re-run with default parameters loaded
+  correct: 2
+- source: e1a6011126db
+  question: Why is a sleep() in a scripted SITL flight a bug rather than a style problem?
+  options:
+    - "SITL runs faster than real time: sleep(15) at 10x lets 150 simulated seconds pass"
+    - sleep() pauses the SITL process itself, freezing the simulated aircraft in mid-air
+    - SITL runs slower than real time, so sleep(15) ends before the aircraft has moved
+    - sleep() is non-deterministic in Python, so no two runs can ever be repeated
+  correct: 0
+- source: 630704e40ac8
+  question: What is SITL's real advantage over the simulator you wrote yourself?
+  options:
+    - Its physics model is more faithful than any hand-written simulator
+    - Real failsafe code meets injected failures, repeatably, with a log
+    - It models your own aircraft's vibration spectrum and magnetic field
+    - It runs your own controller code inside ArduPilot's real scheduler
+  correct: 1
+- source: e0fe4fd47fc7
+  question: SIM_VIB_FREQ injects vibration into SITL. Does that let you tune the harmonic notch?
+  options:
+    - "Yes: it reproduces the shaft, blade-pass and arm modes seen in your own logs"
+    - "Yes: set it to your blade-pass frequency and the notch tune then transfers directly"
+    - "No: SITL ignores the INS_HNTCH parameters, so nothing about it can be tested"
+    - "No: it injects one chosen tone, testing the notch's plumbing, not your spectrum"
+  correct: 3
+- source: c3b42aa5a1e9
+  question: 07.03's sweep is 108 points. What does it cost in SITL, and which flag makes it possible?
+  options:
+    - About 27 minutes on eight cores at --speedup 1, with --instance giving separate ports
+    - About 2.7 minutes on eight cores at --speedup 10, with --parallel sharing one port
+    - About 2.7 minutes on eight cores at --speedup 10, with --instance for separate ports
+    - About 2.7 hours on one core at --speedup 10, with --instance giving separate logs
+  correct: 2

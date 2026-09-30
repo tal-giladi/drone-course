@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 15.05-behaviour-trees-and-watchdogs.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 9a9476399324
+  question: A mission has nine states and eight abort conditions. Why does a behaviour tree beat a state machine?
+  options:
+    - The state machine needs about 81 hand-wired edges; the tree writes each abort once at the root
+    - The tree runs much faster, because it evaluates only the currently active leaf node on each tick
+    - A state machine cannot express aborts at all without a second, parallel state machine
+    - The tree needs 81 nodes too, but a generator writes them automatically from the mission
+  correct: 0
+- source: 1fb8a2c8ae5c
+  question: Beyond edge count, what is the deeper advantage of a behaviour tree?
+  options:
+    - It keeps full state between ticks, so interrupted actions never need restarting from scratch
+    - It ticks from the root every cycle, so a precondition failing mid-action is noticed
+    - It checks guards only on entry to an action, which avoids redundant evaluation
+    - It runs every branch in its own thread, which removes executor blocking entirely
+  correct: 1
+- source: 5d00ede58706
+  question: Why is the tree's root a Fallback rather than a Sequence?
+  options:
+    - A Fallback automatically retries children that failed, so the mission restarts by itself after any abort
+    - A Sequence would run the aborts in parallel with the mission, so the two would race
+    - A Fallback runs the first child that does not fail, so aborts placed first are checked every tick
+    - A Fallback succeeds only when every child succeeds, which acts like a logical AND
+  correct: 2
+- source: b4a72f1aab47
+  question: The topic rate is below what the control loop needs. What does the tree do?
+  options:
+    - It lowers the control loop rate to match and carries on with a logged warning
+    - It starts the mission and aborts only if the rate drops any further
+    - It requests a higher stream rate and waits for it indefinitely
+    - "The preflight Sequence fails, so the mission never starts: a refusal to arm"
+  correct: 3
+- source: bd7b40885363
+  question: A heartbeat arrives every 200 ms with fresh timestamps, yet the system is deadlocked. Which field would have caught it?
+  options:
+    - The timestamp, checked against the receiver's own clock
+    - A sequence number incremented by the work loop itself
+    - The data age of the most recent sensor input used
+    - The measured publish rate of the heartbeat topic
+  correct: 1
+- source: 9755a61c47bf
+  question: Why is the companion watchdog timeout bounded below as well as above?
+  options:
+    - Below by the 50 ms setpoint stream period; above by the 1.207 s RC failsafe timer
+    - Below by the 437 ms vision latency; above by the 23.6-minute flight endurance
+    - Below by the longest legitimate gap, about 717 ms; above by the 3 s GUID_TIMEOUT
+    - Below by a single executor tick; above by the time to stop from full speed
+  correct: 2
+- source: d3e7c9690b2f
+  question: The RC failsafe fires in 1.207 s, inside the watchdog window of 717 ms to 3 s. Is that a problem?
+  options:
+    - Yes; the RC failsafe always pre-empts the watchdog, so the planned degraded mode can never run
+    - Yes; the watchdog window must be shortened below 1.207 s to stay ahead of it
+    - No; the RC failsafe is disabled whenever the aircraft is flying in GUIDED mode
+    - No; it watches a different event, and a watchdog need only beat the timer on its own event
+  correct: 3
+- source: c8d0b18b7649
+  question: On a survey, the detector dies in one case and the camera in another. Why are these opposite decisions?
+  options:
+    - "Imagery is the deliverable: a dead detector is a degraded mode, a dead camera is an abort"
+    - The camera can be restarted in flight, but a dead detector always requires an immediate landing
+    - Both should abort equally, since each one removes the in-flight detections
+    - A dead detector is an abort, because the imagery cannot be processed later on the ground
+  correct: 0

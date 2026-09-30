@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 11.02-manual-modes.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 71d5a0c7ef91
+  question: The same roll stick is used in ACRO, STABILIZE and LOITER. What does it command in each mode?
+  options:
+    - "ACRO: a roll angle; STABILIZE: a roll rate; LOITER: a velocity"
+    - "ACRO: a roll rate; STABILIZE: a velocity; LOITER: a roll angle"
+    - "All three: a roll angle, with a different maximum per mode"
+    - "ACRO: a roll rate; STABILIZE: a roll angle; LOITER: a velocity"
+  correct: 3
+- source: 68d848221a52
+  question: Hermon hovers at 42% throttle. Why is switching from ALT_HOLD to STABILIZE with the throttle stick centred dangerous?
+  options:
+    - Centre holds height in ALT_HOLD but is about half throttle in STABILIZE, near hover but not holding
+    - STABILIZE cuts the throttle to idle on entry until the stick is moved, so the aircraft drops at once
+    - STABILIZE keeps the last ALT_HOLD climb rate until the stick is moved, so it climbs away
+    - STABILIZE disables the barometer, so a centred stick is read as a request for full power
+  correct: 0
+- source: db0ddf3dce63
+  question: Hermon has very little parasite drag (0.020 m^2 drag area). Full roll stick in STABILIZE is 30 deg of lean. Roughly what speed does that settle at?
+  options:
+    - About 10 m/s, the same as the spec cruise speed
+    - About 25.9 m/s (93 km/h), well above the 10 m/s cruise
+    - About 15 m/s (54 km/h), a moderate fast cruise
+    - About 5.7 m/s, since the lean gives g*tan(30 deg) of push
+  correct: 1
+- source: 501484eeaeda
+  question: What does stick expo change, and what does it leave alone?
+  options:
+    - It lowers the maximum rate at full stick; centre feel is unchanged
+    - It raises sensitivity near centre; full stick still gives full output
+    - It lowers sensitivity near centre; full stick still gives full output
+    - It scales the whole stick range down linearly by the expo factor
+  correct: 2
+- source: db2288bc2c8b
+  question: Why is STABILIZE always flight-mode switch position 1 and RTL always position 6?
+  options:
+    - STABILIZE is the mode ArduPilot boots into; RTL must sit on the highest PWM value for the failsafe to work
+    - STABILIZE is the most responsive mode for beginners; RTL is used least, so it goes furthest away
+    - STABILIZE needs the fewest sensors, so it always works; RTL is at the end of travel, so no counting
+    - Both positions are fixed by the ground station and cannot be reassigned to other modes
+  correct: 2
+- source: d47dda6f699a
+  question: You are at 15 m with RTL_ALT set to 60 m. You switch to RTL and the aircraft climbs. Is something wrong?
+  options:
+    - "Yes: RTL should turn for home first and climb on the way back"
+    - "Yes: a climb in RTL indicates the barometer is drifting"
+    - "No: RTL always climbs 60 m above the current altitude"
+    - "No: below RTL_ALT it climbs to RTL_ALT, then turns home"
+  correct: 3
+- source: 137f17c75ad2
+  question: Does Hermon need ACRO mode, and should you learn it?
+  options:
+    - It does not need it, but learn it on a small cheap aircraft to see the raw airframe
+    - It needs it for later modules, so learn it on Hermon early while the stakes are still low
+    - It does not need it, and once STABILIZE is mastered ACRO teaches nothing useful
+    - Learn it on Hermon, since ACRO keeps an attitude limit that makes mistakes recoverable
+  correct: 0

@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 19.01-the-brief.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: af30a8365ca6
+  question: The mission takes 10:01 against 11:12 of usable endurance. A re-flown line costs 60 s, a hold 30 s, a headwind 86 s. Does it fit, and what does that mean?
+  options:
+    - Yes, by 71 s, which covers any two of the contingencies together
+    - "Yes, by 71 s: most single contingencies fit, but no pair does"
+    - "No: the 10:01 mission exceeds the usable endurance"
+    - Yes, by over 3 minutes, enough for every contingency
+  correct: 1
+- source: 36ded07e0db2
+  question: No two contingencies fit inside the margin. What does that mean for the plan?
+  options:
+    - The mission must be refused outright until a larger battery pack exists
+    - Drop the battery reserve to 20% to recover the missing margin
+    - It survives exactly one problem; state the two-flight split as the fix
+    - Fly the survey faster to save time and restore the margin
+  correct: 2
+- source: c096458daf17
+  question: Why is 'drop the reserve to 20%' listed in the brief's table of fixes?
+  options:
+    - "To name it as a trap: it removes a barrier instead of changing the mission"
+    - Because it is the cheapest fix and should always be tried before the others
+    - Because the battery manufacturer requires it for this pack size
+    - Because it adds exactly the 71 s of margin the mission is missing
+  correct: 0
+- source: 5b96d00012d4
+  question: Which of the six success criteria makes the others mean something?
+  options:
+    - Delivery within the 8.87 m CEP
+    - Landing within 0.30 m of the pad
+    - Target detected on the very first survey pass
+    - Zero aborts, failsafes and interventions
+  correct: 3
+- source: 305df42c7d17
+  question: Why does the brief quote a delivery CEP of 8.87 m rather than 0.23 m?
+  options:
+    - The mission drops on a target it found itself, not a taped marker
+    - 8.87 m includes wind, while 0.23 m was measured on a calm test day
+    - 0.23 m is a theoretical figure, while 8.87 m was measured
+    - 8.87 m includes padding the insurer requires on any quote
+  correct: 0
+- source: ae5decbe8063
+  question: The abort matrix has 13 rows. How is it divided, and why does that matter?
+  options:
+    - 5 PIC, 6 aircraft, 2 anybody; so the approach can stay at 5 m/s
+    - All 13 belong to the PIC, who must monitor every row by hand
+    - 5 aircraft, 6 PIC, 2 anybody; PIC rows are slow, so approach at 4.4 m/s
+    - All 13 belong to the aircraft, so no human decision is ever needed in flight
+  correct: 2
+- source: 93c9db5ce6ba
+  question: What two limitations does the airworthiness statement carry?
+  options:
+    - The weight is near the 55 lb limit, and the camera still lacks a calibration
+    - Verbal abort is only a backup; the GNSS-denied fallback is unproven
+    - Remote ID is not fitted; the geofence has not been enabled yet
+    - The battery is near end of life; the reserve has been cut to 20%
+  correct: 1
+- source: 420f2a1bc6ea
+  question: Which evidence-plan row makes the capstone a test rather than a demonstration?
+  options:
+    - The flight log, a complete record of what actually happened
+    - The onboard video, which shows the delivery itself
+    - The debrief notes, written straight after landing
+    - The test card, a prediction written before the flight
+  correct: 3

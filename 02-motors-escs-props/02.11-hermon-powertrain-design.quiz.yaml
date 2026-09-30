@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 02.11-hermon-powertrain-design.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: a0c2c67cb840
+  question: What is the correct order of the core powertrain decisions?
+  options:
+    - Mission, mass, frame, propeller, rpm, voltage, KV, motor, ESC, verify
+    - Motor, KV, voltage, propeller, frame, mass, mission, ESC, verify
+    - Mission, motor, KV, propeller, frame, mass, voltage, ESC, verify
+    - Pack voltage, ESC, motor, KV, propeller, frame size, mass, mission, verify
+  correct: 0
+- source: f56e0bc81486
+  question: Of the five constraints (prop clearance, hover throttle, thrust margin, current, thermal), which two does Hermon pass only narrowly?
+  options:
+    - Prop clearance and hover throttle (48 % vs the 40-60 % band)
+    - Current (14.1 A vs 15 A) and thermal (83 C on a 38 C day)
+    - Thrust margin and current (14.1 A vs a 30 A rating)
+    - Hover throttle and thermal (83 C on a 38 C day)
+  correct: 1
+- source: 93086e7397ab
+  question: Why is a substitute spec (stator class, KV range, current, mounting, mass) more useful than a part number?
+  options:
+    - It guarantees the substitute will match the original part's efficiency exactly
+    - It is required by the regulator before a motor may be flown on a registered drone
+    - It lets you order parts from any vendor without checking their datasheets
+    - It lets you judge any alternative quickly when the reference part is out of stock
+  correct: 3
+- source: d9defd7f85a1
+  question: Hermon's endurance claim is 22 minutes. What makes that claim meaningful rather than marketing?
+  options:
+    - "It lists explicit conditions: mass, prop FM, usable energy, wind, heat"
+    - It was measured once in calm air on a fully charged brand-new pack
+    - It is quoted at 100 % depth of discharge, the pack's full rated capacity
+    - It is calculated from the pack C-rating and the motor manufacturer's data
+  correct: 0
+- source: a5286dd35fc5
+  question: A 1700 KV motor gives Hermon a 13:1 thrust-to-weight ratio. Why is that not an argument for it?
+  options:
+    - High thrust-to-weight always reduces endurance, so no design should exceed 3:1
+    - Higher KV motors cannot run on 6S packs at all, so it would not even spin up
+    - It fails hover throttle, current and thermal; thrust margin is one of five
+    - A 13:1 ratio breaks regulatory limits on the maximum climb rate of drones
+  correct: 2

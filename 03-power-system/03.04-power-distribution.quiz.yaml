@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 03.04-power-distribution.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 948017b752f3
+  question: What usually decides wire gauge on the 22.2 V pack rail versus the 5 V rail?
+  options:
+    - Voltage drop on the pack rail; ampacity and durability on the 5 V rail
+    - Mass on both rails, since drones are always weight-limited first
+    - Voltage drop on both rails, since a 2 % budget applies everywhere
+    - Ampacity and durability on the pack rail; voltage drop on the 5 V rail
+  correct: 3
+- source: 40e8405701a8
+  question: What is the difference between a PDB, a BEC and a UBEC?
+  options:
+    - PDB regulates to 5 V; BEC splits pack voltage; UBEC is a fused distribution board
+    - PDB splits pack voltage; BEC is a built-in 5 V regulator; UBEC a standalone one
+    - PDB is a standalone regulator; BEC is a fuse block; UBEC is a built-in regulator
+    - PDB splits pack voltage; BEC is a standalone regulator; UBEC is a built-in one
+  correct: 1
+- source: a5161f35e469
+  question: Why must a BEC stepping 6S (22.2 V) down to 5 V be a switching regulator?
+  options:
+    - A linear one is about 23 % efficient, burning about 52 W at a 3 A load
+    - A linear one is about 77 % efficient, but produces too much switching ripple
+    - A linear one cannot accept more than 12 V input under any conditions
+    - A linear one is about 50 % efficient, burning about 15 W at a 3 A load
+  correct: 0
+- source: b55a76efe830
+  question: Why does plugging in a 6S pack spark?
+  options:
+    - The motors spin briefly at connection and generate a back-EMF arc
+    - Static charge built up on the carbon frame discharges through the plug
+    - The ESC's empty input capacitors draw an inrush of about 400 A
+    - The BEC starts up at full load and briefly shorts the pack terminals
+  correct: 2
+- source: 3ea3d715e3de
+  question: Why does Hermon have no fuse in its main battery lead?
+  options:
+    - Fuses cannot be rated high enough for the 57 A full-throttle current
+    - A blown trunk fuse means total power loss, which is always a crash
+    - The ESC has internal fuses that already protect the main battery lead
+    - A fuse would add too much mass to the lead for a 1.45 kg aircraft
+  correct: 1
+- source: b1480d530976
+  question: A daisy-chained ground has 10 mOhm of shared return carrying 57 A. What happens to the FC's current and voltage readings?
+  options:
+    - About 57 mV of ground offset, which is below the ADC resolution
+    - About 5.7 V of ground offset, which resets the flight controller
+    - No offset, since the ADC measures against the pack negative directly
+    - About 570 mV of ground offset shifts sense readings with throttle
+  correct: 3

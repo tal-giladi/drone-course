@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 12.01-waypoints.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: dc9751512720
+  question: Which mission command family blocks the sequencer, and what follows for the others?
+  options:
+    - NAV_* and CONDITION_* both block; DO_* advances once its action has completed
+    - Only NAV_* blocks; DO_* advances at once, and CONDITION_* delays only DO items
+    - Only DO_* blocks until its action completes; NAV_* commands are queued behind it
+    - All three families block in order, so each command waits for the previous one
+  correct: 1
+- source: fd7b44e09953
+  question: You drag a DO_SET_SERVO to the middle of a 200 m leg in the ground station. Where does it actually fire?
+  options:
+    - Exactly where it is drawn, because the ground station uploads its location too
+    - At the leg's start, when the previous waypoint is reached, about 100 m early
+    - At the end of the leg, when the next waypoint is reached, about 100 m late
+    - Halfway along by time rather than distance, so the position varies with wind
+  correct: 1
+- source: 5e38a4623a33
+  question: What does a 5 s CONDITION_DELAY actually delay, and what does it cost at a WPNAV_SPEED of 5 m/s?
+  options:
+    - The DO queue; the aircraft keeps flying and ends up about 25 m past it
+    - The navigation; the aircraft hovers at the waypoint for 5 s before moving on
+    - The DO queue; the aircraft keeps flying and ends up about 5 m past the target
+    - The navigation; the aircraft slows to 1 m/s for 5 s and covers about 5 m
+  correct: 0
+- source: a516cafb1796
+  question: With WPNAV_SPEED 5 m/s and WPNAV_ACCEL 2.5 m/s^2, why does a leg shorter than 10 m never reach cruise speed, and what does that mean for a survey with 20 m line spacing?
+  options:
+    - Speeding up and slowing down each take 10 m, so on the cross legs WPNAV_RADIUS sets the flight time
+    - Speeding up and slowing down each take 5 m, so raising WPNAV_SPEED shortens the cross legs most
+    - The waypoint radius cuts each leg by 10 m, so on the cross legs WPNAV_SPEED sets the flight time
+    - Speeding up and slowing down each take 5 m, so on the cross legs WPNAV_ACCEL sets the flight time
+  correct: 3
+- source: d933044434db
+  question: At a 180 deg turn, how much of WPNAV_RADIUS does the aircraft cut, given the cut is r*sin(theta/2)?
+  options:
+    - Half of it
+    - About 71% of it
+    - All of it
+    - None of it
+  correct: 2
+- source: 8e2c1d3c9614
+  question: What is the difference between the GLOBAL, GLOBAL_RELATIVE_ALT and TERRAIN altitude frames?
+  options:
+    - "GLOBAL: above mean sea level; RELATIVE_ALT: above home; TERRAIN: above the ground below"
+    - "GLOBAL: above home; RELATIVE_ALT: above mean sea level; TERRAIN: above the ground below"
+    - "GLOBAL: above the ellipsoid; RELATIVE_ALT: above the ground below; TERRAIN: above home"
+    - "GLOBAL: above mean sea level; RELATIVE_ALT: above the ground below; TERRAIN: above home"
+  correct: 0
+- source: 2ec131753685
+  question: Why download a mission from the aircraft right after uploading it?
+  options:
+    - Downloading resets home to the current position, which the mission needs before arming
+    - The flight controller requires a download to compute the checksum it checks at arming
+    - Uploads can partially fail and the editor shows a local copy; the download is the proof
+    - Downloading clears the previous mission from memory so the two cannot be mixed in flight
+  correct: 2

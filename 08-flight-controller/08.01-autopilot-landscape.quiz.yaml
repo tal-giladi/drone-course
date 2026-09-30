@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 08.01-autopilot-landscape.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 3b31fdc65303
+  question: What is the single structural difference that separates Betaflight from ArduPilot, from which the others follow?
+  options:
+    - Betaflight runs its loop at 8 kHz while ArduPilot's main loop runs at only 400 Hz
+    - Betaflight is GPL licensed while ArduPilot is BSD licensed, so their ecosystems differ
+    - Betaflight supports only one IMU per board, so it cannot vote between sensor lanes
+    - It has no state estimator, so it cannot hold position, fly missions or return home
+  correct: 3
+- source: 729d687667ec
+  question: Hermon's rate loop crosses over at 40 Hz and its motor and ESC lag is 30 ms. Moving from a 400 Hz loop to an 8 kHz loop buys back how much phase at crossover, against what?
+  options:
+    - About 18 deg recovered, against about 43 deg spent by the motor lag
+    - About 17 deg recovered, against about 82 deg spent by the motor lag
+    - About 0.9 deg recovered, against about 82 deg spent by the motor lag
+    - About 17 deg recovered, more than the 9 deg spent by the motor lag
+  correct: 1
+- source: 84b2638cdc15
+  question: Why can Betaflight not simply add an EKF on its typical STM32F405 boards?
+  options:
+    - An EKF3 lane needs about 234 kB of buffer, more than the F405's whole 192 kB of SRAM
+    - The EKF needs a hardware floating-point unit, which the F405 does not have at all
+    - An EKF would force the loop rate below 1 kHz, which breaks Betaflight's rate control
+    - The EKF code is under a licence that cannot legally be merged into Betaflight
+  correct: 0
+- source: a18338b0fa7d
+  question: Both ArduPilot and PX4 would fly Hermon. Which difference would settle the choice for a commercial product, and which way?
+  options:
+    - "Licence: ArduPilot's GPLv3 lets you ship modified firmware closed, unlike BSD"
+    - "Loop rate: PX4's faster rate loop makes it the more responsive product"
+    - "Licence: PX4's BSD licence lets you ship modified code closed, unlike GPLv3"
+    - "Estimator: only ArduPilot has an EKF, so only it supports position hold"
+  correct: 2
+- source: aaaba9e92b38
+  question: A friend's 5-inch racer flies far crisper on Betaflight than your Hermon build does on ArduPilot, so they conclude ArduPilot's control is worse. What is wrong with that inference?
+  options:
+    - "Nothing: ArduPilot's 400 Hz loop is simply too slow for any multirotor, Hermon included"
+    - "The aircraft differ: the racer crosses over near 100 Hz, where loop rate really matters"
+    - The racer only feels crisper because Betaflight skips the EKF's delay on the gyro path
+    - Nothing, but ArduPilot can match it by raising its loop rate to 8 kHz on an F4 board
+  correct: 1
+- source: 7f31e5c66336
+  question: Why does the autopilot-landscape lesson come after module 07 rather than before module 06?
+  options:
+    - Firmware can only be chosen once the frame and motors are physically assembled
+    - Module 06's estimator lessons assume ArduPilot is already flashed on the board
+    - It argues from numbers earlier modules produced, like the 40 Hz crossover and 234 kB lane
+    - It is placed late so that students cannot choose a firmware before they have tuned their PID gains
+  correct: 2
+- source: 0ee9583d1227
+  question: For what kind of aircraft is iNav the right answer?
+  options:
+    - A racing quad that needs 8 kHz loops and the lowest possible stick latency at any cost
+    - A commercial product that needs to ship closed-source firmware changes
+    - One needing missions, geofences and a companion computer on an H7 board
+    - One needing GNSS hold and return-to-home but no missions, on cheap F4 or F7 boards
+  correct: 3

@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FOP.02-risk-management-bowtie.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 13cec9b1b67e
+  question: Four hazards all score 6 on a likelihood x severity matrix. What does the single score throw away?
+  options:
+    - Nothing; equal scores mean the treatments are equivalent
+    - Which axis drives it, which is what decides the treatment
+    - How many barriers are already in place for each hazard
+    - The financial cost of each hazard, which matrices omit
+  correct: 1
+- source: 9002bf6f622e
+  question: What are the two kinds of bowtie barrier, and why keep them apart?
+  options:
+    - Preventive cut severity, recovery cut likelihood; they sum to one score
+    - Human and technical; both are scored on one common scale
+    - Preventive cut likelihood, recovery cut severity; they add together
+    - Preventive cut likelihood, recovery cut severity; neither substitutes
+  correct: 3
+- source: afca2548dd27
+  question: What dominates the recovery side of a drone bowtie?
+  options:
+    - Distance from people, the one barrier not involving the aircraft
+    - The parachute, which works whatever the original failure
+    - The flight controller's failsafes, which recover most losses
+    - The pilot's manual takeover skill after a failure
+  correct: 0
+- source: ed425f3b074f
+  question: Using the beta model P = ((1-beta)p)^n + beta*p with beta = 0.3, why do barriers stop multiplying?
+  options:
+    - Each barrier adds its own failures, so more barriers make things worse
+    - They do multiply fully; six barriers are about p^6 better than one
+    - Common-cause failures beat all barriers; six are only ~3.3x better than one
+    - Common-cause failures beat all barriers; six are about 124x better than one
+  correct: 2
+- source: a114df69210a
+  question: Given common-cause failure, what kind of barrier is best to add?
+  options:
+    - Another checklist item, since checklists are cheap and reliable
+    - A second firmware failsafe, as a backup to the first
+    - One that fails for a different reason, such as distance from people
+    - More pilot training, so that errors happen less often
+  correct: 2
+- source: bc1af72afe58
+  question: A bowtie gives a residual of 8.1e-4 per flight. At 35 flights a year, what does that mean?
+  options:
+    - One flight in about 1,239, about once every 35 years
+    - One flight in about 8,100, about once every 230 years
+    - About 8 % of flights, roughly three events a year
+    - One flight in about 1,239, about once every 3.5 years
+  correct: 0

@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 06.03-kalman-from-scratch.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: c262ffd5cd70
+  question: Where does the Kalman gain come from, in essence?
+  options:
+    - It is a tuning constant chosen to trade noise against lag
+    - It is simply the inverse of the measurement noise variance
+    - It generalises the running average's 1/k to a changing state
+    - It is the ratio of gyro noise to accelerometer noise at hover
+  correct: 2
+- source: 924f464c3194
+  question: In K = P/(P+R), what does K approaching 0 mean?
+  options:
+    - The sensor is excellent, so the filter takes the measurement
+    - The filter has diverged and needs to be reset from scratch
+    - The prediction is poor, so the new measurement should dominate the update
+    - "The filter is confident and the sensor poor: keep the prediction"
+  correct: 3
+- source: 4117f0a79f32
+  question: How does a Kalman filter's steady-state gain relate to a complementary filter's time constant?
+  options:
+    - They are the same filter; tau is about dt sqrt(R/Q)
+    - They are unrelated; one is stochastic, one deterministic
+    - tau is always exactly equal to 1/K times the sample rate
+    - tau is about dt sqrt(Q/R), shrinking as R grows
+  correct: 0
+- source: f1aa05fa2246
+  question: What is the common units mistake with Q and R?
+  options:
+    - R is per second and must be multiplied by dt; Q must not
+    - Q is per second and must be multiplied by dt; R must not
+    - Both Q and R are per second and must be multiplied by dt
+    - Both must be divided by the sample rate before use in the filter
+  correct: 1
+- source: 4571378ea1a6
+  question: Your filter's mean NIS is 100 for a scalar measurement. What does it tell you?
+  options:
+    - The estimate is definitely wrong and must be reset
+    - The filter is underconfident; Q and R are too large
+    - The filter is overconfident; S is ~100x too small
+    - The measurement sensor has failed and is reporting garbage values
+  correct: 2
+- source: 6524667ff88b
+  question: Why is setting Q_bias = 0 dangerous when the gyro bias really drifts?
+  options:
+    - P_bias grows without bound and the filter eventually diverges
+    - The filter immediately rejects every incoming measurement
+    - The filter chases noise and the bias estimate oscillates wildly
+    - P_bias shrinks, the gain hits zero and bias tracking stops
+  correct: 3
+- source: a2ea966d35d0
+  question: The Kalman filter was slightly less accurate than the hand-tuned complementary filter. Why use it anyway?
+  options:
+    - Derived gains, a covariance, consistency tests, scaling
+    - It always gives better accuracy once it is tuned properly
+    - It needs less computation per step than a complementary filter
+    - It does not need any model of the sensors or their noise
+  correct: 0

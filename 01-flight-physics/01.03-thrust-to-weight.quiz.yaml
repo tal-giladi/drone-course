@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 01.03-thrust-to-weight.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: fe17a93f549c
+  question: Hermon (1.45 kg) has four motors each measured at 13.43 N full thrust. What is its thrust-to-weight ratio?
+  options:
+    - About 9.26:1
+    - About 3.78:1
+    - About 0.94:1
+    - About 2.74:1
+  correct: 1
+- source: b88d44bf3a7a
+  question: Hermon hovers using 26% of its available thrust. Why is its hover throttle about 48-51% and not 26%?
+  options:
+    - Thrust goes as the square of rpm, so throttle is about the square root of 0.26
+    - Half the throttle is reserved by the firmware for attitude corrections at all times
+    - Thrust goes as the cube of rpm, so throttle is about the cube root of 0.26
+    - The ESC wastes about half the throttle as heat before any thrust is produced
+  correct: 0
+- source: 0e14996f24c4
+  question: Which of these is NOT one of the four things the thrust surplus pays for?
+  options:
+    - Tilting for level forward flight
+    - Rejecting gusts with differential thrust
+    - Raising the maximum radio link range
+    - Surviving a weak motor
+  correct: 2
+- source: b1a341c563fd
+  question: Why is a higher thrust-to-weight ratio not simply better?
+  options:
+    - Thrust costs mass, mass costs hover power, and the aircraft hovers lower on its efficiency curve
+    - A higher ratio makes the quad statically unstable, so the control loop can no longer hold it
+    - Regulators cap the ratio at 4:1 for hobby aircraft, so anything above it cannot be flown legally
+    - A higher ratio raises the hover throttle toward 100%, so no margin is left for gusts
+  correct: 0
+- source: 2f2c3dc5d431
+  question: MOT_THST_HOVER has risen from 0.26 to 0.31 over ten flights. What does it mean and what do you check first?
+  options:
+    - T/W rose from about 3.23 to 3.85; the motors are breaking in, so no check is needed
+    - T/W fell from about 3.85 to 3.23; retune the PID gains first, then check the props
+    - T/W is unchanged; the parameter drifts with temperature, so recalibrate the IMU
+    - T/W fell from about 3.85 to 3.23; check mass first, then props, then pack ageing
+  correct: 3
+- source: 41832b68a2d1
+  question: A 1.45 kg quad needs a 3.5:1 thrust-to-weight ratio with four motors. What thrust must each motor make?
+  options:
+    - About 49.8 N, or about 5,080 g
+    - About 12.4 N, or about 1,270 g
+    - About 3.56 N, or about 363 g
+    - About 10.6 N, or about 1,080 g
+  correct: 1

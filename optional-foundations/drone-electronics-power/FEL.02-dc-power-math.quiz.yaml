@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FEL.02-dc-power-math.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 929d74ca07e7
+  question: A 3S 5,000 mAh pack and a 6S 5,000 mAh pack carry the same amp-hour label. How do they compare?
+  options:
+    - The 6S holds 111 Wh vs 55.5 Wh, about double the flight time
+    - They hold the same energy, so flight time is about equal
+    - The 3S lasts longer, since lower voltage draws less power
+    - The 6S holds 111 Wh vs 55.5 Wh, yet flight time is equal
+  correct: 0
+- source: 700d0308885a
+  question: What is the course's head-maths rule for flight time, and why does voltage not appear in it?
+  options:
+    - Minutes = 48 x Wh / A; voltage is already folded into watt-hours
+    - Minutes = 60 x Ah / A; voltage cancels and the reserve comes later
+    - Minutes = 48 x Ah / A; voltage cancels between Wh = V*Ah and I = P/V
+    - Minutes = 48 x Ah / A; voltage is fixed at 22.2 V on this aircraft
+  correct: 2
+- source: 3f501e28ac48
+  question: Where does the 48 in 'minutes = 48 x Ah / A' come from?
+  options:
+    - 60 min/h x 80 % drivetrain efficiency; add the reserve on top
+    - The 48 V bus of a 12S pack, scaled to amp-hours
+    - 60 min/h x the 80 % usable fraction, so the reserve is built in
+    - 60 min/h minus a fixed 12-minute landing reserve
+  correct: 2
+- source: d566f37a08f6
+  question: A switching BEC delivers 11.3 W from 22.2 V at 85 % efficiency. How much heat does it make, compared with a linear regulator?
+  options:
+    - About 2 W; a linear regulator would waste about 38.8 W
+    - About 2 W; a linear regulator would waste about the same
+    - About 9.6 W; a linear regulator would waste about 38.8 W
+    - About 1.7 W; a linear regulator would waste about 11.3 W
+  correct: 0
+- source: 58afa17d1b30
+  question: Of Hermon's 226 W total draw, what fraction goes to the motors?
+  options:
+    - About 75 %, with avionics taking most of the other quarter
+    - About 50 %, with the rest split between ESCs and avionics
+    - About 99 %, with avionics well under 1 % of the total
+    - About 94 %, with avionics near 5 % and BEC loss under 1 %
+  correct: 3
+- source: e84021211f57
+  question: Which change buys Hermon the most endurance?
+  options:
+    - Removing every electronic device, about 5 minutes
+    - Losing 100 g of mass, about 2.7 extra minutes
+    - Fitting a more efficient BEC, about 3 minutes
+    - Dropping the companion's 8 W, about 4 minutes
+  correct: 1

@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FRA.04-protocols-and-bands.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: c1908e0d31b4
+  question: What is 'worst-case stick age', and what is it for SBUS (14.01 ms period, 3.00 ms frame)?
+  options:
+    - "The period alone: 14.01 ms"
+    - "Half the period plus frame time: 10.01 ms"
+    - "Period plus frame time: 17.01 ms"
+    - "The frame time alone: 3.00 ms"
+  correct: 2
+- source: 3ea718f552d7
+  question: A 400 Hz rate loop runs about seven times per 17 ms stick update. What does that imply about the control architecture?
+  options:
+    - The pilot commands attitude; the fast inner loop does the stabilising
+    - The pilot stabilises the aircraft directly through the sticks
+    - The rate loop should be slowed down to match the stick update rate
+    - Only a much faster link would make the aircraft flyable
+  correct: 0
+- source: de3e26b9c34b
+  question: One WiFi network occupies 20 of about 80 hopping channels. What does frequency hopping turn that into?
+  options:
+    - A dead link whenever the WiFi network's channel is busy
+    - Zero packet loss, since hopping always skips the busy channels
+    - About 75 % packet loss, since WiFi dominates the band
+    - About 25 % packet loss, a gradual failure a failsafe can act on
+  correct: 3
+- source: 26caa162ad8b
+  question: CRSF at 150 Hz has a 6.7 ms period; loss-free SBUS is 14.0 ms. At roughly what packet loss does CRSF stop being better?
+  options:
+    - Around 25 % loss, where its effective period is about 8.9 ms
+    - Around 75 % loss, where its effective period is about 26.7 ms
+    - Around 50 % loss, where its effective period is about 13.3 ms
+    - Never, since hopping always beats a fixed-channel protocol
+  correct: 1
+- source: 79093dbff929
+  question: Why can't 868 MHz be used for drone telemetry in Israel?
+  options:
+    - Not licence-exempt, and its 1 % duty cycle is far under the 22.5 % needed
+    - It needs antennas too long to fit on a 40 cm airframe
+    - It is licence-exempt, but ETSI limits its power to 1 mW
+    - Its 1 % duty cycle gives 36 s per hour, which is just enough for telemetry
+  correct: 0
+- source: 67d75be3718c
+  question: Israel's 917-920 MHz window is 3 MHz wide versus 26 MHz in the US. What does that cost?
+  options:
+    - A 1 % duty-cycle limit, capping each radio's transmission at 36 s per hour
+    - About 52 hop channels, so one interferer costs only about 4 %
+    - About 6 hop channels, so one 1 MHz interferer costs about 33 % of packets
+    - Lower permitted power, cutting range by a factor of about 8.7
+  correct: 2

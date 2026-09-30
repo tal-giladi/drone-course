@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 00.05-relationship-robotics-course.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 5b949ce188a9
+  question: Which topic does the drone course assume from the robotics course, rather than teach from zero?
+  options:
+    - LiPo, BLDC and DShot (FEL.03-05)
+    - GNSS math (FGL.06/07)
+    - Control and PID (robotics 08)
+    - The RF link budget (FRA.02)
+  correct: 2
+- source: 49895d2b2709
+  question: A lesson says "cross-ref robotics 08" and also lists "FRA.05 (optional)". What do you do?
+  options:
+    - Do FRA.05 first because optional tracks are prerequisites, then robotics 08, then this lesson
+    - Re-read robotics 08, do this lesson, and skip FRA.05 unless the exercise needs 5.8 GHz video specifics
+    - Skip robotics 08 since it is only a cross-reference, and do FRA.05 in full before the lesson
+    - Do the whole robotics 08 module and all of FRA.05, since both are listed and this lesson depends on them
+  correct: 1
+- source: 98c63268c738
+  question: Why are the five foundations tracks optional rather than required?
+  options:
+    - Every main lesson is self-contained; the tracks go deeper just in time, and requiring them would delay the build
+    - They repeat the robotics course nearly word for word, so anyone who already took that course has all of the content
+    - They are not assessed by course.py, so completing them would not count toward progress
+    - They require hardware that most learners do not have until the capstone module
+  correct: 0
+- source: ce3e296ddaa8
+  question: An audit flags a gap at robotics 13 (CV) and you are at drone module 14. What is the cheapest fix?
+  options:
+    - Redo the full robotics 13 module from the very start, including every exercise, before touching drone module 14
+    - Skip the gap, since drone module 14 re-teaches all of computer vision from zero
+    - Redo robotics 13's calibration challenge and read its pinhole-model section, then continue module 14
+    - Go back to drone module 00 and redo every lesson that mentions a camera
+  correct: 2
+- source: 0757cde4566b
+  question: Which foundations track has no robotics-course equivalent at all?
+  options:
+    - FOP, civil and ops fundamentals, because the course ends in operator work
+    - FEL, electrical fundamentals, because robotics never used LiPo batteries
+    - FGL, GNSS math, because robotics never covered localization
+    - FA, flight aerodynamics, because robotics had no physics track
+  correct: 0

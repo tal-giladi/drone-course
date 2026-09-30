@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 07.07-filtering-and-methodic-tuning.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: d80bbb168e70
+  question: A 984 Hz harmonic is sampled at 1 kHz. Where does it appear and why can't a notch remove it?
+  options:
+    - At 492 Hz; notches cannot reach above 400 Hz
+    - At 984 Hz; notches cannot track that high
+    - At 16 Hz by aliasing; it is indistinguishable from real motion
+    - At 16 Hz; a notch there would remove real control input only partially
+  correct: 2
+- source: ddb1675cbf2f
+  question: For 20 dB at 84 Hz, why does a notch cost so much less phase at 20 Hz than a low-pass?
+  options:
+    - The notch uses a higher-order filter design
+    - The notch runs at a much higher internal sample rate than the loop
+    - The low-pass must have its corner above 84 Hz
+    - Notch phase is local; the low-pass must sit near 27 Hz
+  correct: 3
+- source: becb206481a6
+  question: Throttle notch tracking uses f = f_ref sqrt(u/u_ref). Why is it 34 Hz low at full throttle?
+  options:
+    - The root belongs on thrust, which follows expo, not throttle
+    - The square root in the formula should really be a cube root instead
+    - Battery sag lowers the rpm at full throttle
+    - The notch filter bandwidth is set too narrow
+  correct: 0
+- source: 8fa790174468
+  question: Which change breaks a throttle-based (mode 1) notch?
+  options:
+    - Fitting a camera pod that raises hover throttle
+    - A chipped propeller blade
+    - Flying at a higher-altitude site
+    - Swapping in a fully charged battery
+  correct: 1
+- source: 17fbdb166cad
+  question: "INS_GYRO_FILTER 20 alone vs INS_GYRO_FILTER 60 plus a notch: why is the second better?"
+  options:
+    - It gives twice the attenuation at the tone
+    - It removes the need for any D term at all
+    - It doubles the crossover to 40 Hz
+    - It greatly reduces CPU load on the flight controller
+  correct: 2
+- source: 9daf1a7d270f
+  question: Why is the notch aimed at the 84 Hz fundamental rather than 253 Hz blade pass?
+  options:
+    - Blade pass is too high for a notch to be computed
+    - Blade pass aliases down to 84 Hz anyway
+    - The D term ignores everything above 100 Hz
+    - A 20 Hz low-pass already kills 253 Hz
+  correct: 3
+- source: 875ce801cd56
+  question: Which steps of the methodic tuning procedure does AUTOTUNE perform?
+  options:
+    - The rate and attitude gains
+    - The harmonic notch and filters
+    - The position loops and the limits
+    - All eleven steps in sequence
+  correct: 0

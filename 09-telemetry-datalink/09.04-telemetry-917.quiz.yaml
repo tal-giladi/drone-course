@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 09.04-telemetry-917.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 030a639c6c2f
+  question: Which SiK registers set the hopping window, and what happens if you write 917000 to S1?
+  options:
+    - S1, S2 and S3; writing them is correct, and the change takes effect after a reboot
+    - S8, S9 and S10; S1 is NETID, so the two radios simply stop pairing with each other
+    - S4, S5 and S6; S1 is AIR_SPEED, so the link quietly drops to its slowest possible air rate
+    - S8, S9 and S10; S1 is SERIAL_SPEED, so the wire speed breaks and you lose the console
+  correct: 3
+- source: a3e4a94df3d9
+  question: Why must the remote SiK radio be configured before the local one?
+  options:
+    - Once the local window changes it cannot reach the aircraft's radio, so use the link first
+    - The remote radio holds the master configuration and pushes it to the local one
+    - The local radio must stay on its defaults so that it can recover the link if the remote fails
+    - The remote radio reboots more slowly, so configuring it first saves time overall
+  correct: 0
+- source: e685a6104eef
+  question: Hermon's SiK window is 3 MHz wide. Why is NUM_CHANNELS 10 rather than the default 50, and what does it cost?
+  options:
+    - Fifty channels exceed the regulatory limit; the cost is a slower hop rate and more latency
+    - Each channel needs about 300 kHz, so only ten fit; the cost is halving the usable air data rate
+    - Fewer channels strengthen the ECC; the cost is that one interferer then takes 2 %, not 10 %
+    - Channels need about 114 kHz but 50 leave only 60 kHz; one interferer then takes 10 %, not 2 %
+  correct: 3
+- source: e5d0fc72c896
+  question: SiK ECC halves your throughput. When would you turn it off?
+  options:
+    - For long-range flights, where the halved throughput becomes the larger problem
+    - Whenever the link is below 50 % load, since ECC only helps on busy links
+    - For a log download beside the aircraft or on the bench, never for flight
+    - In the narrow Israeli window, since ECC wastes the few channels available
+  correct: 2
+- source: 7182cbf7f571
+  question: The aircraft hovers 60 m up and 5 m away, with vertical dipoles at both ends. How much signal have you lost, and why?
+  options:
+    - "About 23.7 dB: at 85 degrees elevation it sits almost in the dipole's axial null"
+    - About 3 dB, from the polarisation mismatch of a slightly banked hovering aircraft
+    - Almost none, since at about 60 m range the free-space loss is negligible
+    - About 23.7 dB, since the ground reflection cancels the direct path at short range
+  correct: 0
+- source: 8a3d689853df
+  question: What does a 45 degree bank cost in polarisation loss, and why does it matter more on a windy day?
+  options:
+    - 6 dB; in wind the aircraft banks twice as hard, doubling the loss on every turn
+    - 3 dB; wind makes LOITER lean the aircraft 10-15 degrees constantly, a standing loss
+    - 3 dB; in wind the gusts detune the antenna as well, adding a further 3 dB at random
+    - 1.5 dB; in wind the aircraft flies faster, so it spends more time banked over
+  correct: 1
+- source: 5fead291d6f4
+  question: Why is a quarter-wave whip 'half an antenna', and where should the ground radio live?
+  options:
+    - It radiates on one side only; hold the radio at chest height so your body reflects the signal
+    - It covers only half the band; mount the radio on the car roof to double its gain
+    - The feed line is the other half; keep the radio on the ground so the earth acts as the plane
+    - The ground plane is the other half, about 16 cm at 918 MHz; use a 2 m plastic mast
+  correct: 3

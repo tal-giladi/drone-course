@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 15.04-offboard-control.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: cedab1627de8
+  question: Why does GUIDED mode need a setpoint timeout at all?
+  options:
+    - The FC can buffer only one setpoint, which must expire to free memory for the next one to arrive
+    - Without a timeout, position setpoints would accumulate integrator windup over time
+    - A velocity setpoint is open-ended, and the FC cannot tell a live commander from a dead one
+    - The radio drops packets, and the timeout is what resends the last command received
+  correct: 2
+- source: b71cf20b4be4
+  question: The commander dies at 5 m/s with a 3 s GUID_TIMEOUT. How far does the aircraft travel, and what does that constrain?
+  options:
+    - About 15 m (the coasting through the timeout alone), which sets a minimum FENCE_MARGIN
+    - About 5 m (the stopping alone), which sets a minimum GUID_TIMEOUT
+    - About 20 m in total, which sets the maximum allowed WPNAV_ACCEL
+    - About 20 m (15 m coasting plus 5 m stopping), which sets a minimum FENCE_MARGIN
+  correct: 3
+- source: 8b50b11ad696
+  question: Why is one second the sensible floor for GUID_TIMEOUT?
+  options:
+    - Normal 437 ms executor stalls plus network hiccups would otherwise drop GUIDED every vision frame
+    - Below one second the flight controller cannot parse and process incoming MAVLink setpoint messages at all
+    - One second matches the RC failsafe timer, so both failsafes fire together cleanly
+    - Below one second the aircraft would coast further before the timeout manages to stop it
+  correct: 0
+- source: 85c67ebc2aba
+  question: If 1 Hz setpoints are enough to clear the timeout, why stream at 10 or 20 Hz?
+  options:
+    - On a 5 m turn the path error is 25 cm at 1 Hz and 2.5 cm at 10 Hz, a linear gain
+    - "Zero-order hold: on a 5 m turn the path error is 250 cm at 1 Hz but 2.5 cm at 10 Hz"
+    - Higher rates keep the MAVLink link warm and avoid rediscovery delays between packets
+    - The FC's velocity controller needs a fresh target every 100 ms or it becomes unstable
+  correct: 1
+- source: 1efa3efa7dbc
+  question: What does a velocity setpoint bypass that a position setpoint does not?
+  options:
+    - The velocity and acceleration limits, while still using the full path planner
+    - The geofence, so a runaway velocity setpoint can leave the boundary
+    - The attitude controller, so the setpoint drives the motors directly
+    - The path planner, while still keeping the velocity and acceleration limits
+  correct: 3
+- source: ab4ece4dd856
+  question: Does the geofence apply in GUIDED mode?
+  options:
+    - Yes; the fence sits below GUIDED, so a runaway setpoint still triggers the fence action
+    - No; GUIDED hands full authority to the companion, which must then enforce its own software fence
+    - Only vertically; horizontal limits are suspended while the companion is commanding
+    - Only when FENCE_MARGIN exceeds the distance travelled during the setpoint timeout
+  correct: 0
+- source: 32b3840063e3
+  question: Why prefer commanding a yaw angle over a yaw rate?
+  options:
+    - A yaw rate is quantised to 10 deg/s steps, so any fine heading needs an absolute angle instead
+    - An angle completes; a 90 deg/s rate with a 3 s timeout can turn 270 deg if the stream dies
+    - An angle uses much less link bandwidth than a rate that must be streamed at 20 Hz
+    - A rate with a 3 s timeout turns only 90 deg before it stops, which is too little
+  correct: 1
+- source: 18109f23f635
+  question: A pilot's mode switch acts in about 40 ms; the companion's decision loop takes about 444.5 ms. Why the eleven-fold ratio?
+  options:
+    - RC radio links are about eleven times faster than the telemetry radio links used for MAVLink traffic
+    - The companion computer runs at about one eleventh of the flight controller's clock speed
+    - The switch runs in the FC's bare-metal loop; the companion has a vision pipeline in front of it
+    - MAVLink setpoint messages are about eleven times larger than a single RC frame on the wire
+  correct: 2

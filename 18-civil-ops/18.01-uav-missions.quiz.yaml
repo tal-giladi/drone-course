@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 18.01-uav-missions.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: bd774f07bcb3
+  question: On a civil drone job, what is the client actually buying?
+  options:
+    - "A file: an orthomosaic, report, log or coordinate"
+    - Flight time, billed per minute the aircraft is aloft
+    - Access to the aircraft and pilot for the whole day
+    - A number of raw images captured over their site
+  correct: 0
+- source: 67993d253ca4
+  question: altitude = GSD x focal / pitch. A client must see 1 mm cracks at 3 px each. How do you turn that into an altitude?
+  options:
+    - GSD = 1 mm x 3 px = 0.3 cm, giving an altitude of about 8.8 m
+    - GSD = 1 mm / 3 px = 0.033 cm, giving about 0.97 m
+    - GSD = 1 mm per px, giving about 2.9 m
+    - Fly the legal ceiling and crop in processing
+  correct: 1
+- source: 462c88ef11af
+  question: On a 300 x 200 m site, 4 cm GSD needs 55 images. Why is 'a bit more detail' such as 0.5 cm an expensive request?
+  options:
+    - "Images go as 1/GSD: about 440 images and one pack"
+    - Only altitude changes, so it stays near 55 images
+    - "Images go as 1/GSD^3: about 28,000 images and roughly ten packs"
+    - "Images go as 1/GSD^2: about 2,291 images and three packs"
+  correct: 3
+- source: 11fabde8dcc8
+  question: At 120 m the camera footprint is 165 x 123 m. Why does a small site cost more per hectare than a large one?
+  options:
+    - Small sites need a lower altitude, which makes the GSD finer and slower to fly
+    - Processing software charges a fixed minimum per project
+    - "Edge overhead: the extra line and shot per edge are a large share"
+    - Small sites force more frequent battery swaps per hectare
+  correct: 2
+- source: bf9a598c44bb
+  question: Why is an inspection a different operation from a survey?
+  options:
+    - Its GSD puts the aircraft about 1 m from a structure, hand-flown
+    - It uses a different camera but otherwise follows exactly the same survey plan
+    - It is flown at the legal ceiling for a wider field of view
+    - It needs fewer images, so it is simply a shorter survey
+  correct: 0
+- source: b8a0e8889c5f
+  question: Covering 1 km2 at 120 m is 646 images, about an hour of flying. What limits search and rescue?
+  options:
+    - "Flight time: one square kilometre at 120 m takes most of a working day to fly"
+    - "Review burden: even 0.1 false positives per image is about 65 leads"
+    - "Detector recall: no detector can find a person from 120 m"
+    - "Payload: the camera leaves too little endurance for the area"
+  correct: 1
+- source: ce9f5e42a21d
+  question: Why does the list of missions Hermon can and cannot do look the way it does?
+  options:
+    - Regulations ban small drones from most commercial missions
+    - It reflects price per hectare, with the cheapest missions to fly chosen first
+    - Each verdict follows from earlier numbers like the 55:1 tank ratio
+    - It is an opinion that small drones cannot do serious work
+  correct: 2
+- source: bdbcbd300dcf
+  question: A job needs 50 cm GSD over a wide area, which wants about 1,459 m of altitude. What is the constraint?
+  options:
+    - The camera, whose resolution is too fine
+    - Battery endurance at such high altitude
+    - Stronger wind at high altitude over the area
+    - The 120 m legal ceiling, not the camera
+  correct: 3

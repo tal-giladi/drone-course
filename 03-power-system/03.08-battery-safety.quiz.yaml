@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 03.08-battery-safety.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: baba3e71e7f8
+  question: How much energy does Hermon's 111 Wh pack release if it burns, and why?
+  options:
+    - About 111 Wh; only the stored electrical charge can be released
+    - About 55 Wh; half the stored charge is lost before ignition occurs
+    - About 900 Wh; the electrolyte burns on top of the stored charge
+    - About 220 Wh; the charge is released twice, as heat and as light
+  correct: 2
+- source: 91af6900dea2
+  question: In thermal runaway, which stage is the point of no return?
+  options:
+    - Separator melt around 110-130 C, starting an internal short
+    - Accelerated ageing around 60 C, which permanently damages cells
+    - SEI decomposition around 80-90 C, which first releases heat
+    - Peak burning around 600-1,000 C, after the flames are visible
+  correct: 0
+- source: bd815a81175a
+  question: Why does a CO2 extinguisher not stop a LiPo fire?
+  options:
+    - CO2 reacts with hot lithium metal to form an explosive compound
+    - Above ~150 C the cathode makes its own oxygen, so it re-ignites
+    - CO2 cannot reach the cell through the pack's shrink wrap
+    - CO2 is electrically conductive and shorts the remaining cells
+  correct: 1
+- source: 8843348cf136
+  question: Where does the hydrogen fluoride hazard in a LiPo incident come from?
+  options:
+    - The PVC shrink wrap burning at high temperature
+    - The graphite anode reacting with atmospheric nitrogen
+    - The balance-lead insulation melting onto the cells
+    - The LiPF6 electrolyte salt reacting with moisture
+  correct: 3
+- source: ea1d34278972
+  question: A spanner shorts a charged 6S pack (0.04 ohm internal). About 530 A flows. How long until separator melt?
+  options:
+    - About seven seconds; there is no time to react
+    - About seven minutes; enough time to disconnect it
+    - About one minute; the pack warms slowly at first
+    - It never melts; the pack's internal fuse opens first
+  correct: 0
+- source: 177a5603207d
+  question: A pack was in a crash, looks undamaged and reads 3.85 V per cell. What is the key next step?
+  options:
+    - Fly it gently for one pack to confirm it still holds charge
+    - Charge it immediately to check whether it accepts a charge
+    - Isolate it somewhere fire-safe and observe it for 30 minutes
+    - Discharge it to storage voltage at once through the aircraft
+  correct: 2

@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FEL.04-bldc-from-zero.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: e870fc58ed49
+  question: Compared with a brushed motor, what does a brushless motor's ESC replace?
+  options:
+    - The voltage regulator that a brushed motor needs from the battery
+    - The permanent magnets, which the ESC simulates electronically
+    - The brushes and commutator that switch current as the rotor turns
+    - The gearbox that matches motor speed to propeller speed
+  correct: 2
+- source: 44598cd97277
+  question: Why does a brushless motor have three wires?
+  options:
+    - Three phases is the fewest that can make a rotating magnetic field
+    - One wire each for power, ground and the speed command signal
+    - Two carry the power and the third feeds back-EMF to a hall sensor
+    - Three wires split the current so windings can be thinner
+  correct: 0
+- source: 18387107ae93
+  question: Hermon's 14-pole motor hovers at 5,060 rpm, with six switching states per electrical revolution. How often does the ESC switch per motor?
+  options:
+    - About 506 times per second
+    - About 3,542 times per second
+    - About 590 times per second
+    - About 7,084 times per second
+  correct: 1
+- source: 38efda96c04f
+  question: What is back-EMF, and what two jobs does it do in a sensorless brushless system?
+  options:
+    - Current returned to the battery; it recharges it and caps top speed
+    - Voltage the ESC injects; it brakes the rotor and senses temperature
+    - Voltage the spinning motor generates; it cools windings and sets C rating
+    - Voltage the spinning motor generates; it shows rotor position and sets KV
+  correct: 3
+- source: f43de583896e
+  question: A 470 KV motor hovers at 5,060 rpm on a 22.2 V pack. What throttle duty cycle does that imply?
+  options:
+    - About 48 %, from 10.77 V of back-EMF over 22.2 V
+    - About 26.5 %, the same as the hover thrust fraction
+    - About 52 %, what remains after back-EMF is subtracted
+    - About 100 %, since hover needs the full pack voltage
+  correct: 0
+- source: "819629744e01"
+  question: Hermon's 470 KV motors need 5,060 rpm under load to hover. Why can they not do it on a 3S (11.1 V) pack?
+  options:
+    - 3S cannot supply enough current for hover, whatever the motor's KV rating
+    - 470 x 11.1 is about 5,217 rpm, but ESCs cap throttle near 50 %
+    - 470 x 11.1 is only 5,217 rpm unloaded, too little once the prop loads it
+    - KV only holds above about 20 V, so 3S gives unpredictable rpm
+  correct: 2

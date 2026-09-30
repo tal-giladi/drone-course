@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 06.05-ekf3-in-ardupilot.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 9558a8bee5ed
+  question: Why does EKF3 run a separate filter lane per IMU instead of fusing them all?
+  options:
+    - "Fault isolation: a bad IMU corrupts only its own lane"
+    - Fusing all IMUs would need a 44-state filter
+    - It halves the CPU cost compared with a single fused filter
+    - Each IMU runs at a different sample rate and cannot be fused
+  correct: 0
+- source: 3b62e540bf08
+  question: What does repeated EKF3 primary-lane switching usually indicate?
+  options:
+    - A single IMU has failed outright
+    - Two similar mediocre IMUs tie on noise
+    - The EKF gains are set much too high
+    - Repeated GNSS glitches are forcing lane resets
+  correct: 1
+- source: c6de19f79297
+  question: Why does a flow-based EKF3 source set set POSXY to None?
+  options:
+    - Flow measures position too noisily to use
+    - Flow position is supplied through the VELXY field
+    - Flow measures velocity, not position
+    - POSXY is only used with RTK GNSS
+  correct: 2
+- source: 95ba38112a61
+  question: How would you notice that EK3_GPS_DELAY was set wrong?
+  options:
+    - Position noise that stays constant in a hover
+    - A steady altitude offset that grows larger with total flight time
+    - Heading error that grows steadily through each turn
+    - Overshoot that grows with speed and vanishes in hover
+  correct: 3
+- source: f3a67f760373
+  question: What is the difference between raising EK3_VELNE_M_NSE and raising EK3_ACC_P_NSE?
+  options:
+    - VELNE is R for GNSS velocity only; ACC_P is Q, affecting all
+    - Both lower trust in GNSS velocity by the same amount
+    - VELNE is Q and global; ACC_P is R and local to one sensor
+    - ACC_P lowers trust in all sensors, while VELNE raises trust in GNSS
+  correct: 0
+- source: 741032e13b79
+  question: The barometer's noise is 0.125 m. Why is EK3_ALT_M_NSE 2.0 m by default?
+  options:
+    - The EKF needs R above 1 m to stay numerically stable
+    - R must absorb drift, temperature error and propwash too
+    - It is a conservative default that should be tuned down to 0.125 m
+    - The barometer is sampled slowly, so R is scaled up by the rate ratio
+  correct: 1
+- source: 76cf40c8ed7c
+  question: Why can an overconfident filter be more dangerous than an underconfident one?
+  options:
+    - It is slower to follow genuine changes in the state
+    - It uses more CPU time recomputing its gains each step
+    - Too-small S rejects good data, starting a runaway
+    - It amplifies sensor noise straight into the control loops
+  correct: 2

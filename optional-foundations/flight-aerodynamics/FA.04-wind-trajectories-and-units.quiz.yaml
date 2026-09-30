@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in FA.04-wind-trajectories-and-units.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: fa8922efcf96
+  question: An aircraft flies at 5 m/s airspeed straight into a 5 m/s headwind. What happens?
+  options:
+    - It stalls, because airflow over the propellers drops to zero
+    - It moves forward at 5 m/s, since airspeed is measured over ground
+    - It stays put over the ground while flying normally through the air
+    - It drifts backward at 5 m/s, since the wind overpowers its thrust
+  correct: 2
+- source: fec0617b4308
+  question: A multirotor flies at 5 m/s airspeed across a 3 m/s crosswind, crabbing to hold a straight track. What is its ground speed?
+  options:
+    - 4.0 m/s, a 20 % loss that shows no obvious symptom
+    - 5.0 m/s, since a crosswind has no headwind component
+    - 2.0 m/s, since the crosswind subtracts from the airspeed
+    - 5.8 m/s, since the two vectors add at right angles
+  correct: 0
+- source: 1718e947720f
+  question: Five 300 m survey lines are flown at 5 m/s airspeed in a 3 m/s wind. Which orientation is faster, and by how much?
+  options:
+    - "Along the wind: tailwind legs more than repay headwind legs"
+    - "No difference: headwind and tailwind legs average out"
+    - "Across the wind: 300 s versus 375 s, saving 75 s"
+    - "Across the wind: 375 s versus 525 s, saving 150 s"
+  correct: 3
+- source: d3ba8478c417
+  question: An aircraft flies 300 m at 2 m/s ground speed into a headwind, then 300 m back at 8 m/s. How does this compare with 600 m at 5 m/s in still air (120 s)?
+  options:
+    - 120 s, the same, because 2 and 8 m/s average to 5 m/s
+    - 187.5 s, about 56 % slower, as more time is spent at the slow speed
+    - 150 s, about 25 % slower, as the headwind outweighs the tailwind
+    - 96 s, about 20 % faster, because the tailwind leg is so quick
+  correct: 1
+- source: 6f1a5a81cc20
+  question: An object is dropped from 3 m while the aircraft flies at 5 m/s (g = 9.81 m/s^2, no drag). How far ahead of the release point does it land?
+  options:
+    - About 3.91 m, from a 0.782 s fall at 5 m/s
+    - Directly below, since dropped objects fall straight down
+    - About 2.77 m, from a 0.553 s fall at 5 m/s
+    - About 1.53 m, from a 0.306 s fall at 5 m/s
+  correct: 0
+- source: d7303ca76264
+  question: At 5 m/s, a drop from 3 m lands about 3.91 m ahead. Roughly how far ahead does a drop from 120 m (40x higher) land?
+  options:
+    - About 156 m, as throw grows in proportion to height
+    - About 3.91 m, as horizontal speed is unaffected by height
+    - About 24.7 m, as throw grows with the square root of height
+    - About 13.4 m, as throw grows with the cube root of height
+  correct: 2
+- source: 24ef28ff22c9
+  question: A drop-lead formula v x (sqrt(2h/g) + t) balances dimensionally to metres. What does that units check prove?
+  options:
+    - That the result is numerically correct for any input values
+    - The formula's shape, but not that each input is in the right unit
+    - Nothing, since shape errors always leave the units unbalanced
+    - That feet-versus-metres mix-ups are caught, as units would clash
+  correct: 1
+- source: a7c2b266f61f
+  question: What discipline best stops a height read in feet from being used as metres inside navigation code?
+  options:
+    - Carry display units through and convert only at the output
+    - Run a dimensional analysis on every formula before flight
+    - Store each value in whatever unit its sensor provides
+    - Convert to SI once at the input boundary and use SI inside
+  correct: 3

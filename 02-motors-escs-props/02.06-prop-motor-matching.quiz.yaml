@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 02.06-prop-motor-matching.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: c6e770751d7e
+  question: Which two curves must meet in prop-motor matching, and in what variable?
+  options:
+    - Prop thrust and battery voltage, meeting in the current drawn
+    - Prop torque demand and motor torque supply, meeting in rpm
+    - Motor KV and ESC timing, meeting in throttle
+    - Prop pitch and motor mass, meeting in watts
+  correct: 1
+- source: e29cc0e411da
+  question: Why should hover throttle sit between about 40% and 60%?
+  options:
+    - Below it the ESC cannot sense back-EMF reliably; above it the motor windings overheat quickly
+    - Below wastes unused hardware and stick range; above leaves no margin for gusts or payload
+    - The flight controller rejects any hover throttle outside this band as a sensor error
+    - Below it the props stall; above it the battery voltage sags below the LiPo safe limit
+  correct: 1
+- source: 1de14a37eded
+  question: Hermon's hover needs 5,062 rpm at 48.5% throttle on a 22.2 V pack. What KV does that call for?
+  options:
+    - About 228 KV
+    - About 1,040 KV
+    - About 5,060 KV
+    - About 470 KV
+  correct: 3
+- source: 698eab7991c1
+  question: "Moving Hermon from 6S to 4S at the same thrust: what happens to hover rpm, KV and current?"
+  options:
+    - Rpm unchanged, KV up about 1.5x, current up about 50%
+    - Rpm down a third, KV unchanged, current unchanged
+    - Rpm unchanged, KV down by a third, current down by a third
+    - Rpm up 50%, KV unchanged, current up 50%
+  correct: 0
+- source: 761fa489e39d
+  question: Measured hover throttle is 58% but current matches prediction. What is wrong?
+  options:
+    - "A drag problem: CP is high, so the propeller is too draggy for the motor"
+    - "A voltage problem: the pack is sagging, so replace the battery first"
+    - "A thrust problem: CT is low or the aircraft is heavy; weigh it first"
+    - "Nothing: a 58% hover is inside the ideal band, so no action is needed"
+  correct: 2

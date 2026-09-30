@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 13.05-degraded-denied-and-spoofed.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: e6988a5caa8a
+  question: The GPS signal arrives near -128.5 dBm while thermal noise in its 2.046 MHz bandwidth is -110.9 dBm. Why does that matter for jamming?
+  options:
+    - Correlation gain of 43.1 dB, plus the antenna gain, leaves about 60 dB of jamming margin
+    - Correlation gain of 43.1 dB, less about 6 dB for loops, leaves only 37.1 dB of margin
+    - The signal is already below the noise floor, so any jammer at all denies it immediately
+    - The 17.6 dB deficit below the noise floor is the entire margin against interference
+  correct: 1
+- source: e2fc3f5f84c4
+  question: With a 37.1 dB J/S limit and free-space loss at L1, how far away can a one-watt transmitter deny GPS to an aircraft, and why is the aircraft the worst case?
+  options:
+    - About 1.8 km; the aircraft has line of sight as its normal condition
+    - About 178 km; the aircraft's antenna faces down toward the jammer
+    - About 17.8 km; the aircraft has line of sight as the normal case
+    - About 17.8 km; the aircraft's antenna has more gain than a handset's
+  correct: 2
+- source: 700bee4f48c7
+  question: Why is jamming, in one specific sense, the better failure compared with spoofing?
+  options:
+    - It is weaker, so the receiver can usually keep tracking through it
+    - It affects only one constellation, so the others take over
+    - It is short-lived, since jammers overheat within minutes
+    - "It announces itself: the fix vanishes and the failsafe fires"
+  correct: 3
+- source: 5c90e9296158
+  question: Which spoofing signatures can a broadcast (one-to-many) attacker not hide?
+  options:
+    - Uniform received power, the clock-bias jump and one-bearing geometry
+    - A low satellite count, a high DOP and a missing almanac in the receiver
+    - A wrong date, wrong satellite IDs and a sudden loss of the position fix
+    - Uniform received power, a high DOP and a sudden loss of the fix
+  correct: 0
+- source: 386c4617ec26
+  question: IMU error grows quadratically. It can witness a 200 m GNSS jump for 141 s but a 2 m walk for only 14 s. What does this mean?
+  options:
+    - The EKF catches slow drifts, but a large jump is rejected as a glitch and then ignored
+    - The EKF catches jumps, but a slow drift that stays within normal noise goes unnoticed
+    - The EKF catches both, as long as the IMU was calibrated within the last 14 seconds
+    - The EKF catches neither, since the IMU cannot contradict GNSS for more than 14 s
+  correct: 1
+- source: e961578da1d7
+  question: IMU-only position error grows as 0.5*a*t^2, reaching 36 m in 60 s. Optical-flow error grows linearly, reaching 6 m in 60 s. At roughly what time does the IMU error overtake the flow error?
+  options:
+    - About 10 s
+    - About 60 s
+    - About 36 s
+    - About 6 s
+  correct: 0
+- source: efe9d37c8e9d
+  question: What does optical flow actually hold, and what does that imply for a five-minute hover?
+  options:
+    - Position, not velocity, so the aircraft holds within a metre
+    - Velocity, not position, so the aircraft holds within a metre
+    - Altitude, not position, so the aircraft drifts with the wind
+    - Velocity, not position, so the position drifts by about 30 m
+  correct: 3
+- source: 1297ed470b99
+  question: In the GNSS-denied fallback procedure, which one step proves anything, and why do the others not?
+  options:
+    - Running it in SITL; the simulator exercises every branch of the EKF logic without any risk
+    - Configuring the parameters; once accepted, the flight controller guarantees the behaviour
+    - Flying it deliberately in the air; config and SITL never test the real sensor and ground
+    - Bench-testing the flow sensor; if it reads motion indoors it will work over any ground
+  correct: 2

@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 02.05-propellers.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 81db7a2ff632
+  question: In a 10 x 4.5 x 3 propeller, which number has the most influence on hover efficiency?
+  options:
+    - The 4.5, the pitch in inches
+    - The 10, the diameter in inches
+    - The 3, the blade count
+    - All three have equal influence
+  correct: 1
+- source: bda1c5da8a2a
+  question: Why is propeller slip 100% in a hover, and what does it say?
+  options:
+    - The aircraft does not advance, so hover is the propeller's worst operating point
+    - The blades stall completely, so in hover all remaining thrust comes only from the hub
+    - The pitch is fully used for forward motion, so hover is the best point
+    - Slip is always 100% at any speed, so it says nothing about hover
+  correct: 0
+- source: 0be6efbf58be
+  question: A 10-inch (0.127 m radius) 3-blade prop spins at 78.3 rev/s. What are the tip speed and blade-pass frequency?
+  options:
+    - About 126 m/s and about 235 Hz
+    - About 63 m/s and about 78 Hz
+    - About 63 m/s and about 235 Hz
+    - About 10 m/s and about 470 Hz
+  correct: 2
+- source: d01d1abbc812
+  question: Why can Hermon's 450 mm X frame not use 12-inch propellers?
+  options:
+    - Adjacent motors are 318 mm apart, leaving only 13 mm between two 305 mm discs
+    - Adjacent motors are 450 mm apart, but 12-inch props exceed the 2 kg mass limit
+    - The 470 KV motors cannot start a 12-inch prop without overheating the ESC
+    - Adjacent motors are 225 mm apart, so 12-inch props would overlap by 80 mm
+  correct: 0
+- source: 7da360535331
+  question: Given T ~ n^2 D^4 and P ~ n^3 D^5, how does hover power scale with diameter at constant thrust?
+  options:
+    - P ~ D, so bigger always costs more
+    - P ~ 1/D^2, so small changes barely matter
+    - P is independent of D at constant thrust
+    - P ~ 1/D, so bigger is always cheaper
+  correct: 3

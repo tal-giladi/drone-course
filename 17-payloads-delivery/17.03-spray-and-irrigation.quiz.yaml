@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 17.03-spray-and-irrigation.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 4d3d4e70a34e
+  question: At 50 L/ha Hermon's pump needs 1.48 L/min. The tank holds 0.5 L and the battery lasts 18.6 min; one tank covers 100 m2. What does this say about broadcast spraying a 6 ha field?
+  options:
+    - The tank lasts about 20 min, slightly outlasting a single battery
+    - The tank empties in about 20 s, so one pass is about 600 tank loads
+    - The tank lasts about 3 min, so one pass needs about six battery swaps
+    - Tank and battery run out together, so each pass is one landing
+  correct: 1
+- source: 0658e2c099ae
+  question: What is a 0.5 L spray tank on Hermon actually good for?
+  options:
+    - "Spot treatment: about 17 targets at 30 mL each inside one battery"
+    - Broadcast coverage of about one hectare per battery at 50 L/ha
+    - Fine-mist fogging, since small tank volumes suit very small droplets and low flow
+    - Water ballast to trim the centre of mass for other payloads
+  correct: 0
+- source: 7afdcaaae011
+  question: Broadcasting uses 50 L/ha; spot treatment uses 30 mL per weed. Above roughly what weed density does broadcasting use less chemical?
+  options:
+    - About 167 weeds per hectare
+    - About 16,667 weeds per hectare
+    - About 1,667 weeds per hectare
+    - About 1,500 weeds per hectare
+  correct: 2
+- source: 7dfdca1c60cf
+  question: A contact herbicide needs at least 25 drops/cm2. Coverage goes as 1/d^3 and drift as 1/v_t. Why is 200 um the droplet size to use?
+  options:
+    - It is the finest size that avoids clogging; coarser drops bounce off leaves
+    - It gives the most drops per cm2 of any size while drifting the least
+    - It is the smallest size that falls straight through the rotor downwash
+    - It is the coarsest size still over 25 drops/cm2; finer drifts 36 m or more
+  correct: 3
+- source: 56b62a8a44e0
+  question: A very fine spray drifts about 126 m at 3 m/s. Why is that 'a category error rather than a margin problem'?
+  options:
+    - Fine droplets evaporate first, so the applied dose is slightly short
+    - The spray leaves the field entirely, and no buffer distance recovers it
+    - It only needs a somewhat wider buffer zone, which is a margin question
+    - Fine droplets clog the nozzles, which is a hardware fault rather than a planning one
+  correct: 1
+- source: a91c1ba4b772
+  question: Drift distance is h*w/v_t. What is the cheapest drift control available?
+  options:
+    - "Fly faster: more ground speed shortens each drop's time aloft"
+    - Use finer nozzles so the droplets reach the crop more quickly
+    - "Fly lower: halving height from 3 m to 1.5 m halves the drift"
+    - Add a drift-retardant adjuvant, which costs no coverage at all
+  correct: 2
+- source: 72fe13ef2f17
+  question: Slosh frequency follows w^2 = g(pi/L)tanh(pi*h/L), and the control band is 1-2 Hz. Why can you not tune the aircraft for a sloshing tank?
+  options:
+    - It falls from about 2.5 to 0.6 Hz as the tank drains, crossing the band
+    - Slosh stays far above the control band, so tuning cannot reach it
+    - The liquid mass is too small to affect attitude at any fill level
+    - Slosh frequency is fixed by the tank width alone, but its amplitude varies at random
+  correct: 0
+- source: 5e42c07027ea
+  question: Two baffles cut the tank's effective length from 120 mm to 40 mm. What does that actually do?
+  options:
+    - Adds damping so the slosh decays before it reaches the airframe
+    - Lowers slosh frequency below the band so the controller ignores it
+    - Stops the liquid moving, so the centre of mass stays fixed in flight
+    - Raises slosh frequency from 2.54 to 4.42 Hz, above the control band
+  correct: 3

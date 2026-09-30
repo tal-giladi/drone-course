@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 03.02-pack-configuration.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 5fb174b9e5c6
+  question: Six identical 3.7 V, 5.0 Ah cells are wired as 6S1P or as 3S2P. Which stores more energy?
+  options:
+    - 6S1P, since energy scales with voltage and it has twice the voltage
+    - Neither; both hold 111 Wh because energy depends only on cell count
+    - 3S2P, since energy scales with capacity and it has twice the Ah
+    - 6S1P, since series wiring avoids the losses of parallel balancing
+  correct: 1
+- source: dedfbb488d89
+  question: At constant pack energy, how does fractional voltage sag compare between a 6S and a 4S pack?
+  options:
+    - 6S sags far less, since it draws two-thirds of the current of 4S
+    - 4S sags less, since its larger cells have lower internal resistance
+    - 6S sags more, since more series cells add more total resistance
+    - It is the same, about 1.57 % at hover; the pack is indifferent to S
+  correct: 3
+- source: 62c16970a14b
+  question: If the pack itself is indifferent to S, why is Hermon 6S rather than 4S?
+  options:
+    - 6S cells have lower internal resistance per cell than 4S cells of equal size
+    - The pack stores 50 % more energy in 6S than in 4S with the same cell mass
+    - Higher voltage raises motor KV, so the same motor spins faster on 6S
+    - Resistance outside the pack does not scale with S; its loss goes as 1/V^2
+  correct: 3
+- source: 6d8b7902174d
+  question: Why not go further, to 12S?
+  options:
+    - A 12S pack stores less energy than a 6S pack of the same total cell mass
+    - Small gain, but parts leave the hobby market and 50 V is a shock hazard
+    - Wiring losses rise with voltage, so 12S wastes more power than 6S does
+    - Motors cannot be wound for low enough KV to hover on a 12S supply
+  correct: 1
+- source: 5e6fa08a8ab3
+  question: Hermon's pack is 720 g while the endurance-optimal pack is 960 g. Why not fit the optimum?
+  options:
+    - It would gain about 8 minutes, but no 960 g pack is sold in Israel
+    - It would exceed the ESC current rating, so the ESC would overheat
+    - It gains only about 24 seconds, and costs payload margin and handling
+    - It gains about 3 minutes, which is not worth the extra cost of the pack
+  correct: 2
+- source: ceeda8553b59
+  question: You move an airframe from 4S to 6S. Which set of changes is required?
+  options:
+    - Lower KV, ESC voltage rating, failsafe thresholds, BEC input range
+    - Higher motor KV, larger wire gauge, heavier connector, larger propellers
+    - New PID gains only; the rest of the powertrain is unaffected by voltage
+    - Lower motor KV and nothing else, since failsafes are in percent of charge
+  correct: 0

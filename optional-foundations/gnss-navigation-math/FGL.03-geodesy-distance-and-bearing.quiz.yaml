@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FGL.03-geodesy-distance-and-bearing.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 9301123ac75f
+  question: Why prefer haversine over the spherical law of cosines for drone distances?
+  options:
+    - Haversine models the ellipsoid, while the cosine rule assumes a perfect sphere
+    - Haversine is faster, since it needs no trigonometric functions
+    - The cosine rule gives rhumb-line distances, not great circles
+    - The cosine rule loses precision taking acos of values near 1 at short range
+  correct: 3
+- source: 65e6bf190815
+  question: How wrong is a flat-Earth distance calculation for a drone at VLOS range?
+  options:
+    - Several metres even with cos(lat), because of curvature
+    - Microns with the cos(lat) correction; up to 18.6 % without it
+    - Microns either way, since the cos(lat) term is negligible
+    - About 18.6 % even with cos(lat), because of curvature
+  correct: 1
+- source: aec716de5861
+  question: Why does a missing cos(lat) bug often pass a test suite?
+  options:
+    - Its error is zero on north-south legs, so N-S fixtures miss it
+    - Its error is constant, so it cancels between two distances
+    - Its error is zero on east-west legs, so E-W fixtures miss it
+    - Its error only appears past 10 km, beyond typical fixtures
+  correct: 0
+- source: 267a3faa608e
+  question: "Over a 2,420 m leg, which is bigger: great-circle bearing convergence, or 4.5 deg of magnetic declination?"
+  options:
+    - "Convergence, by about 325x: 190 m vs 58 cm of cross-track"
+    - They are comparable, each a few metres of cross-track
+    - "Declination, by about 325x: 190 m vs 58 cm of cross-track"
+    - "Declination, by about 3x: 190 m vs 58 m of cross-track"
+  correct: 2
+- source: 9d3384694138
+  question: Does the rhumb line versus great circle difference matter for drone missions?
+  options:
+    - "Yes: it causes several metres of cross-track at VLOS range"
+    - "No: about 16 microns at VLOS range, a metre only past 100 km"
+    - "Yes: rhumb lines are shorter and save battery on survey legs"
+    - "No: they are the same path at any latitude and any range"
+  correct: 1
+- source: 3456dedb481a
+  question: UTM applies a 0.9996 scale factor at the central meridian. Which effect matters most to a client?
+  options:
+    - A 0.04 % random length noise that averages out
+    - A fixed 0.9996 m shift removed by one offset
+    - A 0.04 % area bias that cancels at zone edges
+    - A 0.08 % area bias that never averages out
+  correct: 3

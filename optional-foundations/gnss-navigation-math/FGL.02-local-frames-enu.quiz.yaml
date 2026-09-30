@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FGL.02-local-frames-enu.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: fb1ce03a9d24
+  question: Why use local frames when ECEF coordinates are unambiguous?
+  options:
+    - ECEF cannot represent altitude, so a local frame is needed to add it
+    - ECEF values are ~6.37 million m, so small offsets sit deep in the digits
+    - ECEF rotates with the Earth, so fixed positions drift over time
+    - ECEF is in degrees, which cannot express distances in metres
+  correct: 1
+- source: 12ebf4b6f222
+  question: What is the ENU-to-NED relationship, and what does a sign error do to a 30 m climb command?
+  options:
+    - N = e, E = n, D = u; it climbs 30 m, with no error
+    - N = n, E = e, D = -u; it climbs 60 m, a 30 m error
+    - N = n, E = -e, D = u; it flies 30 m west instead
+    - N = n, E = e, D = -u; it descends 30 m, a 60 m error
+  correct: 3
+- source: 62acae901e38
+  question: Which vertical convention does MAVLink use?
+  options:
+    - "Both: relative_alt is up in mm; *_NED setpoints are down in m"
+    - Only NED, so every vertical value in it is positive downward
+    - Only ENU, so every vertical value is positive upward
+    - Both, but always in metres, so only the sign differs
+  correct: 0
+- source: 32b18a698593
+  question: Why is 'fly forward five metres' not a well-defined command?
+  options:
+    - Five metres is too short a distance for GNSS to resolve it reliably
+    - Forward is ambiguous between the ENU and NED earth frames
+    - Forward is a body-frame direction, so it changes as the aircraft yaws
+    - Multirotors have no defined front, so forward is arbitrary
+  correct: 2
+- source: b41465568d4a
+  question: Roll 20, pitch 20, yaw 30 deg composed Z-Y-X versus X-Y-Z give nose vectors about 14.7 deg apart. Why?
+  options:
+    - Floating-point rounding accumulates differently in each order
+    - X-Y-Z uses the NED frame, while Z-Y-X uses the ENU frame
+    - Rotations do not commute, so the order is part of the meaning
+    - The two orders use different angle units by convention
+  correct: 2
+- source: 55e089ef4d04
+  question: How far does Earth's curvature drop below a flat plane over the 2,420 m VLOS limit, compared with the 4.50 m UERE?
+  options:
+    - About 46 cm, roughly 10x smaller than the GNSS error
+    - About 4.6 m, roughly equal to the GNSS error
+    - About 4.6 cm, roughly 100x smaller than the GNSS error
+    - About 46 m, roughly 10x larger than the GNSS error
+  correct: 0

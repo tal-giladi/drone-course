@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 17.05-drop-point-math.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 89a694c68ec8
+  question: The 250 g pod has a terminal velocity of 32 m/s. When does drag matter in the drop-point calculation, and what decides it?
+  options:
+    - "Drop height: about 1.4% error at 3 m, 24% at 120 m, crossover near 30 m"
+    - "Pod shape: only non-streamlined pods need a drag term at any height"
+    - "Aircraft speed: drag matters once release speed exceeds about 3 m/s"
+    - "Pod mass: drag is only significant for pods lighter than about 100 g, at any height"
+  correct: 0
+- source: dd1c389f5336
+  question: lead = v*(t_fall + t_latency). At 5 m/s from 3 m (t_fall about 0.78 s) with 85.5 ms mechanism latency, what is the lead and how much of it is the mechanism?
+  options:
+    - About 3.86 m, of which about 0.43 m (11%) is the mechanism
+    - About 4.29 m, of which about 0.43 m (10%) is mechanism
+    - About 4.29 m, of which about 0.86 m (20%) is mechanism
+    - About 4.72 m, of which about 0.43 m (9%) is mechanism
+  correct: 1
+- source: 121c46f24993
+  question: Why does an 8 m/s wind move a 250 g pod only about 11 cm during its fall from 3 m?
+  options:
+    - Its mass makes it immune to aerodynamic forces below about 10 m/s
+    - The rotor downwash shields the pod from crosswind for the whole fall
+    - Its 32 m/s terminal velocity means wind drag barely accelerates it in 0.79 s
+    - Wind speed near the ground is far lower than the 8 m/s measured at release height
+  correct: 2
+- source: 097b73252f0e
+  question: On a camera-located target, what fraction of a drop's error variance is the ballistics?
+  options:
+    - About half; release jitter and drop height make up the other half
+    - Over 80%; drag and wind account for most of the miss distance
+    - About 11%; the rest is split between target position and wind
+    - Under 5%; target position is about 87% and aircraft position 11%
+  correct: 3
+- source: 68e6bef88ccb
+  question: The largest term in the drop budget is where the target is. You add a rangefinder to fix it (CEP 8.87 m to 3.19 m). What happens?
+  options:
+    - Ballistics immediately becomes dominant and sets the new CEP
+    - CEP falls to near zero, since all the remaining terms in the budget are negligible
+    - "The next-largest term is another position error: where the aircraft is"
+    - Release jitter becomes dominant because it cannot be calibrated
+  correct: 2
+- source: 79956309b9c0
+  question: What is the trap in measuring your drop accuracy?
+  options:
+    - Ten drops give a CEP biased low by about 38%, so always fly more
+    - Tape measures introduce errors larger than the ballistic spread
+    - Test-day wind always differs from mission wind, so accuracy cannot be measured at all
+    - "Drops on a surveyed marker measure only ballistics: 0.23 m versus 8.87 m"
+  correct: 3
+- source: e8ce90284441
+  question: The lead's sensitivity to height is v/sqrt(2gh) = 0.652 m per m here, and a barometer drifts about 1.5 m. Why can it not supply the drop height?
+  options:
+    - It gives about 2.3 m of lead error, from dividing the drift by the sensitivity
+    - It gives about 0.98 m of lead error, more than the rest of the budget
+    - It gives about 0.10 m of lead error, small but still worth avoiding
+    - It lags by seconds, so the height arrives after the release point
+  correct: 1
+- source: "916e53179846"
+  question: Why is a pre-computed release waypoint wrong, and what is the alternative?
+  options:
+    - It assumes planned speed; use measured speed and fire on distance
+    - It ignores pod wind drift; add a wind term to the waypoint
+    - Its arrival radius is too coarse; shrink it to 0.1 m instead
+    - It ignores mechanism latency; add 85.5 ms to the waypoint arrival timer
+  correct: 0

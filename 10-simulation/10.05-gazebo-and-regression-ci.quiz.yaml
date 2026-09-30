@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 10.05-gazebo-and-regression-ci.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 156215081f52
+  question: What does Gazebo add over SITL's built-in physics, and what does it cost?
+  options:
+    - Better flight dynamics; it needs a GPU but keeps the full 10x speedup
+    - Real failsafe code; it costs having to write and maintain your own physics model
+    - A world with sensors; it costs accuracy, since its dynamics are worse
+    - A world with sensors that see it; it costs the speedup, 1x instead of 10x
+  correct: 3
+- source: 3bbdcb10e3a9
+  question: Gazebo is useful for several things. Which of these is it NOT for?
+  options:
+    - A control-gain sweep over flight dynamics
+    - Precision landing on a visual marker
+    - Terrain following over a modelled landscape
+    - Testing geofences near real obstacles
+  correct: 0
+- source: 8eac60844e43
+  question: Why pin a simulation container by digest rather than by tag?
+  options:
+    - Digests download faster because they skip the registry's tag lookup step
+    - Library changes can shift the last decimal place of results, and a tag can move
+    - Tags are deleted after 30 days, so nightly jobs would eventually fail to pull
+    - Digests enable GPU acceleration inside the container, which plain tags do not expose
+  correct: 1
+- source: cbd53e0856a2
+  question: A full-factorial test matrix is 120 runs and a pairwise one is 32. What does pairwise guarantee, and what does it miss?
+  options:
+    - Every individual setting appears at least once; some pairs of settings can be missed
+    - Every three-way combination appears; only rare four-way ones are missed
+    - Every pair of settings appears at least once; three-way interactions can be missed
+    - Every pair appears equally often; nothing at all is missed at this size
+  correct: 2
+- source: b19a59522f7a
+  question: Why is the four-minute per-commit tier the one that decides whether the whole CI scheme survives?
+  options:
+    - CI providers bill by the minute, so a longer tier would exceed the free monthly quota
+    - Four minutes is the longest SITL can run before its log files overflow the disk
+    - Gazebo takes four minutes to start, so any shorter tier could not include it
+    - Fast checks get run; a slow one gets skipped, then disabled, then deleted
+  correct: 3
+- source: cabf0784efe3
+  question: A CI simulation run fails with PM.NLon overruns. Is that a failing test?
+  options:
+    - "No: it is an invalid run, reported apart and re-queued at --speedup 1"
+    - "Yes: loop overruns mean the firmware is too slow, so the build must fail"
+    - "No: overruns are normal in SITL, so they can safely be ignored entirely"
+    - "Yes: but only if the overrun count exceeds the number of assertions run"
+  correct: 0
+- source: 7cbc1b3169cd
+  question: Why compare scalars rather than trajectories between simulation and flight?
+  options:
+    - Trajectories require full GNSS logs, which the simulator is unable to produce
+    - Noisy runs diverge at a rate unrelated to the model; each scalar tests one thing
+    - Scalars compress better, so they fit within the CI artifact size limit
+    - Trajectories always agree closely in practice, so they cannot reveal model errors
+  correct: 1

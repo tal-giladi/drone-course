@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 12.02-mission-planning.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 9d99c6f04b35
+  question: You have chosen a GSD, a forward overlap and a side overlap. What is left to decide for the survey?
+  options:
+    - The altitude, which is a free choice once the overlaps are fixed
+    - The line spacing, which the survey tool cannot derive from the overlaps
+    - The camera trigger interval, which depends only on the flight speed
+    - "Almost nothing: only the direction of the lines, which the wind decides"
+  correct: 3
+- source: c6b33a6ff69a
+  question: Part 107 caps you at 120 m. Does that cap your survey resolution?
+  options:
+    - "Yes: 120 m gives the finest resolution, so the cap sets the best GSD you can achieve"
+    - "No: it caps the area per flight; resolution is capped by how low you can fly"
+    - "No: resolution is set only by the megapixel count, whatever altitude you fly at"
+    - "Yes: below 120 m the overlap fails, so the ceiling is also the resolution limit"
+  correct: 1
+- source: 05294e4d63a5
+  question: Halving the survey altitude halves the GSD. What does it do to the amount of flying and images?
+  options:
+    - Roughly doubles it
+    - Roughly quadruples it
+    - Leaves it roughly unchanged
+    - Roughly multiplies it by eight
+  correct: 1
+- source: 6173ce9d94a6
+  question: Why fly survey lines parallel to the wind rather than across it?
+  options:
+    - Headwind legs are cheaper than crosswind legs, so parallel lines save a large share of the energy
+    - A crosswind needs a crab angle (about 24 deg), so switch the camera to trigger by time instead
+    - Parallel lines keep ground speed equal on every leg, which the time trigger relies on
+    - A crosswind needs a crab angle (about 24 deg for 2 m/s at 5 m/s), pointing the camera off track
+  correct: 3
+- source: f2a6bf698465
+  question: A 60 m survey is flown relative to home over a site with 40 m of terrain relief. What happens?
+  options:
+    - True height runs from 60 m to 20 m, so GSD varies about 3x; use the TERRAIN frame
+    - The GSD varies by only about 40%, which the photogrammetry software corrects on its own
+    - Nothing, because GLOBAL_RELATIVE_ALT already follows the terrain under the aircraft
+    - The autopilot detects the rising ground and climbs automatically to hold 60 m above it
+  correct: 0
+- source: 12ecddb3dd48
+  question: Which pre-flight validation check is about the radio link, and where exactly do you evaluate it?
+  options:
+    - At the launch point, where the link is set up and checked before arming
+    - At the average range of the route, which represents most of the flight
+    - At the far corner and the lowest point of the route, the worst geometry
+    - At the highest point of the route, where the aircraft is most exposed
+  correct: 2
+- source: 6721dd7d736d
+  question: Which two items of the pre-flight brief tend to get skipped, and why do they matter?
+  options:
+    - Where it lands if everything fails, and who watches for what, since a spotter needs a job
+    - The battery serial numbers, and the wind forecast, since both change the energy budget
+    - The mission upload time, and the GNSS satellite count, since both affect the arming checks
+    - Where it lands if everything fails, and the logbook entry, since both are legally required
+  correct: 0

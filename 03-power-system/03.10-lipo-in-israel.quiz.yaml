@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 03.10-lipo-in-israel.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: c3427412ac9b
+  question: Why can you not import a loose LiPo pack to a private Israeli address?
+  options:
+    - Israeli customs bans all lithium batteries above 50 Wh from private import
+    - "UN3480 dangerous goods: barred from passenger aircraft; couriers decline it"
+    - The pack must be registered with the aviation authority before it is shipped
+    - Import duty on lithium packs is 200 %, so couriers refuse to collect it
+  correct: 1
+- source: a96209148e50
+  question: Hermon's pack is 22.2 V x 5.0 Ah. What does air travel with it require?
+  options:
+    - "111 Wh: checked baggage only, no approval, any number of spares"
+    - "88.8 Wh: carry-on only, no approval needed, terminals taped"
+    - "111 Wh: forbidden on passenger aircraft entirely, cargo only"
+    - "111 Wh: carry-on only, airline approval, at most two spares"
+  correct: 3
+- source: a1fb328293c2
+  question: A parked car cabin reaches 65 C versus a 25 C room, and full storage adds a further 5x. What is the calendar ageing factor?
+  options:
+    - "About 40x: four doublings (8x) times five"
+    - "About 21x: 16x plus five for storage"
+    - "About 13x: 2.6x hotter times five"
+    - "About 80x: four doublings (16x) times 5"
+  correct: 3
+- source: befb11c9aeca
+  question: At 42 C air, how are Hermon's hover power and full-throttle thrust affected?
+  options:
+    - Hover power rises about 9 %, while full-throttle thrust falls about 4.6 %
+    - Hover power rises about 4.6 %, while full-throttle thrust falls about 9 %
+    - Hover power rises about 9 %, and full-throttle thrust is unaffected
+    - Hover power is unaffected, and full-throttle thrust falls about 18 %
+  correct: 1
+- source: ec7e6af86d5b
+  question: Why should Hermon use EC5 rather than XT60?
+  options:
+    - XT60 is not legal for packs above 100 Wh in Israel
+    - EC5 is the only connector ArduPilot can monitor
+    - Packs actually stocked in Israel ship with EC5
+    - XT60 connectors cannot carry more than 20 A
+  correct: 2
+- source: 6ec599b199c4
+  question: What is the correct disposal route for a dead LiPo in Israel?
+  options:
+    - Discharge via a resistive load, tape terminals, use a battery bin
+    - Soak it in salt water for a week, then put it in household waste
+    - Puncture it to release the gas, then put it in the recycling bin
+    - Charge it to storage voltage and return it to the overseas vendor
+  correct: 0

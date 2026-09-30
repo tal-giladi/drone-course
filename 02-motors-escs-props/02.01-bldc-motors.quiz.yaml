@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 02.01-bldc-motors.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 2da0433ff592
+  question: How does a sensorless BLDC know where its rotor is?
+  options:
+    - The ESC reads the back-EMF the magnets induce in the windings
+    - A Hall-effect sensor in the stator reports the magnet angle to the ESC
+    - Brushes on the rotor close a contact at each step
+    - The flight controller estimates it from the gyro
+  correct: 0
+- source: 098d8675e418
+  question: A 1700 KV motor on 6S (22.2 V) spins about 15,400 rpm in hover. What are its no-load rpm and its back-EMF in hover?
+  options:
+    - About 37,740 rpm, and about 9.1 V of back-EMF
+    - About 15,400 rpm, and about 22.2 V of back-EMF
+    - About 7,650 rpm, and about 21.9 V of back-EMF
+    - About 37,740 rpm, and about 21.9 V of back-EMF
+  correct: 3
+- source: d05102665603
+  question: Why is the hover current about 2 A and not the 12 A limit?
+  options:
+    - The ESC restricts hover current to 2 A to protect the battery from over-discharge
+    - Current is the price of torque, set by the prop load at hover rpm; 12 A is a ceiling
+    - Current is set by the KV rating alone, and a 1700 KV motor always draws about 2 A
+    - The back-EMF is higher than the applied voltage in hover, which reverses most current
+  correct: 1
+- source: 57ad1f793bb5
+  question: Why is a 1300 KV motor (28,860 rpm no-load on 6S) the hover-efficient choice over a 1700 KV one?
+  options:
+    - It draws a higher current at the same thrust, which reduces the total copper losses
+    - It makes the hover thrust at a lower rpm, where the prop is more efficient
+    - It spins faster at the same throttle, so it reaches hover thrust sooner
+    - It has a higher no-load rpm, which gives more top speed in cruise
+  correct: 1
+- source: 1526b12adb91
+  question: A motor grinds but does not spin up on throttle. In what order do you check the causes?
+  options:
+    - The ESC settings first, then the battery, then the prop, from cheapest to most expensive
+    - The battery first, since a grinding motor always means a fully discharged pack
+    - Replace the motor first, since grinding means the bearings have already failed
+    - The prop by hand, then battery sag in the log, then the ESC start-up settings
+  correct: 3

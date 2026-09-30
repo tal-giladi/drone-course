@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 03.05-power-budget.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: bf56025b0825
+  question: How does the power budget differ from the estimate?
+  options:
+    - It subtracts expected savings from tuning; it is the best-case figure
+    - It is the average of several flight measurements taken after the build
+    - It adds a flat 50 % safety factor to the estimate with no itemisation
+    - It adds an itemised margin for unmodelled effects; you design to it
+  correct: 3
+- source: 15e7632afff3
+  question: Avionics are about 2.5 % of Hermon's 226 W hover budget. What follows?
+  options:
+    - Avionics are the next target; lower-power GNSS would add several minutes
+    - Stop optimising avionics; a propeller change is worth far more time
+    - Avionics should run from a separate pack to remove their load entirely
+    - The budget is wrong; avionics are normally at least 15 % of hover power
+  correct: 1
+- source: 074a1f90e79f
+  question: Why is the power budget larger than the estimate rather than symmetric around it?
+  options:
+    - Engineers round up by convention so that the flight test always comes in below
+    - The estimate uses peak power, and the budget must cover the average over flight
+    - Every unmodelled effect (download, wind, heat, ageing) makes power worse
+    - Measurement error is always positive, so the budget must allow for it
+  correct: 2
+- source: e4d1740d0724
+  question: Is cruise at 10 m/s more or less expensive than hover for Hermon, and roughly by how much?
+  options:
+    - Less, by only about 7 %; induced power falls but drag terms rise
+    - Less, by about 50 %; forward flight needs almost no induced power
+    - More, by about 25 %; parasite drag rises as the cube of speed
+    - The same; at constant thrust the rotor power does not depend on speed
+  correct: 0
+- source: 1de813853cd4
+  question: Why does Hermon have separate hover (226 W) and peak (1,259 W) budgets?
+  options:
+    - Hover sizes the ESC and wiring; peak sizes the pack and endurance
+    - Hover sizes the pack and endurance; peak sizes wiring, plug and ESC
+    - Hover is for calm days and peak is for flying in strong wind
+    - Peak is the sustained power at full throttle that the pack must supply
+  correct: 1
+- source: 4803028cd8c5
+  question: A payload weighs 80 g and draws 25 W. Hermon's break-even is about 0.22 W per gram. Which costs more?
+  options:
+    - "The mass: 80 g costs about 40 W of propulsion versus 25 W direct"
+    - "The mass: any payload over 50 g is dominated by its weight"
+    - They cost the same, since 25 W divided by 80 g is exactly 0.22 W/g
+    - "The watts: 25 W direct versus about 18 W to carry the 80 g"
+  correct: 3

@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 12.03-geofence.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: e605b8cb73fc
+  question: FENCE_MARGIN is 2 m and you fly POSHOLD at 12 m/s with a 30 deg maximum lean. Using v^2/2a with a = g*tan(30 deg) = 5.66 m/s^2, how far past the boundary does the aircraft get?
+  options:
+    - About 2 m
+    - About 7.3 m
+    - About 25.4 m
+    - About 12.7 m
+  correct: 3
+- source: b8f610fe2dc3
+  question: Why is a circular fence more dangerous than a polygon fence, even though both are simple shapes?
+  options:
+    - A circle cannot follow field edges, so it always includes some unsafe ground
+    - FENCE_RADIUS is measured from home, so the whole fence moves wherever you arm
+    - The circle is checked less often than a polygon, so breaches are detected late
+    - A circular fence has no altitude limit, so it cannot stop a climb-away
+  correct: 1
+- source: c78f8826a760
+  question: FENCE_ALT_MAX is 30 m and RTL_ALT is 50 m. What happens when the fence triggers an RTL?
+  options:
+    - It climbs to 50 m anyway and breaches the ceiling on the way home
+    - The RTL is refused, and the aircraft loiters at the breach point
+    - The RTL climb is clamped, so it returns at 30 m instead of 50 m
+    - It lands immediately, since the two altitude settings conflict
+  correct: 2
+- source: a9d277dfaf0c
+  question: You breach the fence with a low battery and FENCE_ACTION is 1 (RTL or land). What does the aircraft do?
+  options:
+    - It returns home by RTL, since the fence action is applied before the battery one
+    - It flies back inside the fence first and then lands at the nearest safe point
+    - It lands where it is, outside the fence, since battery-low outranks the breach
+    - It ignores the breach and carries on with the mission until the battery is critical
+  correct: 2
+- source: b54feae924bd
+  question: A 2 km link needs 7.7 m of 60% Fresnel clearance and the ground antenna is on a 2 m mast. What minimum altitude does that imply, and which parameter enforces it?
+  options:
+    - About 7.7 m, enforced by FENCE_ALT_MIN
+    - About 13.3 m, enforced by FENCE_ALT_MAX
+    - About 15.4 m, enforced by RTL_ALT
+    - About 13.3 m, enforced by FENCE_ALT_MIN
+  correct: 3
+- source: 3685297feb44
+  question: At WPNAV_SPEED 5 m/s (5 m stopping distance), a 2 m acceptance radius and a 2 m margin, how far outside the outermost survey line must the inclusion polygon sit?
+  options:
+    - About 9 m
+    - About 5 m
+    - About 7 m
+    - About 4 m
+  correct: 0
+- source: 62c0a8f85713
+  question: Why is a 20 m fence inside a 200 m field the best fence test available to you?
+  options:
+    - Small fences trigger more often, which exercises the failsafe code more thoroughly
+    - It answers every question the real fence raises while leaving 180 m of run-off
+    - It is the only fence size that SITL and the real aircraft handle identically
+    - A small fence keeps the aircraft in range of the 60% Fresnel clearance limit
+  correct: 1

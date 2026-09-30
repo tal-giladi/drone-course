@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 09.02-control-link-elrs.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: cdf842c86879
+  question: ELRS at 50 Hz adds 16 ms of stick latency compared with 500 Hz, on an aircraft whose motor time constant is 30 ms. Why is it still the right trade for Hermon?
+  options:
+    - 16 ms is shorter than the 30 ms motor lag, so it is hidden completely inside that lag
+    - The 400 Hz attitude loop predicts the stick input ahead of time and cancels the delay
+    - "It is setpoint delay, not feedback delay: it slows response but costs no phase margin"
+    - ELRS delivers its packets in bursts, so the average latency is well under 16 ms
+  correct: 2
+- source: a3a0065a4c1c
+  question: RSSI is -95 dBm and LQ is 100. What is happening, and what should you do?
+  options:
+    - The link is about to fail; turn back before LQ starts to drop
+    - The link is working as designed; every packet arrives, carry on
+    - There is interference nearby; change the binding phrase at once
+    - The receiver antenna is damaged; land and replace it immediately
+  correct: 1
+- source: 2fbbbe12c129
+  question: Why should the RC failsafe trigger on LQ rather than RSSI?
+  options:
+    - RSSI updates too slowly to trigger a failsafe inside the one-second detection window
+    - LQ is measured on the aircraft, while RSSI is only ever reported at the transmitter
+    - RSSI triggers false failsafes close to the ground station, where the signal saturates
+    - LQ means commands are not arriving; RSSI only means distance, and loud can be useless
+  correct: 3
+- source: 70515a589d2e
+  question: An ELRS 1:4 telemetry ratio at 150 Hz gives 375 B/s of downlink. What does it cost, and is it a good trade?
+  options:
+    - About 38 Hz of control rate; good for routine missions, not for tuning's full stream set
+    - About 38 Hz of control rate; good for tuning too, since 375 B/s carries the full stream set
+    - About 75 Hz of control rate; never worthwhile, since keeping the SiK radio costs nothing
+    - Nothing, since telemetry uses its own channel; it is always better than a SiK radio
+  correct: 0
+- source: 4d5ae970f0d7
+  question: What does the ELRS binding phrase do, and why is 'drone' a bad one?
+  options:
+    - It encrypts the control link; a short phrase can be brute-forced by a nearby attacker
+    - It names the receiver in the transmitter menu; a generic name makes models hard to find
+    - It sets the output power class; common phrases fall back to the lowest power level
+    - Hashed to a UID, it seeds the hop sequence and sync word; a common phrase is shared
+  correct: 3
+- source: 1f4c80807759
+  question: CRSF at 420,000 baud uses only 9 % of the wire at 150 Hz. Why must its UART still have DMA?
+  options:
+    - CRSF frames are larger than the FIFO, so they cannot be received without DMA at any baud
+    - Without DMA the UART cannot reach 420,000 baud, so the receiver falls back to a slower rate
+    - A byte arrives every 23.8 us, so the 16-byte FIFO fills in 381 us, inside a 2,500 us loop
+    - A byte arrives every 2.4 us, so the 16-byte FIFO fills in 38 us, faster than any interrupt
+  correct: 2
+- source: 5933314a7505
+  question: LQ collapses the moment the motors spin up. Which two causes are not radio problems?
+  options:
+    - Receiver antenna routed beside an ESC or motor lead, or the receiver browning out on 5 V
+    - Propeller wash detuning the antenna, or the motors' magnetic field shifting the channel frequency
+    - The flight controller disabling the UART on arming, or DShot signals jamming the 2.4 GHz band
+    - A wrong binding phrase, or the transmitter lowering its output power when throttle rises
+  correct: 0

@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 02.04-esc-firmware.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 8ede4a9bad77
+  question: What happens when a DShot frame fails its 4-bit CRC?
+  options:
+    - The ESC stops the motor until a valid frame arrives
+    - The ESC uses it anyway as a new throttle value
+    - The ESC requests a retransmit from the controller
+    - The ESC discards it and holds the previous value
+  correct: 3
+- source: dcdbd6e3e2d6
+  question: Why does DShot need no throttle calibration when PWM does?
+  options:
+    - DShot sends an integer, which means the same on every board
+    - DShot runs at a fixed 600 kHz, which every ESC learns at boot
+    - DShot includes the min and max values in every telemetry reply
+    - DShot is analogue, so the ESC reads the voltage directly
+  correct: 0
+- source: 2a0f745d66db
+  question: An ESC on a 14-pole (7 pole pair) motor reports 32,900 eRPM with 3-blade props. What is the blade-pass noise fundamental?
+  options:
+    - About 548 Hz
+    - About 78 Hz
+    - About 235 Hz
+    - About 1,645 Hz
+  correct: 2
+- source: feae52990085
+  question: Most of Hermon's 470 microsecond command latency comes from where, and what does that imply?
+  options:
+    - The DShot600 frame itself (59%), so a faster protocol roughly halves the latency
+    - The gyro filter (59%), so removing filters is the main fix
+    - The ESC CRC check (59%), so disabling it is the best upgrade
+    - The motor L/R time constant (59%), so protocol upgrades buy little
+  correct: 3
+- source: f0cbe1810f89
+  question: Why is bidirectional DShot the most important feature in this lesson?
+  options:
+    - It doubles the throttle resolution to 12 bits, allowing much finer hover control
+    - It lets the ESC command the flight controller during a failsafe
+    - Per-motor rpm feeds the dynamic notch filter, allowing a useful D term
+    - It removes the need for a CRC, which cuts the frame length in half
+  correct: 2

@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 02.08-efficiency-watts-to-sky.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 277b037fd7b2
+  question: Grams per watt (thrust divided by electrical power) varies with throttle. Why does it have a peak, around 40 % throttle on Hermon?
+  options:
+    - Propeller efficiency rises steadily with rpm until the blade tips go supersonic
+    - No-load loss dominates at low power, I^2R copper loss at high current
+    - ESC switching losses fall to zero at mid throttle and rise sharply at both ends
+    - Battery sag is lowest at mid throttle, so the motors see the highest voltage there
+  correct: 1
+- source: 9cc8e2eea853
+  question: Which stage of the efficiency chain (ESC, motor, propeller, air) typically loses the largest share of power going into it?
+  options:
+    - The ESC, losing roughly 30-50 % in switching and conduction
+    - The motor, losing roughly 40-60 % in copper and iron losses
+    - The battery wiring, losing roughly 25-40 % as resistive heat
+    - The propeller, losing roughly 30-55 % of its shaft power
+  correct: 3
+- source: 1da56412f451
+  question: What is a propeller's figure of merit (FM), and what is its theoretical maximum?
+  options:
+    - Ideal momentum-theory power over shaft power; max 1.0, which is unreachable
+    - Thrust in grams per watt of shaft power; max about 12 g/W for small props
+    - Shaft power over ideal momentum-theory power; min 1.0, typical values near 2
+    - Ideal power over shaft power; max 0.70, reached by good multirotor props
+  correct: 0
+- source: 0c744499d053
+  question: Hermon hovers at 48 % throttle. Which pair of reasons makes 40-60 % the right hover band?
+  options:
+    - The ESC runs coolest there, and battery sag is exactly zero in that band
+    - Thrust is linear in throttle there, so the PID gains need no correction
+    - Ample control headroom above hover, and the g/W efficiency peak lies nearby
+    - Motor KV is rated at half throttle, so the back-EMF matches the pack voltage
+  correct: 2
+- source: c8954c88d798
+  question: Hermon's endurance is short. Which single change gives the largest expected gain per the lesson?
+  options:
+    - A higher-efficiency motor, roughly +9 minutes for about 400 shekels
+    - A larger battery pack, roughly +10 minutes since energy scales with capacity
+    - Better propellers (FM 0.49 to 0.60), roughly +9 minutes for about 40 shekels
+    - A better ESC, roughly +6 minutes by cutting switching losses in half
+  correct: 2

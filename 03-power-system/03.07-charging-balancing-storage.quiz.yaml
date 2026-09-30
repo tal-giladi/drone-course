@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 03.07-charging-balancing-storage.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 9da2ac5a32f1
+  question: A lithium charge has a CC stage and a CV stage. What happens when people cut it short at the end of CC?
+  options:
+    - They get about 75 % charge; the last quarter goes in during CV
+    - They get about 95 % charge; CV only tops up the last few percent
+    - They get a full charge but unbalanced cells, since CV balances them
+    - They overcharge the pack, since CV is what limits the voltage
+  correct: 0
+- source: 6d66d7bab49c
+  question: What does a balance charger actually do?
+  options:
+    - Moves charge from high cells to low cells, equalising their capacity
+    - Charges each cell separately to the same mAh, equalising their capacity
+    - Bleeds charge from leading cells through shunts, equalising voltage
+    - Raises the voltage of the weakest cells until they match the strongest
+  correct: 2
+- source: 37dcadb290a2
+  question: Why does doubling the charge rate from 1C to 2C not halve the charge time?
+  options:
+    - The charger limits power, so 2C is automatically reduced back to 1C
+    - Only CC scales with current; the diffusion-bound CV stage lengthens
+    - Higher current heats the pack, and the charger pauses to let it cool
+    - The CV stage scales with current too, but CC becomes much longer
+  correct: 1
+- source: 16cebc94f29c
+  question: What is storage charge for a LiPo cell, and what does it buy?
+  options:
+    - About 3.30-3.40 V per cell; around twice the calendar life of full storage
+    - About 4.10-4.20 V per cell; so the pack is ready to fly when you need it
+    - About 3.00-3.10 V per cell; the lowest self-discharge and longest life
+    - About 3.80-3.85 V per cell; roughly 5x the calendar life of storing full
+  correct: 3
+- source: abb0e533ab34
+  question: Per the Arrhenius rule, a full pack that ages 20 %/year at 25 C ages how fast at 45 C?
+  options:
+    - About 40 %/year, since the rate doubles every 20 C
+    - About 36 %/year, since the rate rises 4 % per degree
+    - About 160 %/year, since the rate doubles every 5 C
+    - About 80 %/year, since the rate doubles every 10 C
+  correct: 3
+- source: c53ecf81ec8a
+  question: At storage charge and 25 C, calendar ageing is 4 %/year and cycle ageing is 0.06 % per flight. Where is the crossover to being cycle-limited?
+  options:
+    - About 6.7 flights a year, roughly one every two months
+    - About 67 flights a year, roughly 1.3 a week
+    - About 240 flights a year, roughly one every weekday
+    - About 667 flights a year, roughly two a day
+  correct: 1

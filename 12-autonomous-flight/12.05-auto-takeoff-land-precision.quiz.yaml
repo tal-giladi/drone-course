@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 12.05-auto-takeoff-land-precision.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 1225b1aff9a6
+  question: Why does auto-landing from 10 m cost about three times the energy of auto-takeoff to 10 m, even though descending needs less power?
+  options:
+    - The whole descent is the slow LAND_SPEED crawl, 20 s against 4 s of climb
+    - Descending through its own downwash forces the aircraft to use more power
+    - The land detector holds high throttle for several seconds after touchdown
+    - Takeoff uses ground effect for lift, while landing has to fight against it
+  correct: 0
+- source: 5144623b4154
+  question: What are the land detector's three conditions, and which one does ground effect provide?
+  options:
+    - Throttle at its floor, climb rate near zero, small attitude error; ground effect gives the low throttle
+    - A contact switch, climb rate near zero, small attitude error; ground effect closes the contact
+    - Throttle at its floor, rangefinder below 5 cm, small attitude error; ground effect sets the range
+    - Throttle at its floor, climb rate near zero, small attitude error; ground effect gives zero climb rate
+  correct: 3
+- source: 25997917db5a
+  question: Why does the land detector fail on a slope, and what is the fix?
+  options:
+    - The climb rate never reaches zero on a slope; raise LAND_SPEED to force it
+    - One leg touches first and attitude error grows; be ready to disarm by hand
+    - The throttle floor is never reached on a slope; lower the minimum throttle
+    - The rangefinder reads the slope wrong; recalibrate it for sloping ground
+  correct: 1
+- source: 5603f42e96e1
+  question: A precision-landing sensor has a 60 deg cone (30 deg half-angle), and the worst-case GPS hold error is 1.816 m. Below what altitude is the cone narrower than that error?
+  options:
+    - About 3.15 m, so the target must be acquired above that height
+    - About 1.05 m, so the target can be acquired just before touchdown
+    - About 6.29 m, so the target must be acquired above that height
+    - About 1.82 m, so the target can be acquired during the final crawl
+  correct: 0
+- source: b64b449f756a
+  question: Your precision landings are no more accurate than your GPS landings. What do you check first, and why not the camera resolution?
+  options:
+    - Camera resolution; a low-resolution sensor cannot locate the target precisely
+    - Update rate; the resolution is fine but the target is detected too slowly
+    - Acquisition altitude; at about 3.7 cm per pixel the sensor is never the limit
+    - Lens calibration; a distorted image moves the target by several decimetres
+  correct: 2
+- source: 13cf2c247f83
+  question: Why must the LANDING_TARGET message run faster than 5 Hz?
+  options:
+    - MAVLink drops messages sent slower than 5 Hz, so the target is lost between updates
+    - 5 Hz is the GNSS rate it replaces; at 2 Hz a 1 m/s drift moves 50 cm between fixes
+    - The EKF only fuses measurements above 5 Hz; below that it ignores them silently
+    - 5 Hz is the camera's frame rate, so slower messages repeat stale frames
+  correct: 1
+- source: 86f0af4cb8eb
+  question: An IR-beacon kit and a camera-plus-ArUco build reach the same daylight accuracy. What actually distinguishes them?
+  options:
+    - "Failure modes: IR works at night without a companion; ArUco is debuggable but needs daylight and the Pi"
+    - "Precision: the IR kit is several times more accurate at touchdown because it tracks a point source"
+    - "Update rate: ArUco runs at 50 Hz while the IR kit is limited to 2 Hz, so ArUco lands closer"
+    - "Failure modes: ArUco works at night and in glare, while the IR kit needs daylight and a running companion"
+  correct: 0

@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FOP.03-debrief-and-aar.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 9e3a067ec70b
+  question: Why must a debrief start with 'what was planned'?
+  options:
+    - It lets the crew confirm whether they followed orders
+    - It is quicker, since plans are shorter than observations
+    - It is needed so that blame can be assigned correctly
+    - Most observations (7 of 12) mean nothing without a baseline
+  correct: 3
+- source: 5f5695294df0
+  question: Blameless reporting runs about 90 %; openly blaming cultures about 25 %. What does blame cost?
+  options:
+    - About 3.6x more reports, as people report defensively
+    - About 3.6x under-reporting, so risk looks lower than it is
+    - No real change, since serious events are always reported
+    - About 65 % fewer events, as people become more careful
+  correct: 1
+- source: ea4c07610197
+  question: Where does blamelessness stop in an after-action review?
+  options:
+    - At deliberate violations, which are a certificate question
+    - At any error that caused damage to the aircraft
+    - At errors that the same person has repeated more than once
+    - Nowhere; every event is treated only as a data point
+  correct: 0
+- source: a009daf45d0b
+  question: Why commit to one change after a debrief rather than a list of eight?
+  options:
+    - All eight always get done, but they take about eight times as long
+    - Regulators accept only one corrective action per flight
+    - All eight rarely complete, and the easy ones survive, not the key ones
+    - A single change is easier to assign to one person to blame
+  correct: 2
+- source: 7b2fb4ef33ba
+  question: What makes a debrief change real?
+  options:
+    - It is agreed aloud by the whole crew before the end of the debrief
+    - "It modifies an artefact: a checklist line, parameter or manual section"
+    - It is written as a clear intention, such as 'be more careful'
+    - It is recorded in the pilot's own personal logbook
+  correct: 1
+- source: 10fdca6f8a96
+  question: The course's own debrief found three issues. What did they have in common?
+  options:
+    - All were new hazards and threats that the original bowtie had missed
+    - All were pilot errors, handled as deliberate violations
+    - All were fixed within the module where they were found
+    - All were barriers weaker than documented; no new hazards appeared
+  correct: 3

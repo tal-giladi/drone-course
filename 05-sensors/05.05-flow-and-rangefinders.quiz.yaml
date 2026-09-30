@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 05.05-flow-and-rangefinders.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: b66bf4d73e18
+  question: Why can't an optical-flow sensor report velocity on its own?
+  options:
+    - It measures position, which then has to be differentiated
+    - It needs GNSS to set its scale factor before each flight
+    - It measures image angular rate, needing height and gyro rate
+    - It only produces output above a minimum ground speed of a few m/s
+  correct: 2
+- source: 12ee851be42b
+  question: After 60 s GNSS-denied at 2 m height and 3 m/s, flow gives 9.3 m of position error. How much of it is camera noise?
+  options:
+    - About 9 m, since camera noise dominates flow error
+    - About 4.6 m, roughly half the total
+    - About 1 m, the rest being gyro bias
+    - About 25 cm; the rest is height-scale error
+  correct: 3
+- source: 5f1e2573d979
+  question: Why is 1 cm of rangefinder resolution hard for a pulse time-of-flight sensor?
+  options:
+    - The round trip means timing to about 66.7 picoseconds
+    - Light takes about 33 nanoseconds to travel one centimetre
+    - The emitted pulse spreads to well over 1 cm wide in flight
+    - Sunlight adds about 1 cm of timing jitter to every returned pulse
+  correct: 0
+- source: f535a1332737
+  question: A rangefinder is specified to 12 m. Why plan missions around 4 m in Israel?
+  options:
+    - Hot air refracts the infrared beam away beyond about 4 m
+    - Sunlight's infrared swamps the return signal, cutting range
+    - Dust on the lens attenuates the signal by about two thirds
+    - The spec assumes a 45 deg tilt, which reduces the usable range
+  correct: 1
+- source: 5f696cb5c371
+  question: Why does ArduPilot stop using the rangefinder past about 45 deg of tilt?
+  options:
+    - The sensor saturates above 45 deg angle of incidence
+    - The cosine correction becomes exactly zero at 45 deg
+    - The beam hits ground unrelated to the height directly below
+    - The optical-flow sensor overrides the rangefinder at high tilt angles
+  correct: 2
+- source: dc6320dc3ad5
+  question: An aircraft holding position over a river with optical flow drifts downstream at the current's speed. Why?
+  options:
+    - Flow quality drops over water, so the EKF discards the flow data and drifts off
+    - The rangefinder reads the riverbed, overestimating height and flow scale
+    - Water reflections saturate the sensor and freeze the reported velocity
+    - Moving water looks like upstream drift, so it corrects by flying downstream
+  correct: 3
+- source: c508b3905027
+  question: Flow-based position still drifts. Why is it far better than IMU dead reckoning?
+  options:
+    - Flow errors grow as sqrt(t) and t; IMU errors as t^2 and t^3
+    - Flow has no bias at all, so it never drifts over long flights
+    - Flow measures position directly, so its errors never integrate
+    - IMU errors grow linearly with time, flow errors only as sqrt(t)
+  correct: 0

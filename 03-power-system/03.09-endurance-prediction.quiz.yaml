@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 03.09-endurance-prediction.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: ba93113df228
+  question: As forward speed increases, what do induced, profile and parasite power do?
+  options:
+    - Induced rises as V^3, profile stays flat, parasite falls as about 1/V
+    - All three rise with speed, so hover is always the cheapest condition
+    - Induced falls as about 1/V, profile grows slowly, parasite as V^3
+    - Induced stays flat, profile falls as 1/V, parasite rises as V^2
+  correct: 2
+- source: 52009ee6d261
+  question: Why are best-endurance and best-range speeds different, and which is faster?
+  options:
+    - Endurance minimises P, range minimises P/V; best range is always faster
+    - Endurance minimises P/V, range minimises P; best endurance is faster
+    - Endurance minimises P, range minimises P/V; best range is always slower
+    - They are the same speed; any difference comes from wind in the test
+  correct: 0
+- source: 7498b20b7b8d
+  question: Hermon cruises at 10 m/s, neither optimum. What justifies it?
+  options:
+    - It is the exact best-range speed, so it maximises distance per charge
+    - It is the exact best-endurance speed, so it maximises time in the air
+    - It is the maximum speed allowed by the regulator for this weight class
+    - It keeps 97 % of best endurance and buys gust and reaction margin
+  correct: 3
+- source: b90fb925ffc9
+  question: Using R = t(V^2 - w^2)/(2V), Hermon's calm radius at 10 m/s is 7.9 km. What is it in a 6 m/s wind?
+  options:
+    - About 3.2 km
+    - About 5.1 km
+    - About 7.9 km
+    - About 6.3 km
+  correct: 1
+- source: 6d9a076fdb81
+  question: What is k_install = 1.121, and why is it not a fudge factor?
+  options:
+    - Budget over aerodynamic hover power; named, bounded and re-fitted
+    - A safety factor added so the prediction always beats the flight test
+    - The pack's ageing factor after 100 cycles, taken from the datasheet
+    - An unlabelled correction chosen to make the model match a single flight
+  correct: 0
+- source: 6b16b06724cc
+  question: Measured hover power is 20 % above prediction. What do you check first?
+  options:
+    - Re-tune the PID gains, since oscillation wastes power
+    - Replace the ESC, since its efficiency may have dropped
+    - Weigh the aircraft, since mass is the most common cause
+    - Re-fit k_install, since the model factor is probably off
+  correct: 2

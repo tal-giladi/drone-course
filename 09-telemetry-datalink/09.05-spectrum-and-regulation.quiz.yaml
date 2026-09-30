@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 09.05-spectrum-and-regulation.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: cabd3d77e58a
+  question: Israel has three regulatory tracks for radios. Which is this course on, and why is 'exempt' not the same as 'unrestricted'?
+  options:
+    - "Exemption: missing any one condition, like band or power, is unlicensed transmission"
+    - "Licensing: exemption only waives the fee, not the need to register every single device"
+    - "Exemption: exempt devices may transmit freely as long as they are sold in Israel"
+    - "Permit: exempt means no permit, but the operator still needs an amateur licence"
+  correct: 0
+- source: 4b9dc0c9050b
+  question: Why are 433 MHz and 868 MHz telemetry radios the wrong hardware for Israel rather than the wrong setting?
+  options:
+    - Both bands are legal in Israel, but only at 10 mW, which these radios cannot be set to
+    - 433 is Israel's amateur band and 868 is European; neither front end suits 918 MHz
+    - Both bands work in Israel, but their firmware lacks the Israeli hopping table
+    - Both bands are legal only for control links there, so the firmware refuses telemetry
+  correct: 1
+- source: b07fe7bc22c6
+  question: Hermon's telemetry radio is configured legally for Israel. Why would the same configuration be illegal in the United States?
+  options:
+    - 100 mW exceeds the FCC's power limit for licence-exempt radios operating in the 915 MHz band
+    - The US does not permit any unlicensed use of the 917-920 MHz range at all
+    - FCC Part 15.247 requires at least 25 hopping channels in 902-928 MHz; Hermon has ten
+    - Part 107 requires every telemetry radio to be registered with the FAA first
+  correct: 2
+- source: e243d0f0c97a
+  question: What does a Part 107 certificate tell you about your radio?
+  options:
+    - That any radio sold as part of a drone kit is authorised for use in the United States
+    - That you may transmit up to 1 W in the 900 MHz band while the aircraft is flying
+    - "Nothing: Part 107 is the FAA regulating flight; spectrum is the FCC's, under Part 15"
+    - That your radio is legal provided the drone itself is registered with the FAA
+  correct: 2
+- source: a45e67929ef7
+  question: 09.01 found 14.6 km of link at a 20 dB margin. Why is that not your operating range?
+  options:
+    - "Battery endurance binds first: 24 minutes of flight cannot cover a 14.6 km round trip"
+    - "The Fresnel zone binds first: at 14.6 km it always touches the ground"
+    - Regulations cap telemetry range at 2 km no matter what margin you have
+    - "Visual line of sight binds first: a 1.45 kg aircraft vanishes beyond about 500 m"
+  correct: 3
+- source: 527dea758f82
+  question: Why does this course require no FPV video link?
+  options:
+    - FPV video would saturate the SiK telemetry link, since both share the same radio module
+    - 5.8 GHz needs a permit in Israel, kit exceeds exempt power, and the syllabus needs none
+    - Video links need a Part 107 waiver in Israel just as they do in the United States
+    - FPV cameras and transmitters add too much weight for Hermon's thrust-to-weight margin
+  correct: 1
+- source: e5729502adc8
+  question: Someone suggests putting the video downlink on 2.4 GHz 'because it is licence-exempt'. What is wrong with that?
+  options:
+    - "It is the ELRS control link's band: you jam yourself, strong RSSI but collapsed LQ"
+    - 2.4 GHz is licensed for video in Israel, so it is not actually exempt for this use
+    - 2.4 GHz has too little bandwidth to carry video at any usable resolution
+    - Nothing at all, as long as the video transmitter stays under the exempt power limit
+  correct: 0

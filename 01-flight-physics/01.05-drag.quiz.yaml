@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 01.05-drag.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 35f5a4afd166
+  question: How does parasite drag power scale with airspeed, and where does induced drag peak?
+  options:
+    - Parasite power grows as v^2; induced drag peaks at top speed
+    - Parasite power grows as v; induced drag peaks at cruise
+    - Parasite power grows as v^3; induced drag peaks in hover
+    - Parasite power grows as v^3; induced drag peaks at top speed
+  correct: 2
+- source: eed394914130
+  question: Why is a quad's cruise speed (5-8 m/s) cheaper than both hover and top speed?
+  options:
+    - At cruise the props stop producing most of the thrust and the airframe glides on its own body lift
+    - Forward motion cuts induced power while parasite drag is still small, giving a flat minimum
+    - At cruise the ESCs switch to a more efficient mode that is disabled during hover
+    - Parasite drag is zero at cruise and only appears once the quad passes 8 m/s
+  correct: 1
+- source: 8ad439c662c9
+  question: The capstone profile costs about 44 Wh of 88.8 Wh usable. What is the margin and what does it buy?
+  options:
+    - About 2.0x; it covers surprises like gusts, a weak battery, and a calm 8 m/s RTL
+    - About 1.5x; it is sized so the pack can cover a second full mission if needed
+    - About 2.0x; it is a legal reserve that may never be used for anything
+    - About 4.0x; it covers flying the capstone profile four times per pack
+  correct: 0
+- source: 139519a57157
+  question: 'At 8 m/s, which cuts more watts: halving airframe CdA, or moving from 10" to 11" props?'
+  options:
+    - The airframe, since parasite power is already the largest term at any forward speed
+    - Both save the same, since drag and induced power are equal at 8 m/s cruise
+    - The props, since induced plus profile power (~160 W) dwarfs parasite (~19 W)
+    - Neither, since at 8 m/s the power is set only by the avionics fixed load
+  correct: 2
+- source: 6c900ccaaca5
+  question: A log shows 230 W at "8 m/s cruise" but the model says 182 W. Which three traces separate the likely causes?
+  options:
+    - Wind and attitude (airspeed), altitude (climbing), and voltage (sag)
+    - RSSI (link), GPS satellites (fix), and compass (heading)
+    - Motor temperature, ESC temperature, and battery temperature
+    - Motor temperature, ESC temperature, and the battery pack temperature
+  correct: 0

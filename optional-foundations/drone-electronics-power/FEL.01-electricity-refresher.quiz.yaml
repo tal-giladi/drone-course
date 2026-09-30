@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FEL.01-electricity-refresher.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 2d04903b72e4
+  question: Where does the water-in-a-pipe analogy for electricity break down?
+  options:
+    - Electrons move near light speed, far faster than water in a pipe
+    - Current can flow without a closed loop, unlike water in a pipe
+    - Thicker wire works by fitting more electrons, unlike a wider pipe
+    - Electrons drift under 1 mm/s, yet the energy moves near light speed
+  correct: 3
+- source: bfa86aeab7d5
+  question: Hermon's hover power is fixed. How does its hover current change as the 6S pack drains from 25.2 V to 21.0 V?
+  options:
+    - It falls, since I = V/R and the voltage is lower
+    - It rises, from about 8.97 A to about 10.76 A
+    - It stays at about 10 A, since the load is unchanged
+    - It rises, from about 4.5 A to about 5.4 A
+  correct: 1
+- source: 66dc970cb120
+  question: Hermon's avionics draw 11.3 W of 226 W, 8 W of it the companion computer. Why did the course price the companion by mass instead of watts?
+  options:
+    - Avionics are about 50 % of power, so its watts dominate endurance
+    - Avionics are about 5 % of power, so neither mass nor watts matter
+    - Avionics are about 5 % of power; its 180 g cost about 4.5x its watts
+    - Avionics are about 20 % of power, so its watts cost more than mass
+  correct: 2
+- source: 93ea191596a8
+  question: Why build a 111 Wh pack as 6S (22.2 V) instead of 1S6P (3.7 V) for a 226 W load?
+  options:
+    - Current drops from about 61 A to 10.2 A, cutting I^2R loss about 36x
+    - Current drops from about 61 A to 10.2 A, cutting I^2R loss about 6x
+    - The 6S layout stores more energy for the same mass of cells
+    - Motors only turn at high voltage; resistive losses are identical
+  correct: 0
+- source: a2f8f5ed93fa
+  question: Hermon hovers at about 10 A, and a stalled motor can draw 60 A. Which current should size the power wiring?
+  options:
+    - The 10 A hover, since that flows for most of the flight
+    - The 60 A stall, since at 10 A almost any gauge is fine
+    - The average of hover and stall, about 35 A
+    - The 10 A hover plus a 20 % safety margin
+  correct: 1
+- source: a01d519e20c9
+  question: A charged 25.2 V pack has 0.018 ohm of internal resistance. Roughly what happens if its leads are shorted?
+  options:
+    - A brief spark, since the pack cuts the current off instantly
+    - About 1,200 A flows, but only for microseconds, so little heat
+    - About 140 A flows, limited by the pack's rated C figure
+    - About 1,200 A flows, dumping about 30 kW until something melts
+  correct: 3

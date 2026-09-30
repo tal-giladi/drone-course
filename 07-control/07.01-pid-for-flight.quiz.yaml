@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 07.01-pid-for-flight.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: e749cc1c0fa1
+  question: Why is a multirotor's rotational axis a double integrator, and what follows?
+  options:
+    - Moment gives angular acceleration, integrated twice; unstable open loop
+    - Motor lag adds a second integrator, so the axis only drifts slowly
+    - Moment produces rate directly, so a P term alone is sufficient
+    - Gyro and accel each integrate once, making the axis only neutrally stable
+  correct: 0
+- source: 4c25bb8a36d9
+  question: Kp = 0.50 leaves a 17 deg/s steady error in a 0.15 N.m gust. What Kp removes the error entirely?
+  options:
+    - Kp = 1.0, since doubling the gain halves and then cancels it
+    - No finite Kp; only the integral term drives it to zero
+    - Kp = 5.0, ten times the gain, which removes it
+    - Kp = 0.15, matching the gust moment
+  correct: 1
+- source: 94f9bd7ae4ca
+  question: An aircraft rolls violently on leaving the ground though motors never saturated. Which fix works?
+  options:
+    - Conditional integration, since it freezes I whenever error is large
+    - A higher D gain to damp the release from the ground
+    - An IMAX clamp; conditional integration needs saturation
+    - A lower P gain to reduce the initial kick at lift-off
+  correct: 2
+- source: 46584cce5bc7
+  question: Why is an unfiltered D term dangerous on a multirotor specifically?
+  options:
+    - It adds lag that destabilises the rate loop
+    - It integrates vibration into a slow drifting bias
+    - It saturates the integrator whenever a gust hits
+    - Its gain at 253 Hz is 253x its gain at 1 Hz
+  correct: 3
+- source: 888b5453fe02
+  question: A 10 ms D-term low-pass cuts the 253 Hz gain from 253x to 15.9x. What did it cost?
+  options:
+    - About 32 deg of phase at 10 Hz, eroding the damping
+    - About 3 deg of phase at 10 Hz, which is negligible for control
+    - It cuts the D gain at 10 Hz by roughly a half
+    - It adds a 10 ms delay, but only to the 253 Hz content
+  correct: 0
+- source: 637f8882aeb0
+  question: Why is feedforward worth having even if the inertia model is 30% wrong?
+  options:
+    - It corrects errors faster than the D term can react
+    - It acts on the setpoint with no lag; PID fixes the 30%
+    - It replaces the I term entirely when the model is accurate
+    - It cancels the propeller vibration at blade pass frequency
+  correct: 1
+- source: e7f7d02870ab
+  question: With damping zeta = 0.5 sqrt(I/(Kp tau_m)), what happens as P rises, and what helps?
+  options:
+    - Damping rises with Kp; a slower motor helps
+    - Damping is independent of Kp; stiffer arms help
+    - Damping falls as 1/sqrt(Kp); a faster ESC helps
+    - Damping falls as 1/Kp; a heavier airframe helps a lot
+  correct: 2

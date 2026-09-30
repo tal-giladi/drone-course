@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FEL.03-lipo-deep-dive.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 872627af3fa9
+  question: A LiPo label shows cell count, capacity, C rating, nominal voltage and connector. What important information does it leave out?
+  options:
+    - Internal resistance, cell balance and cycle count, which show quality
+    - Energy in watt-hours, which cannot be derived from the label
+    - Maximum charge voltage, which varies unpredictably by brand
+    - Nothing important; the printed fields fully describe the pack's health
+  correct: 0
+- source: 6c55d706b5f9
+  question: Why is pack voltage a poor fuel gauge for a LiPo in mid-flight?
+  options:
+    - Voltage falls linearly, but the slope differs for every single pack
+    - Voltage only changes after landing, once the load is removed
+    - "The curve is flat: 70 % to 30 % charge moves a cell only about 0.14 V"
+    - The curve is steep mid-range, so readings swing too much to use
+  correct: 2
+- source: 2770b2f1f033
+  question: A 5 Ah pack with 18 milliohm internal resistance is labelled 50C. What happens if you actually draw 250 A?
+  options:
+    - It runs indefinitely, since 50C is the pack's continuous rating
+    - About 1,125 W heats the pack inside; 50C is only a burst figure
+    - About 4.5 W heats the pack inside, which is negligible
+    - About 4.5 kW heats the pack, so it vents within a second
+  correct: 1
+- source: 30d62e05b6d2
+  question: A 5 Ah pack with 18 milliohm internal resistance can shed about 20 W of internal heat. What is its honest continuous rating, and how does a 10.2 A hover compare?
+  options:
+    - About 50C (250 A); the hover is only about 2C
+    - About 1C (5 A); the hover exceeds it at 2C
+    - About 7C (33 A); the hover is about 10C
+    - About 7C (33 A); the hover is only about 2C
+  correct: 3
+- source: 7f11152c0ce3
+  question: A 6S pack alarm fires at 21.0 V total. How far can one cell drift below the others before it sits at its 3.00 V floor when the alarm sounds?
+  options:
+    - 0.50 V below the other cells
+    - 0.10 V below the other cells
+    - 0.083 V below the other cells
+    - 0.60 V below the other cells
+  correct: 3
+- source: ef95b7bd89cb
+  question: What is the balance lead's main flight-safety use, and when should a pack be retired?
+  options:
+    - Charging faster; retire the pack once it ever needs balancing
+    - Checking cell spread after charging; retire it above about 0.10 V
+    - Checking total voltage; retire it once it rests below 21.0 V
+    - Checking cell spread after charging; retire it above about 0.50 V
+  correct: 1

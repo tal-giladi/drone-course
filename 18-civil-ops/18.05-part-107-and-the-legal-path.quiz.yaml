@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 18.05-part-107-and-the-legal-path.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 16346b74b316
+  question: The Part 107 knowledge test pass mark is 70%. How much of the material should you actually know?
+  options:
+    - Exactly 70%; matching the pass mark makes a pass on the day near certain
+    - About 75%; five points of margin gives about a 99% pass rate
+    - About 95%; even 85% passes only about half of the time
+    - About 85%; knowing exactly 70% passes only about 56% of the time
+  correct: 3
+- source: 64c3f65837da
+  question: How does a remote pilot certificate stop being valid?
+  options:
+    - Currency lapses after 24 calendar months without recurrent training
+    - The certificate expires after 24 months and the test must be retaken
+    - It is revoked if you fly fewer than three flights in any 90 days
+    - It never stops being valid; there is no recurrent requirement
+  correct: 0
+- source: 010ad9e0ed80
+  question: Hermon weighs 3.75 lb. Which Part 107 operating limitation never binds on it, and which two do?
+  options:
+    - Altitude never binds; the weight limit and VLOS do
+    - Weight never binds; the altitude ceiling and VLOS do
+    - VLOS never binds; the weight limit and altitude do
+    - Speed never binds; the weight limit and night rules do
+  correct: 1
+- source: 2160f81b8ddc
+  question: What does the structure rule actually say, and why is it misremembered?
+  options:
+    - You may fly 400 ft above it anywhere nearby, in a dome that tapers off
+    - Within a mile laterally you may fly 400 ft above its top
+    - "Within 400 ft laterally you may fly 400 ft above it: a cylinder"
+    - You may climb only to its top height and never above it
+  correct: 2
+- source: 7b684a50f4a8
+  question: What is a waiver application actually asking for?
+  options:
+    - Proof of insurance cover and a total flight-hour count
+    - "A safety case: hazards, barriers, evidence, qualifications"
+    - A filing fee and a full technical description of the aircraft
+    - A signed letter of support from the client for the job
+  correct: 1
+- source: 559fc6f1a1cb
+  question: Which part of a waiver application gets refused?
+  options:
+    - Any operation where the fee arrived late
+    - Any aircraft heavier than about 25 lb
+    - Any pilot with fewer than 100 logged flight hours
+    - A barrier with no flight evidence behind it
+  correct: 3
+- source: ae411e83d1c8
+  question: Hermon's endurance supports about 2,240 m out and back. What bounds a delivery operation, and by how much?
+  options:
+    - "Eyesight: about 500 m of VLOS, a factor of 4.5"
+    - "Battery: about 500 m of endurance, a factor of 4.5"
+    - "Eyesight: about 1,120 m of VLOS, a factor of 2"
+    - "Radio range: about 500 m of link, a factor of 4.5"
+  correct: 0
+- source: eca83ceb641d
+  question: Which Part 107 items are not waivable?
+  options:
+    - BVLOS, night operations and flight over people or cars
+    - The 400 ft altitude ceiling and the 100 mph speed limit
+    - Certificate, registration, Remote ID, 55 lb cap, recklessness
+    - Flying from moving vehicles and operating several aircraft at once
+  correct: 2

@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 01.08-stability.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 74923763104a
+  question: A quad is unstable in position and neutral in attitude. What provides its stability?
+  options:
+    - The airframe's own restoring moment, which the control loop only fine-tunes
+    - The gyroscopic effect of the four spinning props, which keeps it level
+    - The control loop, for both; remove it and the quad has no stability at all
+    - The low centre of mass under the props, which acts like a pendulum
+  correct: 2
+- source: b7f4664b8aed
+  question: A step response shows 20% overshoot. What is the damping ratio, and what is the first fix?
+  options:
+    - About 0.45, underdamped; lower the rate-loop P gain or add D
+    - About 0.20, underdamped; raise the rate-loop P gain to stiffen it
+    - About 0.70, well tuned; leave the gains alone
+    - About 0.80, overdamped; lower the D term
+  correct: 0
+- source: 94ed830b3fd7
+  question: Why must the rate loop's D term supply damping on a small quad?
+  options:
+    - Airframe damping is above 1.0, so D must cancel the excess to speed it up
+    - The D term replaces the P term, which cannot be used on a quadcopter
+    - D is only needed to filter noise; damping comes from the tyres on landing
+    - Airframe damping is only about 0.05-0.2, far below the ~0.7 target
+  correct: 3
+- source: 184f3bef7449
+  question: A quad is stable at 800 Hz but collapses when the flight controller is loaded. What is the fix?
+  options:
+    - Raise the P gains so the loop can react faster even when the CPU is busy
+    - Measure the real loop rate in the log, then move load off the FC CPU or drop a sensor rate
+    - Replace the ESCs, since a loaded flight controller means the motors are drawing too much current
+    - Recalibrate the IMU, since CPU load introduces a bias into the gyro readings
+  correct: 1
+- source: 7ad320e84c04
+  question: In the cascade rate -> attitude -> velocity -> position, why must each outer loop be slower than the inner one?
+  options:
+    - A slower outer loop uses less CPU, leaving room for the fast inner loop to run at full rate
+    - At 5-10x slower, the inner loop looks instantaneous to the outer loop, so they do not fight
+    - Outer loops use GNSS data, which arrives too slowly to run them faster than once per second
+    - A faster outer loop would need higher gains, which the firmware caps below a fixed value
+  correct: 1

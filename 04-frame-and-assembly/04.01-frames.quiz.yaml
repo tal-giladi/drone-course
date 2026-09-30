@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 04.01-frames.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: bfe4a40c1444
+  question: Why is "stiff" rather than "strong" the key requirement for a drone frame?
+  options:
+    - Stiff frames are lighter, and mass is the only thing that sets endurance
+    - Flex moves the thrust vectors, so the controller fights a changing shape
+    - Strong frames always crack in a crash, while stiff frames always bend back
+    - Stiffness sets the crash rating, which regulators require for registration
+  correct: 1
+- source: 097bff7b67b1
+  question: Why is steel not a stiffness upgrade over aluminium for a frame?
+  options:
+    - Steel is actually less stiff than aluminium per unit of cross-section
+    - Steel is magnetic, and stiffness is lost when the compass is recalibrated
+    - Steel's E/rho is about 44, but it is too expensive to machine for drones
+    - "Its E/rho is about the same: three times stiffer and three times denser"
+  correct: 3
+- source: 9c961a5654eb
+  question: Hermon's arm first bending mode is about 106 Hz. Why is that a problem?
+  options:
+    - Motors sweep 84-164 Hz, so the arm resonates in normal flight
+    - Motors sweep 200-400 Hz, so blade pass excites its second mode
+    - It is below the 30 Hz rate loop, so the controller cannot see it
+    - It matches the accelerometer sample rate, so it aliases to zero
+  correct: 0
+- source: 24a11264ffc5
+  question: Can Hermon's arm resonance be designed out, and if not, what do you do?
+  options:
+    - Yes; a 20 x 18 mm tube lifts it well above full-throttle frequency
+    - Yes; a solid carbon rod lifts it above 213 Hz with little extra mass
+    - No; balance props, soft-mount the FC and use an RPM harmonic notch
+    - No; so you limit throttle to stay below the resonant motor speed
+  correct: 2
+- source: b751eee8e393
+  question: Why is every drone arm a tube rather than a solid rod?
+  options:
+    - Tubes are stiffer than rods of the same outer diameter in every direction
+    - Rods cannot be made from carbon fibre, only from aluminium or steel
+    - Stiffness goes as D^4, so centre material adds mass but little stiffness
+    - Tubes let the motor wires run inside, which is the only real reason
+  correct: 2
+- source: cc603c1fb436
+  question: Which arm dimension is most expensive for stiffness, and by how much?
+  options:
+    - "Length: +10 % length cuts stiffness by about 25 %"
+    - "Length: +10 % length cuts stiffness by about 10 %"
+    - "Outer diameter: +10 % cuts stiffness by about 25 %"
+    - "Wall thickness: +10 % cuts stiffness by about 25 %"
+  correct: 0

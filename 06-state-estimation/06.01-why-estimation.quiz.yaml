@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 06.01-why-estimation.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 95f3ab4d1006
+  question: How many of EKF3's 22 states describe the aircraft itself, and what are the rest?
+  options:
+    - Ten; the rest are instrument biases, fields and wind
+    - Sixteen; the remaining six are sensor noise variance terms
+    - Twenty-two; every one of the states describes the aircraft
+    - Six; the rest are off-diagonal covariance entries being tracked
+  correct: 0
+- source: b6eb94f27934
+  question: The IMU drifts 152 m in a minute and GNSS is 4.5 m always. Why not just use GNSS?
+  options:
+    - GNSS is too noisy to be usable at all without an IMU alongside it
+    - GNSS is 5 Hz and 150 ms late; the IMU drifts ~1 mm per gap
+    - The IMU is more accurate than GNSS on every timescale, even minutes
+    - GNSS cannot measure altitude, so the IMU is required for height
+  correct: 1
+- source: 20ac2c48e525
+  question: Blending a 4.5 m GNSS altitude with a 0.125 m barometer barely improves noise. Why do it?
+  options:
+    - GNSS altitude becomes more precise than the baro once it has converged
+    - Averaging any two sensors always halves the combined error
+    - The baro drifts with weather; GNSS is coarse but does not drift
+    - The barometer only works reliably above about 10 m of height
+  correct: 2
+- source: 5db6fe186306
+  question: "Two sensors are fused by inverse-variance weighting. With equal variances and with one ten times worse, the improvements are roughly:"
+  options:
+    - 2x and 1.1x
+    - 1.41x and 1.1x
+    - 2.00x and 1.010x
+    - 1.41x and 1.01x
+  correct: 3
+- source: c0dfb0625866
+  question: Why is a hover the hardest case for an estimator?
+  options:
+    - Several states, like accel bias vs tilt, are unobservable without motion
+    - Vibration is highest at hover throttle, swamping the IMU readings entirely
+    - GNSS accuracy is always worst when the receiver is stationary
+    - The barometer is disturbed by hover downwash more than in forward flight
+  correct: 0
+- source: e0868d2cc0db
+  question: Why does the estimator treat the IMU as an input rather than a measurement?
+  options:
+    - The IMU is far too noisy to be treated as a measurement
+    - IMU data drives the prediction, so its errors enter as Q
+    - The IMU samples more slowly than the GNSS receiver does
+    - Measurements must come only from absolute sensors like GNSS or a baro
+  correct: 1
+- source: 52df46bc6194
+  question: Will switching GNSS from 5 Hz to 10 Hz noticeably improve position hold?
+  options:
+    - Yes, halving the interval halves the position error
+    - Yes, because the IMU then drifts less between each fix
+    - Hardly; hold is limited by the 4.5 m fix error, not rate
+    - No, because EKF3 cannot accept GNSS data faster than 5 Hz at all
+  correct: 2

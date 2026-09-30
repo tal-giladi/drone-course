@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 11.01-first-flight.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: a8ee6265c86e
+  question: Why is the first flight a seven-step ladder rather than one flight, and why must it all fit in one battery?
+  options:
+    - Regulations cap first flights at one battery, and seven steps is the permitted maximum
+    - Each step warms the motors, and a battery change cools them and invalidates results
+    - Each step asks one question; a battery swap adds a pause where doubts get talked away
+    - Each step tests one motor, and a fresh battery would mask a weak cell in the pack
+  correct: 2
+- source: d1f43d7b826d
+  question: The motor test labels motors A, B, C, D. What are you verifying, and what is the trap?
+  options:
+    - Order clockwise from the front, A to D; the trap is running the test with the props fitted
+    - Spin direction only, all clockwise; the trap is thinking the test order matters at all
+    - Order anticlockwise from the rear, A to D; the trap is confusing motor A with motor 0
+    - "Order against the mixer: A front right, B back left, C front left, D back right: diagonal"
+  correct: 3
+- source: 5becef559ee8
+  question: Why must abort criteria be written before arming rather than decided in the field?
+  options:
+    - The flight controller needs them loaded as parameters before it will allow arming
+    - Written abort criteria are required for insurance cover on a first flight
+    - After arming each becomes negotiable; set in advance it is a decision, not a wish
+    - In the field there is no time to read the log before deciding to abort
+  correct: 2
+- source: bb90dd2b964c
+  question: "MOT_THST_HOVER has three predictions: 48.5 %, 51.5 % and 42.3 %. Are they contradictory?"
+  options:
+    - "No: electrical duty, square-law thrust and post-expo command, bracketing 42-52 %"
+    - "Yes: only the square-law figure is physically valid, so the other two are discarded"
+    - "No: they are the same quantity at three battery voltages, from full to empty"
+    - "Yes: the spread shows the thrust data is wrong and must be measured again"
+  correct: 0
+- source: 73a58afca8e3
+  question: The first hover reports MOT_THST_HOVER = 0.58 on an aircraft weighed at 1.45 kg. What does it imply, and what are the explanations?
+  options:
+    - "About 1.45 kg as expected: 0.58 is a normal hover value for any quad"
+    - "About 2.31 kg all-up: heavier than weighed, weak propellers, or pack sag"
+    - "About 0.84 kg all-up: thrust is overestimated, so lower the motor limits"
+    - "About 2.31 kg all-up: the only possible cause is a mis-set FRAME_CLASS"
+  correct: 1
+- source: de79f64b3a19
+  question: Which row of the sim-versus-flight table will certainly disagree after the first flight, and why is that a success?
+  options:
+    - "Hover throttle: the simulator uses ideal thrust, proving the model is wrong"
+    - "The VIBE peak: the simulator has no vibration, and 10.01 predicted this gap"
+    - "Position error: the simulator has no GNSS, so it must be added before flying"
+    - "Hover current: the simulator has no sag, so the flight data is invalid"
+  correct: 1
+- source: 5b9f8ea51434
+  question: What is the actual deliverable of a first flight?
+  options:
+    - A stable hover that lasts at least one full minute
+    - Tuned PID gains saved to a dated parameter file
+    - The log, checked five ways before flying again
+    - Video footage proving the aircraft left the ground
+  correct: 2

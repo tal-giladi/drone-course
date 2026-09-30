@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in FA.02-newtons-laws-flight.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: fc4293d7b0cd
+  question: What do hovering, a steady 2.5 m/s climb and steady cruise have in common physically?
+  options:
+    - Thrust exceeds weight by the same fixed amount in all three
+    - The net force is proportional to the speed in each case
+    - Only hover has zero net force; the others need a constant surplus
+    - Zero net force; only changing the motion needs an unbalanced force
+  correct: 3
+- source: b23a0b6f3c16
+  question: Hermon hovers on 14.225 N and has 53.72 N of total thrust available. What fraction of full thrust is hover, and what is the rest for?
+  options:
+    - 50 %; the rest is reserved purely for climbing
+    - 26.5 %; the rest is for acceleration, lean and failures
+    - 73.5 %; the rest is the reserve kept for failures
+    - 26.5 %; the rest is lost as heat in the motors and ESCs
+  correct: 1
+- source: 4fd179b9d61d
+  question: Adding 250 g of payload to Hermon is a 17 % mass increase. How does its spare acceleration change, and why?
+  options:
+    - "Falls about 20 %: weight eats thrust and the mass divides the rest"
+    - "Falls exactly 17 %: acceleration scales inversely with mass"
+    - "Falls about 9 %: only the added weight is taken from the thrust"
+    - "Falls about 34 %: the payload doubles the load on every motor"
+  correct: 0
+- source: ede32bc94786
+  question: In momentum theory for a hovering rotor, air passes the disc at v and reaches 2v far below. Why is thrust rho*A*v*2v rather than rho*A*v*v?
+  options:
+    - Air is pushed by both the upper and lower faces, doubling the thrust
+    - Four propellers act as two pairs, so the thrust term doubles
+    - Mass flow is set at the disc speed v, but the momentum change is 2v
+    - The factor corrects for propeller losses of about 50 %
+  correct: 2
+- source: 9b2eee76e556
+  question: Why do two of a quadcopter's four propellers spin the opposite way?
+  options:
+    - Counter-rotation doubles lift by reducing interference between discs
+    - Opposed pairs cancel reaction torque, which would cause endless yaw
+    - It balances gyroscopic precession so the aircraft can pitch and roll
+    - It keeps the thrust vectors symmetric so the aircraft does not drift
+  correct: 1
+- source: d3894e0ce37b
+  question: How does a quadcopter yaw, and what happens to its total thrust?
+  options:
+    - Tilt the whole airframe sideways; thrust rises as 1/cos of the tilt
+    - Speed up all four motors together; the extra thrust makes the turn
+    - Speed up one pair and slow the other; thrust drops, so it descends
+    - Speed up one spin-direction pair and slow the other; thrust unchanged
+  correct: 3
+- source: a8472d84075b
+  question: Why is a multirotor's frame size a control decision rather than just packaging?
+  options:
+    - Longer arms add inertia that exactly cancels any gain in torque
+    - Frame size fixes propeller size, which alone determines control
+    - Shorter arms give more authority by keeping the motors near the centre
+    - Torque = force x arm, so longer arms give the same motor more authority
+  correct: 3
+- source: b66375b1bc68
+  question: Hermon has 3.142 N m of pitch torque and 0.01350 kg m^2 of pitch inertia. What is its angular acceleration authority versus the worst disturbance of 1,561 deg/s^2?
+  options:
+    - About 233 deg/s^2; the worst disturbance is several times larger
+    - About 13,335 deg/s^2; the worst disturbance is about 12 % of it
+    - About 1,334 deg/s^2; the worst disturbance slightly exceeds it
+    - About 13,335 deg/s^2; the worst disturbance is about 88 % of it
+  correct: 1

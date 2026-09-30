@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 12.06-missions-from-python.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: dbd30b819151
+  question: What is the one structural difference between the four-line mission script and the state machine?
+  options:
+    - Each step is split into smaller sub-steps so that failures can be retried one at a time
+    - The state machine runs in a separate thread so it can watch the telemetry in parallel
+    - The state machine replaces blocking waits with timeouts, and exits the program on error
+    - A guard before every state body asks whether anything is wrong; recovery is a state
+  correct: 3
+- source: 41d41170e361
+  question: Why does the guard in the state machine need a latch, and what happens without one?
+  options:
+    - It misses short faults between ticks, so a brief failure goes unnoticed and is never acted on
+    - It fires only once per flight, so a second fault later in the mission is silently ignored
+    - It re-fires every tick and skips the state body, so the mission livelocks with a frozen clock
+    - It lets two recovery states run together, so the vehicle receives conflicting mode commands
+  correct: 2
+- source: ca6651e46c61
+  question: Losing position 50 m out and losing it 200 m out produce the same action. Why is that a feature?
+  options:
+    - Both distances fall inside the fence, so the fence action is the same for either one
+    - "The ladder is about severity, not geometry: position loss removes RTL, so both land"
+    - The state machine rounds distances to the nearest 250 m, so both map to one case
+    - Both are within SmartRTL's buffer, so both retrace the path back to the home point
+  correct: 1
+- source: 966f184ef14c
+  question: What does float32 do to a coordinate at latitude 32.0, compared with 31.8?
+  options:
+    - The step is 0.21 m at 32.0 but 0.42 m at 31.8, because the exponent changes at 32
+    - The step is 0.42 m at both, because float32 has the same precision at any latitude
+    - The step is 0.42 m at 32.0 but 0.21 m at 31.8, because the exponent changes at 32
+    - The step is 4.2 cm at 32.0 but 2.1 cm at 31.8, because the mantissa is 24 bits
+  correct: 2
+- source: 7618493d4a82
+  question: Why does 0.42 m of coordinate quantisation matter specifically after the precision-landing lesson?
+  options:
+    - It makes the landing target flicker between pixels, so the detector loses the lock
+    - It pushes the aircraft outside the geofence margin on every precision approach
+    - It causes MAVLink to reject the landing target as malformed and fall back to GPS
+    - It uses up the whole ~0.4 m landing budget before the aircraft sees the message
+  correct: 3
+- source: d3d7c12f5e3d
+  question: A 120-item survey takes 8.7 s to upload over telemetry and 0.24 s over USB. What explains the difference, and what should you do in flight?
+  options:
+    - Per-item turnaround latency, not data; edit one item or fly it in GUIDED
+    - Radio bandwidth, not latency; compress the mission before uploading it in flight
+    - Per-item turnaround latency, not data; always re-upload the whole mission at once
+    - Packet loss on the radio; lower the air data rate so fewer items need a retry
+  correct: 0
+- source: 1e8f15195f94
+  question: Every fault-injection case in the regression suite expects the mission to end in DONE. Why is that right?
+  options:
+    - Faults are injected after DONE, so the mission always finishes normally
+    - The mission may fail, but DONE means it landed under control
+    - DONE is the only state the simulator can report after a fault occurs
+    - A fault that prevents DONE is a simulator bug, not a mission problem
+  correct: 1

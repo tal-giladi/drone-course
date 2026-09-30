@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FRA.01-rf-in-45-minutes.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: badc8af5066d
+  question: Why does the choice of radio band determine antenna hardware?
+  options:
+    - "lambda = c/f: a quarter-wave is 17.3 cm at 433 MHz, 3.1 cm at 2440"
+    - Higher bands need more transmit power, so larger amplifiers are fitted
+    - Lower bands use shorter antennas, so they fit anywhere
+    - Antenna length is fixed; only the connector type changes
+  correct: 0
+- source: 364f2c7ce4a7
+  question: Which three decibel values are worth memorising, and why are decibels useful?
+  options:
+    - 3 dB = 3x, 10 dB = 10x, 20 dB = 20x; they scale linearly with power
+    - 6 dB = 2x, 10 dB = 10x, 20 dB = 100x; they add where powers multiply
+    - 3 dB = 2x, 10 dB = 10x, 20 dB = 100x; they add where powers multiply
+    - 3 dB = 2x, 10 dB = 10x, 20 dB = 1000x; they multiply like powers
+  correct: 2
+- source: 92654222465b
+  question: What is the difference between dB and dBm?
+  options:
+    - dB is a power; dBm is a ratio in milli-units
+    - They are the same; dBm is used for small signals
+    - dB is a ratio; dBm is a power referenced to 1 mW
+    - dB is a ratio; dBm is a power referenced to 1 W
+  correct: 2
+- source: f4d8f966463a
+  question: A legal 100 mW radio is fitted with a 9 dBi antenna. What does the antenna do?
+  options:
+    - Aims about 7.9x density one way; EIRP about 631 mW, likely illegal
+    - Amplifies the transmitter about 7.9x in every direction at once
+    - Aims about 9x density one way; EIRP stays at the legal 100 mW
+    - Aims about 7.9x density one way, at no cost in other directions
+  correct: 0
+- source: 7f0688a7ed62
+  question: "SiK telemetry: -174 dBm/Hz thermal noise, 100 kHz bandwidth, 6 dB noise figure, 6 dB required SNR. What is the sensitivity, and which term do you control?"
+  options:
+    - -162 dBm; noise figure is the lever you own
+    - -112 dBm; the -174 term improves with a better radio
+    - -124 dBm; required SNR is the lever you own
+    - -112 dBm; bandwidth is the lever you own
+  correct: 3
+- source: 1ccbc04d03a8
+  question: ELRS needs +6 dB SNR at 500 Hz but -6 dB at 50 Hz. What does that 12 dB buy in range?
+  options:
+    - About 12x, one factor of range per decibel gained
+    - About 4x, trading latency for bandwidth and integration
+    - About 16x, since 12 dB is roughly 16x the received power
+    - None, since data rate does not change sensitivity
+  correct: 1

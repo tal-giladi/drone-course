@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 07.05-velocity-position-and-modes.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 82b48003ef8a
+  question: Why does the vertical cascade have an acceleration loop while the horizontal does not?
+  options:
+    - Vertical thrust hides unknown voltage, density and mass
+    - Vertical sensors are much noisier than horizontal ones
+    - The barometer needs its own dedicated filtering loop
+    - Horizontal acceleration is handled directly by the rate loop
+  correct: 0
+- source: 4fce4296f2fc
+  question: With T proportional to throttle squared, how much does the vertical loop gain change from 25% to 100% throttle?
+  options:
+    - It stays constant after linearisation
+    - It rises about fourfold, since gain is linear in throttle
+    - It rises sixteenfold, since gain goes with throttle squared
+    - It halves, since thrust saturates near the top
+  correct: 1
+- source: c1662d834bd9
+  question: What does a flight mode actually specify?
+  options:
+    - A different set of PID gains
+    - Which sensors are powered on
+    - Which loops are closed
+    - The maximum speed and lean angle
+  correct: 2
+- source: b2fac7242d83
+  question: What does the throttle stick command in ALT_HOLD?
+  options:
+    - Throttle percentage directly
+    - Altitude above the home point
+    - Vertical acceleration demand
+    - A climb rate
+  correct: 3
+- source: afec75449bd3
+  question: You lose the barometer. Which modes remain?
+  options:
+    - ACRO and STABILIZE only
+    - ACRO, STABILIZE and ALT_HOLD
+    - All modes except LOITER and RTL
+    - All modes, using GNSS altitude
+  correct: 0
+- source: b0a175a544e9
+  question: Why is selecting RTL after a GNSS failure wrong?
+  options:
+    - RTL climbs too high for a degraded aircraft to handle
+    - RTL needs horizontal position, which needs GNSS
+    - RTL disables the barometer during its return leg
+    - RTL requires the compass, which fails along with GNSS
+  correct: 1
+- source: 3ff7203ac81e
+  question: LOITER drifts in a slow circle. What should you check before touching PSC_POSXY_P?
+  options:
+    - The GNSS delay parameter
+    - The barometer's foam cover
+    - The compass calibration
+    - The rate loop D gain setting
+  correct: 2

@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 00.02-course-outcomes.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 67da54fb92f6
+  question: Which mapping of the course outcomes to modules is correct?
+  options:
+    - "Build it: 00-08 and 16; fly it: 09-12; operate it: 13-19, all meeting in module 16"
+    - "Build it: 02-08; fly it: 16-19; operate it: 09-15, meeting in module 18"
+    - "Build it: 09-15; fly it: 02-04 and 16; operate it: 17-19, meeting in P06"
+    - "Build it: 02-04 and 16; fly it: 09-15; operate it: 17-19, meeting in the capstone"
+  correct: 3
+- source: d09f2867338e
+  question: Why is it a good thing that the first 94 hours of the course need no hardware?
+  options:
+    - You start at once, understand the aircraft before buying it, and parts arrive right when module 11 needs them
+    - Simulation hours count double toward the certification, so the hardware modules can be shortened a lot later on
+    - The hardware is unsafe to buy before the regulator approves your SITL logs, which takes about 94 hours
+    - SITL results replace the real flight tests, so most learners never need to buy the parts at all
+  correct: 0
+- source: e399c9345cfc
+  question: What does the operations gate (P12) prove?
+  options:
+    - SITL regression is green and the build test matrix has been executed
+    - Missions, precision landing and ROS 2 offboard work with measured acceptance
+    - 10 clean autonomous capstone missions with the full evidence pack
+    - The thrust stand data matches the motor manufacturer table within 15%
+  correct: 2
+- source: 1b4039383340
+  question: A hiring unit asks for evidence of your navigation skill. Which set of artifacts do you hand them?
+  options:
+    - The 04.10 build log, the 02.09 thrust-stand CSV, and the measured mass table from the airframe build
+    - The 18.03 OPORD, the 19.07 evidence pack, and the capstone safety case
+    - The SITL regression report, the course.py state file, and the lesson completion list
+    - The P06 mission logs, the P09 precision-landing offset table, and the 13.10 GNSS-denied flight log
+  correct: 3
+- source: 4f368f8413c2
+  question: Which artifact is evidence for the "build" outcome?
+  options:
+    - The P06 mission logs from five clean waypoint missions flown in the field
+    - The 18.03 OPORD you wrote for a planned multi-leg mission with a release point
+    - The 04.10 build log with the measured mass table plus the 02.09 thrust-stand CSV
+    - The 13.10 GNSS-denied flight log showing a 3 min square flown without GPS
+  correct: 2

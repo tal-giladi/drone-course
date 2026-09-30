@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 05.02-imu.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 5fcd5cab6c7c
+  question: A MEMS gyro's 5 ng proof mass on an 87 N/m spring feels a Coriolis force of about 2.19e-10 N at 1 deg/s. Roughly how far does it move, and why does that matter?
+  options:
+    - About 2.5 nanometres, so only large shocks and hard landings can disturb the reading
+    - About 2.5 picometres, so anything moving it comparably looks like rotation
+    - About 2.5 micrometres, so the real limit on precision is the ADC resolution
+    - About 25 picometres, so thermal effects are small next to the Coriolis signal
+  correct: 1
+- source: 96b9fbdb7fc1
+  question: A gyro quotes 0.01 deg/s in-run bias stability, 0.1 deg/s per g g-sensitivity and 0.01 deg/s per K tempco. With 2 g of vibration and a 30 K warm-up, which error dominates?
+  options:
+    - In-run bias, since it is the headline datasheet stability figure
+    - g-sensitivity at 0.02 deg/s, about twice the in-run bias figure
+    - Temperature drift at 0.3 deg/s, about 30x the in-run bias
+    - Vibration and temperature effects cancel, leaving only in-run bias
+  correct: 2
+- source: "96719e974606"
+  question: A 984 Hz vibration is sampled by a gyro at 1 kHz with no hardware anti-alias filter. What happens?
+  options:
+    - It is attenuated because it lies above Nyquist, so it simply disappears
+    - It aliases to 16 Hz, and a downstream digital notch at 16 Hz can remove it
+    - It aliases to 492 Hz, well outside the rate loop's bandwidth, so it is harmless
+    - It aliases to 16 Hz, and no digital filter can undo it after sampling
+  correct: 3
+- source: 24e056a4e4d3
+  question: On an Allan-deviation plot, what does the flat region between the -1/2 and +1/2 slopes represent?
+  options:
+    - The bias-instability floor, the best averaging can achieve
+    - Angle random walk, which is read off the curve at tau = 1 s
+    - Rate random walk, a drift that keeps growing with averaging time
+    - Quantization noise from the ADC, which dominates at short tau
+  correct: 0
+- source: 17e06bf042c7
+  question: Why does averaging a gyro for longer than its Allan minimum (about 30 s here) make the bias estimate worse?
+  options:
+    - White noise begins to grow as the square root of the averaging time
+    - Rate random walk grows as sqrt(tau) and overtakes the falling white noise
+    - The ADC accumulator saturates once the running sum grows too large to store
+    - Temperature compensation is only valid for the first 30 seconds of data
+  correct: 1
+- source: 244011b8864f
+  question: Why does an accelerometer read 1 g upward on a table but zero in free fall?
+  options:
+    - It measures gravity directly, and gravity is shielded during free fall
+    - It measures velocity changes, and the table adds a constant upward offset
+    - It measures specific force, the non-gravitational force per unit mass
+    - It is calibrated to read 1 g at rest and naturally drifts to zero in motion
+  correct: 2
+- source: a434e6b062b7
+  question: Why do some flight controllers put foam over the IMU?
+  options:
+    - To isolate the IMU from low-frequency frame vibration below about 100 Hz
+    - To keep the gyro warm so that its temperature coefficient stays constant
+    - To keep dust and moisture out of the MEMS cavity during outdoor flights
+    - To block sound near the 20 kHz resonant drive and sense modes
+  correct: 3

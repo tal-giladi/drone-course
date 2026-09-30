@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 09.01-rf-and-link-budget.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: bfb0cd7c209d
+  question: Why is a link budget expressed in decibels rather than watts?
+  options:
+    - The terms multiply, and decibels turn those multiplications into additions
+    - Radios report power only in dBm, so watts cannot be read from the hardware
+    - Decibels remove frequency dependence, so one budget fits every band
+    - Watts cannot represent losses, so path attenuation needs a log scale
+  correct: 0
+- source: e5c6faf88e78
+  question: The budget predicts 146 km on 100 mW, but the 917 MHz link fails at 2 km with the aircraft at 10 m and a 2 m ground antenna. Is the calculation wrong?
+  options:
+    - Yes, it forgot that 100 mW is far too little power for anything beyond a few kilometres
+    - No, but the antennas were cross-polarised, which costs about 130 dB at that distance
+    - Yes, free-space loss grows with the fourth power of distance rather than the square
+    - No, it holds for free space; the ground blocks the Fresnel zone, needing 7.7 m clear
+  correct: 3
+- source: ef58dc3a25a4
+  question: "Two ways to gain link margin: quadruple the transmit power (6 dB), or climb from 10 m to 60 m. Which is better, and by how much?"
+  options:
+    - More power, since 6 dB of transmit power outweighs any gain from extra altitude
+    - "Climbing: about 20 dB from clearing the Fresnel zone, free and in both directions"
+    - They are equivalent, since each gives the same 6 dB improvement to the link
+    - Climbing, worth exactly 6 dB, the same as the power option but without legal issues
+  correct: 1
+- source: 3ac9c3e2e20a
+  question: A SiK radio's air rate is 64 kbps (8,000 B/s). Why does MAVLink see only about 2,016 B/s?
+  options:
+    - Start and stop bits cost 20 %, then the ground link takes half, leaving roughly 2,000
+    - Golay ECC halves it, then half-duplex splits the rest evenly, leaving roughly 2,000
+    - Frequency hopping loses 75 % of each dwell to channel switching, leaving roughly 2,000
+    - Golay ECC halves it, packet overhead takes it to 3,368, TDM gives the downlink 60 %
+  correct: 3
+- source: 9c5857cba06e
+  question: Why does a power-limited link fail differently from an obstructed one?
+  options:
+    - Power limits fail suddenly at the sensitivity floor, while obstruction degrades slowly with distance
+    - Both degrade gradually, but obstruction shifts the frequency and so corrupts every packet
+    - Power limits degrade gradually; Fresnel obstruction is a threshold that collapses abruptly
+    - Obstruction only affects the uplink, while power limits affect both directions equally
+  correct: 2
+- source: 73a2b558f258
+  question: ELRS at 50 Hz is 9 dB more sensitive than at 250 Hz. What does that buy, and what does it cost?
+  options:
+    - About 9 times the range, at the cost of 50 rather than 250 control packets per second
+    - About 2.8 times the range, at the cost of 50 instead of 250 control packets a second
+    - About 2.8 times the range, at the cost of higher transmit power and current draw
+    - About 1.4 times the range, at the cost of losing all telemetry on the downlink
+  correct: 1
+- source: f93eb9ee87eb
+  question: The aircraft is close and directly overhead, and the link drops. What is happening?
+  options:
+    - It is in the vertical dipole's null along its own axis, often 20 dB or more down
+    - The receiver front end is overloaded by the strong signal at such short range
+    - The aircraft's body shields its own antenna from the ground when seen from below
+    - Ground multipath cancels the direct signal whenever the range is very short
+  correct: 0

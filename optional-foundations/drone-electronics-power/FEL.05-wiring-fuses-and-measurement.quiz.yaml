@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FEL.05-wiring-fuses-and-measurement.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 745959a013ea
+  question: Which criterion decides wire gauge on a drone, and at what current?
+  options:
+    - Voltage drop, evaluated at the hover current
+    - Voltage drop, evaluated at the stall current
+    - Ampacity (heating), evaluated at the stall current
+    - Ampacity (heating), evaluated at the hover current
+  correct: 2
+- source: 44632cada004
+  question: How can you estimate a wire's ampacity without a table?
+  options:
+    - Equate I^2R heating per metre with surface heat loss at a chosen rise
+    - Divide the insulation voltage rating by the wire's resistance
+    - Take the current that gives a 5 % voltage drop across one metre of wire
+    - Use the current at which the insulation first begins to soften
+  correct: 0
+- source: 77d5a1cf8cb7
+  question: Why does a drone's main power bus usually have no fuse?
+  options:
+    - Fuses add too much resistance at the 10 A hover current
+    - The ESCs already act as fuses for the whole main bus
+    - The pack's internal resistance keeps short-circuit current safe
+    - Any fuse that protects would also cut power in flight, fatally
+  correct: 3
+- source: 01986a249256
+  question: What is the rule for where fuses belong on a drone?
+  options:
+    - Fuse everything, at about the motors' stall current
+    - Fuse what you can lose, at about twice its normal draw
+    - Fuse only the main bus, since it carries the most current
+    - Fuse what you can lose, at exactly its normal draw
+  correct: 1
+- source: b99a42822ea2
+  question: A connector dissipates 1.80 W over 0.0006 m^2; the wire dissipates 11.26 W over 0.00848 m^2. Which runs hotter, and why?
+  options:
+    - The connector, about 2.3x the rise, as watts per area set temperature
+    - The wire, since it dissipates more than six times the total power
+    - Neither; they match, since they carry the same current
+    - The connector, about 6x the rise, as its resistance is higher
+  correct: 0
+- source: 4c25fcf91ecf
+  question: Hermon measures current with a 0.5 milliohm shunt. What needs calibrating, and against what?
+  options:
+    - The shunt resistor, against a multimeter resistance reading
+    - The pack voltage reading, against the balance lead values
+    - The sensor's amplifier, against charge the charger puts back
+    - The amplifier, against the flight controller's throttle %
+  correct: 2

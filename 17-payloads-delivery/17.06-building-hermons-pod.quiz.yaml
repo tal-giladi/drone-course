@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 17.06-building-hermons-pod.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: a0605d6e4d17
+  question: The release mechanism is 69 g of an 81 g budget. The rangefinder and bracket add 15 g; endurance costs 1.46 s per gram. Does the budget close, and what do you do?
+  options:
+    - It misses by 3 g; drop the rangefinder, because a budget is a hard limit
+    - It misses by 3 g; accept about 4 s for CEP 8.87 to 3.19 m and record it
+    - It closes with 12 g spare, so the rangefinder fits with no trade at all
+    - It misses by 3 g; shave the frame, since 3 g costs about 44 s of flight
+  correct: 1
+- source: a3320d941a9c
+  question: Why is the delivery pod the easiest bill of materials in the course?
+  options:
+    - Every part comes in a single kit shipped as one VAT-exempt import
+    - The pod reuses spares from earlier modules, so nothing is bought
+    - Every part is under $75, so no import tax applies to any line
+    - Almost nothing is a drone part; only the rangefinder is imported
+  correct: 3
+- source: 437d63d249d5
+  question: Which two 'parameters' in the pod's configuration are not really parameters?
+  options:
+    - SERVO9_TRIM and the software arm gate
+    - The hover-throttle feedforward and the integrator step
+    - The over-centre geometry and the safety pin
+    - The release latency and the jitter calibration
+  correct: 2
+- source: "19e233781490"
+  question: Why does everything the release does belong in one handler?
+  options:
+    - It is one event; three handlers are three chances to mistime it
+    - One handler uses less CPU time in the flight controller's main-loop scheduler
+    - ArduPilot lets only one Lua script command a servo output
+    - Separate handlers would each log the event and triple the log
+  correct: 0
+- source: dfac39fbb039
+  question: What does the knife-edge test catch, and why is it worth two minutes?
+  options:
+    - A latch that is unbalanced and may open under vibration
+    - A wrong CoM offset, which is exactly what sets the pitch kick
+    - A mass error that would make the throttle feedforward wrong
+    - A pod that tumbles in the air instead of falling straight when it is released
+  correct: 1
+- source: e0c854008c01
+  question: The CEP's relative uncertainty is 1/sqrt(2n) and the mean's is sigma/sqrt(n). What do ten drops give you?
+  options:
+    - Both the mean and the CEP to within about 6%
+    - The CEP to about 6%, but the mean only to about 22%
+    - The mean to about 6 cm, but the CEP only to about 22%
+    - Nothing useful at all; at least fifty drops are needed for either figure
+  correct: 2
+- source: df31a4531061
+  question: Why is block G the flight block that goes in the safety case?
+  options:
+    - It is the only block flown against a target the aircraft found itself
+    - It is the block with the lowest CEP, 0.23 m, so it is the best case
+    - It is the last block, when the crew is the most practised and the most consistent
+    - It is flown in the strongest wind, so it bounds every other block
+  correct: 0
+- source: 6f21d5973a72
+  question: Four barriers guard against inadvertent release; with a common-cause beta of 0.30 all four give 9.8e-5. Which barriers actually protect you?
+  options:
+    - All four together, since each added barrier multiplies the residual further down
+    - The arm gate and trim parameter, which the software checks every loop
+    - The safety pin alone, since the geometry fails whenever power drops
+    - The bistable geometry and safety pin, which are off the flight controller
+  correct: 3

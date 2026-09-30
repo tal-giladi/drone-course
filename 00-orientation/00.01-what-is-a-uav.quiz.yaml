@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 00.01-what-is-a-uav.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 90a83715ed57
+  question: What distinguishes closed-loop control from open-loop control on a UAV?
+  options:
+    - Closed loop repeats a fixed command sequence (e.g. throttle 62% for 2 minutes) more precisely than open loop does
+    - Open loop measures the result but only corrects it once per flight, while closed loop corrects it continuously at a fixed 50 Hz rate
+    - Closed loop measures the result (e.g. altitude) and uses it for the next command, so it can correct a gust or sagging battery
+    - Closed loop means the pilot is in the loop on the sticks, while open loop means the autopilot flies without a human
+  correct: 2
+- source: dd3e4e8b0621
+  question: Why is it more dangerous to stop controlling a quad than to stop controlling a car?
+  options:
+    - A quad is statically unstable in roll and pitch, so without control decisions it rotates and falls
+    - A quad has less friction with the air than a car has with the road, so it drifts away much faster
+    - A quad carries a LiPo battery, which overheats within seconds once the control loop stops drawing current
+    - A quad is statically stable but slow to respond, so a missed decision takes minutes to recover from
+  correct: 0
+- source: 3ef8a39c02a1
+  question: A control loop runs at 200 Hz and the quad moves at 6 m/s. How far does it travel between two decisions?
+  options:
+    - 30 cm
+    - 1.2 m
+    - 0.3 cm
+    - 3 cm
+  correct: 3
+- source: e2a18113ecb2
+  question: You double the loop rate from 800 Hz to 1600 Hz, but the IMU data is still 5 ms old. Roughly what happens to the reaction distance?
+  options:
+    - It halves, because the reaction distance is set by the loop period alone
+    - Almost nothing improves, because the 5 ms data age dominates the 1.25 ms loop period
+    - It doubles, because a faster loop amplifies the stale 5 ms sensor data twice as often
+    - It drops to zero, because 1600 Hz is faster than the 5 ms sensor latency
+  correct: 1
+- source: e6ace19b1ccc
+  question: An attitude loop runs at 800 Hz and the quad moves at 3 m/s. What is the loop period, and how far does the quad travel between two decisions?
+  options:
+    - 12.5 ms and 37.5 mm
+    - 1.25 ms and 3.75 mm
+    - 1.25 ms and 37.5 mm
+    - 0.8 ms and 2.4 mm
+  correct: 1

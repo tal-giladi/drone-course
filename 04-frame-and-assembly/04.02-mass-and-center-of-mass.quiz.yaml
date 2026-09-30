@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 04.02-mass-and-center-of-mass.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: fb3adcbd1fae
+  question: Hermon's motors are 88 g each with factory leads, but the budget lists 340 g for four. Where did the 12 g go?
+  options:
+    - The budget uses the manufacturer's bare weight without any leads
+    - The motor bells lose mass when they are balanced at the factory
+    - The 12 g is booked under the wiring harness line of the budget
+    - About 3 g of surplus lead per motor is trimmed before soldering
+  correct: 3
+- source: ec336507c651
+  question: To move the CoM of a 1,450 g aircraft 15 mm forward, how far do you slide its 720 g pack?
+  options:
+    - About 15 mm
+    - About 30 mm
+    - About 7.5 mm
+    - About 45 mm
+  correct: 1
+- source: 230b685e4480
+  question: A 50 mm CoM error costs under 4 % of shaft power. Why is it still serious?
+  options:
+    - It spends control authority on the scarce side, below hover
+    - It overheats the front motors, which run at 131 % of hover thrust
+    - It makes the GNSS position drift in the direction of the error
+    - It doubles the yaw inertia, so heading becomes hard to hold
+  correct: 0
+- source: e4564af5ebdb
+  question: Why is Izz almost exactly twice Ixx on an X quad?
+  options:
+    - The battery sits below the frame, doubling the yaw moment of inertia
+    - The propellers spin about z, adding their own inertia only to that axis
+    - On 45 deg diagonals Ixx = m(r cos 45)^2 = mr^2/2, while Izz = mr^2
+    - The frame is twice as long as it is wide, which doubles Izz
+  correct: 2
+- source: 3d6aeb3b339b
+  question: Roll angular acceleration is about 48x yaw on Hermon. Why?
+  options:
+    - Roll has a larger moment of inertia, which amplifies the control response
+    - Roll uses thrust differences on long arms; yaw only small reaction torque
+    - Yaw is deliberately limited in software to 2 % of the roll rate
+    - The yaw gyro saturates far earlier than the roll gyro does
+  correct: 1
+- source: 4ffa8cb7567b
+  question: An FC sits 28 mm from the CoM during a 400 deg/s yaw (6.98 rad/s). What does it read, and what do you do?
+  options:
+    - About 1.4 g centripetal; add a notch filter at the yaw rate frequency
+    - About 0.014 g, which is negligible and needs no correction at all
+    - About 0.14 g centripetal; raise the accelerometer low-pass cutoff
+    - About 0.14 g centripetal; set INS_POS offsets or move it to the CoM
+  correct: 3
+- source: 31b20bac0b8d
+  question: You add a 250 g payload directly beneath the CoM. How much battery travel does it demand?
+  options:
+    - About 125 mm, since the payload is heavy relative to the pack
+    - About 35 mm, in proportion to payload mass over pack mass
+    - About 17 mm, in proportion to payload mass over total mass
+    - None; mass added at the CoM does not move the CoM
+  correct: 3

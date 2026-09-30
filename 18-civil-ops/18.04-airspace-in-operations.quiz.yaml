@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 18.04-airspace-in-operations.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 2b25a386cf20
+  question: Which airspace classes actually matter for flights below 400 ft?
+  options:
+    - All classes, since any one of them may extend down to the ground
+    - Only Class G, since all others start above 400 ft
+    - The 700 and 1,200 ft Class E vignettes, plus Class A
+    - "Those reaching the surface: B, C, D and dashed-magenta E"
+  correct: 3
+- source: a5ff56bf2aa1
+  question: What does the LAANC grid actually give you?
+  options:
+    - Automatic approval up to that square's ceiling; 0 ft means none
+    - Automatic approval to 400 ft anywhere inside the controlled area
+    - Advisory ceilings only; every flight still needs a manual waiver
+    - Automatic approval at any altitude, but only during daylight
+  correct: 0
+- source: 029e43b0d2ae
+  question: A roof inspection needs 3 cm GSD, which is 87.5 m. The LAANC square is 200 ft. Why can a granted authorisation still mean no?
+  options:
+    - LAANC grants expire after one hour, before the job is done
+    - The job needs 87.5 m, but a 200 ft square allows only 61 m
+    - The roof height raises the ceiling, so it allows 87.5 m anyway
+    - The job needs 61 m, but a 200 ft square allows only 50 m
+  correct: 1
+- source: a6b3462b281b
+  question: Why does the airspace check belong in the quote rather than on the flight day?
+  options:
+    - LAANC works only on weekdays, so the booking depends on it
+    - Airspace classes change daily, so an early check is pointless
+    - "The grid sets lead time: two minutes, or thirty days or more"
+    - The client must countersign the authorisation before issue
+  correct: 2
+- source: 91f8b71db716
+  question: A stadium TFR is 3 nm radius up to 3,000 ft. How big is it, and why is it dangerous?
+  options:
+    - About 9.7 km2, active only during play, and printed on the sectional charts
+    - About 28 km2, active all day, and shown in magenta on charts
+    - About 97 km2, active 1 h before to 1 h after, with no chart symbol
+    - About 97 km2, permanent, and printed on every sectional chart
+  correct: 2
+- source: e921af330c22
+  question: How many airspace checks does a job need, and when?
+  options:
+    - Grid at quoting; NOTAMs and TFRs the eve, morning and on site
+    - A single check at quoting time covers the whole job safely from then on
+    - A single check on the morning of the job covers all of it
+    - Grid on the day; NOTAMs and TFRs once at quoting time
+  correct: 0
+- source: c14f28f34082
+  question: What does Remote ID broadcast that surprises people?
+  options:
+    - Live video streamed from the aircraft's onboard camera
+    - The control station's position, where you stand
+    - The pilot's full name and home street address
+    - The whole mission plan with every waypoint
+  correct: 1
+- source: cf4ae8265756
+  question: Which Remote ID route applies to Hermon, and why?
+  options:
+    - Standard Remote ID, which is built into its flight controller
+    - A FRIA, which lets it fly anywhere without broadcast
+    - None, because it weighs far less than 55 lb
+    - A bolt-on broadcast module, because it is home-built
+  correct: 3

@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 18.03-mission-planning-process.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 965f10e1b961
+  question: Why is none of the five tasking questions about the aircraft?
+  options:
+    - The aircraft is chosen only after the contract is signed, as a matter of policy
+    - Aircraft questions belong in the risk register rather than tasking
+    - The client cannot answer them; the aircraft falls out of the answers
+    - Clients already specify the aircraft in their request for quote
+  correct: 2
+- source: a871d56e896b
+  question: Three hazards each score 6 on a likelihood x severity matrix. Why is that a problem?
+  options:
+    - A score of 6 exceeds the acceptance threshold, so all three must be refused
+    - "2x3 and 3x2 match but need opposite fixes: prevention or survivability"
+    - Ties show the scale is too coarse and should run from 1 to 10
+    - The product double-counts severity and so overstates the risk
+  correct: 1
+- source: 5f495b119c6a
+  question: Which side of a hazard can you usually move on the day of the job?
+  options:
+    - Likelihood, through site survey, cordon, spotter and brief
+    - Severity, through a longer and more careful pre-flight brief
+    - Severity, through choosing a heavier and sturdier aircraft
+    - Neither, since both are fixed once the job is quoted
+  correct: 0
+- source: 918f86d06969
+  question: Why do about half of planned flying days not fly?
+  options:
+    - Wind alone exceeds the limit on about half of all days
+    - Clients cancel about half of their bookings at short notice for their own reasons
+    - The single worst criterion, at 80%, sets the scrub rate
+    - Eight go/no-go criteria multiply to a joint probability near 0.50
+  correct: 3
+- source: 07d98dd9c67b
+  question: What is the right response to a 50% scrub rate?
+  options:
+    - Cut the checklist down to only the three most likely failures
+    - Settle crew, aircraft, airspace and access the day before
+    - Relax the wind limit to raise the flyable fraction
+    - Book twice as many days and accept the extra drives
+  correct: 1
+- source: 16d320c00de4
+  question: A verbal abort is see 0.30 s, say 0.40, parse 0.25, act 0.40. How long does a one-word abort take, and what does it cost at 5 m/s?
+  options:
+    - About 0.30 s, or 1.5 m of travel before braking
+    - About 4.20 s, or 21.0 m of travel before braking
+    - About 1.35 s, or 1.4 m of travel before braking
+    - About 1.35 s, or 6.8 m of travel before braking
+  correct: 3
+- source: bb03308eb410
+  question: 12.03's fence margin is 6.0 m. Does a one-word abort (1.35 s at 5 m/s) fit inside it?
+  options:
+    - "No: 6.8 m of travel exceeds 6.0 m even before braking"
+    - "Yes: 1.35 s at 5 m/s is about 4 m, inside the margin"
+    - "Yes: the fence always triggers first, so it never matters"
+    - "No: but only because braking alone needs more than 6 m"
+  correct: 0
+- source: c5b17893607c
+  question: At 2.5 debrief findings a day and 121 billable days, what is a finding worth, and what makes it worthless?
+  options:
+    - About 30 a year feed the manual; worthless unless the client signs
+    - About 302 a year feed the manual; worthless unless logged in the FC
+    - About 302 a year feed the manual; worthless with no owner or date
+    - Findings are informal notes and never feed the manual at all
+  correct: 2

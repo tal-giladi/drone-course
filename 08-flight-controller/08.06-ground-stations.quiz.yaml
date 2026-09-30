@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 08.06-ground-stations.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 8c3dc8b8ed8a
+  question: The ground station's setup wizard has ten steps. What is genuinely new in it?
+  options:
+    - The accelerometer calibration, which has no parameter and exists only inside the wizard
+    - The flight mode setup, which the wizard stores separately from the parameter tree
+    - "Nothing: each step writes parameters from modules 03-08; the wizard only adds an order"
+    - The frame selection, which the wizard derives automatically from the detected motors
+  correct: 2
+- source: 3d5cdddf5f87
+  question: Which setup wizard step writes no parameters at all, and why is it the most important?
+  options:
+    - "The radio calibration: it checks stick endpoints before any mode switches are assigned"
+    - "The motor test: it checks the built frame's motor order and spin against the mixer matrix"
+    - "The compass calibration: it measures hard iron but stores nothing until the next reboot"
+    - "The ESC calibration: it sets throttle endpoints inside the ESCs, not the flight controller"
+  correct: 1
+- source: a228218444bd
+  question: A ground station's default streams cost 2,315 B/s on a 57,600 SiK link with 2,016 B/s usable. What are the two cheapest cuts?
+  options:
+    - SR0_POSITION and SR0_EXTRA1, since the map and attitude are by far the largest streams
+    - SR0_EXTRA3 and SR0_RC_CHAN, since only battery and RC data are ever optional
+    - SR0_EXT_STAT and SR0_POSITION, since status and position repeat each other
+    - SR0_RC_CHAN (you hold the transmitter) and SR0_RAW_SENS (vibration goes in the log)
+  correct: 3
+- source: c50c763e4f5e
+  question: Why does downloading a 53 MB log over a 2,016 B/s telemetry link take about sixty hours rather than the eight the link speed suggests?
+  options:
+    - The default streams still use about 1,766 B/s, leaving roughly 250 B/s for the download
+    - Log packets are acknowledged one at a time, which halves the usable rate twice over
+    - ECC and packet overhead cut 2,016 B/s to roughly 250 B/s during file transfers
+    - The flight controller throttles SD card reads to protect the main loop while downloading
+  correct: 0
+- source: d3c7f25b3015
+  question: Mission Planner and QGroundControl each win three categories. What is the practical conclusion?
+  options:
+    - Pick one and stay with it, since switching tools can corrupt the parameter set on the aircraft
+    - Use QGroundControl everywhere, since only it has ArduPilot's FFT and parameter compare tools
+    - Install both, since they share the protocol and hold no state; else Mission Planner on Windows
+    - Use Mission Planner exclusively, since QGroundControl writes PX4 defaults to the aircraft
+  correct: 2
+- source: d771ccb75331
+  question: The pre-flight screen shows a green EKF bar and a 3D GPS fix. Which two further checks does the lesson require?
+  options:
+    - Vibration under 30 m/s^2 with clip counters still, and heading checked against a phone
+    - Battery cells balanced to within 0.1 V of each other, and RC link RSSI above -70 dBm
+    - More than 20 satellites, and the barometer reading zero altitude at home
+    - Motor temperatures after a short test spin, and the EKF lane count equal to the IMU count
+  correct: 0
+- source: a0109119eeb2
+  question: Why is a pre-arm message that fires on every flight worse than one that fires rarely?
+  options:
+    - Repeated failures wear out the flash sector where the arming log is stored
+    - You learn to ignore it, so you will miss the day it is a different message
+    - Each repeat lowers the check's threshold until it stops the aircraft arming
+    - It proves the check is misconfigured, so it can be disabled without a note
+  correct: 1

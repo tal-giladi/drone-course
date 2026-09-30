@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 08.07-logging-and-the-data-path.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 46aef9e8d9ee
+  question: The scheduler's average load is 56 % of the 2,500 us loop budget. Why is that not the number that matters?
+  options:
+    - The 400 Hz tasks alone need 3,220 us, so every loop overruns and the average hides it
+    - Averages exclude interrupt time, which adds a fixed 44 % on top of every single iteration
+    - Only the 1 Hz housekeeping matters, since at 900 us it exceeds the whole budget alone
+    - If every slow task falls due in one iteration, that loop needs 3,220 us, 129 % of budget
+  correct: 3
+- source: 0ab9ebdc21cd
+  question: Between a gyro sample and a motor turning, software and electronics add about 8 ms in total. Which stage dominates the whole path?
+  options:
+    - The gyro low-pass filter at 3.71 ms, the largest single stage in the chain
+    - Loop quantisation at 1.25 ms, which is why faster loop rates matter most
+    - The motor and propeller response at 30 ms, about 3.7 times all the rest
+    - The DShot frame and ESC commutation, which together exceed the filters
+  correct: 2
+- source: 3c1556337ee4
+  question: Which software stage in the gyro-to-motor path is largest, and what does that say about the usual loop-rate argument?
+  options:
+    - The 60 Hz gyro low-pass at 3.71 ms, triple loop quantisation; the corner matters more
+    - Loop quantisation at 1.25 ms, confirming a faster loop rate is the best available upgrade
+    - The harmonic notch at 1.87 ms, so removing the notch is the cheapest latency saving
+    - The rate PID at 0.12 ms, so a faster processor helps more than any filter change
+  correct: 0
+- source: 123d7e10d667
+  question: INS_GYRO_FILTER at 20 Hz costs 11.27 ms of delay; 60 Hz plus a harmonic notch costs 3.71 + 1.87 ms. What is the net latency saving?
+  options:
+    - About 7.6 ms, treating the notch's own delay as negligible
+    - About 1.9 ms, since the notch cancels most of the filter's saving
+    - About 5.7 ms, roughly 4.6 times what an 8 kHz flight stack would buy
+    - About 5.7 ms, roughly the same as what an 8 kHz flight stack would buy
+  correct: 2
+- source: 708c097edf95
+  question: A routine flight logs 4,360 B/s and a tuning flight 43,760 B/s. If cards are cheap, why does the difference matter?
+  options:
+    - "Card space: a 24-minute tuning flight fills a typical microSD card completely"
+    - "Write latency: cheap cards stall during erase, so logging less lets kept messages arrive"
+    - "CPU load: formatting log messages costs more loop time than the rate controller"
+    - "Download time: telemetry cannot fetch a 60 MB log before the next battery is charged and ready"
+  correct: 1
+- source: 7d0d8c680b62
+  question: Which five log checks come before the thing you came for, and in what order?
+  options:
+    - "RCOU, XKF4 ratios, VIBE and clips, PM.NLon, ERR: most important first"
+    - "VIBE, RATE, ATT, PSC, GPS: following the control cascade inside out"
+    - "ERR, GPS, BARO, MAG, IMU: following the sensor list in the parameters"
+    - "ERR, PM.NLon, VIBE and clips, XKF4, RCOU: cheapest to check first"
+  correct: 3
+- source: 14f1f19ca1c6
+  question: RATE shows the measured rate lagging the desired rate badly, and the gains look correct. What do you check?
+  options:
+    - The rate D term, since too little damping always shows as lag between desired and actual rate
+    - The gyro filter corner, since raising it will remove the lag regardless of what the motors do
+    - RCOU for motors pinned at MOT_SPIN_MIN or MAX, since the rate loop is never told of it
+    - The loop rate, since doubling it halves the lag between the desired and the measured rate
+  correct: 2

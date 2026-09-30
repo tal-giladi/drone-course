@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 00.07-how-to-use-course.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: f430c7d45d10
+  question: course.py tracks lessons, exercises, projects and skills. Which one has a hardware gate?
+  options:
+    - Lessons
+    - Exercises
+    - Projects
+    - Skills
+  correct: 2
+- source: c0e23f17471d
+  question: Why is course progress measured by time rather than by lesson count?
+  options:
+    - Lesson counts change every time the syllabus is rebuilt, so they cannot be stored
+    - Time is the only field course.py records, since lessons have no stable identifiers
+    - Counting lessons would include the optional tracks, while measuring time excludes them automatically
+    - Lessons vary from 30 to 120 min, so counting them weights short and long lessons equally
+  correct: 3
+- source: 94114e3823cf
+  question: What is the difference between a skip and a debt, and how does the tool keep them apart?
+  options:
+    - A debt is a lesson you started but did not finish; the tool marks it with a red status
+    - A skip is permanent and a debt is temporary; the tool deletes debts after 30 days
+    - A debt is a skip whose downstream lesson later fails; the stored reason and date point back to it
+    - A skip needs instructor approval and a debt does not; the tool stores the approver name with the skip
+  correct: 2
+- source: c14aa781d44b
+  question: After adding a lesson to the syllabus, in what order do you run the tools?
+  options:
+    - validate.py first to check the syllabus graph, then build.py to check the lesson files
+    - build.py first to check the syllabus graph, then validate.py to check the lesson files
+    - Only build.py, since it also validates headings, exercise ids and links in the files
+    - course.py first to mark the lesson complete, then build.py to regenerate the sidebar
+  correct: 1
+- source: a4db97ce2df6
+  question: state.json says lesson 12.04 is complete, but there is no evidence file. What do you do?
+  options:
+    - "Try the knowledge check: if you pass, write the evidence; if not, undo complete and do the lesson"
+    - Trust state.json, since it is the authoritative record and evidence files are optional
+    - Delete state.json and rebuild it from scratch, since a single mismatch means the file is corrupted
+    - Redo the lesson in full regardless, since only fresh evidence can ever be trusted
+  correct: 0

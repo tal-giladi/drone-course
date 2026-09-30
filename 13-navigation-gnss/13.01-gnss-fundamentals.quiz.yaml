@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 13.01-gnss-fundamentals.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: ae6dea56dbdc
+  question: Why does a GNSS fix need four satellites rather than three?
+  options:
+    - The fourth resolves which of two intersection points is the real one
+    - Three give the position and the fourth is kept only as a cross-check
+    - Three give the horizontal position and the fourth gives the altitude
+    - "There are four unknowns: x, y, z and the receiver's clock error"
+  correct: 3
+- source: 9e9fe876dbfb
+  question: One metre of range is 3.34 ns of timing. If the receiver's crystal is good to 1 part in 10^6, how often would it need re-synchronising to stay under a metre?
+  options:
+    - About every 3.3 ms
+    - About every 3.3 s
+    - About every 3.3 us
+    - About every 0.33 s
+  correct: 0
+- source: 8146133f169d
+  question: In the least-squares code, what is the fourth column of the design matrix, and why is it the same in every row?
+  options:
+    - The satellite elevation, which is the same because all satellites share one orbit shell
+    - The line-of-sight z component, which is the same because the receiver is at one altitude
+    - 1.0, the derivative with respect to c*dt; the clock error is shared by all satellites
+    - The pseudorange residual, which is the same because the solver averages it over all rows
+  correct: 2
+- source: 87549652eec1
+  question: With exactly four satellites, one of which reports a range 30 m too long, what residual does the solver report?
+  options:
+    - Zero
+    - About 30 m
+    - About 7.5 m
+    - About 15 m
+  correct: 0
+- source: 057838028b3d
+  question: A 30 m error on a satellite at 9 deg elevation moved a six-satellite fix by 18 m. Why is this the shape of a multipath failure?
+  options:
+    - Low satellites have the weakest clocks, and clock errors mostly corrupt the horizontal solution
+    - Reflections are commonest at high elevation, and high satellites mostly steer the vertical solution
+    - Reflections are commonest at low elevation, and low satellites mostly steer the horizontal solution
+    - Low satellites pass through more ionosphere, and ionospheric delay is always about 30 m
+  correct: 2
+- source: 8679be88613b
+  question: Of 118 healthy GNSS satellites, roughly how many are usable above a 10 deg elevation mask, and is that luck or geometry?
+  options:
+    - About 45, set by geometry
+    - About 59, set by geometry
+    - About 12, mostly by luck
+    - About 35, set by geometry
+  correct: 3
+- source: 29bf3fd9494f
+  question: The navigation message runs at 50 bits/s. Why can a cold start take 12.5 minutes when a warm start takes 18 seconds?
+  options:
+    - A warm start needs one 1,500-bit frame; a cold start must download ephemeris for all 118 satellites
+    - Warm needs one 900-bit ephemeris; cold may need the 25-frame almanac of 1,500 bits each
+    - A cold start must wait for the receiver crystal to warm up and stabilise before it can correlate
+    - A warm start uses the phone network for assistance; a cold start relies on the satellites alone
+  correct: 1

@@ -1,0 +1,43 @@
+# Multiple-choice version of the quiz in 01.11-ground-effect.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 8d32005e1cfb
+  question: Why does ground effect reduce hover power near the ground?
+  options:
+    - The air near the ground is denser, so each prop revolution moves more mass of air
+    - The wake spreads on the floor, lowering induced velocity at the disk for the same thrust
+    - The floor reflects radio signals back, so the ESCs run at a higher and more efficient frequency
+    - The quad sits lower in its thrust curve, so the motors switch to a lower KV range
+  correct: 1
+- source: 1b6282760d26
+  question: Hermon hovers at 226 W in free air but about 165 W on the pad. What is the "pop" on takeoff and landing?
+  options:
+    - A brief loss of thrust as the props leave the calm air trapped under the frame
+    - Excess thrust at free-air throttle when ground effect lowers the thrust needed
+    - A voltage spike from the ESCs as they switch from idle to hover current
+    - A controller glitch caused by the barometer seeing prop wash near the ground
+  correct: 1
+- source: fe83e6eabf85
+  question: A thrust stand 5 cm above the bench reads 4.2 N per motor; estimated free-air thrust is about 3.8 N. Which does the lesson treat as the spec (takeoff) number?
+  options:
+    - The 3.8 N free-air estimate, since the stand reading is invalid
+    - The average of 4.0 N, since both are equally uncertain
+    - Neither, since only the manufacturer figure is a spec number
+    - The 4.2 N stand reading, recorded with its 5 cm distance
+  correct: 3
+- source: aa727537ecdf
+  question: Why is a hangar hover test not the course's official hover number?
+  options:
+    - Ceiling, walls and door draft all perturb it; the official number is the open-field test
+    - The hangar floor gives too much ground effect even at 2 m height, halving the measured hover power
+    - GPS does not work indoors, so the hover power cannot be logged in a hangar at all
+    - Hangar air is always warmer, so the density correction makes the number unusable
+  correct: 0
+- source: c601055bc1a9
+  question: Which part of the system handles ground effect during a landing?
+  options:
+    - The EKF, which has a dedicated floor-distance state for ground effect
+    - The ESC firmware, which lowers throttle when it senses the floor
+    - No model of it exists; the position loop absorbs it as a disturbance
+    - The mixer, which switches to a ground-effect table below 20 cm
+  correct: 2

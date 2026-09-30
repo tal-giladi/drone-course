@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in FOP.01-mission-planning-process.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: d35d6716e4a0
+  question: Why is answering open questions at the desk worth more than planning around them?
+  options:
+    - Desk questions cost more, but they make the plan look thorough
+    - "Cost scales about 1 : 50 : 100 at desk, on site and after delivery"
+    - Site discovery is cheaper, since the crew is already there
+    - All three points cost about the same; only the timing differs
+  correct: 1
+- source: e5c69c8d4f82
+  question: What is the difference between a plan objective and an activity?
+  options:
+    - An objective is a long-term goal; an activity is a short task
+    - An objective is the client's wish; an activity is the pilot's plan
+    - They are interchangeable ways of writing the same plan line
+    - An objective is a verifiable state; an activity is something you do
+  correct: 3
+- source: 39e91c2aaf1e
+  question: Why does writing objectives as states matter on a bad day?
+  options:
+    - States are shorter, so the crew recalls them better under stress
+    - Activities adapt more easily, since they name the exact method
+    - States let the crew skip the abort criteria when things go wrong
+    - A state can be reached another way; an activity has one method
+  correct: 3
+- source: 4556f48a2c87
+  question: Which paragraph of a mission brief holds the abort criteria, and why?
+  options:
+    - Execution, since an abort is an automatic aircraft behaviour
+    - Command and Signals, since an abort is a decision by a permitted person
+    - Objectives, since an abort defines when the goal is unmet
+    - Situation, since aborts respond to the weather and site conditions found
+  correct: 1
+- source: 75eed281b6aa
+  question: How do you know a mission brief actually worked?
+  options:
+    - The crew nodded along and signed the brief sheet afterwards
+    - The brief covered every paragraph of the standard template
+    - "The read-back: they can state the mission and one abort criterion"
+    - The mission was then completed without triggering any of the aborts
+  correct: 2
+- source: 8bfde99d918d
+  question: With a 71 s mission margin and realistic contingencies costing 25-60 s each, how many can a mission usually afford?
+  options:
+    - Usually one; the rest become aborts or a split mission
+    - All five, since each fits inside the margin on its own
+    - Usually two, since most pairs fit inside 71 s
+    - None, since every contingency exceeds the margin
+  correct: 0

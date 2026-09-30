@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 05.06-noise-bias-and-calibration.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 38f443a6c56c
+  question: You average a sensor over 10,000 samples. Which of noise, bias, scale and drift does that help?
+  options:
+    - Noise and bias, since both shrink as 1/sqrt(N)
+    - Only noise; bias and scale stay, drift worsens
+    - Noise, bias and scale, but drift is unaffected
+    - All four of them, provided enough samples are taken
+  correct: 1
+- source: a0f4fc974daf
+  question: Why does an accelerometer calibration use six faces rather than three?
+  options:
+    - Six faces are needed to find the offsets; scales need only three
+    - Six faces let the gyro calibrate at the same time
+    - Each axis must see +1 g and -1 g to estimate scale well
+    - Three faces cannot detect cross-axis misalignment at all
+  correct: 2
+- source: f0ebaa348a26
+  question: In a hover, why does accelerometer clipping create a bias rather than just a lost sample?
+  options:
+    - The ADC resets after each clip, adding a fixed offset to later samples
+    - Clipping adds white noise, which then averages into a steady bias
+    - The filter holds the last good sample, causing lag rather than bias
+    - At +1 g the vibration clips asymmetrically, giving a non-zero mean
+  correct: 3
+- source: 9cb96f41d97e
+  question: Why must the level calibration be done before the compass calibration?
+  options:
+    - The compass fit relies on tilt compensation from the attitude
+    - The level calibration also sets the magnetometer hard-iron offsets
+    - The compass calibration resets the level trim back to zero each time
+    - The accelerometer must be warmed up before the compass is powered on
+  correct: 0
+- source: df90b0078ec8
+  question: What best shows a compass calibration actually worked?
+  options:
+    - A high reported fitness score in the ground control station
+    - A measured before-and-after level 360 deg turn heading error
+    - The EKF showing no compass warnings when you arm the aircraft
+    - Offsets that are small compared with the local Earth field strength
+  correct: 1
+- source: 92f59c1ed46e
+  question: You remount the flight controller 5 mm to the left and redo the accelerometer calibration. What else must you redo?
+  options:
+    - Nothing else, since a 5 mm shift is below the IMU's resolution
+    - Only the level calibration, since the mounting angle has changed
+    - Level, compass, COMPASS_MOT, INS_POS and maybe FLOW_POS
+    - Only the compass calibration, since the hard iron has moved relative to it
+  correct: 2
+- source: 5ddc7a5120aa
+  question: Which pairing of error and remedy is correct?
+  options:
+    - "Level error: filtering; gyro white noise: calibration"
+    - "Warm-up drift: averaging; level error: calibration"
+    - "Flow height-scale error: filtering; gyro noise: filtering"
+    - "Level error: calibration; warm-up drift: a temp model"
+  correct: 3

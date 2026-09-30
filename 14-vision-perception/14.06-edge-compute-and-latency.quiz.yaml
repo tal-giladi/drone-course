@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 14.06-edge-compute-and-latency.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 2ea61a7098be
+  question: A thermal core (640 px at 12 um pitch) has both a worse GSD and a smaller footprint than the visible camera (4000 px at 1.54 um). Why?
+  options:
+    - Its lens has a much longer focal length, which both coarsens the GSD and narrows the overall field of view
+    - Thermal units are built down to a price; a more expensive core would match the visible camera
+    - The large pitch sets the coarser GSD, and pitch times the small pixel count sets the smaller footprint
+    - Thermal frames are downsampled on board to save bandwidth, which shrinks both GSD and footprint
+  correct: 2
+- source: a2ee0fff8574
+  question: What should you actually buy a thermal camera for?
+  options:
+    - Resolving object shapes and edges at altitude more sharply than the visible camera is ever able to manage
+    - Replacing the visible camera for daytime photogrammetry at a lower overall hardware cost
+    - Seeing through cloud, smoke and heavy fog so that survey mapping can continue in bad weather
+    - Temperature contrast the visible camera cannot give, such as a warm body in vegetation or night work
+  correct: 3
+- source: 0a75e9d072d0
+  question: Why can a stereo depth camera with a 50 mm baseline not be made to work at 60 m?
+  options:
+    - Its error grows with range squared (21.49 m at 60 m), while every available fix is only linear
+    - Its error grows only linearly with range, but the short 50 mm baseline imposes a hard 20 m cutoff
+    - Its infrared projector cannot illuminate the ground from 60 m in ordinary daylight
+    - Its disparity search window is too small for distant points, so they return no depth at all
+  correct: 0
+- source: 428fa734f8c5
+  question: In a 7.03 m budget, terrain is 5.00 m and GNSS position 4.80 m. Why does a NIS 300 rangefinder beat a NIS 2,000 RTK?
+  options:
+    - It removes both terrain and GNSS error together, cutting the budget to under 1 m
+    - It removes the slightly larger terrain term, giving 4.94 m against 5.14 m with RTK
+    - RTK only helps below 30 m altitude, so at 60 m it contributes nothing to the budget
+    - It removes the GNSS term, the largest in the budget, cutting the total to 4.94 m
+  correct: 1
+- source: 2fbad2c77491
+  question: With a rangefinder and RTK both fitted, the largest remaining error is the camera mount angle (1.05 m per degree). What should you do?
+  options:
+    - Buy a better-calibrated camera, since the lens calibration term now dominates the remaining budget
+    - Add a gimbal, which removes mount angle error by actively stabilising the camera
+    - Fly more passes over the target, since a mount angle error averages away over frames
+    - Measure the mount angle properly, a protractor and an afternoon, before buying more hardware
+  correct: 3
+- source: 98411731f7ea
+  question: Why must you re-measure the detector's confidence threshold after quantising it?
+  options:
+    - The score distribution shifts; a 0.05 drop raises false positives 1.82x, and mAP hides it
+    - Quantisation lowers mAP by several points, so the old threshold now misses real objects
+    - Quantisation changes the input resolution, so tile sizes and thresholds must both be reset
+    - Quantisation only changes speed, so re-measuring is a precaution rather than a real need
+  correct: 0
+- source: f26aaca099ba
+  question: The vision pipeline takes 437 ms; at 5 m/s the aircraft's own stopping distance is 5.00 m. Should you optimise the pipeline first?
+  options:
+    - Yes; 437 ms is 21.9 m of travel, about four times the stopping distance
+    - Probably not; 437 ms is 2.19 m of travel, under half of what the brakes cost
+    - Yes; halving inference time halves total overshoot from 7.19 m to about 3.6 m
+    - Probably not; 437 ms at 5 m/s is under 0.5 m of travel, which is negligible
+  correct: 1
+- source: c2acd4fc5fed
+  question: A bench test of the compute enclosure shows 41 K of rise to 76 C. Why is it the wrong test, and what is the right one?
+  options:
+    - Still air is the best case; the right test is sustained fast forward flight at full throttle for a whole pack
+    - Bench power draw is lower than in flight; the right test is a sustained full-throttle climb
+    - Still air is the worst case; the realistic in-flight worst case is a hover with only prop wash
+    - Still air is realistic; the right test is simply a longer bench run until temperature settles
+  correct: 2

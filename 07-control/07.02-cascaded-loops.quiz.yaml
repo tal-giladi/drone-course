@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 07.02-cascaded-loops.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 1dc5010c8314
+  question: Rate and attitude loops both execute at 400 Hz. Why is the attitude loop effectively four times slower?
+  options:
+    - The attitude loop skips three of every four cycles
+    - The attitude loop uses filtered gyro data with more lag
+    - The estimator only updates attitude at 100 Hz
+    - Their gains set bandwidths of about 30 Hz and 8 Hz
+  correct: 3
+- source: fa5f1e8ffd1c
+  question: Why is about 5x bandwidth separation between cascade loops the target?
+  options:
+    - Inner lag costs ~11 deg of phase, keeping most margin
+    - Below 5x separation the loops always diverge
+    - 5x matches the ratio of the gyro to accel sample rates
+    - At 5x the inner loop costs 45 deg, exactly the phase margin
+  correct: 0
+- source: d1cb827eea42
+  question: A 10 m position error yields a 0.168 N.m moment demand against 6.28 N.m available. What does that show?
+  options:
+    - The rate loop gains are set too low for navigation
+    - Upstream limits throttle it; the rate loop isn't saturated
+    - The position loop is saturated and needs a much higher gain to respond
+    - The aircraft cannot recover from a 10 m position error
+  correct: 1
+- source: 8574b8f6acbe
+  question: Why must a saturated inner loop signal the outer loop?
+  options:
+    - So the inner loop can raise its own gains to compensate
+    - So the estimator can mark that state as unobservable
+    - Otherwise the outer integrator winds up uselessly
+    - So the motors can reduce throttle and recover headroom
+  correct: 2
+- source: 092da5b7eb69
+  question: Loiter feels sloppy. Which contributors dominate the phase lag at 0.5 Hz?
+  options:
+    - The rate loop and the gyro low-pass filter
+    - The attitude loop and the motor response lag
+    - The D-term filter and the ESC response time
+    - The velocity loop and GNSS delay
+  correct: 3
+- source: d35404afa308
+  question: In ACRO mode, which loop does the pilot effectively become?
+  options:
+    - The attitude loop
+    - The rate loop
+    - The velocity loop itself
+    - The horizontal position loop
+  correct: 0
+- source: 2a8af52110e9
+  question: Why tune cascaded loops from the inside out?
+  options:
+    - Outer loops have higher bandwidth, so they must be tuned last
+    - Tuning around a sloppy inner loop bakes in compensation
+    - AUTOTUNE requires this order to run
+    - Inner loop gains are reset whenever outer loop gains change
+  correct: 1

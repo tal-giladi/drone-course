@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 00.03-hermon-the-build-vehicle.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 634224a4b1b3
+  question: Why is Hermon a quadcopter rather than a hexacopter?
+  options:
+    - A hexacopter cannot be controlled by ArduPilot without a second flight controller for the extra motors
+    - Four rotors give full control with the largest discs per span; motor-out survival matters little for a trainer
+    - Six rotors produce less total thrust than four rotors because their wakes interfere with each other
+    - A hexacopter is cheaper and flies further, but a quad is required by the aviation regulator for all training flights
+  correct: 1
+- source: c69b26b71576
+  question: Why is Hermon a 450 mm frame?
+  options:
+    - "The 10-inch propeller chose it: adjacent motors 318 mm apart leave 64 mm between two 254 mm discs"
+    - 450 mm is the largest frame allowed under the 2.0 kg maximum takeoff mass rule for training
+    - The 470 KV motor needs a 450 mm arm length to dissipate its heat at the hover current
+    - The frame was chosen first, and a 12-inch propeller on that frame still leaves 64 mm of disc clearance
+  correct: 0
+- source: 5358b2dd77a8
+  question: Where does Hermon's 470 KV motor rating come from?
+  options:
+    - It is an input copied from the motor catalogue first, and the mass and the propeller were both then chosen to match it
+    - It is the rpm the motor spins at 1 V with the 10-inch propeller fitted, measured on the thrust stand
+    - "It is an output: mass gives thrust per motor, thrust gives hover rpm, and rpm over 6S voltage at 48.5% throttle gives KV"
+    - It comes from dividing the 22.2 V pack voltage by the target hover current per motor at full throttle
+  correct: 2
+- source: bfbcd51b6e6a
+  question: "A spec sheet has three kinds of numbers: physics, measurements and claims. Which classification is correct?"
+  options:
+    - 22.2 V = 6 x 3.7 V is physics; 1,369 g thrust per motor is a measurement; the battery's "50C" is a claim
+    - 22.2 V is a claim; 1,369 g thrust per motor is physics; the battery's "50C" is a measurement
+    - 318 mm motor spacing is a measurement; 0.040 ohm pack resistance is a claim; "50C" is physics
+    - The manufacturer thrust table is a measurement; 22.2 V is a claim; the 1,369 g of thrust per motor is physics
+  correct: 0
+- source: 07d0863bc9cf
+  question: Hermon's specification was wrong twice (1700 KV and a 1.20 kg all-up mass). What do the two errors have in common?
+  options:
+    - Both were caught only after a crash, and both were isolated errors that affected no other numbers
+    - Both came from trusting the flight controller defaults, and both were fixed only by re-tuning the PID gains
+    - Both were measurement errors on the thrust stand, and both were fixed by recalibrating the load cell
+    - Both were caught by arithmetic rather than by flying, and both spread into other numbers of the coupled spec
+  correct: 3
+- source: 3e2d363ee11c
+  question: You measure one of Hermon's three verified numbers (thrust, all-up mass, hover power) and it misses its tolerance. How should you treat it?
+  options:
+    - "As a failure: the build is rejected and you restart from a new parts list"
+    - "As a finding, not a failure: it points to the part of the design to investigate"
+    - "As noise: repeat the measurement until a value inside the tolerance finally appears"
+    - "As a spec error: change the tolerance so the measured value passes"
+  correct: 1

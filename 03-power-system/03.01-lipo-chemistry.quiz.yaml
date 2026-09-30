@@ -1,0 +1,51 @@
+# Multiple-choice version of the quiz in 03.01-lipo-chemistry.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: c0704e59dc47
+  question: What sets a LiPo cell's 3.7 V nominal voltage?
+  options:
+    - The number of electrode layers the manufacturer stacks inside the pouch
+    - The cell's internal resistance, which drops the higher open-circuit voltage
+    - The electrochemical potential of lithium in the cathode versus graphite
+    - The balance charger's termination setting, which could be raised to 5 V
+  correct: 2
+- source: 826669bc2d0e
+  question: Which number on a LiPo label is essentially fiction, and what should you use instead?
+  options:
+    - The C-rating; use the measured internal resistance
+    - The capacity in mAh; use the charger's mAh reading
+    - The cell count; use the measured pack voltage
+    - The nominal voltage; use the peak charge voltage
+  correct: 0
+- source: 77671eae6c90
+  question: Why is pack voltage a poor fuel gauge but a good low-battery alarm?
+  options:
+    - Voltage rises with temperature, so it reads high in flight but low on the ground
+    - Voltage is only accurate at full throttle, which is when alarms are needed
+    - The curve is steep from 70-30 % charge, then flattens out below 20 %
+    - The curve is nearly flat from 70-30 % charge, then falls steeply below 20 %
+  correct: 3
+- source: e6215aa5a6be
+  question: Hermon's pack is 111 Wh but the usable figure is 88.8 Wh. Why?
+  options:
+    - The ESC and wiring waste 20 % of the pack energy as heat in flight
+    - 80 % depth of discharge protects cell life and leaves landing margin
+    - The label capacity is measured at 25 C and drops 20 % at flight temps
+    - Balance charging only fills cells to 80 % so they stay matched
+  correct: 1
+- source: fe7ef5df8641
+  question: A 6S pack with 0.04 ohm internal resistance reads 21.5 V while climbing at 35 A. What is its state of charge?
+  options:
+    - "About 55 %: open-circuit is 22.9 V, or 3.82 V per cell"
+    - "About 11 %: 21.5 V is 3.58 V per cell, near empty"
+    - "About 30 %: open-circuit is 22.2 V, or 3.70 V per cell"
+    - "About 90 %: open-circuit is 24.3 V, or 4.05 V per cell"
+  correct: 0
+- source: 3b049e09b9c6
+  question: Why does Hermon fly for 22 minutes when a petrol model of the same mass flies for hours?
+  options:
+    - Electric motors are roughly 3x less efficient than petrol engines
+    - The multirotor wastes most of its energy in ESC switching losses
+    - Petrol stores roughly 78x more energy per kg than the LiPo pack
+    - LiPo packs self-discharge quickly once the aircraft is armed
+  correct: 2

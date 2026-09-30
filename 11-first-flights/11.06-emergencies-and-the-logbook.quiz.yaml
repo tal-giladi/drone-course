@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 11.06-emergencies-and-the-logbook.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 51bcbc1c9911
+  question: There are only two first actions in an emergency. What single question selects between them?
+  options:
+    - "Can I see it and know which way it faces? Yes: RTL; no: STABILIZE, sticks centred"
+    - "Is the battery healthy? Yes: LOITER and diagnose; no: LAND where it is"
+    - "Is GNSS healthy? Yes: RTL; no: LAND where it is, sticks centred"
+    - "Can I see it and know which way it faces? Yes: STABILIZE, sticks centred; no: RTL"
+  correct: 3
+- source: 0e4cf2f280f5
+  question: A practised pilot acts in about 1.5 s; an unpractised one spends about 2 s more deciding. At a 10 m/s cruise, how much distance does practice save?
+  options:
+    - About 15 m
+    - About 20 m
+    - About 35 m
+    - About 2 m
+  correct: 1
+- source: 291f4113f66f
+  question: Five of the seven emergency drills start with the same first action. Which two do not, and why?
+  options:
+    - "Link loss and motor failure: the aircraft has already decided, or you land regardless"
+    - "GNSS loss and compass failure: both need a manual mode, so the first action is not enough"
+    - "Low battery and fence breach: both trigger an automatic RTL, so the pilot has no role"
+    - "Link loss and GNSS loss: both remove position, so the first action would be meaningless"
+  correct: 0
+- source: 1585010784a0
+  question: What is the recovery procedure for a single motor failure on a quadcopter?
+  options:
+    - Switch to ACRO and hold opposite yaw so the remaining three motors balance
+    - Trigger RTL, which reconfigures the mixer to fly home on the three motors left
+    - "There is none: land immediately, and the only thing you choose is where"
+    - Add throttle at once so the three remaining motors make up the missing thrust
+  correct: 2
+- source: 3c12cf634c60
+  question: A go-around costs about 20 s and 1.26 Wh. Why do pilots still avoid going around, and what is the fix?
+  options:
+    - It uses about 14% of the pack, so pilots only go around when the battery has plenty of margin
+    - Climbing out near the ground risks vortex ring state, so pilots practise go-arounds at height
+    - At 1 m it feels like an admission, so decide the go-around criteria on the ground in advance
+    - At 1 m it feels like an admission, so raise LAND_SPEED to shorten the final approach
+  correct: 2
+- source: 744afd92fa50
+  question: Which logbook field is the most valuable, and what would it have caught?
+  options:
+    - '"Anything unexpected": the same odd note recurring, like fasteners slowly loosening'
+    - '"Flight time": a gradual loss of endurance as the pack ages over many dozens of flights'
+    - '"Peak current": a motor bearing starting to fail before it seizes in the air'
+    - '"Wind speed": a pattern of vibration problems that only appears in gusty air'
+  correct: 0
+- source: 808b457e6184
+  question: Which skill decays fastest, how fast, and what does re-warming it cost?
+  options:
+    - Crosswind landing, in about a month; one full box drill, about 15% of a pack
+    - Nose-in orientation, in about a year; one full pack of nose-in hover practice
+    - Emergency mode switching, in about a day; a full SITL session before every flight
+    - Nose-in orientation, in about a week; 60 s of nose-in hover, about 4% of a pack
+  correct: 3

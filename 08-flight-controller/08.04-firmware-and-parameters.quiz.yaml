@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 08.04-firmware-and-parameters.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: df75ccc5c90c
+  question: Why is 'I bricked my flight controller' almost always wrong?
+  options:
+    - Flight controllers keep a backup firmware image that restores itself after a failed flash
+    - The ground station can always reflash over MAVLink even when the firmware will not boot
+    - A failed flash only corrupts parameter storage, which then resets itself to defaults
+    - Normal flashing never writes the bootloader sector, so the board still enters DFU mode
+  correct: 3
+- source: 4298578f34f7
+  question: ArduPilot has about 1,320 parameters and the course names 71. What should you actually memorise?
+  options:
+    - All 71 parameters the course names, together with their default values
+    - The numeric parameter indices, since the names change between firmware versions
+    - The prefixes (ATC_, PSC_, INS_, EK3_, MOT_) and suffixes like _NSE and _FLTD
+    - Only the parameters the setup wizard writes, since the rest are rarely touched
+  correct: 2
+- source: ef50770b4cdf
+  question: EK3_ALT_M_NSE may be copied between two aircraft but COMPASS_OFS_X may not. What is the distinction?
+  options:
+    - The first describes a sensor class's noise; the second measures one airframe's hard iron
+    - The first lives in RAM and the second in flash, so only the first survives an export
+    - The second depends on local magnetic declination, so it only works at one flying field
+    - The first is independent of firmware version, while the second changes with each release
+  correct: 0
+- source: d27c8e8750e9
+  question: Why is copying someone else's compass offsets worse than having none at all?
+  options:
+    - Wrong offsets make the EKF reject the compass entirely, which forces a GNSS-only heading
+    - Pre-arm passes, so the wrong correction flies unnoticed, e.g. as a toilet bowl in LOITER
+    - Copied offsets overwrite the factory calibration, which can never be restored
+    - The aircraft refuses to arm until a full calibration is redone at the field
+  correct: 1
+- source: bd8b3379ce71
+  question: What is different about FRAME_CLASS compared with a parameter like ATC_RAT_RLL_P?
+  options:
+    - It selects a defaults file and rewrites others, including the motor matrix, so set it first
+    - It becomes read-only after the first boot and can only be changed again by reflashing the firmware
+    - It only changes how the ground station draws the aircraft, not how the aircraft behaves
+    - It is a tuning value like any other, so it should be adjusted last, after the PID gains
+  correct: 0
+- source: f798c85531d1
+  question: You changed eight parameters, flew, and it is worse. Bisection cuts the isolation from eight flights to three. What does bisection not cover?
+  options:
+    - Parameters that need a reboot, since bisection assumes changes take effect at once
+    - Any filter parameter, since filters cannot be tested one change at a time
+    - Two changes each fine alone but bad together, such as loop-separation interactions
+    - The case where exactly one of the eight changes caused the whole problem
+  correct: 2
+- source: d2a5c196c269
+  question: In the rollback discipline, what does a filename like 2026-09-23-notch-on-gyro60.param do?
+  options:
+    - It lets the ground station sort files so the newest is loaded automatically at boot
+    - ArduPilot requires a dated filename before it will accept a parameter upload
+    - It encodes the firmware version so the file is never loaded onto the wrong release
+    - It records why you made the change, the only record of what you tried months later
+  correct: 3

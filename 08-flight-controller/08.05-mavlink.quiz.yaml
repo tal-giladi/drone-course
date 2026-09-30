@@ -1,0 +1,59 @@
+# Multiple-choice version of the quiz in 08.05-mavlink.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: b7fd1a83cf84
+  question: What does MAVLink's CRC_EXTRA add, and why is a CRC failure the desired outcome on a version mismatch?
+  options:
+    - A sequence counter, so dropped frames are detected and retransmitted automatically
+    - A cryptographic signature, so frames from other aircraft are rejected on a shared radio link
+    - A hash of the message definition, so changed layouts fail loudly instead of decoding wrongly
+    - A per-link salt, so that two ground stations cannot decode each other's traffic by accident
+  correct: 2
+- source: 9f38d7a049c7
+  question: A HEARTBEAT is 21 bytes on the wire but sometimes 18. What changed, and does the receiver decode different data?
+  options:
+    - Three fields were dropped to save bandwidth, so the receiver sees fewer fields in that frame
+    - MAVLink 2 trimmed trailing zero payload bytes; the receiver zero-fills to identical fields
+    - The short frame is a MAVLink 1 heartbeat, which carries less data than a MAVLink 2 one
+    - Signing was switched off, removing three signature bytes with no change to the payload
+  correct: 1
+- source: c48d1793764e
+  question: A 57,600 baud SiK link offers about 2,016 B/s and the streams total 1,766 B/s. Why does the map lag, and why does the lag keep growing?
+  options:
+    - At 88 % load any burst overfills the radio buffer, and the queue grows into a backlog
+    - The link is loaded past 100 %, so every message waits a fixed extra transmit time
+    - The radio lowers its air rate when busy, adding a constant delay proportional to load
+    - The ground station throttles redraws above 80 % load, slowing the map a little each minute
+  correct: 0
+- source: dabe64eee779
+  question: 1,320 parameters of 37 bytes each must download over a link with about 250 B/s free. Why does it stick at '412 of 1,320', and what is the fix?
+  options:
+    - It needs about 20 s, but one lost packet corrupts the list; reconnect and try again
+    - It needs about 195 s, so keep reconnecting until one attempt finally completes
+    - It needs about 48 s, but parameter 412 is malformed; reset parameters to defaults
+    - It needs about 195 s, so the GCS times out and restarts; cut the streams or use USB
+  correct: 3
+- source: 2a85f1c0823d
+  question: Why does MAVLink telemetry need no acknowledgement while a command does?
+  options:
+    - Telemetry travels over UDP and commands over TCP, which acknowledges them automatically
+    - Commands are larger messages, so they are much more likely to be corrupted in transit
+    - Telemetry frames are signed and commands are not, so only commands need a separate check
+    - Periodic telemetry replaces a lost copy with the next; a one-shot command needs an ACK
+  correct: 3
+- source: ff4633923585
+  question: What does MAVLink signing give you, what does it cost, and what does it not do?
+  options:
+    - It authenticates frames against injection, costs 13 bytes per frame, and does not encrypt
+    - It encrypts every field against listeners, costs 13 bytes per frame, and does not authenticate
+    - It authenticates and encrypts frames, costs 2 bytes per frame, and does not stop replays
+    - It authenticates frames against injection, costs no extra bytes, and does not encrypt
+  correct: 0
+- source: 6bcd60d6fca4
+  question: Why must a retried command be idempotent, and how do you fix a relative one like 'climb 10 m'?
+  options:
+    - Retries can arrive out of order; add a timestamp so the receiver only ever executes the newest copy
+    - A lost command and a lost ACK look alike; make it absolute ('go to 20 m') with a sequence number
+    - The ACK can be forged; sign the command so the receiver executes it only a single time
+    - The aircraft times commands out; resend with a longer timeout so it executes only once
+  correct: 1

@@ -1,0 +1,67 @@
+# Multiple-choice version of the quiz in 14.01-cameras-for-uavs.md (question N = question N there).
+# The lesson's model answer is shown as the explanation. `source` fingerprints the original
+# question + answer; if the lesson changes, the site flags the question for review.
+- source: 841f2358b775
+  question: Which single camera number determines the GSD, and how do you get it?
+  options:
+    - "Megapixels: the total pixel count given on the camera box"
+    - "Pixel pitch: imaging width divided by the real pixel count"
+    - The sensor's inch format, which sets the physical sensor size
+    - The diagonal field of view, divided by the image diagonal
+  correct: 1
+- source: d89e32418f3b
+  question: Why is the diagonal field of view the wrong number to plan a survey with?
+  options:
+    - The diagonal is measured with distortion removed, so it is smaller than the real view
+    - Line spacing comes from the vertical footprint, which the diagonal does not include
+    - Line spacing uses the horizontal footprint, and the diagonal is the largest angle
+    - The diagonal changes with focus, so it is only valid for the calibration distance
+  correct: 2
+- source: 0b17a50a2d21
+  question: Your aircraft yaws at 45 deg/s during a 30 ms rolling-shutter readout. How much shear does that put at the frame edge, 2,000 px from centre?
+  options:
+    - About 7 px
+    - About 1.35 px
+    - About 470 px
+    - About 47 px
+  correct: 3
+- source: cf96b50f62d9
+  question: What causes jello in rolling-shutter footage, and why does a faster shutter not fix it?
+  options:
+    - An 84.3 Hz vibration spans ~2.5 cycles of the readout; a readout effect, fixed by damping
+    - The exposure is too long for the vibration, so each row blurs; a faster shutter fixes it fully
+    - An 84.3 Hz vibration beats with the frame rate; it is an exposure effect, fixed by a faster shutter
+    - Electrical noise from the ESCs corrupts the readout; it is fixed by shielding the camera cable
+  correct: 0
+- source: "759920216112"
+  question: By the one-pixel blur rule, what is the longest exposure at 60 m altitude (GSD 2.06 cm) and 5 m/s ground speed?
+  options:
+    - About 41 ms (1/24 s)
+    - About 4.1 ms (1/244 s)
+    - About 0.41 ms (1/2440 s)
+    - About 12 ms (1/81 s)
+  correct: 1
+- source: f8604b697580
+  question: Why is motion blur a light problem rather than a speed problem?
+  options:
+    - Faster flight always reduces blur because the camera shake averages out over the frame
+    - Speed has no effect on blur; only the ISO setting determines how sharp the image is
+    - The aircraft's speed sets the aperture, and only the light level sets the ground speed
+    - Speed and GSD fix the needed exposure, but the scene's light decides if you get it
+  correct: 3
+- source: 84ce515700f5
+  question: Why does flying lower make motion blur worse, not better?
+  options:
+    - Lower altitude shrinks the GSD, which halves the allowable exposure time
+    - Lower altitude increases vibration from the ground effect under the props
+    - Lower altitude puts the ground closer, which demands a much narrower aperture
+    - Lower altitude lowers the light level reaching the sensor from the ground
+  correct: 0
+- source: 355ffc2df381
+  question: The global-shutter option gives 1.68x the GSD and a footprint 81% as wide as the rolling-shutter camera. When is it worth it?
+  options:
+    - Always, because a global shutter removes blur for every scene and every flight profile
+    - For static fields flown in straight lines, where its larger GSD speeds up the survey
+    - When things move in frame, each image needs one pose, or you fly fast or yaw
+    - Never, because the lower resolution always costs more than the distortion it removes
+  correct: 2
