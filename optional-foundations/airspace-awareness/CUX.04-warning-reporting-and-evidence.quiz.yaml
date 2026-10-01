@@ -1,0 +1,61 @@
+# Multiple-choice quiz for the CUX track. Every graded question is in this file;
+# the lesson's knowledge check is the worked version of the same material.
+- id: q1
+  question: >-
+    Perception takes 17.54 s end to end. Why is that not the number to optimise?
+  options:
+    - It is small compared with the airborne cruise time of the whole mission
+    - A faster camera would replace it entirely
+    - It only applies to the first detection, not to a maintained track
+    - It is 39 % of the p50 but only 3.5 % of the p99
+  correct: 3
+  explanation: >-
+    Perception contributes the same 17.54 s at every percentile while the human terms
+    vary enormously, so it is a large share of the median and a tiny share of the
+    case that matters. Within perception, the detector is 4.1 % and the 12.0 s of
+    track maturity is 68.4 %.
+
+- id: q2
+  question: >-
+    A person's alert response time is heavy-tailed. Which number should an alerting
+    system be designed against, and which should it quote?
+  options:
+    - Design to the p99, quote the p50, and say which one you are quoting
+    - Design to the p50, because it is the typical case and easier to achieve
+    - Design and quote the mean, because it is the single honest summary
+    - Design to the p90, because the p99 is dominated by people on other tasks
+  correct: 0
+  explanation: >-
+    An alerting system is judged on the case that goes wrong, which is the p99, while
+    the median is what gets planned against and written down. They are different
+    metrics, not a disagreement, and quoting one without saying which is misleading.
+
+- id: q3
+  question: >-
+    You synchronise the companion computer's clock to the flight controller's. What
+    still has to happen before that counts as a correction?
+  options:
+    - Nothing, once the clocks agree the timeline is valid
+    - The offset must be re-measured after every flight
+    - The offset applied has to be logged, or the timeline cannot be audited
+    - The companion clock has to be replaced, because it will drift regardless
+  correct: 2
+  explanation: >-
+    The power-up offset is arbitrary and you cannot verify the sync afterwards, so an
+    unlogged correction is indistinguishable from a hopeful one. 16.05's rule applies:
+    a barrier without evidence is a belief.
+
+- id: q4
+  question: >-
+    Which two fields does a well-engineered pipeline usually omit from its
+    detection record, and why?
+  options:
+    - Position and velocity, because they are recoverable from the raw frames
+    - The clock offset and the measured-versus-inferred split
+    - Confidence and bounding box, because they are visible in the image
+    - Remote ID and timestamp, because both come from the same message
+  correct: 1
+  explanation: >-
+    Both are omitted because they are uncomfortable: the first admits a number was
+    assumed and the second admits judgement entered. Neither is recoverable later, so
+    their absence is permanent rather than a gap to be filled in.

@@ -197,6 +197,13 @@
     - [FOP.01 The mission-planning process](optional-foundations/civil-ops/FOP.01-mission-planning-process.md)
     - [FOP.02 Risk management: the bowtie](optional-foundations/civil-ops/FOP.02-risk-management-bowtie.md)
     - [FOP.03 The debrief: an honest after-action review](optional-foundations/civil-ops/FOP.03-debrief-and-aar.md)
+  - [**Airspace awareness & self-defence (CUX)**](optional-foundations/airspace-awareness/README.md)
+    - [CUX.01 Another aircraft in the frame: detection and the false-alarm bill](optional-foundations/airspace-awareness/CUX.01-detecting-another-aircraft.md)
+    - [CUX.02 From a box to a track: the association gate and the twelve-second problem](optional-foundations/airspace-awareness/CUX.02-association-gate-and-tracking.md)
+    - [CUX.03 Identifying it: Remote ID, and what a registration is not](optional-foundations/airspace-awareness/CUX.03-remote-id-and-identification.md)
+    - [CUX.04 Warning, reporting, and the record you are left with](optional-foundations/airspace-awareness/CUX.04-warning-reporting-and-evidence.md)
+    - [CUX.05 Two aircraft in one sky: right of way and deconfliction](optional-foundations/airspace-awareness/CUX.05-deconfliction-and-right-of-way.md)
+    - [CUX.06 Evading, and knowing when you cannot](optional-foundations/airspace-awareness/CUX.06-evading-and-the-envelope.md)
 - **Reference**
   - [Papers](references/papers.md)
   - [Resources](references/resources.md)

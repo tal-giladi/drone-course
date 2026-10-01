@@ -5,7 +5,8 @@ The complete architecture of the UAV course. The **lesson list itself lives in
 [COURSE_MAP.md](COURSE_MAP.md) by `tools/build.py`; this document holds the decisions behind
 it. Where the two disagree, the syllabus wins.
 
-- **Revised:** 2026-09-22 (curriculum trimmed, purchasing moved to Israel) · original 2026-09-20
+- **Revised:** 2026-09-29 (CUX — airspace awareness & self-defence track added) · 2026-09-22
+  (curriculum trimmed, purchasing moved to Israel) · original 2026-09-20
 - **Student:** experienced SW engineer/CTO (C#/.NET, Python, JS, SQL, Docker, AI/ML, CV),
   **living in Israel**, coming from the robotics course
 - **Goal:** design, build, program, test and operate a civil quadcopter — end goal: work as a
@@ -104,7 +105,7 @@ power), **FGL** (GNSS & navigation math), **FRA** (RF & datalink), **FOP** (civi
 
 ### Modules
 
-**161 items: 133 main-path lessons, 20 optional foundation lessons, 8 projects.**
+**167 items: 133 main-path lessons, 26 optional foundation lessons, 8 projects.**
 The per-lesson table (id, title, difficulty, time, prerequisites) is generated into
 [COURSE_MAP.md](COURSE_MAP.md); `py course.py list` prints the same thing.
 
@@ -144,7 +145,16 @@ robotics course already covered a topic, the lesson says so and teaches only the
 | **FGL** — GNSS & navigation maths | 4 | Datums and the shape of the Earth, ENU/NED frames, distance and bearing, DOP and error |
 | **FRA** — RF & datalink | 4 | dB and path loss, link budgets, antennas and polarisation, protocols and bands |
 | **FOP** — Civil operations fundamentals | 3 | The planning process, bowtie risk management, the honest debrief |
-| **Total** | **20** | ≈ 20 h, taken only when a lesson points you there |
+| **CUX** — Airspace awareness & self-defence | 6 | Detecting another aircraft, holding a track, Remote ID identity, the reporting timeline, right of way and deconfliction, and self-preservation |
+| **Total** | **26** | ≈ 28 h, taken only when a lesson points you there |
+
+**CUX is the one exception to "taken only when a lesson points you there".** The other five
+exist to close a gap a main-path lesson leaves; CUX is an *application* the student asked for,
+built almost entirely out of modules 12, 14, 15 and 18 re-pointed upward. It stays `track:
+foundations`, so it never gates a module and never enters the dependency chain, and it adds **no
+hardware** — it reuses stage 2's computer, camera and laser rangefinder. Hermon is the sensor and
+the evidence throughout; nothing in the track attacks anything, and no lesson supplies parts that
+would let it. See Decision 12.
 
 ### Projects (P01–P08)
 
@@ -245,9 +255,9 @@ table in [§1](#modules); they are computed from the syllabus, so they stay true
 | Block | Lessons | Hours |
 |---|---|---|
 | Main path (modules 00–19) | 133 | ≈ 183 h |
-| Optional foundations (FA/FEL/FGL/FRA/FOP) | 20 | ≈ 20 h |
+| Optional foundations (FA/FEL/FGL/FRA/FOP/CUX) | 26 | ≈ 28 h |
 | Projects P01–P08 | 8 | ≈ 30 h |
-| **Everything** | **161** | **≈ 233 h** |
+| **Everything** | **167** | **≈ 240 h** |
 
 That is about **12 weeks at 20 h/week**, or a year at 5 h/week. Flight practice in modules 11
 and 19 is wall-clock heavy and weather-dependent; budget more calendar time than hours.
@@ -449,7 +459,8 @@ drone-course/
 │   ├── drone-electronics-power/ # FEL (5)
 │   ├── gnss-navigation-math/    # FGL (4)
 │   ├── rf-datalink/             # FRA (4)
-│   └── civil-ops/               # FOP (3)
+│   ├── civil-ops/               # FOP (3)
+│   └── airspace-awareness/      # CUX (6) — optional application track
 ├── projects/
 │   ├── P01-first-hover.md … P08-hermons-mission.md
 │   └── evidence/
@@ -522,3 +533,4 @@ builder. D1–D6 were taken with the student on 2026-09-22 and are recorded in
 | 9 | **(2026-09-22, corrected after research) Telemetry constrained to 917–920 MHz** | Israel's licence-exempt sub-GHz window is 917–920 MHz. The US "915 MHz" SKU (902–928) and the EU "868 MHz" SKU (863–870) are **both outside it by default**. Buy the 900 MHz hardware and set `MIN_FREQ`/`MAX_FREQ` in the SiK firmware. Module 09 teaches this |
 | 10 | **(2026-09-22, supersedes the original module 17) Module 17 is civil payload engineering** | Mass and CoM, release mechanisms, spray and irrigation, release dynamics, drop ballistics, the pod build — matching the course's civil goal |
 | 11 | **(2026-09-22) The curriculum is 161 items, not 259** | Trimmed by merging theory lessons, not by cutting the build/fly path, so the course can actually be finished |
+| 12 | **(2026-09-29) CUX — airspace awareness & self-defence, sensor-side only** | The student asked for a way to detect and deal with another aircraft. The request as first framed — lock on, ram, or detonate next to it — is a weapon by design intent, is barred by 14 CFR § 107.36 (hazardous material) and contradicted by § 107.19(c), and was declined. What was built instead is the whole defensible half: detect (41 m, CUX.01), track (1.28 m with the rangefinder, CUX.02), identify by Remote ID (identity, never intent, CUX.03), report with a record that survives a week (CUX.04), yield under § 107.37(a) (CUX.05), and self-preservation that is honestly capped at 12 s (CUX.06). It is `track: foundations` so it never gates, and it adds no hardware and no ₪. Two of the six lessons exist mainly to state what the aircraft **cannot** do, and CUX.06 closes on 13.05's untested flow-plus-inertial barrier — the course's oldest open item, relocated to where it becomes urgent |

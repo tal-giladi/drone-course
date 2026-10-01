@@ -1,0 +1,63 @@
+# Multiple-choice quiz for the CUX track. Every graded question is in this file;
+# the lesson's knowledge check is the worked version of the same material.
+- id: q1
+  question: >-
+    14.05 geolocated a target by intersecting a ray with a known plane. Why can
+    that not be done for an aircraft in the sky?
+  options:
+    - The ray is too short once the target is above the horizon
+    - The terrain term disappears, so the budget shrinks rather than grows
+    - There is no plane to intersect, so an assumed altitude becomes the dominant error
+    - Cameras cannot focus beyond about 100 m
+  correct: 2
+  explanation: >-
+    With no plane you must assume the height difference, and the position error is
+    e x tan(theta): a 20 m altitude error becomes 20 m of position at 45 degrees off
+    nadir and 55 m at 70. At eye level there is no solution at all.
+
+- id: q2
+  question: >-
+    Stage 2 already includes a laser rangefinder. What does it change about the
+    position budget at CUX.01's 41 m ceiling?
+  options:
+    - It removes the altitude assumption, giving about 1.28 m against 14.05's 7.03 m
+    - It doubles the detectable range, because ranging improves detection
+    - It has no effect, because the altitude term was already negligible
+    - It removes the attitude error, leaving only the calibration term
+  correct: 0
+  explanation: >-
+    With a measured range you solve dh = R cos(theta) and D = R sin(theta) directly,
+    so no height is assumed. At 41 m the budget is 1.28 m, 5.5 times better than the
+    7.03 m ground case, because the pointing error scales with range and everything
+    else mostly does not.
+
+- id: q3
+  question: >-
+    The gate has to be wide enough to keep a track alive. Why must it be sized from
+    the noise rather than from 14.05's 7.03 m total budget?
+  options:
+    - The total includes bias, which is the term a filter can remove
+    - The total is too small a number to divide into a usable gate
+    - Noise grows with range and bias does not, so the total is meaningless
+    - Bias cannot be removed by filtering, and widening for it only admits clutter
+  correct: 3
+  explanation: >-
+    14.05 splits the 7.03 m into noise that averages away and bias that does not. A
+    filter is powerless against the bias, so putting it in the gate does not reduce
+    it; it just admits more clutter into every association decision.
+
+- id: q4
+  question: >-
+    With a 5.5 m gate, a tracked aircraft keeps changing identity. CUX.01 said a
+    gull resolves out to 127.6 m. What is happening?
+  options:
+    - The gate is too narrow and needs to be about twice as wide
+    - Something within 5.5 m of the prediction is being associated instead
+    - Two tracks have merged and need to be split manually
+    - The target is moving faster than the tracker can predict
+  correct: 1
+  explanation: >-
+    Birds are the easier target here, not the marginal one, and a gull five metres to
+    the side of a drone is inside a 5.5 m gate. Widening makes it worse; narrowing
+    gives 14.05's new-track-every-frame failure. Discriminate on bounding-box
+    rigidity before you associate.

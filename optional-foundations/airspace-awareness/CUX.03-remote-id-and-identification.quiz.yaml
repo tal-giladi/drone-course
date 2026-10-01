@@ -1,0 +1,59 @@
+# Multiple-choice quiz for the CUX track. Every graded question is in this file;
+# the lesson's knowledge check is the worked version of the same material.
+- id: q1
+  question: >-
+    An aircraft broadcasts a valid Remote ID with a plausible position and a recent
+    timestamp. What has been established?
+  options:
+    - That it is authorised to be where it is
+    - That it is identified, and nothing about its intent or its permission
+    - That its operator is the registered one currently flying it
+    - That it will remain in that area for the next few minutes
+  correct: 1
+  explanation: >-
+    Every field in the broadcast is a statement of identity. A valid registration is
+    not a permit: a registered aircraft can be somewhere it has no business being
+    and its broadcast will read entirely normally.
+
+- id: q2
+  question: >-
+    A track has no Remote ID. What can a single receiver actually conclude?
+  options:
+    - That the aircraft is unregistered
+    - That the aircraft is operating outside the Remote ID rules
+    - Only that no identity is currently held; absence and silence are indistinguishable
+    - Nothing useful, because the receiver is certainly faulty
+  correct: 2
+  explanation: >-
+    One receiver cannot distinguish an absent broadcast from one it failed to hear,
+    and that is an information limit rather than a bug. With the base rates from
+    Level 3, most unidentified tracks are unregistered builds or birds.
+
+- id: q3
+  question: >-
+    Why is this lesson placed after the detector rather than folded into it?
+  options:
+    - A broadcast link reaches roughly 37 times further than the 41 m optical ceiling
+    - Remote ID is broadcast on the same 917-920 MHz band as the telemetry radio
+    - Identification requires a track, so it must be taught after tracking
+    - The camera cannot decode a broadcast, so the two must be separate lessons
+  correct: 0
+  explanation: >-
+    An illustrative 109 dB link budget spans about 1.5 km in free space against the
+    camera's 41 m. Identification is the long-range instrument and detection is the
+    short-range one, which is the structural reason the track is ordered this way.
+
+- id: q4
+  question: >-
+    Level 4 scores three responses to an unidentified track. Which has the lowest
+    expected cost, and what does that imply?
+  options:
+    - Staying silent, because silence is the cautious default
+    - Alarming on every track, because a missed detection is unforgivable
+    - Reporting every track as a threat and letting people judge
+    - Reporting position and confidence for a person to decide
+  correct: 3
+  explanation: >-
+    Silence has the cheapest cost when it is wrong and by far the most expensive when
+    it is right, so it scores worst. That asymmetry is why 16.05's bowtie keeps
+    preventive and recovery barriers apart: they reduce different things.

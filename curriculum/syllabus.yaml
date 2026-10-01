@@ -1939,6 +1939,85 @@ modules:
     skip_if: You can run a blameless AAR for a flight that went wrong and produce one concrete change from it.
 
 # ---------------------------------------------------------------------------
+- id: "CUX"
+  dir: optional-foundations/airspace-awareness
+  track: foundations
+  title: Airspace awareness & self-defence (CUX)
+  summary: >-
+    The defensive half of module 14 and module 18, on its own: finding another aircraft in the
+    sky, holding a track on it, identifying it from its Remote ID, reporting it with a record
+    that survives a week, deconflicting against it, and breaking a track taken on Hermon.
+    Hermon is the sensor and the evidence throughout — nothing in this track attacks anything,
+    and every lesson states the limit of what this airframe can honestly do.
+  lessons:
+  - id: "CUX.01"
+    slug: detecting-another-aircraft
+    title: "Another aircraft in the frame: detection and the false-alarm bill"
+    difficulty: advanced
+    time: 75
+    requires: ["14.04"]
+    optional: []
+    hardware: [stage2]
+    software: [python, pytorch, yolo]
+    teaches: [air-detection, angular-size, detection-ceiling, base-rate, false-alarm-bill, patrol-revisit, two-hit-rule]
+    skip_if: You can state the range at which a 450 mm aircraft stops being detectable with your own camera, and the false-alarm count per patrol hour.
+  - id: "CUX.02"
+    slug: association-gate-and-tracking
+    title: "From a box to a track: the association gate and the twelve-second problem"
+    difficulty: advanced
+    time: 75
+    requires: ["14.05"]
+    optional: []
+    hardware: [stage2]
+    software: [python]
+    teaches: [track-association, gate-sizing, identity-swap, re-initialisation, track-quality, lead-time]
+    skip_if: You can size an association gate from your own measurement noise and say what a gate that is too wide, or too narrow, does to your tracks.
+  - id: "CUX.03"
+    slug: remote-id-and-identification
+    title: "Identifying it: Remote ID, and what a registration is not"
+    difficulty: advanced
+    time: 60
+    requires: ["18.04"]
+    optional: []
+    hardware: [stage2]
+    software: [python]
+    teaches: [remote-id, broadcast, identification, identity-vs-intent, false-friend, registration, decision-matrix]
+    skip_if: You can receive a Remote ID broadcast, decode it, and state precisely what it does and does not tell you about the aircraft carrying it.
+  - id: "CUX.04"
+    slug: warning-reporting-and-evidence
+    title: Warning, reporting, and the record you are left with
+    difficulty: advanced
+    time: 75
+    requires: ["14.06", "16.05"]
+    optional: []
+    hardware: [stage2]
+    software: [python]
+    teaches: [notification-latency, time-to-inform, evidence-chain, timestamped-log, error-budget-in-a-report, chain-of-custody]
+    skip_if: You can state how many seconds pass from a detection to a human decision, and what your log has to contain to still be usable a week later.
+  - id: "CUX.05"
+    slug: deconfliction-and-right-of-way
+    title: "Two aircraft in one sky: right of way and deconfliction"
+    difficulty: advanced
+    time: 75
+    requires: ["15.04", "18.05"]
+    optional: []
+    hardware: [stage2]
+    software: [python]
+    teaches: [right-of-way, deconfliction, time-to-closest-approach, latency-budget, minimum-separation, yield-manoeuvre]
+    skip_if: You can compute the time to closest approach for two aircraft and show what your own perception latency costs you in separation.
+  - id: "CUX.06"
+    slug: evading-and-the-envelope
+    title: Evading, and knowing when you cannot
+    difficulty: advanced
+    time: 90
+    requires: ["CUX.02", "15.05"]
+    optional: []
+    hardware: [stage2]
+    software: [python]
+    teaches: [track-denying, gate-crossing, self-preservation, envelope, capability-limits, bowtie-for-a-capability]
+    skip_if: You can state the condition under which a track on Hermon cannot be broken, and say what Hermon does instead.
+
+# ---------------------------------------------------------------------------
 # PROJECTS
 # ---------------------------------------------------------------------------
 projects:

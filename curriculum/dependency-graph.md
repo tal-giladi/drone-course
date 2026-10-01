@@ -39,6 +39,7 @@ flowchart TD
   MFGL["FGL · GNSS & navigation maths (FGL)"]
   MFRA["FRA · RF & datalink (FRA)"]
   MFOP["FOP · Civil operations fundamentals (FOP)"]
+  MCUX["CUX · Airspace awareness & self-defence (CUX)"]
   M00 --> M01
   M01 --> M02
   M01 --> M04
@@ -692,9 +693,9 @@ flowchart LR
 | 14.01 Cameras for UAVs: sensor, lens, shutter, mount | 13.05 | — | 14.02 |
 | 14.02 Camera calibration in the field | 14.01 | — | 14.03, 14.04 |
 | 14.03 Gimbals, vibration and motion blur | 14.02, 04.04 | — | — |
-| 14.04 Detection in the air: YOLO on a moving platform | 14.02 | — | 14.05 |
-| 14.05 From detection to a track, and from a pixel to a ground coordinate | 14.04, 13.04 | — | 14.06, 17.05, P06 |
-| 14.06 Thermal, depth, edge compute and the latency budget | 14.05 | — | 15.01 |
+| 14.04 Detection in the air: YOLO on a moving platform | 14.02 | — | 14.05, CUX.01 |
+| 14.05 From detection to a track, and from a pixel to a ground coordinate | 14.04, 13.04 | — | 14.06, 17.05, CUX.02, P06 |
+| 14.06 Thermal, depth, edge compute and the latency budget | 14.05 | — | 15.01, CUX.04 |
 
 ## 15 · Onboard autonomy
 
@@ -728,8 +729,8 @@ flowchart LR
 | 15.01 The architecture: flight controller plus companion computer | 14.06, 08.07 | — | 15.02 |
 | 15.02 ROS 2 for Hermon (delta from the robotics course) | 15.01 | — | 15.03 |
 | 15.03 Bridging MAVLink and ROS 2 | 15.02, 08.05 | — | 15.04 |
-| 15.04 Offboard control: commanding attitude, velocity and position | 15.03, 07.05 | — | 15.05 |
-| 15.05 Mission logic: behaviour trees, state machines and watchdogs | 15.04, 12.06 | — | 15.06 |
+| 15.04 Offboard control: commanding attitude, velocity and position | 15.03, 07.05 | — | 15.05, CUX.05 |
+| 15.05 Mission logic: behaviour trees, state machines and watchdogs | 15.04, 12.06 | — | 15.06, CUX.06 |
 | 15.06 Deployment, and the first computer-piloted flight | 15.05 | — | 16.01, 19.01, P07 |
 
 ## 16 · Flight-test & data analysis
@@ -765,7 +766,7 @@ flowchart LR
 | 16.02 Test matrices: parameters, environments, failures | 16.01 | — | 16.03 |
 | 16.03 Reading flight logs: a methodology | 16.02, 08.07, 06.06 | — | 16.04 |
 | 16.04 Failure injection, and regression tests in SITL | 16.03, 10.05 | — | 16.05 |
-| 16.05 Field protocols and Hermon's safety case | 16.04 | FOP.01 | 17.01, 18.03, 19.05 |
+| 16.05 Field protocols and Hermon's safety case | 16.04 | FOP.01 | 17.01, 18.03, 19.05, CUX.04 |
 
 ## 17 · Payloads & delivery
 
@@ -834,8 +835,8 @@ flowchart LR
 | 18.01 The civil missions: survey, inspection, delivery, monitoring, search | 12.06 | — | 18.02 |
 | 18.02 The operator's job: a day in the life | 18.01 | — | 18.03 |
 | 18.03 The mission-planning process: tasking, risk, brief, debrief | 18.02, 16.05 | FOP.01 | 18.04 |
-| 18.04 Airspace in practice: classes, charts, NOTAMs, authorisations | 18.03 | — | 18.05 |
-| 18.05 FAA Part 107: the certificate, the rules, the waivers | 18.04 | — | 18.06 |
+| 18.04 Airspace in practice: classes, charts, NOTAMs, authorisations | 18.03 | — | 18.05, CUX.03 |
+| 18.05 FAA Part 107: the certificate, the rules, the waivers | 18.04 | — | 18.06, CUX.05 |
 | 18.06 Maintenance, currency, and your own qualification | 18.05 | — | 19.01 |
 
 ## 19 · Capstone — Hermon's mission
@@ -973,4 +974,42 @@ flowchart LR
 | FOP.01 The mission-planning process | — | — | FOP.02 |
 | FOP.02 Risk management: the bowtie | FOP.01 | — | FOP.03 |
 | FOP.03 The debrief: an honest after-action review | FOP.02 | — | — |
+
+## CUX · Airspace awareness & self-defence (CUX)
+
+```mermaid
+flowchart LR
+  n_CUX_01["CUX.01 Another aircraft in the frame: detection and the false-alarm bill"]
+  n_CUX_02["CUX.02 From a box to a track: the association gate and the twelve-second problem"]
+  n_CUX_03["CUX.03 Identifying it: Remote ID, and what a registration is not"]
+  n_CUX_04["CUX.04 Warning, reporting, and the record you are left with"]
+  n_CUX_05["CUX.05 Two aircraft in one sky: right of way and deconfliction"]
+  n_CUX_06["CUX.06 Evading, and knowing when you cannot"]
+  n_14_04 --> n_CUX_01
+  n_14_05 --> n_CUX_02
+  n_18_04 --> n_CUX_03
+  n_14_06 --> n_CUX_04
+  n_16_05 --> n_CUX_04
+  n_15_04 --> n_CUX_05
+  n_18_05 --> n_CUX_05
+  n_CUX_02 --> n_CUX_06
+  n_15_05 --> n_CUX_06
+  n_14_04(["14.04 Detection in the air: YOLO on a moving platform"])
+  n_14_05(["14.05 From detection to a track, and from a pixel to a ground coordinate"])
+  n_14_06(["14.06 Thermal, depth, edge compute and the latency budget"])
+  n_15_04(["15.04 Offboard control: commanding attitude, velocity and position"])
+  n_15_05(["15.05 Mission logic: behaviour trees, state machines and watchdogs"])
+  n_16_05(["16.05 Field protocols and Hermon's safety case"])
+  n_18_04(["18.04 Airspace in practice: classes, charts, NOTAMs, authorisations"])
+  n_18_05(["18.05 FAA Part 107: the certificate, the rules, the waivers"])
+```
+
+| Lesson | Requires | Optional | Unlocks |
+|---|---|---|---|
+| CUX.01 Another aircraft in the frame: detection and the false-alarm bill | 14.04 | — | — |
+| CUX.02 From a box to a track: the association gate and the twelve-second problem | 14.05 | — | CUX.06 |
+| CUX.03 Identifying it: Remote ID, and what a registration is not | 18.04 | — | — |
+| CUX.04 Warning, reporting, and the record you are left with | 14.06, 16.05 | — | — |
+| CUX.05 Two aircraft in one sky: right of way and deconfliction | 15.04, 18.05 | — | — |
+| CUX.06 Evading, and knowing when you cannot | CUX.02, 15.05 | — | — |
 

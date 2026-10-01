@@ -1,0 +1,60 @@
+# Multiple-choice quiz for the CUX track. Every graded question is in this file;
+# the lesson's knowledge check is the worked version of the same material.
+- id: q1
+  question: >-
+    What breaks a constant-velocity tracker following you?
+  options:
+    - Flying faster than the tracker's prediction limit
+    - Accelerating laterally, which pushes the target outside the association gate
+    - Descending below the tracker's minimum altitude
+    - Turning, because any heading change confuses the velocity estimate
+  correct: 1
+  explanation: >-
+    A predictor absorbs constant speed perfectly, at any speed. What it cannot follow
+    is acceleration: CUX.02's 5.5 m gate needs 1.91 m/s^2 of lateral acceleration for
+    one frame, which is 0.19 g against Hermon's 3.78 : 1.
+
+- id: q2
+  question: >-
+    Breaking association with a pursuer's tracker buys how much, and how do you
+    know?
+  options:
+    - Enough to be untrackable, because the association fails permanently
+    - About 60 s, which is the detector's sweep period repeated
+    - Exactly 12.0 s, one track-maturity period, which is 120 m at cruise
+    - Nothing, because the pursuer simply starts a new track immediately
+  correct: 2
+  explanation: >-
+    A new track needs the same five frames at 2.4 s that the original did, so
+    breaking the gate buys exactly 12.0 s. At 10 m/s that is 120 m, which is 2.9x
+    the optical ceiling but only 5.0 % of the VLOS distance.
+
+- id: q3
+  question: >-
+    Is battery energy the limit on a twelve-second evasion manoeuvre?
+  options:
+    - "No: 12 s at 226 W is 0.75 Wh, about 0.85 % of usable energy"
+    - Yes, because a lateral acceleration draws far more than hover power
+    - Yes, because the pack sag under manoeuvre is the dominant effect
+    - No, but only because the pack is larger than this course specifies
+  correct: 0
+  explanation: >-
+    The energy cost is 0.85 % of the 88.8 Wh usable. The real limits are lateral
+    authority, which is easy at 1.91 m/s^2, and 15.05's 3.0 s watchdog ceiling,
+    above which the flight controller reverts.
+
+- id: q4
+  question: >-
+    Level 5 lists five barriers. Four have a dated experiment behind them. What is
+    the status of the fifth, and why is it the one that matters most here?
+  options:
+    - Proven, and it is the easiest to test because the equipment is already owned
+    - Untested, but only in simulation, where it has already been shown to work
+    - Untested, and it has already been closed by project P08
+    - Untested, and the moment you most need to keep flying is when it must work
+  correct: 3
+  explanation: >-
+    13.05's flow-plus-inertial fallback has been open since 16.05 and untested
+    through three modules. Every other barrier in the table is about not being wrong
+    about something; this one is about still flying. 16.05's rule is that a barrier
+    without evidence is a belief.

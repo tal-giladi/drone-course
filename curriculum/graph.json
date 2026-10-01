@@ -397,6 +397,21 @@
     "FOP.02",
     "FOP.03"
    ]
+  },
+  {
+   "id": "CUX",
+   "dir": "optional-foundations/airspace-awareness",
+   "track": "foundations",
+   "title": "Airspace awareness & self-defence (CUX)",
+   "summary": "The defensive half of module 14 and module 18, on its own: finding another aircraft in the sky, holding a track on it, identifying it from its Remote ID, reporting it with a record that survives a week, deconflicting against it, and breaking a track taken on Hermon. Hermon is the sensor and the evidence throughout — nothing in this track attacks anything, and every lesson states the limit of what this airframe can honestly do.",
+   "lessons": [
+    "CUX.01",
+    "CUX.02",
+    "CUX.03",
+    "CUX.04",
+    "CUX.05",
+    "CUX.06"
+   ]
   }
  ],
  "hardware": {
@@ -6057,7 +6072,8 @@
     }
    ],
    "unlocks": [
-    "14.05"
+    "14.05",
+    "CUX.01"
    ]
   },
   "14.05": {
@@ -6116,6 +6132,7 @@
    "unlocks": [
     "14.06",
     "17.05",
+    "CUX.02",
     "P06"
    ]
   },
@@ -6173,7 +6190,8 @@
     }
    ],
    "unlocks": [
-    "15.01"
+    "15.01",
+    "CUX.04"
    ]
   },
   "15.01": {
@@ -6398,7 +6416,8 @@
     }
    ],
    "unlocks": [
-    "15.05"
+    "15.05",
+    "CUX.05"
    ]
   },
   "15.05": {
@@ -6454,7 +6473,8 @@
     }
    ],
    "unlocks": [
-    "15.06"
+    "15.06",
+    "CUX.06"
    ]
   },
   "15.06": {
@@ -6789,7 +6809,8 @@
    "unlocks": [
     "17.01",
     "18.03",
-    "19.05"
+    "19.05",
+    "CUX.04"
    ]
   },
   "17.01": {
@@ -7342,7 +7363,8 @@
     }
    ],
    "unlocks": [
-    "18.05"
+    "18.05",
+    "CUX.03"
    ]
   },
   "18.05": {
@@ -7395,7 +7417,8 @@
     }
    ],
    "unlocks": [
-    "18.06"
+    "18.06",
+    "CUX.05"
    ]
   },
   "18.06": {
@@ -8788,6 +8811,333 @@
    ],
    "unlocks": []
   },
+  "CUX.01": {
+   "id": "CUX.01",
+   "kind": "foundation",
+   "module": "CUX",
+   "title": "Another aircraft in the frame: detection and the false-alarm bill",
+   "path": "optional-foundations/airspace-awareness/CUX.01-detecting-another-aircraft.md",
+   "difficulty": "advanced",
+   "time": 75,
+   "requires": [
+    "14.04"
+   ],
+   "optional": [],
+   "hardware": [
+    "stage2"
+   ],
+   "software": [
+    "python",
+    "pytorch",
+    "yolo"
+   ],
+   "teaches": [
+    "air-detection",
+    "angular-size",
+    "detection-ceiling",
+    "base-rate",
+    "false-alarm-bill",
+    "patrol-revisit",
+    "two-hit-rule"
+   ],
+   "skip_if": "You can state the range at which a 450 mm aircraft stops being detectable with your own camera, and the false-alarm count per patrol hour.",
+   "version_sensitive": false,
+   "order": 153,
+   "exercises": [
+    {
+     "id": "CUX.01-E1",
+     "title": "Compute your own detection ceiling `[numeric]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.01-E2",
+     "title": "Price your own patrol `[numeric]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.01-E3",
+     "title": "Measure the box-height variance `[build]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.01-E4",
+     "title": "Break the two-hit rule on purpose `[analysis]`",
+     "type": "exercise"
+    }
+   ],
+   "unlocks": []
+  },
+  "CUX.02": {
+   "id": "CUX.02",
+   "kind": "foundation",
+   "module": "CUX",
+   "title": "From a box to a track: the association gate and the twelve-second problem",
+   "path": "optional-foundations/airspace-awareness/CUX.02-association-gate-and-tracking.md",
+   "difficulty": "advanced",
+   "time": 75,
+   "requires": [
+    "14.05"
+   ],
+   "optional": [],
+   "hardware": [
+    "stage2"
+   ],
+   "software": [
+    "python"
+   ],
+   "teaches": [
+    "track-association",
+    "gate-sizing",
+    "identity-swap",
+    "re-initialisation",
+    "track-quality",
+    "lead-time"
+   ],
+   "skip_if": "You can size an association gate from your own measurement noise and say what a gate that is too wide, or too narrow, does to your tracks.",
+   "version_sensitive": false,
+   "order": 154,
+   "exercises": [
+    {
+     "id": "CUX.02-E1",
+     "title": "Price the altitude assumption `[numeric]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.02-E2",
+     "title": "Measure your own rangefinder `[build]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.02-E3",
+     "title": "Size and test your own gate `[build]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.02-E4",
+     "title": "Measure your own track latency `[build]`",
+     "type": "exercise"
+    }
+   ],
+   "unlocks": [
+    "CUX.06"
+   ]
+  },
+  "CUX.03": {
+   "id": "CUX.03",
+   "kind": "foundation",
+   "module": "CUX",
+   "title": "Identifying it: Remote ID, and what a registration is not",
+   "path": "optional-foundations/airspace-awareness/CUX.03-remote-id-and-identification.md",
+   "difficulty": "advanced",
+   "time": 60,
+   "requires": [
+    "18.04"
+   ],
+   "optional": [],
+   "hardware": [
+    "stage2"
+   ],
+   "software": [
+    "python"
+   ],
+   "teaches": [
+    "remote-id",
+    "broadcast",
+    "identification",
+    "identity-vs-intent",
+    "false-friend",
+    "registration",
+    "decision-matrix"
+   ],
+   "skip_if": "You can receive a Remote ID broadcast, decode it, and state precisely what it does and does not tell you about the aircraft carrying it.",
+   "version_sensitive": false,
+   "order": 155,
+   "exercises": [
+    {
+     "id": "CUX.03-E1",
+     "title": "Measure the link budget yourself `[build]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.03-E2",
+     "title": "Argue with the priors `[analysis]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.03-E3",
+     "title": "Build the two-receiver test",
+     "type": "design"
+    },
+    {
+     "id": "CUX.03-E4",
+     "title": "Write the log line `[analysis]`",
+     "type": "exercise"
+    }
+   ],
+   "unlocks": []
+  },
+  "CUX.04": {
+   "id": "CUX.04",
+   "kind": "foundation",
+   "module": "CUX",
+   "title": "Warning, reporting, and the record you are left with",
+   "path": "optional-foundations/airspace-awareness/CUX.04-warning-reporting-and-evidence.md",
+   "difficulty": "advanced",
+   "time": 75,
+   "requires": [
+    "14.06",
+    "16.05"
+   ],
+   "optional": [],
+   "hardware": [
+    "stage2"
+   ],
+   "software": [
+    "python"
+   ],
+   "teaches": [
+    "notification-latency",
+    "time-to-inform",
+    "evidence-chain",
+    "timestamped-log",
+    "error-budget-in-a-report",
+    "chain-of-custody"
+   ],
+   "skip_if": "You can state how many seconds pass from a detection to a human decision, and what your log has to contain to still be usable a week later.",
+   "version_sensitive": false,
+   "order": 156,
+   "exercises": [
+    {
+     "id": "CUX.04-E1",
+     "title": "Build your own latency stack `[numeric]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.04-E2",
+     "title": "Measure a human `[analysis]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.04-E3",
+     "title": "Break the clock, on purpose `[build]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.04-E4",
+     "title": "Write the record schema `[analysis]`",
+     "type": "exercise"
+    }
+   ],
+   "unlocks": []
+  },
+  "CUX.05": {
+   "id": "CUX.05",
+   "kind": "foundation",
+   "module": "CUX",
+   "title": "Two aircraft in one sky: right of way and deconfliction",
+   "path": "optional-foundations/airspace-awareness/CUX.05-deconfliction-and-right-of-way.md",
+   "difficulty": "advanced",
+   "time": 75,
+   "requires": [
+    "15.04",
+    "18.05"
+   ],
+   "optional": [],
+   "hardware": [
+    "stage2"
+   ],
+   "software": [
+    "python"
+   ],
+   "teaches": [
+    "right-of-way",
+    "deconfliction",
+    "time-to-closest-approach",
+    "latency-budget",
+    "minimum-separation",
+    "yield-manoeuvre"
+   ],
+   "skip_if": "You can compute the time to closest approach for two aircraft and show what your own perception latency costs you in separation.",
+   "version_sensitive": false,
+   "order": 157,
+   "exercises": [
+    {
+     "id": "CUX.05-E1",
+     "title": "Compute your own encounter `[numeric]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.05-E2",
+     "title": "Find the closing speed that works `[analysis]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.05-E3",
+     "title": "Measure your false-yield rate `[build]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.05-E4",
+     "title": "Write the yield rule `[analysis]`",
+     "type": "exercise"
+    }
+   ],
+   "unlocks": []
+  },
+  "CUX.06": {
+   "id": "CUX.06",
+   "kind": "foundation",
+   "module": "CUX",
+   "title": "Evading, and knowing when you cannot",
+   "path": "optional-foundations/airspace-awareness/CUX.06-evading-and-the-envelope.md",
+   "difficulty": "advanced",
+   "time": 90,
+   "requires": [
+    "CUX.02",
+    "15.05"
+   ],
+   "optional": [],
+   "hardware": [
+    "stage2"
+   ],
+   "software": [
+    "python"
+   ],
+   "teaches": [
+    "track-denying",
+    "gate-crossing",
+    "self-preservation",
+    "envelope",
+    "capability-limits",
+    "bowtie-for-a-capability"
+   ],
+   "skip_if": "You can state the condition under which a track on Hermon cannot be broken, and say what Hermon does instead.",
+   "version_sensitive": false,
+   "order": 158,
+   "exercises": [
+    {
+     "id": "CUX.06-E1",
+     "title": "Break your own gate `[build]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.06-E2",
+     "title": "Measure the real evasion window `[build]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.06-E3",
+     "title": "Test the barrier that has none `[build]`",
+     "type": "exercise"
+    },
+    {
+     "id": "CUX.06-E4",
+     "title": "Write your own bowtie `[analysis]`",
+     "type": "exercise"
+    }
+   ],
+   "unlocks": []
+  },
   "P01": {
    "id": "P01",
    "kind": "project",
@@ -8810,7 +9160,7 @@
    "teaches": [],
    "skip_if": "",
    "version_sensitive": false,
-   "order": 153,
+   "order": 159,
    "exercises": [],
    "unlocks": []
   },
@@ -8837,7 +9187,7 @@
    "teaches": [],
    "skip_if": "",
    "version_sensitive": false,
-   "order": 154,
+   "order": 160,
    "exercises": [],
    "unlocks": []
   },
@@ -8862,7 +9212,7 @@
    "teaches": [],
    "skip_if": "",
    "version_sensitive": false,
-   "order": 155,
+   "order": 161,
    "exercises": [],
    "unlocks": []
   },
@@ -8888,7 +9238,7 @@
    "teaches": [],
    "skip_if": "",
    "version_sensitive": false,
-   "order": 156,
+   "order": 162,
    "exercises": [],
    "unlocks": []
   },
@@ -8914,7 +9264,7 @@
    "teaches": [],
    "skip_if": "",
    "version_sensitive": false,
-   "order": 157,
+   "order": 163,
    "exercises": [],
    "unlocks": []
   },
@@ -8941,7 +9291,7 @@
    "teaches": [],
    "skip_if": "",
    "version_sensitive": false,
-   "order": 158,
+   "order": 164,
    "exercises": [],
    "unlocks": []
   },
@@ -8968,7 +9318,7 @@
    "teaches": [],
    "skip_if": "",
    "version_sensitive": false,
-   "order": 159,
+   "order": 165,
    "exercises": [],
    "unlocks": []
   },
@@ -9000,7 +9350,7 @@
    "teaches": [],
    "skip_if": "",
    "version_sensitive": false,
-   "order": 160,
+   "order": 166,
    "exercises": [],
    "unlocks": []
   }
@@ -9070,6 +9420,9 @@
   "agricultural-spraying": [
    "18.01"
   ],
+  "air-detection": [
+   "CUX.01"
+  ],
   "air-rate": [
    "09.04"
   ],
@@ -9132,6 +9485,9 @@
   ],
   "angular-momentum": [
    "01.02"
+  ],
+  "angular-size": [
+   "CUX.01"
   ],
   "anomaly-hunting": [
    "16.03"
@@ -9223,6 +9579,9 @@
   "barrier": [
    "FOP.02"
   ],
+  "base-rate": [
+   "CUX.01"
+  ],
   "base-station": [
    "13.03"
   ],
@@ -9292,8 +9651,14 @@
   "bowtie-diagram": [
    "FOP.02"
   ],
+  "bowtie-for-a-capability": [
+   "CUX.06"
+  ],
   "box-pattern": [
    "11.03"
+  ],
+  "broadcast": [
+   "CUX.03"
   ],
   "build-log": [
    "04.05"
@@ -9319,6 +9684,9 @@
   ],
   "camera-to-body": [
    "14.02"
+  ],
+  "capability-limits": [
+   "CUX.06"
   ],
   "carbon-fiber": [
    "04.01"
@@ -9346,6 +9714,9 @@
   ],
   "cep": [
    "17.05"
+  ],
+  "chain-of-custody": [
+   "CUX.04"
   ],
   "charge-profile": [
    "03.07"
@@ -9568,11 +9939,17 @@
   "debrief": [
    "19.05"
   ],
+  "decision-matrix": [
+   "CUX.03"
+  ],
   "decision-tree": [
    "12.04"
   ],
   "declination": [
    "05.03"
+  ],
+  "deconfliction": [
+   "CUX.05"
   ],
   "defaults": [
    "08.04"
@@ -9597,6 +9974,9 @@
   ],
   "desired-vs-actual": [
    "16.03"
+  ],
+  "detection-ceiling": [
+   "CUX.01"
   ],
   "detection-in-mission": [
    "19.03"
@@ -9748,6 +10128,9 @@
   "enu-frame": [
    "13.04"
   ],
+  "envelope": [
+   "CUX.06"
+  ],
   "envelope-expansion": [
    "16.01"
   ],
@@ -9759,6 +10142,9 @@
   ],
   "error-budget": [
    "14.05"
+  ],
+  "error-budget-in-a-report": [
+   "CUX.04"
   ],
   "error-propagation": [
    "FGL.04"
@@ -9774,6 +10160,9 @@
   ],
   "euler-angles": [
    "01.09"
+  ],
+  "evidence-chain": [
+   "CUX.04"
   ],
   "evidence-pack": [
    "19.05"
@@ -9832,6 +10221,12 @@
   ],
   "falling-object": [
    "00.06"
+  ],
+  "false-alarm-bill": [
+   "CUX.01"
+  ],
+  "false-friend": [
+   "CUX.03"
   ],
   "false-positive-handling": [
    "19.03"
@@ -9965,6 +10360,12 @@
   ],
   "galileo": [
    "13.01"
+  ],
+  "gate-crossing": [
+   "CUX.06"
+  ],
+  "gate-sizing": [
+   "CUX.02"
   ],
   "gazebo-plugin": [
    "10.05"
@@ -10134,6 +10535,15 @@
   "hover-trim": [
    "11.01"
   ],
+  "identification": [
+   "CUX.03"
+  ],
+  "identity-swap": [
+   "CUX.02"
+  ],
+  "identity-vs-intent": [
+   "CUX.03"
+  ],
   "import-restrictions": [
    "03.10"
   ],
@@ -10272,13 +10682,17 @@
    "14.06"
   ],
   "latency-budget": [
-   "14.06"
+   "14.06",
+   "CUX.05"
   ],
   "latitude": [
    "FGL.01"
   ],
   "launch-sequence": [
    "19.02"
+  ],
+  "lead-time": [
+   "CUX.02"
   ],
   "lessons-learned": [
    "FOP.03"
@@ -10443,6 +10857,9 @@
   "min-max-freq": [
    "09.04"
   ],
+  "minimum-separation": [
+   "CUX.05"
+  ],
   "mission-brief": [
    "19.01"
   ],
@@ -10599,6 +11016,9 @@
    "02.10",
    "07.07"
   ],
+  "notification-latency": [
+   "CUX.04"
+  ],
   "nozzle-droplet-size": [
    "17.03"
   ],
@@ -10677,6 +11097,9 @@
   ],
   "path-loss": [
    "09.01"
+  ],
+  "patrol-revisit": [
+   "CUX.01"
   ],
   "payload-bay": [
    "04.04"
@@ -10882,6 +11305,9 @@
   "rc-failsafe": [
    "09.03"
   ],
+  "re-initialisation": [
+   "CUX.02"
+  ],
   "receiver-sensitivity": [
    "FRA.02"
   ],
@@ -10890,6 +11316,9 @@
   ],
   "redundancy": [
    "05.01"
+  ],
+  "registration": [
+   "CUX.03"
   ],
   "regression-suite": [
    "16.04"
@@ -10910,7 +11339,8 @@
    "17.05"
   ],
   "remote-id": [
-   "18.04"
+   "18.04",
+   "CUX.03"
   ],
   "remote-id-compliance": [
    "18.05"
@@ -10945,6 +11375,9 @@
   ],
   "rhumb-line": [
    "FGL.03"
+  ],
+  "right-of-way": [
+   "CUX.05"
   ],
   "rigid-body-dynamics": [
    "10.02"
@@ -11051,6 +11484,9 @@
   ],
   "sectional-chart": [
    "18.04"
+  ],
+  "self-preservation": [
+   "CUX.06"
   ],
   "sense-decide-act": [
    "00.01"
@@ -11375,11 +11811,20 @@
   "time-sync": [
    "15.03"
   ],
+  "time-to-closest-approach": [
+   "CUX.05"
+  ],
   "time-to-first-fix": [
    "05.04"
   ],
+  "time-to-inform": [
+   "CUX.04"
+  ],
   "timer-discipline": [
    "11.05"
+  ],
+  "timestamped-log": [
+   "CUX.04"
   ],
   "timing-advance": [
    "02.10"
@@ -11405,7 +11850,14 @@
    "16.02"
   ],
   "track-association": [
-   "14.05"
+   "14.05",
+   "CUX.02"
+  ],
+  "track-denying": [
+   "CUX.06"
+  ],
+  "track-quality": [
+   "CUX.02"
   ],
   "tradeoffs": [
    "02.11"
@@ -11424,6 +11876,9 @@
   ],
   "turbulence": [
    "11.04"
+  ],
+  "two-hit-rule": [
+   "CUX.01"
   ],
   "uart-mapping": [
    "08.02"
@@ -11597,6 +12052,9 @@
   ],
   "yaw-turn": [
    "11.03"
+  ],
+  "yield-manoeuvre": [
+   "CUX.05"
   ],
   "yolo": [
    "14.04"

@@ -1,0 +1,61 @@
+# Multiple-choice quiz for the CUX track. Every graded question is in this file;
+# the lesson's knowledge check is the worked version of the same material.
+- id: q1
+  question: >-
+    14 CFR 107.37(a) says the small unmanned aircraft must yield, and may not pass
+    over, under or ahead of another aircraft unless well clear. What is the
+    engineering content of "unless well clear"?
+  options:
+    - A requirement to have right of way in a dispute
+    - A requirement to maintain a specific numeric separation
+    - A requirement that turns the rule into geometry rather than intention
+    - A requirement to obtain a waiver before any encounter
+  correct: 2
+  explanation: >-
+    The first clause fixes the direction of every decision; the other aircraft never
+    moves. "Unless well clear" then makes deconfliction a statement about geometry,
+    which is why this lesson is arithmetic rather than judgement.
+
+- id: q2
+  question: >-
+    Two aircraft converge head-on at 10 m/s each. Every row of Level 1's table shows
+    a zero miss distance. Why?
+  options:
+    - On straight head-on courses the trajectory passes through zero
+    - The 1.28 m position budget dominates every other term
+    - The table only reports misses below 1 m as zero
+    - The relative velocity was entered with the wrong sign
+  correct: 0
+  explanation: >-
+    A head-on straight-line relative trajectory passes through zero by construction,
+    so time to closest approach is the collision. The only question is how much of it
+    can be spent becoming separated.
+
+- id: q3
+  question: >-
+    The median requirement is 1,310 m but the camera reaches 41 m. Where does the
+    1,310 m come from, and is it closable?
+  options:
+    - From the detection threshold alone, and a better lens would close it
+    - From the manoeuvre time plus CUX.04's p50, and it is not a specification gap
+    - From the VLOS limit, and a waiver would close it
+    - From the wind limit, and flying lower would close it
+  correct: 1
+  explanation: >-
+    It is 60 m of vertical separation at 3 m/s (20 s) plus the 46 s p50
+    time-to-inform, times the 20 m/s closing speed. The shortfall is 32x, and no
+    purchase closes it, which is what makes this a procedural problem.
+
+- id: q4
+  question: >-
+    Which decision may be automated, and what is the rule that decides it?
+  options:
+    - The verdict may be, because a human only adds delay
+    - Neither may be, because automation is unsafe in the air
+    - Both may be, provided the operator is notified afterwards
+    - The yield may be, because its worst case is a wasted climb
+  correct: 3
+  explanation: >-
+    The failure modes point in opposite directions: a wrong yield costs a climb,
+    while a wrong verdict reports an innocent pilot. Automate the action whose worst
+    case is harmless; never automate the one whose worst case is a person.

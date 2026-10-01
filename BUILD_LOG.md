@@ -6,7 +6,7 @@ status is not `done`.
 
 - **Course:** Practical UAV — Hermon (see [README.md](README.md), [ARCHITECTURE.md](ARCHITECTURE.md))
 - **Student:** software/AI engineer **living in Israel**, studying for **FAA Part 107**
-- **Last updated:** 2026-09-23 — **THE COURSE IS COMPLETE.** 161/161 files, `validate.py --links --final --strict` clean, 1 external URL unreachable (bot-walled).
+- **Last updated:** 2026-09-29 — **167/167 files**, `validate.py --links --final --strict` clean, 1 external URL unreachable (bot-walled). **CUX — airspace awareness & self-defence** added this session (see D10).
 
 ---
 
@@ -22,6 +22,7 @@ status is not `done`.
 | D6 | **Work runs batch by batch across sessions without check-ins.** | Each batch ends with: files written → `py tools/build.py` → `py tools/validate.py` → this log updated. |
 | D7 | **Hermon's motor is a 3110-class 470 KV, not a 2207/1700 KV.** | The original spec was physically impossible: a 1700 KV motor free-spins at ~37,700 rpm on 6S and cannot turn a 10 in propeller. Corrected in batch 2 to 700 KV, then **corrected again in batch 3 to 470 KV** once 02.06's motor–propeller equilibrium was actually solved: a 10×4.5×3 makes 300 g at ~4,700 rpm, and hover must land at 40–60 % throttle, so KV ≈ 4700/(22.2 × 0.46) ≈ 470. Derived numbers frozen in `references/hermon-numbers.md` — see the batch-3 journal entry for the full table. Everything else survived untouched: 1.20 kg, 450 mm, 6S 5000 mAh, 10×4.5×3, 194 W, 25 min. |
 | D8 | **(batch 2) `references/hermon-numbers.md` is the single source of truth for the aircraft.** | No lesson invents a number about Hermon. It quotes that file or derives its value from it. |
+| D10 | **(2026-09-29) CUX — airspace awareness & self-defence, SENSOR-SIDE ONLY.** | See §D10 below. The request as first framed (lock on, ram, detonate) was declined as a weapon by design intent; the defensible half was built instead. **Hermon is the sensor and the evidence throughout.** No hardware, no ₪, never gating. |
 
 ---
 
@@ -104,6 +105,7 @@ Legend: ☐ not started · ◐ in progress · ☑ done
 | 23 | Projects P01–P08 | 8 | ☑ | All eight written and validated |
 | 24 | Non-node files | 9 | ☑ | Module READMEs were already generated; the 9 the sidebar wanted are written |
 | 25 | Final pass | — | ☑ | Links final-strict clean; 38 dead external URLs replaced; `index.html` and `README.md` corrected |
+| 26 | **CUX — airspace awareness & self-defence** | 6 + registry | ☑ | All six written, models run standalone and re-spliced with `tools/paste.py`, `--links --final --strict` clean at 167 files. See D10 |
 
 ---
 
@@ -165,6 +167,59 @@ with `tools/paste.py`. A rev-1 backup sits in `scratchpad/backup_rev1/`.
 a **0.15 kg battery**, `P_MOTORS_HOVER = 180 W` and a thrust-to-weight of 1.36 : 1. That is a
 different, much weaker aircraft, and no amount of numeric substitution fixes the reasoning built
 on top of it. Hence **batch 4c**.
+
+## D10 — CUX: airspace awareness & self-defence, sensor-side only
+
+The student asked for a "defensive drone" option: detect hostile drones, lock on, and **crash
+into them or detonate a small explosive next to them**. That framing was declined, and the
+reasoning is recorded here because it is a decision, not a preference.
+
+**Why the effector was declined.**
+
+1. **It is a weapon by design intent.** A vehicle whose specified purpose is to destroy another
+   aircraft in flight is classified as one in every regime that has a word for it. Intent at the
+   point of use does not change the classification; the design intent is what is classified.
+2. **It breaks the course's own syllabus.** 14 CFR § 107.36 (the 2022 reorganisation moved the
+   old § 107.9(c) here): *"A small unmanned aircraft may not carry hazardous material"*, defined
+   by 49 CFR 171.8 — which includes explosives. A charge is out by direct citation. And § 107.19(c)
+   requires the PIC to *"ensure that the small unmanned aircraft will pose no undue hazard to other
+   people, other aircraft, or other property"* — the opposite of a ramming profile.
+3. **It cannot deliver "no harm to people",** which was the student's actual goal. `SAFETY.md`
+   already has the arithmetic: *"A released 250 g object from 30 m arrives at about 24 m/s. Treat
+   the area under the aircraft as part of the aircraft."* A ram is that at higher closing speed,
+   over whoever is underneath. Ramming is the **least** bystander-safe option available, not the
+   most.
+4. **The Academy's own rule agrees.** `tals-academy/docs/new-course-instructions.md` §8 excludes
+   "weapons, payloads, targeting" from course content. That is independent confirmation, not the
+   builder's opinion.
+
+**What was built instead — the whole defensible half.**
+
+| Lesson | Delivers |
+|---|---|
+| CUX.01 Detect | **41 m** for a 450 mm aircraft — 1.7 % of VLOS. 514 false alarms/hour at the tutorial threshold. **14.05's two-hit lever dies above 0.42 m/s** and promotes birds |
+| CUX.02 Track | **1.28 m** with stage 2's rangefinder, 5.5× better than 14.05's 7.03 m ground budget. Gate **5.50 m** from noise only. **12.0 s** to a velocity |
+| CUX.03 Identify | Remote ID reaches **37× further** than detection. **Identity, never intent.** A valid registration is not a permit. Silence scores **6.00** expected cost — it is the reckless option, not the cautious one |
+| CUX.04 Report | Perception is **17.54 s**: 39 % of the p50, **3.5 % of the p99**. 0.25 s of clock offset is 6 m. A correction you cannot verify is a belief |
+| CUX.05 Deconflict | § 107.37(a): you yield, "well clear" is geometry. Needs **1,310 m** at the median against 41 m — **short by 32×**. Automate the yield, never the verdict |
+| CUX.06 Evade | Breaking a gate needs **1.91 m/s²**; it buys exactly **12.0 s** = 120 m = **5.0 %** of VLOS. Distance is the only barrier. 131 m/s tips, 0.38 Mach — not hidden |
+
+**Why it is safe to add.** `track: foundations`, so it never gates a module and never enters the
+dependency chain. **No new hardware, no new stage, no change to any ₪ figure** — it reuses stage
+2's Pi 5, camera and laser rangefinder. Nothing acts on a detection without identity (CUX.03) and
+a human (CUX.04). Nothing attacks anything.
+
+**Why the track corrects the course twice, which the house style calls a feature.**
+[CUX.01](optional-foundations/airspace-awareness/CUX.01-detecting-another-aircraft.md) shows
+14.05's free two-hit lever does not survive a moving target — a lever that only works where it
+was measured was never free. And CUX.06 lands the course's oldest open item, 13.05's untested
+flow-plus-inertial barrier, in the one place where it stops being a footnote: the moment an
+unidentified contact is being evaded and the GNSS degrades. **E3 of CUX.06 is now the concrete
+closing experiment**, which is a better answer than the four modules it sat through.
+
+**Not supplied, and will not be:** any jamming, spoofing or RF-interference capability. Those are
+attacks on others' systems under the same rule, and CUX.03 teaches the *failsafe doctrine* that
+makes non-kinetic mitigation work without teaching anyone to build a jammer.
 
 ## Where to pick up
 

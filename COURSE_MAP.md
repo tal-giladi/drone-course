@@ -448,6 +448,19 @@ The operational habits that separate a professional from a hobbyist — planning
 | FOP.02 | [Risk management: the bowtie](optional-foundations/civil-ops/FOP.02-risk-management-bowtie.md) | beginner | 1 h | FOP.01 | — |
 | FOP.03 | [The debrief: an honest after-action review](optional-foundations/civil-ops/FOP.03-debrief-and-aar.md) | beginner | 45 min | FOP.02 | — |
 
+### CUX · Airspace awareness & self-defence (CUX)
+
+The defensive half of module 14 and module 18, on its own: finding another aircraft in the sky, holding a track on it, identifying it from its Remote ID, reporting it with a record that survives a week, deconflicting against it, and breaking a track taken on Hermon. Hermon is the sensor and the evidence throughout — nothing in this track attacks anything, and every lesson states the limit of what this airframe can honestly do. *(6 lessons, ≈ 7 h 30 min)*
+
+| Id | Lesson | Level | Time | Needs | Hardware |
+|---|---|---|---|---|---|
+| CUX.01 | [Another aircraft in the frame: detection and the false-alarm bill](optional-foundations/airspace-awareness/CUX.01-detecting-another-aircraft.md) | advanced | 1 h 15 min | 14.04 | stage2 |
+| CUX.02 | [From a box to a track: the association gate and the twelve-second problem](optional-foundations/airspace-awareness/CUX.02-association-gate-and-tracking.md) | advanced | 1 h 15 min | 14.05 | stage2 |
+| CUX.03 | [Identifying it: Remote ID, and what a registration is not](optional-foundations/airspace-awareness/CUX.03-remote-id-and-identification.md) | advanced | 1 h | 18.04 | stage2 |
+| CUX.04 | [Warning, reporting, and the record you are left with](optional-foundations/airspace-awareness/CUX.04-warning-reporting-and-evidence.md) | advanced | 1 h 15 min | 14.06, 16.05 | stage2 |
+| CUX.05 | [Two aircraft in one sky: right of way and deconfliction](optional-foundations/airspace-awareness/CUX.05-deconfliction-and-right-of-way.md) | advanced | 1 h 15 min | 15.04, 18.05 | stage2 |
+| CUX.06 | [Evading, and knowing when you cannot](optional-foundations/airspace-awareness/CUX.06-evading-and-the-envelope.md) | advanced | 1 h 30 min | CUX.02, 15.05 | stage2 |
+
 ## Projects
 
 | Id | Project | Level | Time | Needs | Hardware |
@@ -464,7 +477,7 @@ The operational habits that separate a professional from a hobbyist — planning
 ## Totals
 
 - Main path: 133 lessons, ≈ 182 hours
-- Optional foundations: 20 lessons, ≈ 20 hours (take only what you need)
+- Optional foundations: 26 lessons, ≈ 28 hours (take only what you need)
 - Projects: 8, ≈ 30 hours
 
 <!-- lessons:end -->

@@ -1019,8 +1019,8 @@ You can run a blameless AAR for a flight that went wrong and produce one concret
 
 - The US Army's account of the after-action review, which is where the four questions and their order
   come from: <https://en.wikipedia.org/wiki/After-action_review>
-- James Reason's distinction between errors and violations, which is the basis of Level 2's one
-  exception: <https://skybrary.aero/articles/errors-and-violations>
+- James Reason, *Managing the Risks of Organizational Accidents* (1990) — the distinction between
+  errors and violations, which is the basis of Level 2's one exception. A book, so no URL.
 - A practical treatment of blameless post-mortems from software operations, whose arithmetic is
   identical to Level 2's: <https://sre.google/sre-book/postmortem-culture/>
 

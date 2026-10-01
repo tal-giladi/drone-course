@@ -1,0 +1,67 @@
+# Multiple-choice quiz for the CUX track. Every graded question is in this file;
+# the lesson's knowledge check is the worked version of the same material.
+- id: q1
+  question: >-
+    Hermon is 450 mm across and the network needs about 32 px across an object to
+    detect it. With this course's 4.5 mm lens, at what range does a same-size
+    aircraft cross that floor?
+  options:
+    - 6.6 m, if the frame is resized to the network input as usual
+    - 41 m, using 48 tiled inferences per look
+    - 242 m, which is what visual line of sight allows
+    - 41 m, using a single inference on the resized frame
+  correct: 1
+  explanation: >-
+    The 32 px floor is measured in the network's input, so a 450 mm object needs
+    R = size x (f/p) / 32 = 41.0 m at full resolution. Resizing the 4000 px frame
+    down to 640 divides that by 6.25 and gives 6.6 m, which is why tiling is the
+    instrument rather than an optimisation.
+
+- id: q2
+  question: >-
+    You want to resolve a 450 mm aircraft at 500 m instead of 41 m. What does that
+    actually cost you?
+  options:
+    - Nothing, a longer lens is strictly better on every axis
+    - Half the field of view, and about twice the sweep time
+    - A field of view of 6.4 degrees, taking the sweep from 4.3 s to 40.3 s
+    - About 500 m of altitude, which is the real constraint
+  correct: 2
+  explanation: >-
+    The 54.8 mm needed for 500 m narrows the horizontal field of view from 68.9 to
+    6.4 degrees, so a full azimuth sweep goes from 6 looks to 56, and from 4.32 s
+    to 40.3 s at the same 48 inferences per look. Reach is bought with revisit
+    rate.
+
+- id: q3
+  question: >-
+    14.05 recommends requiring two detections of the same ground point, which cut
+    false tracks from 0.907 to 5.6e-8 per survey. Why does that lever not work
+    against an aircraft in the sky?
+  options:
+    - A target above 0.42 m/s is never in the same place twice, so the rule never fires
+    - It works, because the trigger interval is short enough to revisit a point
+    - It fails only above 500 m, where the angular displacement gets large
+    - Tiling replaces it, because tiles revisit the same sky
+  correct: 0
+  explanation: >-
+    At 12.02's 2.4 s trigger interval a target above 1.0/2.4 = 0.42 m/s has moved
+    more than a metre between looks. It is worse than useless in the sky, because a
+    static false positive such as a distant bird holds its apparent position and the
+    rule would promote it.
+
+- id: q4
+  question: >-
+    You plan to tell drones from birds by their rotor signature. What does the
+    arithmetic say first?
+  options:
+    - Blade pass is 253 Hz, so a 30 fps camera can resolve it comfortably
+    - Rotor signatures are lower than wingbeats, so they separate cleanly
+    - A 60 fps camera is enough, so a cheap camera will do
+    - Blade pass is 253 Hz and needs 506 fps, so you will see a disc, not blades
+  correct: 3
+  explanation: >-
+    hermon-numbers.md puts blade pass at 253 Hz, and Nyquist requires 506 fps. At
+    30 fps you see a blurred disc, so the discriminator has to be geometric: a
+    multirotor is rigid inside a frame, and a bird's bounding box varies through the
+    wingbeat.
